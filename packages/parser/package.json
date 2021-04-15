@@ -1,0 +1,25 @@
+{
+  "name": "@comix/parser",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "comics",
+    "comic",
+    "parser",
+    "cbz",
+    "cbr"
+  ],
+  "author": "Richard Foster <richard@rpf.me>",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc --project ./tsconfig.json --declaration --outDir dist",
+    "build-watch": "tsc --watch --project ./tsconfig.json --declaration --outDir dist",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.4"
+  }
+}
