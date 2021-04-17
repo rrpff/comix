@@ -23,6 +23,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "node-unrar-js": "^1.0.2",
     "unzipit": "^1.3.5"
   }
 }

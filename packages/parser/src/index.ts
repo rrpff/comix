@@ -1,57 +1,25 @@
-import { unzip, ZipEntry } from 'unzipit'
+import { ComicParser, Comic } from './protocols'
+import { CbrParser } from './parsers/CbrParser'
+import { CbzParser } from './parsers/CbzParser'
 
-export interface ComicPage {
-  index: number
-  size: 'single' | 'double'
-  name: string
-  read: () => Promise<ArrayBuffer>
-}
+export * from './protocols'
+export { CbrParser } from './parsers/CbrParser'
+export { CbzParser } from './parsers/CbzParser'
 
-export interface Comic {
-  name: string
-  pages: ComicPage[]
-}
-
-export class CbzParser {
+export class Parser implements ComicParser {
   public async parse(file: File): Promise<Comic> {
-    const archive = await unzip(file)
-    const entries = Object.keys(archive.entries)
-      .map(key => archive.entries[key])
-      .filter(zipEntryIsPage)
-      .sort(sortByAsc('name'))
-
-    const pages = entries.map((entry, index) => ({
-      index,
-      size: 'single' as ComicPage['size'],
-      name: entry.name,
-      read: () => archive.entries[entry.name].arrayBuffer()
-    }))
-
-    return {
-      name: file.name,
-      pages: pages
+    const extension = extname(file.name)
+    switch (extension) {
+      case 'cbz': return new CbzParser().parse(file)
+      case 'cbr': return new CbrParser().parse(file)
+      default: throw new Error(`Unsupported file type: ${extension}`)
     }
   }
 }
 
-export class Parser {
-  public async parse(file: File): Promise<Comic> {
-    return new CbzParser().parse(file)
-  }
-}
+function extname(path: string) {
+  const parts = path.split('.')
+  if (parts.length === 1) return ''
 
-function zipEntryIsPage(entry: ZipEntry) {
-  const isNotDsStore = () => !entry.name.endsWith('.DS_Store')
-  const isNotMacFile = () => !entry.name.startsWith('__MACOSX/')
-  const isNotDirectory = () => !entry.isDirectory
-
-  return isNotDsStore() && isNotMacFile() && isNotDirectory()
-}
-
-function sortByAsc<T>(key: keyof T) {
-  return (a: T, b: T) => {
-    if (a[key] < b[key]) return -1
-    if (a[key] > b[key]) return 1
-    return 0
-  }
+  return parts[parts.length - 1]
 }
