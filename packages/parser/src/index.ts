@@ -12,7 +12,7 @@ export interface Comic {
   pages: ComicPage[]
 }
 
-export class Parser {
+export class CbzParser {
   public async parse(file: File): Promise<Comic> {
     const archive = await unzip(file)
     const entries = Object.keys(archive.entries)
@@ -31,6 +31,12 @@ export class Parser {
       name: file.name,
       pages: pages
     }
+  }
+}
+
+export class Parser {
+  public async parse(file: File): Promise<Comic> {
+    return new CbzParser().parse(file)
   }
 }
 

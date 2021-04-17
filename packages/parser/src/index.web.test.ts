@@ -6,8 +6,9 @@ import path from 'path'
 import fs from 'fs'
 import { ComicPage, Parser } from '.'
 
-const ZIP_EXAMPLES = [
+const EXAMPLES = [
   {
+    name: 'cbz - example 1',
     comicFileName: 'wytches-sample.cbz',
     pageFilePaths: [
       'wytches-sample/0001.jpeg',
@@ -17,6 +18,7 @@ const ZIP_EXAMPLES = [
     ]
   },
   {
+    name: 'cbz - example 2',
     comicFileName: 'phonogram-sample.cbz',
     pageFilePaths: [
       'phonogram-sample/0001.jpeg',
@@ -28,37 +30,39 @@ const ZIP_EXAMPLES = [
   },
 ]
 
-describe.each(ZIP_EXAMPLES)('cbz files', ({ comicFileName, pageFilePaths }) => {
-  const subject = async () => {
-    const subject = new Parser()
-    const file = await openW3cFile(fixturePath(comicFileName))
-    return await subject.parse(file)
-  }
+EXAMPLES.forEach(({ name, comicFileName, pageFilePaths }) => {
+  describe(name, () => {
+    const subject = async () => {
+      const subject = new Parser()
+      const file = await openW3cFile(fixturePath(comicFileName))
+      return await subject.parse(file)
+    }
 
-  it('includes the name', async () => {
-    const comic = await subject()
-    expect(comic.name).toEqual(comicFileName)
-  })
+    it('includes the name', async () => {
+      const comic = await subject()
+      expect(comic.name).toEqual(comicFileName)
+    })
 
-  it('includes the correct number of pages', async () => {
-    const comic = await subject()
-    expect(comic.pages.length).toEqual(pageFilePaths.length)
-  })
+    it('includes the correct number of pages', async () => {
+      const comic = await subject()
+      expect(comic.pages.length).toEqual(pageFilePaths.length)
+    })
 
-  it('includes pages sorted by index', async () => {
-    const comic = await subject()
-    expect(comic.pages.map(p => [p.index, p.name])).toEqual(
-      pageFilePaths.map((path, index) => [index, path])
-    )
-  })
+    it('includes pages sorted by index', async () => {
+      const comic = await subject()
+      expect(comic.pages.map(p => [p.index, p.name])).toEqual(
+        pageFilePaths.map((path, index) => [index, path])
+      )
+    })
 
-  it.each(
-    pageFilePaths.map((path, index): [number, string] => [index, path])
-  )('can read page contents correctly', async (index, pageImage) => {
-    const comic = await subject()
-    const page = comic.pages[index]
+    it.each(
+      pageFilePaths.map((path, index): [number, string] => [index, path])
+    )('can read page contents correctly', async (index, pageImage) => {
+      const comic = await subject()
+      const page = comic.pages[index]
 
-    expectPageToMatchFile(page, fixturePath(pageImage))
+      expectPageToMatchFile(page, fixturePath(pageImage))
+    })
   })
 })
 
