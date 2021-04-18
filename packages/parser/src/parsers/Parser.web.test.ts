@@ -4,7 +4,8 @@
 
 import path from 'path'
 import fs from 'fs'
-import { ComicImage, Parser } from '.'
+import { Parser } from './Parser'
+import { ComicImage } from '../protocols'
 
 const EXAMPLES = [
   {
@@ -115,5 +116,5 @@ async function openW3cFile(fpath: string): Promise<File> {
 }
 
 function fixturePath(...sections: string[]) {
-  return path.join(__dirname, '..', 'test', 'fixtures', ...sections)
+  return path.join(__dirname, '..', '..', 'test', 'fixtures', ...sections)
 }
