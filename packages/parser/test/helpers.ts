@@ -23,3 +23,7 @@ export async function openW3cFile(fpath: string): Promise<File> {
 export function fixturePath(...sections: string[]) {
   return path.join(__dirname, 'fixtures', ...sections)
 }
+
+export async function fixtureBuffer(...sections: string[]) {
+  return await fs.promises.readFile(fixturePath(...sections))
+}

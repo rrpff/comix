@@ -1,6 +1,7 @@
 import 'buffer'
 import { Reader } from './Reader'
-import { fixturePath, openW3cFile } from '../test/helpers'
+import { fixtureBuffer, fixturePath, openW3cFile } from '../test/helpers'
+import { ComicImage } from './protocols'
 
 const subject = async () => {
   const file = await openW3cFile(fixturePath('different-sizes.cbz'))
@@ -182,7 +183,58 @@ it('does nothing when calling next on the last page', async () => {
   ])
 })
 
-xit('preloads the next page', async () => {
+it('caches current and surrounding pages', async () => {
+  const comic = createSpyComic(10)
+  const reader = new Reader(comic)
+
+  await reader.goto(5)
+  await sleep()
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
+
+  await reader.next()
+  await sleep()
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
+
+  await reader.next()
+  await sleep()
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([7, 8, 9])
+
+  await reader.previous()
+  await sleep()
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
+})
+
+it('unloads and reloads cached pages', async () => {
+  const comic = createSpyComic(10)
+  const reader = new Reader(comic)
+
+  await reader.goto(5)
+  await sleep()
+  await reader.next()
+  await sleep()
+  await reader.next()
+  await sleep()
+  await reader.previous()
+  await sleep()
+
+  comic.expectImageToHaveBeenLoadedTimes(3, 1)
+  comic.expectImageToHaveBeenLoadedTimes(4, 1)
+  comic.expectImageToHaveBeenLoadedTimes(5, 2)
+  comic.expectImageToHaveBeenLoadedTimes(6, 2)
+  comic.expectImageToHaveBeenLoadedTimes(7, 1)
+  comic.expectImageToHaveBeenLoadedTimes(8, 1)
+  comic.expectImageToHaveBeenLoadedTimes(9, 1)
+})
+
+it('caches surrounding pages in the background', async () => {
+  const comic = createSpyComic(10)
+  const reader = new Reader(comic)
+
+  await reader.goto(5)
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6])
+
+  await sleep()
+  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
 })
 
 it('does nothing when trying to goto an invalid index', async () => {
@@ -194,3 +246,36 @@ it('does nothing when trying to goto an invalid index', async () => {
     { type: 'single', imageIndex: 0, imageName: 'different-sizes/0001.jpg' },
   ])
 })
+
+
+const sleep = () => new Promise(resolve => setTimeout(resolve, 10))
+
+const createSpyComic = (numPages: number) => {
+  const images = [] as ComicImage[]
+  for (let i = 0; i < numPages; i++) {
+    images.push({
+      index: i,
+      name: `000${i}.jpg`,
+      read: jest.fn(async () => {
+        const buf = await fixtureBuffer('small-single.jpg')
+        return buf.buffer
+      })
+    })
+  }
+
+  return {
+    name: 'spy-comic.cbz',
+    images: images,
+    expectImageToHaveBeenLoadedTimes: (imageIndex: number, expectedTimes: number) => {
+      try {
+        expect(images[imageIndex].read).toHaveBeenCalledTimes(expectedTimes)
+      } catch (e) {
+        e.message = e.message.split('\n').map((m: string, i: number) => i === 0
+          ? `${m} for image ${imageIndex}`
+          : m).join('\n')
+
+        throw e
+      }
+    }
+  }
+}

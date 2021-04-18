@@ -14,6 +14,7 @@ export class Reader implements ComicReader {
 
   public current?: ComicPage[]
   public currentIndex?: number
+  public cache: ComicPage[] = []
 
   public constructor(public comic: Comic) {}
 
@@ -58,11 +59,30 @@ export class Reader implements ComicReader {
       }
     }
 
+    // const preloadIndices = [
+    //   Math.max(imageIndex - 1, 0),
+    //   Math.max(imageIndex - 2, 0),
+    //   Math.min(imageIndex + 1, lastIndex),
+    //   Math.min(imageIndex + 2, lastIndex),
+    // ]
+
+    const minCachedIndex = Math.max(imageIndex - 2, 0)
+    const maxCachedIndex = Math.min(imageIndex + 1 + pages.length, lastIndex)
+
+    this.cache = this.cache.filter(page => page.imageIndex >= minCachedIndex
+      && page.imageIndex <= maxCachedIndex)
+
+    for (let i = minCachedIndex; i <= maxCachedIndex; i++)
+      this.loadPage(i)
+
     this.currentIndex = imageIndex
     this.current = pages
   }
 
   private async loadPage(imageIndex: number): Promise<ComicPage> {
+    const cached = this.cache.find(page => page.imageIndex === imageIndex)
+    if (cached) return cached
+
     const image = this.comic.images[imageIndex]
     const imageData = await image.read()
     const imageDimensions = sizeOf(Buffer.from(imageData))
@@ -70,13 +90,16 @@ export class Reader implements ComicReader {
       ? 'single'
       : 'double'
 
-    return {
-      type: type,
+    const page = {
+      type: type as 'single' | 'double',
       imageWidth: imageDimensions.width,
       imageHeight: imageDimensions.height,
       imageIndex: imageIndex,
       imageName: image.name,
       image: new ArrayBuffer(1)
     }
+
+    this.cache.push(page)
+    return page
   }
 }
