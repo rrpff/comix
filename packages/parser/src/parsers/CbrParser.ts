@@ -1,12 +1,14 @@
 import { createExtractorFromData, FileHeader } from 'node-unrar-js'
 import { ComicParser, Comic, ComicPage } from '../protocols'
 import { entryIsPage, sortByAsc } from '../utils'
+import createUnrarWasmBinary from '../wasm/createUnrarWasmBinary'
 
 export class CbrParser implements ComicParser {
   public async parse(file: File): Promise<Comic> {
+    const wasmBinary = createUnrarWasmBinary()
     const data = await file.arrayBuffer()
 
-    const archive = await createExtractorFromData({ data })
+    const archive = await createExtractorFromData({ data, wasmBinary })
     const entries = Array.from(archive.getFileList().fileHeaders)
       .filter(rarEntryIsPage)
       .sort(sortByAsc('name'))
