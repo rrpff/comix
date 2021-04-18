@@ -198,19 +198,19 @@ it('caches current and surrounding pages', async () => {
   const reader = new Reader(comic)
 
   await reader.goto(5)
-  await sleep()
+  await reader.backgrounded
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
 
   await reader.next()
-  await sleep()
+  await reader.backgrounded
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
 
   await reader.next()
-  await sleep()
+  await reader.backgrounded
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([7, 8, 9])
 
   await reader.previous()
-  await sleep()
+  await reader.backgrounded
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
 })
 
@@ -219,13 +219,13 @@ it('unloads and reloads cached pages', async () => {
   const reader = new Reader(comic)
 
   await reader.goto(5)
-  await sleep()
+  await reader.backgrounded
   await reader.next()
-  await sleep()
+  await reader.backgrounded
   await reader.next()
-  await sleep()
+  await reader.backgrounded
   await reader.previous()
-  await sleep()
+  await reader.backgrounded
 
   comic.expectImageToHaveBeenLoadedTimes(3, 1)
   comic.expectImageToHaveBeenLoadedTimes(4, 1)
@@ -243,7 +243,7 @@ it('caches surrounding pages in the background', async () => {
   await reader.goto(5)
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6])
 
-  await sleep()
+  await reader.backgrounded
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
 })
 
@@ -256,8 +256,6 @@ it('does nothing when trying to goto an invalid index', async () => {
     { type: 'single', imageIndex: 0, imageName: 'different-sizes/0001.jpg' },
   ])
 })
-
-const sleep = () => new Promise(resolve => setTimeout(resolve, 10))
 
 const createSpyComic = (numPages: number) => {
   const images = [] as ComicImage[]

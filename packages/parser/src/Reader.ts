@@ -15,15 +15,12 @@ export class Reader implements ComicReader {
   public current?: ComicPage[]
   public currentIndex?: number
   public cache: ComicPage[] = []
+  public backgrounded: Promise<void> = Promise.resolve()
 
   public constructor(public comic: Comic) {}
 
   public async previous() {
-    const checkingIndices = [this.currentIndex! - 1, this.currentIndex! - 1]
-    const validIndices = checkingIndices.filter(index => index >= 0).reverse()
-    const previousPages = await Promise.all(validIndices.map(index => this.loadPage(index)))
-
-    const [previous, beforeThat] = previousPages
+    const [previous, beforeThat] = await this.loadPages([this.currentIndex! - 1, this.currentIndex! - 2])
 
     if (previous === undefined) return
     if (previous?.type === 'single' && beforeThat?.type === 'single')
@@ -45,6 +42,12 @@ export class Reader implements ComicReader {
     const lastIndex = this.comic.images.length - 1
     if (imageIndex > lastIndex || imageIndex < 0) return
 
+    this.current = await this.pagesForIndex(imageIndex)
+    this.currentIndex = imageIndex
+    this.cacheSurroundingPages()
+  }
+
+  private async pagesForIndex(imageIndex: number) {
     const image = await this.loadPage(imageIndex)
     const pages = [image]
 
@@ -59,17 +62,30 @@ export class Reader implements ComicReader {
       }
     }
 
-    const minCachedIndex = Math.max(imageIndex - 2, 0)
-    const maxCachedIndex = Math.min(imageIndex + 1 + pages.length, lastIndex)
+    return pages
+  }
 
-    this.cache = this.cache.filter(page => page.imageIndex >= minCachedIndex
-      && page.imageIndex <= maxCachedIndex)
+  private cacheSurroundingPages() {
+    const lastIndex = this.comic.images.length - 1
+    const minCachedIndex = Math.max(this.currentIndex! - 2, 0)
+    const maxCachedIndex = Math.min(this.currentIndex! + 1 + this.current!.length, lastIndex)
 
-    for (let i = minCachedIndex; i <= maxCachedIndex; i++)
-      this.loadPage(i)
+    this.backgrounded = this.backgrounded.then(async () => {
+      this.cache = this.cache.filter(page => page.imageIndex >= minCachedIndex
+        && page.imageIndex <= maxCachedIndex)
 
-    this.currentIndex = imageIndex
-    this.current = pages
+      const loaders = []
+      for (let i = minCachedIndex; i <= maxCachedIndex; i++)
+        loaders.push(this.loadPage(i))
+
+      await Promise.all(loaders)
+    })
+  }
+
+  private async loadPages(indices: number[]) {
+    return await Promise.all(indices
+      .filter(index => index >= 0)
+      .map(index => this.loadPage(index)))
   }
 
   private async loadPage(imageIndex: number): Promise<ComicPage> {
