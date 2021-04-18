@@ -5,7 +5,17 @@ export default {
   input: './src/index.ts',
   output: [
     {
-      file: './dist/umd/index.js',
+      dir: './dist/esm',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      dir: './dist/commonjs',
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      dir: './dist/umd',
       format: 'umd',
       name: 'ComixParser',
       sourcemap: true,
@@ -13,6 +23,6 @@ export default {
   ],
   plugins: [
     nodeResolve(),
-    typescript({ module: 'esnext' })
+    typescript({ module: 'esnext' }),
   ]
 }

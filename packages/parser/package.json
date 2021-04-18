@@ -12,14 +12,11 @@
   "author": "Richard Foster <richard@rpf.me>",
   "license": "ISC",
   "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js",
   "types": "./dist/commonjs/index.js",
   "scripts": {
-    "build": "npm run build-commonjs && npm run build-umd",
-    "watch": "npm run watch-commonjs & npm run watch-umd",
-    "build-commonjs": "tsc --project ./tsconfig.json --declaration --outDir dist/commonjs",
-    "watch-commonjs": "tsc --watch --project ./tsconfig.json --declaration --outDir dist/commonjs",
-    "build-umd": "rollup -c",
-    "watch-umd": "rollup -c --watch",
+    "build": "rollup -c",
+    "watch": "rollup -c --watch",
     "test": "jest"
   },
   "devDependencies": {
