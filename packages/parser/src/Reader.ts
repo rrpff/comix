@@ -1,6 +1,6 @@
-import sizeOf from 'buffer-image-size'
 import { Parser } from './parsers/Parser'
 import { Comic, ComicPage, ComicReader } from './protocols'
+const sizeOf = require('buffer-image-size')
 
 export class Reader implements ComicReader {
   static async read(file: File): Promise<Reader> {
