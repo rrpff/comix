@@ -54,6 +54,16 @@ it('calculates image dimensions', async () => {
   }])
 })
 
+it('returns the correct image data for pages', async () => {
+  const reader = await subject()
+  await reader.goto(0)
+
+  expect(0 === Buffer.compare(
+    Buffer.from(reader.current![0].image),
+    Buffer.from(await fixtureBuffer('different-sizes', '0001.jpg'))
+  )).toEqual(true)
+})
+
 it('determines single images correctly', async () => {
   const reader = await subject()
   await goToSinglePage(reader)
@@ -246,7 +256,6 @@ it('does nothing when trying to goto an invalid index', async () => {
     { type: 'single', imageIndex: 0, imageName: 'different-sizes/0001.jpg' },
   ])
 })
-
 
 const sleep = () => new Promise(resolve => setTimeout(resolve, 10))
 

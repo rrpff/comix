@@ -59,13 +59,6 @@ export class Reader implements ComicReader {
       }
     }
 
-    // const preloadIndices = [
-    //   Math.max(imageIndex - 1, 0),
-    //   Math.max(imageIndex - 2, 0),
-    //   Math.min(imageIndex + 1, lastIndex),
-    //   Math.min(imageIndex + 2, lastIndex),
-    // ]
-
     const minCachedIndex = Math.max(imageIndex - 2, 0)
     const maxCachedIndex = Math.min(imageIndex + 1 + pages.length, lastIndex)
 
@@ -96,7 +89,7 @@ export class Reader implements ComicReader {
       imageHeight: imageDimensions.height,
       imageIndex: imageIndex,
       imageName: image.name,
-      image: new ArrayBuffer(1)
+      image: imageData
     }
 
     this.cache.push(page)
