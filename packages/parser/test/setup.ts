@@ -1,5 +1,5 @@
 import { TextEncoder, TextDecoder } from 'util'
 
 // Required by `unzipit`
-global.TextEncoder = TextEncoder
-global.TextDecoder = TextDecoder
+;(global.TextEncoder as any) = TextEncoder
+;(global.TextDecoder as any) = TextDecoder
