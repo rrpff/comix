@@ -1,13 +1,12 @@
-export interface ComicPage {
+export interface ComicImage {
   index: number
-  size: 'single' | 'double'
   name: string
   read: () => Promise<ArrayBuffer>
 }
 
 export interface Comic {
   name: string
-  pages: ComicPage[]
+  images: ComicImage[]
 }
 
 export interface ComicParser {

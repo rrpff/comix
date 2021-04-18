@@ -1,6 +1,6 @@
 import { unzip, ZipEntry } from 'unzipit'
 import { entryIsPage, sortByAsc } from '../utils'
-import { ComicParser, Comic, ComicPage } from '../protocols'
+import { ComicParser, Comic } from '../protocols'
 
 export class CbzParser implements ComicParser {
   public async parse(file: File): Promise<Comic> {
@@ -10,16 +10,15 @@ export class CbzParser implements ComicParser {
       .filter(zipEntryIsPage)
       .sort(sortByAsc('name'))
 
-    const pages = entries.map((entry, index) => ({
+    const images = entries.map((entry, index) => ({
       index,
-      size: 'single' as ComicPage['size'],
       name: entry.name,
       read: () => archive.entries[entry.name].arrayBuffer()
     }))
 
     return {
       name: file.name,
-      pages: pages
+      images: images
     }
   }
 }

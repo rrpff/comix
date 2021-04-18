@@ -24,7 +24,6 @@ form.addEventListener('submit', async e => {
   //   pages: [
   //     {
   //       index: 0,
-  //       size: 'single',
   //       name: '0001.jpg',
   //       read: () => // Uint8Array of image data
   //     },

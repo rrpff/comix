@@ -4,13 +4,13 @@
 
 import path from 'path'
 import fs from 'fs'
-import { ComicPage, Parser } from '.'
+import { ComicImage, Parser } from '.'
 
 const EXAMPLES = [
   {
     name: 'cbz - example 1',
     comicFileName: 'wytches-sample.cbz',
-    pageFilePaths: [
+    imageFilePaths: [
       'wytches-sample/0001.jpeg',
       'wytches-sample/0002.jpeg',
       'wytches-sample/0003.jpeg',
@@ -20,7 +20,7 @@ const EXAMPLES = [
   {
     name: 'cbz - example 2',
     comicFileName: 'phonogram-sample.cbz',
-    pageFilePaths: [
+    imageFilePaths: [
       'phonogram-sample/0001.jpeg',
       'phonogram-sample/0002.jpeg',
       'phonogram-sample/0003.jpeg',
@@ -31,7 +31,7 @@ const EXAMPLES = [
   {
     name: 'cbr - example 1',
     comicFileName: 'wytches-sample.cbr',
-    pageFilePaths: [
+    imageFilePaths: [
       'wytches-sample/0001.jpeg',
       'wytches-sample/0002.jpeg',
       'wytches-sample/0003.jpeg',
@@ -41,7 +41,7 @@ const EXAMPLES = [
   {
     name: 'cbr - example 2',
     comicFileName: 'phonogram-sample.cbr',
-    pageFilePaths: [
+    imageFilePaths: [
       'phonogram-sample/0001.jpeg',
       'phonogram-sample/0002.jpeg',
       'phonogram-sample/0003.jpeg',
@@ -51,7 +51,7 @@ const EXAMPLES = [
   },
 ]
 
-EXAMPLES.forEach(({ name, comicFileName, pageFilePaths }) => {
+EXAMPLES.forEach(({ name, comicFileName, imageFilePaths }) => {
   describe(name, () => {
     const subject = async () => {
       const subject = new Parser()
@@ -64,25 +64,25 @@ EXAMPLES.forEach(({ name, comicFileName, pageFilePaths }) => {
       expect(comic.name).toEqual(comicFileName)
     })
 
-    it('includes the correct number of pages', async () => {
+    it('includes the correct number of images', async () => {
       const comic = await subject()
-      expect(comic.pages.length).toEqual(pageFilePaths.length)
+      expect(comic.images.length).toEqual(imageFilePaths.length)
     })
 
-    it('includes pages sorted by index', async () => {
+    it('includes images sorted by index', async () => {
       const comic = await subject()
-      expect(comic.pages.map(p => [p.index, p.name])).toEqual(
-        pageFilePaths.map((path, index) => [index, path])
+      expect(comic.images.map(p => [p.index, p.name])).toEqual(
+        imageFilePaths.map((path, index) => [index, path])
       )
     })
 
     it.each(
-      pageFilePaths.map((path, index): [number, string] => [index, path])
-    )('can read page contents correctly', async (index, pageImage) => {
+      imageFilePaths.map((path, index): [number, string] => [index, path])
+    )('can read image contents correctly', async (index, expectedImagePath) => {
       const comic = await subject()
-      const page = comic.pages[index]
+      const image = comic.images[index]
 
-      expectPageToMatchFile(page, fixturePath(pageImage))
+      expectImageToMatchFile(image, fixturePath(expectedImagePath))
     })
   })
 })
@@ -96,10 +96,10 @@ it('should error on an unsupported file extension', async () => {
     .toEqual(new Error('Unsupported file type: cbx'))
 })
 
-async function expectPageToMatchFile(page: ComicPage, fpath: string) {
-  const fileBuf = await fs.promises.readFile(fpath)
-  const pageBuf = Buffer.from(await page.read())
-  const isMatch = 0 === Buffer.compare(fileBuf, pageBuf)
+async function expectImageToMatchFile(image: ComicImage, fpath: string) {
+  const expectedBuf = await fs.promises.readFile(fpath)
+  const actualBuf = Buffer.from(await image.read())
+  const isMatch = 0 === Buffer.compare(expectedBuf, actualBuf)
 
   expect(isMatch).toEqual(true)
 }
