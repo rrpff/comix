@@ -2,10 +2,8 @@
  * @jest-environment jsdom
  */
 
-import path from 'path'
-import fs from 'fs'
 import { Parser } from './Parser'
-import { ComicImage } from '../protocols'
+import { expectImageToMatchFile, fixturePath, openW3cFile } from '../../test/helpers'
 
 const EXAMPLES = [
   {
@@ -96,25 +94,3 @@ it('should error on an unsupported file extension', async () => {
   await expect(subject.parse(file)).rejects
     .toEqual(new Error('Unsupported file type: cbx'))
 })
-
-async function expectImageToMatchFile(image: ComicImage, fpath: string) {
-  const expectedBuf = await fs.promises.readFile(fpath)
-  const actualBuf = Buffer.from(await image.read())
-  const isMatch = 0 === Buffer.compare(expectedBuf, actualBuf)
-
-  expect(isMatch).toEqual(true)
-}
-
-async function openW3cFile(fpath: string): Promise<File> {
-  const buf = await fs.promises.readFile(fpath)
-  const blob = new Blob([buf], { type: '' })
-  ;(blob as any).arrayBuffer = async () => buf.buffer
-  ;(blob as any).lastModified = 1618455939000
-  ;(blob as any).name = path.basename(fpath)
-
-  return <File>blob
-}
-
-function fixturePath(...sections: string[]) {
-  return path.join(__dirname, '..', '..', 'test', 'fixtures', ...sections)
-}
