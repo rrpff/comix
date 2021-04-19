@@ -1,8 +1,12 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "dev": "tmax"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.22",
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "tmax": "^0.2.1"
   }
 }
