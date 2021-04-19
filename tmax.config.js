@@ -10,8 +10,18 @@ module.exports = {
     },
     {
       label: 'UI',
-      command: 'npm run storybook',
-      cwd: path.join(__dirname, 'packages', 'web-reader'),
+      commands: [
+        {
+          label: 'Story Server',
+          command: 'npm start',
+          cwd: path.join(__dirname, 'packages', 'web-reader', '.storybook', 'server'),
+        },
+        {
+          label: 'Storybook',
+          command: 'npm run storybook',
+          cwd: path.join(__dirname, 'packages', 'web-reader'),
+        }
+      ]
     },
     {
       label: 'Builds',
