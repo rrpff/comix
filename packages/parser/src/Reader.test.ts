@@ -271,6 +271,38 @@ it('caches surrounding pages in the background', async () => {
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
 })
 
+it('triggers a change event when calling previous', async () => {
+  const reader = await subject()
+  const changeSpy = jest.fn()
+  await reader.goto(5)
+
+  reader.on('change', changeSpy)
+  await reader.previous()
+  await reader.backgroundTasks
+
+  expect(changeSpy).toHaveBeenCalledWith(reader.current)
+})
+
+it('triggers a change event when calling next', async () => {
+  const reader = await subject()
+  const changeSpy = jest.fn()
+
+  reader.on('change', changeSpy)
+  await reader.next()
+
+  expect(changeSpy).toHaveBeenCalledWith(reader.current)
+})
+
+it('triggers a change event when calling goto', async () => {
+  const reader = await subject()
+  const changeSpy = jest.fn()
+
+  reader.on('change', changeSpy)
+  await reader.goto(5)
+
+  expect(changeSpy).toHaveBeenCalledWith(reader.current)
+})
+
 it('does nothing when trying to goto an invalid index', async () => {
   const reader = await subject()
   await reader.goto(1000)

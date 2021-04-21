@@ -51,6 +51,7 @@ export class Reader implements ComicReader {
     this.current = await this.pagesForIndex(imageIndex)
     this.currentIndex = imageIndex
     this.cacheSurroundingPages()
+    this.trigger('change', this.current)
   }
 
   private trigger(event: string, ...args: any[]) {
