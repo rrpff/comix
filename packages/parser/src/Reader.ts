@@ -1,8 +1,9 @@
+import { EventEmitter } from 'eventemitter3'
+import sizeOf from 'buffer-image-size'
 import { Parser } from './parsers/Parser'
-import { Comic, ComicPage, ComicReader } from './protocols'
-const sizeOf = require('buffer-image-size')
+import { Comic, ComicPage, ComicReader, ComicReaderEvents } from './protocols'
 
-export class Reader implements ComicReader {
+export class Reader extends EventEmitter<ComicReaderEvents> implements ComicReader {
   static async read(file: File): Promise<Reader> {
     const parser = new Parser()
     const comic = await parser.parse(file)
@@ -16,13 +17,9 @@ export class Reader implements ComicReader {
   public currentIndex?: number
   public cache: ComicPage[] = []
   public backgroundTasks: Promise<void> = Promise.resolve()
-  private eventListeners: { [key: string]: ((...args: any[]) => void)[] } = {}
 
-  public constructor(public comic: Comic) {}
-
-  public on(event: string, handler: () => void) {
-    this.eventListeners[event] = this.eventListeners[event] || []
-    this.eventListeners[event].push(handler)
+  public constructor(public comic: Comic) {
+    super()
   }
 
   public async previous() {
@@ -51,12 +48,7 @@ export class Reader implements ComicReader {
     this.current = await this.pagesForIndex(imageIndex)
     this.currentIndex = imageIndex
     this.cacheSurroundingPages()
-    this.trigger('change', this.current)
-  }
-
-  private trigger(event: string, ...args: any[]) {
-    const listeners = this.eventListeners[event] || []
-    listeners.forEach(listener => listener(...args))
+    this.emit('change', this.current)
   }
 
   private async pagesForIndex(imageIndex: number) {
@@ -88,7 +80,7 @@ export class Reader implements ComicReader {
 
       pagesToRemove.forEach(page => {
         this.cache = this.cache.filter(p => p.imageIndex !== page.imageIndex)
-        this.trigger('cache:remove', page)
+        this.emit('cache:remove', page)
       })
 
       const loaders = []
@@ -126,7 +118,7 @@ export class Reader implements ComicReader {
     }
 
     this.cache.push(page)
-    this.trigger('cache:add', page)
+    this.emit('cache:add', page)
     return page
   }
 }

@@ -1,7 +1,9 @@
+import EventEmitter from 'eventemitter3'
+
 export interface ComicImage {
   index: number
   name: string
-  read: () => Promise<ArrayBuffer>
+  read(): Promise<ArrayBuffer>
 }
 
 export interface Comic {
@@ -22,14 +24,19 @@ export interface ComicParser {
   parse(file: File): Promise<Comic>
 }
 
-export interface ComicReader {
+export interface ComicReaderEvents {
+  'change': [pages: ComicPage[]]
+  'cache:add': [page: ComicPage]
+  'cache:remove': [page: ComicPage]
+}
+
+export interface ComicReader extends EventEmitter<ComicReaderEvents> {
   comic: Comic
   current?: ComicPage[]
   currentIndex?: number
-  previous: () => Promise<void>
-  next: () => Promise<void>
-  goto: (imageIndex: number) => Promise<void>
-  on: (event: string, handler: (...args: any[]) => void) => void
+  previous(): Promise<void>
+  next(): Promise<void>
+  goto(imageIndex: number): Promise<void>
 }
 
 export interface ArchiveEntry {
