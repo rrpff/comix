@@ -197,21 +197,45 @@ it('caches current and surrounding pages', async () => {
   const comic = createSpyComic(10)
   const reader = new Reader(comic)
 
+  const cacheAddSpy = jest.fn()
+  reader.on('cache:add', cacheAddSpy)
+
+  const cacheRemoveSpy = jest.fn()
+  reader.on('cache:remove', cacheRemoveSpy)
+
+  const expectPageNumbersAddedToCache = (pageNumbers: number[]) => {
+    const pagesAdded = cacheAddSpy.mock.calls.map(call => call[0].imageIndex)
+    expect(pagesAdded.sort()).toEqual(pageNumbers.sort())
+    cacheAddSpy.mockClear()
+  }
+
+  const expectPageNumbersRemovedFromCache = (pageNumbers: number[]) => {
+    const pagesRemoved = cacheRemoveSpy.mock.calls.map(call => call[0].imageIndex)
+    expect(pagesRemoved.sort()).toEqual(pageNumbers.sort())
+    cacheRemoveSpy.mockClear()
+  }
+
+  await reader.backgroundTasks
+
   await reader.goto(5)
-  await reader.backgrounded
-  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
+  await reader.backgroundTasks
+  expectPageNumbersAddedToCache([3, 4, 5, 6, 7, 8])
+  expectPageNumbersRemovedFromCache([])
 
   await reader.next()
-  await reader.backgrounded
-  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
+  await reader.backgroundTasks
+  expectPageNumbersAddedToCache([9])
+  expectPageNumbersRemovedFromCache([3, 4])
 
   await reader.next()
-  await reader.backgrounded
-  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([7, 8, 9])
+  await reader.backgroundTasks
+  expectPageNumbersAddedToCache([])
+  expectPageNumbersRemovedFromCache([5, 6])
 
   await reader.previous()
-  await reader.backgrounded
-  expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6, 7, 8, 9])
+  await reader.backgroundTasks
+  expectPageNumbersAddedToCache([5, 6])
+  expectPageNumbersRemovedFromCache([])
 })
 
 it('unloads and reloads cached pages', async () => {
@@ -219,13 +243,13 @@ it('unloads and reloads cached pages', async () => {
   const reader = new Reader(comic)
 
   await reader.goto(5)
-  await reader.backgrounded
+  await reader.backgroundTasks
   await reader.next()
-  await reader.backgrounded
+  await reader.backgroundTasks
   await reader.next()
-  await reader.backgrounded
+  await reader.backgroundTasks
   await reader.previous()
-  await reader.backgrounded
+  await reader.backgroundTasks
 
   comic.expectImageToHaveBeenLoadedTimes(3, 1)
   comic.expectImageToHaveBeenLoadedTimes(4, 1)
@@ -243,7 +267,7 @@ it('caches surrounding pages in the background', async () => {
   await reader.goto(5)
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([5, 6])
 
-  await reader.backgrounded
+  await reader.backgroundTasks
   expect(reader.cache.map(p => p.imageIndex).sort()).toEqual([3, 4, 5, 6, 7, 8])
 })
 

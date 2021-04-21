@@ -29,6 +29,7 @@ export interface ComicReader {
   previous: () => Promise<void>
   next: () => Promise<void>
   goto: (imageIndex: number) => Promise<void>
+  on: (event: string, handler: (...args: any[]) => void) => void
 }
 
 export interface ArchiveEntry {

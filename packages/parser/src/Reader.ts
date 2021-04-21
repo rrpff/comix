@@ -15,9 +15,15 @@ export class Reader implements ComicReader {
   public current?: ComicPage[]
   public currentIndex?: number
   public cache: ComicPage[] = []
-  public backgrounded: Promise<void> = Promise.resolve()
+  public backgroundTasks: Promise<void> = Promise.resolve()
+  private eventListeners: { [key: string]: ((...args: any[]) => void)[] } = {}
 
   public constructor(public comic: Comic) {}
+
+  public on(event: string, handler: () => void) {
+    this.eventListeners[event] = this.eventListeners[event] || []
+    this.eventListeners[event].push(handler)
+  }
 
   public async previous() {
     const [previous, beforeThat] = await this.loadPages([this.currentIndex! - 1, this.currentIndex! - 2])
@@ -47,6 +53,11 @@ export class Reader implements ComicReader {
     this.cacheSurroundingPages()
   }
 
+  private trigger(event: string, ...args: any[]) {
+    const listeners = this.eventListeners[event] || []
+    listeners.forEach(listener => listener(...args))
+  }
+
   private async pagesForIndex(imageIndex: number) {
     const image = await this.loadPage(imageIndex)
     const pages = [image]
@@ -70,9 +81,14 @@ export class Reader implements ComicReader {
     const minCachedIndex = Math.max(this.currentIndex! - 2, 0)
     const maxCachedIndex = Math.min(this.currentIndex! + 1 + this.current!.length, lastIndex)
 
-    this.backgrounded = this.backgrounded.then(async () => {
-      this.cache = this.cache.filter(page => page.imageIndex >= minCachedIndex
-        && page.imageIndex <= maxCachedIndex)
+    this.backgroundTasks = this.backgroundTasks.then(async () => {
+      const pagesToRemove = this.cache
+        .filter(page => page.imageIndex < minCachedIndex || page.imageIndex > maxCachedIndex)
+
+      pagesToRemove.forEach(page => {
+        this.cache = this.cache.filter(p => p.imageIndex !== page.imageIndex)
+        this.trigger('cache:remove', page)
+      })
 
       const loaders = []
       for (let i = minCachedIndex; i <= maxCachedIndex; i++)
@@ -109,6 +125,7 @@ export class Reader implements ComicReader {
     }
 
     this.cache.push(page)
+    this.trigger('cache:add', page)
     return page
   }
 }
