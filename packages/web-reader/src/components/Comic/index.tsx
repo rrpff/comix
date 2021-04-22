@@ -4,6 +4,7 @@ import { Comic as ComixComic } from '@comix/parser'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 import { ProgressBar } from '../ProgressBar'
 import { ComicPageWithUrl } from '../../hooks/useComic'
+import { useMouseIsActive } from '../../hooks/useMouseIsActive'
 
 export interface ComicProps {
   currentPages: ComicPageWithUrl[]
@@ -17,6 +18,8 @@ export interface ComicProps {
 }
 
 export const Comic = ({ name, comic, loading, previous, next, currentPages, preloadedPages }: ComicProps) => {
+  const mouseActive = useMouseIsActive(window, 1000)
+
   if (loading) return <span>Loading...</span>
 
   const currentPageIndex = currentPages[0].index
@@ -25,20 +28,30 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
 
   return (
     <article>
-      <ProgressContainerStyle>
+      <ProgressContainerStyle visible={mouseActive}>
         <ProgressBar progress={progress} barStyles={{ background: '#fff', boxShadow: '0px 2px 5px rgba(255, 255, 255, 0.4)' }} />
       </ProgressContainerStyle>
 
-      <ComicNavigation>
+      <ComicNavigation visible={mouseActive}>
         <strong>{name}</strong>
       </ComicNavigation>
 
       <PagesContainer>
-        <PageSideButton href="#!" side="left" onClick={e => { e.preventDefault(); previous?.call(null) }}>
+        <PageSideButton
+          visible={mouseActive}
+          side="left"
+          href="#!"
+          onClick={e => { e.preventDefault(); previous?.call(null) }}
+        >
           <AiFillCaretLeft />
         </PageSideButton>
 
-        <PageSideButton href="#!" side="right" onClick={e => { e.preventDefault(); next?.call(null) }}>
+        <PageSideButton
+          visible={mouseActive}
+          side="right"
+          href="#!"
+          onClick={e => { e.preventDefault(); next?.call(null) }}
+        >
           <AiFillCaretRight />
         </PageSideButton>
 
@@ -75,16 +88,18 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
   )
 }
 
-const ProgressContainerStyle = styled.div`
+const ProgressContainerStyle = styled.div<{ visible: boolean }>`
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 5px;
   z-index: 50;
+  opacity: ${props => props.visible ? 1 : 0};
+  transition: opacity 0.4s ease-in-out;
 `
 
-const ComicNavigation = styled.nav`
+const ComicNavigation = styled.nav<{ visible: boolean }>`
   position: fixed;
   top: 0px;
   left: 0px;
@@ -94,6 +109,8 @@ const ComicNavigation = styled.nav`
   padding: 20px;
   width: calc(100% - 40px);
   z-index: 40;
+  opacity: ${props => props.visible ? 1 : 0};
+  transition: opacity 0.4s ease-in-out;
 `
 
 const PagesContainer = styled.section`
@@ -116,7 +133,7 @@ const Page = styled.img<{ visible: boolean, left: boolean, size: 'single' | 'dou
   z-index: ${props => props.visible ? 20 : 0};
 `
 
-const PageSideButton = styled.a<{ side: 'left' | 'right' }>`
+const PageSideButton = styled.a<{ visible: boolean, side: 'left' | 'right' }>`
   position: fixed;
   display: flex;
   top: 0px;
@@ -129,7 +146,8 @@ const PageSideButton = styled.a<{ side: 'left' | 'right' }>`
   z-index: 30;
   color: #fff;
   font-size: 48px;
-  transition: padding 0.15s ease-in-out;
+  opacity: ${props => props.visible ? 1 : 0};
+  transition: opacity 0.4s ease-in-out, padding 0.15s ease-in-out;
 
   svg {
     filter: drop-shadow( 0px 1px 1px rgba(0, 0, 0, .75)) drop-shadow(0px 1px 3px rgba(0, 0, 0, .5));
