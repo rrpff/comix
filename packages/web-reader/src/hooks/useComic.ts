@@ -1,4 +1,4 @@
-import { ComicPage, Reader } from '@comix/parser'
+import { Comic, ComicPage, Reader } from '@comix/parser'
 import { useState, useEffect } from 'react'
 
 export interface ComicPageWithUrl {
@@ -40,6 +40,8 @@ export const useComic = (reader: Reader | null) => {
     return () => { reader.removeAllListeners() }
   }, [reader, isFirstLoad])
 
+  const comic = reader?.comic
+  const name = comic?.name
   const next = () => reader?.next()
   const previous = () => reader?.previous()
   const goto = (page: number) => reader?.goto(page)
@@ -51,7 +53,7 @@ export const useComic = (reader: Reader | null) => {
   const preloadedPages = cachedPages
     .filter(p => !visibleIndices.includes(p.index)) as ComicPageWithUrl[]
 
-  return { loading, currentPages, preloadedPages, next, previous, goto }
+  return { loading, comic, name, currentPages, preloadedPages, next, previous, goto }
 }
 
 const pageToPageWithUrl = (page: ComicPage) => ({

@@ -26,6 +26,20 @@ it('has a loading state of false when the reader is not null', async () => {
   expect(result.current.loading).toEqual(false)
 })
 
+it('returns the comic\'s name', async () => {
+  const reader = await createReader()
+  const { result } = renderHook(() => useComic(reader))
+
+  expect(result.current.name).toEqual('wytches-sample.cbr')
+})
+
+it('returns the comic object', async () => {
+  const reader = await createReader()
+  const { result } = renderHook(() => useComic(reader))
+
+  expect(result.current.comic).toEqual(reader.comic)
+})
+
 it('returns currently visible pages', async () => {
   const reader = await createReader()
   const { result } = renderHook(() => useComic(reader))
