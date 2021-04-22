@@ -5,6 +5,7 @@ import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 import { ProgressBar } from '../ProgressBar'
 import { ComicPageWithUrl } from '../../hooks/useComic'
 import { useMouseIsActive } from '../../hooks/useMouseIsActive'
+import { useKeymap } from '../../hooks/useKeymap'
 
 export interface ComicProps {
   currentPages: ComicPageWithUrl[]
@@ -19,6 +20,12 @@ export interface ComicProps {
 
 export const Comic = ({ name, comic, loading, previous, next, currentPages, preloadedPages }: ComicProps) => {
   const mouseActive = useMouseIsActive(window, 1000)
+  useKeymap(window, {
+    keydown: {
+      ArrowLeft: () => { previous?.call(null) },
+      ArrowRight: () => { next?.call(null) },
+    }
+  })
 
   if (loading) return <span>Loading...</span>
 
