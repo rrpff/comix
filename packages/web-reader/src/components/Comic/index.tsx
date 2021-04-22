@@ -115,12 +115,22 @@ const ComicNavigation = styled.nav<{ visible: boolean }>`
 
 const PagesContainer = styled.section`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   height: 100%;
   width: 100%;
   z-index: 0;
-  background: #000;
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background: black;
+  }
 `
 
 const Page = styled.img<{ visible: boolean, left: boolean, size: 'single' | 'double' }>`
