@@ -1,4 +1,4 @@
-import { Reader } from '@comix/parser'
+import { ComicPage, Reader } from '@comix/parser'
 import { useState, useEffect } from 'react'
 
 interface ComicPageWithUrl {
@@ -15,61 +15,30 @@ export const useComic = (reader: Reader | null) => {
   const [isFirstLoad, setIsFirstLoad] = useState(true)
 
   useEffect(() => {
-    if (reader === null) return;
+    if (reader === null) return
 
     if (isFirstLoad) {
       setLoading(false)
       setIsFirstLoad(false)
       setVisibleIndices((reader.current || []).map(page => page.imageIndex))
-      setCachedPages(reader.cache.map(page => ({
-        index: page.imageIndex,
-        name: page.imageName,
-        type: page.type,
-        url: window.URL.createObjectURL(new Blob([page.image], { type: 'image/jpeg' }))
-      })))
+      setCachedPages(cache => mergePagesWithCache(reader.cache, cache))
     }
 
     reader.on('change', async pages => {
-      const newPages = pages.map(page => {
-        const cached = cachedPages.find(p => p.index === page.imageIndex)
-        return cached || {
-          index: page.imageIndex,
-          name: page.imageName,
-          type: page.type,
-          url: window.URL.createObjectURL(new Blob([page.image], { type: 'image/jpeg' }))
-        }
-      })
-
-      setVisibleIndices(newPages.map(p => p.index))
-      setCachedPages(cachedPages => [
-        ...cachedPages.filter(p => !newPages.some(np => np.index === p.index)),
-        ...newPages
-      ])
+      setVisibleIndices(pages.map(p => p.imageIndex))
+      setCachedPages(cache => mergePagesWithCache(pages, cache))
     })
 
     reader.on('cache:add', page => {
-      const cached = cachedPages.find(p => p.index === page.imageIndex)
-      const newPages = [cached || {
-        index: page.imageIndex,
-        name: page.imageName,
-        type: page.type,
-        url: window.URL.createObjectURL(new Blob([page.image], { type: 'image/jpeg' }))
-      }]
-
-      setCachedPages(cachedPages => [
-        ...cachedPages.filter(p => !newPages.some(np => np.index === p.index)),
-        ...newPages
-      ])
+      setCachedPages(cache => mergePagesWithCache([page], cache))
     })
 
     reader.on('cache:remove', page => {
-      setCachedPages(cachedPages =>
-        cachedPages.filter(p => p.index !== page.imageIndex)
-      )
+      setCachedPages(cache => removePagesFromCache([page], cache))
     })
 
     return () => { reader.removeAllListeners() }
-  }, [reader, isFirstLoad, cachedPages])
+  }, [reader, isFirstLoad])
 
   const next = () => reader?.next()
   const previous = () => reader?.previous()
@@ -83,4 +52,28 @@ export const useComic = (reader: Reader | null) => {
     .filter(p => !visibleIndices.includes(p.index)) as ComicPageWithUrl[]
 
   return { loading, currentPages, preloadedPages, next, previous, goto }
+}
+
+const pageToPageWithUrl = (page: ComicPage) => ({
+  index: page.imageIndex,
+  name: page.imageName,
+  type: page.type,
+  url: window.URL.createObjectURL(new Blob([page.image], { type: 'image/jpeg' }))
+})
+
+const mergePagesWithCache = (pages: ComicPage[], cache: ComicPageWithUrl[]) => {
+  const newPages = pages.map(page => {
+    const cached = cache.find(cachedPage => cachedPage.index === page.imageIndex)
+    return cached || pageToPageWithUrl(page)
+  })
+
+  return [
+    ...cache.filter(cachedPage => !newPages.some(np => np.index === cachedPage.index)),
+    ...newPages
+  ]
+}
+
+const removePagesFromCache = (pages: ComicPage[], cache: ComicPageWithUrl[]) => {
+  const indicesToRemove = pages.map(page => page.imageIndex)
+  return cache.filter(cachedPage => !indicesToRemove.includes(cachedPage.index))
 }
