@@ -1,7 +1,7 @@
 import { ComicPage, Reader } from '@comix/parser'
 import { useState, useEffect } from 'react'
 
-interface ComicPageWithUrl {
+export interface ComicPageWithUrl {
   index: number
   name: string
   type: string
