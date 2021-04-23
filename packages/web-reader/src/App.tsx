@@ -6,8 +6,6 @@ import { Comic } from '@comix/ui/dist/components/Comic'
 import { useComic } from '@comix/ui/dist/hooks/useComic'
 import { useComicReader } from '@comix/ui/dist/hooks/useComicReader'
 
-console.log('web', React)
-
 const containerStyles = () => css`
   display: flex;
   align-content: center;
