@@ -25,14 +25,29 @@ export const Comic = ({
   closable = false,
   onClose = () => {},
 }: ComicProps) => {
-  const resetScroll = () => window.scrollTo(window.scrollX, 0)
+  const scrollTop = (animate = true) => {
+    document.scrollingElement?.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: animate ? 'smooth' : 'auto'
+    })
+  }
+
+  const scrollBottom = (animate = true) => {
+    document.scrollingElement?.scrollTo({
+      top: document.scrollingElement.scrollHeight,
+      left: 0,
+      behavior: animate ? 'smooth' : 'auto'
+    })
+  }
+
   const goPrevious = () => {
-    resetScroll()
+    scrollTop(false)
     previous?.call(null)
   }
 
   const goNext = () => {
-    resetScroll()
+    scrollTop(false)
     next?.call(null)
   }
 
@@ -44,7 +59,9 @@ export const Comic = ({
     keydown: {
       ArrowLeft: goPrevious,
       ArrowRight: goNext,
-      Escape: onClose
+      ArrowUp: () => scrollTop(),
+      ArrowDown: () => scrollBottom(),
+      Escape: onClose,
     }
   })
 
