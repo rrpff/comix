@@ -6,7 +6,7 @@ export const useMouseIsActive = (target: EventTarget | null, duration: number) =
 
   useEffect(() => {
     const listener = () => {
-      setActive(true)
+      active === false && setActive(true)
       timer && clearTimeout(timer)
       setTimer(setTimeout(() => {
         setActive(false)
@@ -15,7 +15,7 @@ export const useMouseIsActive = (target: EventTarget | null, duration: number) =
 
     target?.addEventListener('mousemove', listener)
     return () => target?.removeEventListener('mousemove', listener)
-  }, [target, duration, timer])
+  }, [active, target, duration, timer])
 
   return active
 }
