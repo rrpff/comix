@@ -1,4 +1,4 @@
-import { Comic, ComicPage, Reader } from '@comix/parser'
+import { ComicPage, Reader } from '@comix/parser'
 import { useState, useEffect } from 'react'
 
 export interface ComicPageWithUrl {
