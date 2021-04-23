@@ -4,12 +4,17 @@
   "private": true,
   "main": "dist/main.js",
   "scripts": {
+    "dev": "tmax",
     "start": "electron .",
+    "start:watch": "LIVE_RELOADING=true electron .",
     "build": "tsc --project . --outDir dist",
+    "build:watch": "tsc --watch --project . --outDir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "electron": "^12.0.5",
+    "electron-reloader": "^1.2.1",
+    "tmax": "^0.2.1",
     "typescript": "^4.2.4"
   }
 }
