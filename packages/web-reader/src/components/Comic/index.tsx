@@ -1,11 +1,13 @@
 /** @jsxImportSource @emotion/react **/
 import styled from '@emotion/styled'
+import { useRef } from 'react'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 import { IoIosClose } from 'react-icons/io'
 import { ProgressBar } from '../ProgressBar'
 import { useComic } from '../../hooks/useComic'
 import { useMouseIsActive } from '../../hooks/useMouseIsActive'
 import { useKeymap } from '../../hooks/useKeymap'
+import { useHover } from '../../hooks/useHover'
 
 export type ComicProps = ReturnType<typeof useComic> & {
   closable?: boolean
@@ -34,7 +36,10 @@ export const Comic = ({
     next?.call(null)
   }
 
+  const navigationRef = useRef(null)
+  const mouseIsOverNavigation = useHover(navigationRef.current)
   const mouseActive = useMouseIsActive(window, 1000)
+
   useKeymap(window, {
     keydown: {
       ArrowLeft: goPrevious,
@@ -47,34 +52,22 @@ export const Comic = ({
   const currentPageIndex = currentPages[0].index
   const numPages = comic!.images.length
   const progress = currentPageIndex / numPages
-
-  const ComicNavigationHeading = styled.div`
-    font-weight: bold;
-    padding: 20px;
-    flex-grow: 1;
-  `
-
-  const ComicNavigationOption = styled.div`
-    cursor: pointer;
-    padding: 14px;
-    flex-grow: 0;
-    font-size: 32px;
-  `
+  const chromeVisible = mouseActive || mouseIsOverNavigation
 
   return (
     <article>
-      <ProgressContainerStyle visible={mouseActive}>
+      <ProgressContainerStyle visible={chromeVisible}>
         <ProgressBar progress={progress} barStyles={{ background: '#fff', boxShadow: '0px 2px 5px rgba(255, 255, 255, 0.4)' }} />
       </ProgressContainerStyle>
 
-      <ComicNavigation visible={mouseActive}>
+      <ComicNavigation ref={navigationRef} visible={chromeVisible}>
         <ComicNavigationHeading>{name}</ComicNavigationHeading>
         {closable && <ComicNavigationOption onClick={onClose}><IoIosClose /></ComicNavigationOption>}
       </ComicNavigation>
 
       <PagesContainer>
         <PageSideButton
-          visible={mouseActive}
+          visible={chromeVisible}
           side="left"
           href="#!"
           onClick={e => { e.preventDefault(); goPrevious() }}
@@ -83,7 +76,7 @@ export const Comic = ({
         </PageSideButton>
 
         <PageSideButton
-          visible={mouseActive}
+          visible={chromeVisible}
           side="right"
           href="#!"
           onClick={e => { e.preventDefault(); goNext() }}
@@ -147,6 +140,19 @@ const ComicNavigation = styled.nav<{ visible: boolean }>`
   opacity: ${props => props.visible ? 1 : 0};
   transition: opacity 0.4s ease-in-out;
   justify-content: space-between;
+`
+
+const ComicNavigationHeading = styled.div`
+  font-weight: bold;
+  padding: 20px;
+  flex-grow: 1;
+`
+
+const ComicNavigationOption = styled.div`
+  cursor: pointer;
+  padding: 14px;
+  flex-grow: 0;
+  font-size: 32px;
 `
 
 const PagesContainer = styled.section`
