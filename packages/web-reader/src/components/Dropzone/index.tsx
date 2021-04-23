@@ -29,7 +29,7 @@ export const Dropzone = (props: DropzoneProps) => {
 
   return (
     <section {...getRootProps()} css={containerStyle({ isDragActive })}>
-      <input {...getInputProps()} />
+      <input {...getInputProps()} css={null} />
 
       {isDragActive
         ? <p><strong>Drop here.</strong></p>
