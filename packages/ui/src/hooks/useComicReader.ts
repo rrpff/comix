@@ -1,5 +1,5 @@
 import { Reader } from '@comix/parser'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const useComicReader = (file?: File) => {
   const [reader, setReader] = useState(null as Reader | null)

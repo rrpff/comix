@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react **/
 import { css } from '@emotion/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Dropzone } from '@comix/ui/dist/components/Dropzone'
 import { Comic } from '@comix/ui/dist/components/Comic'
 import { useComic } from '@comix/ui/dist/hooks/useComic'
