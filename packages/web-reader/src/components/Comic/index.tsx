@@ -64,6 +64,7 @@ export const Comic = ({
       ArrowRight: goNext,
       ArrowUp: () => scrollTop(),
       ArrowDown: () => scrollBottom(),
+      f: () => setFullscreen(!fullscreen),
       Escape: onClose,
     }
   })
