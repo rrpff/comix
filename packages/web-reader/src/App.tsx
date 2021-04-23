@@ -47,6 +47,8 @@ export const App = () => {
   const showComic = reader !== null && !showLoading
   const showIntro = showDropzone || showLoading
 
+  const reset = () => setFile(undefined)
+
   return (
     <main css={containerStyles()}>
       <header css={headerStyles()}>
@@ -67,7 +69,7 @@ export const App = () => {
       </header>
 
       {showComic && (
-        <Comic {...comicProps} />
+        <Comic {...comicProps} closable onClose={reset} />
       )}
     </main>
   )

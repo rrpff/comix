@@ -1,14 +1,28 @@
 /** @jsxImportSource @emotion/react **/
 import styled from '@emotion/styled'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
+import { IoIosClose } from 'react-icons/io'
 import { ProgressBar } from '../ProgressBar'
 import { useComic } from '../../hooks/useComic'
 import { useMouseIsActive } from '../../hooks/useMouseIsActive'
 import { useKeymap } from '../../hooks/useKeymap'
 
-export type ComicProps = ReturnType<typeof useComic>
+export type ComicProps = ReturnType<typeof useComic> & {
+  closable?: boolean
+  onClose?: () => void
+}
 
-export const Comic = ({ name, comic, loading, previous, next, currentPages, preloadedPages }: ComicProps) => {
+export const Comic = ({
+  comic,
+  currentPages,
+  loading,
+  name,
+  next,
+  preloadedPages,
+  previous,
+  closable = false,
+  onClose = () => {},
+}: ComicProps) => {
   const resetScroll = () => window.scrollTo(window.scrollX, 0)
   const goPrevious = () => {
     resetScroll()
@@ -34,6 +48,19 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
   const numPages = comic!.images.length
   const progress = currentPageIndex / numPages
 
+  const ComicNavigationHeading = styled.div`
+    font-weight: bold;
+    padding: 20px;
+    flex-grow: 1;
+  `
+
+  const ComicNavigationOption = styled.div`
+    cursor: pointer;
+    padding: 14px;
+    flex-grow: 0;
+    font-size: 32px;
+  `
+
   return (
     <article>
       <ProgressContainerStyle visible={mouseActive}>
@@ -41,7 +68,8 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
       </ProgressContainerStyle>
 
       <ComicNavigation visible={mouseActive}>
-        <strong>{name}</strong>
+        <ComicNavigationHeading>{name}</ComicNavigationHeading>
+        {closable && <ComicNavigationOption onClick={onClose}><IoIosClose /></ComicNavigationOption>}
       </ComicNavigation>
 
       <PagesContainer>
@@ -114,11 +142,11 @@ const ComicNavigation = styled.nav<{ visible: boolean }>`
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.0) 100%);
   color: #fff;
   display: flex;
-  padding: 20px;
-  width: calc(100% - 40px);
+  width: 100%;
   z-index: 40;
   opacity: ${props => props.visible ? 1 : 0};
   transition: opacity 0.4s ease-in-out;
+  justify-content: space-between;
 `
 
 const PagesContainer = styled.section`
