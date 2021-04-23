@@ -43,8 +43,8 @@ export const App = () => {
   const comicProps = useComic(reader)
 
   const showDropzone = file === undefined
-  const showLoading = file !== undefined && reader === null
-  const showComic = reader !== null
+  const showLoading = (file !== undefined && reader === null) || (reader !== null && comicProps.loading)
+  const showComic = reader !== null && !showLoading
   const showIntro = showDropzone || showLoading
 
   return (
