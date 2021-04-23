@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react **/
 import { css } from '@emotion/react'
 import { useState } from 'react'
-import { VscLoading } from 'react-icons/vsc'
 import { Dropzone } from './components/Dropzone'
 import { Comic } from './components/Comic'
 import { useComic } from './hooks/useComic'
@@ -25,16 +24,6 @@ const headerStyles = () => css`
   h1 {
     margin-bottom: 0;
   }
-`
-
-const loadingStyles = () => css`
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(359deg); }
-  }
-
-  animation: spin 1.5s infinite linear;
-  font-size: 32px;
 `
 
 export const App = () => {
@@ -62,12 +51,11 @@ export const App = () => {
           </>
         )}
 
-        {showDropzone && (
-          <Dropzone onDrop={files => setFile(files[0])} />
-        )}
-
-        {showLoading && (
-          <VscLoading css={loadingStyles()} />
+        {!showComic && (
+          <Dropzone
+            onDrop={files => setFile(files[0])}
+            processing={showLoading}
+          />
         )}
       </header>
 

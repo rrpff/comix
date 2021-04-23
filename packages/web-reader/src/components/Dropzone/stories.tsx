@@ -12,5 +12,11 @@ const Template: Story<DropzoneProps> = (args) => <Dropzone {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  onDrop: action('onDrop')
+  onDrop: action('onDrop'),
+}
+
+export const Processing = Template.bind({})
+Processing.args = {
+  onDrop: action('onDrop'),
+  processing: true,
 }

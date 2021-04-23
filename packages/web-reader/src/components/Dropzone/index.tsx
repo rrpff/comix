@@ -1,15 +1,40 @@
-/** @jsxImportSource @emotion/react **/
-import { css } from '@emotion/react'
 import { useDropzone } from 'react-dropzone'
+import styled from '@emotion/styled'
+import { CgSpinner } from 'react-icons/cg'
 
 export interface DropzoneProps {
   onDrop: (files: File[]) => void
+  processing?: boolean
 }
 
-const containerStyle = ({ isDragActive }: { isDragActive: boolean }) => css`
-  background: ${isDragActive ? '#bae8e8' : '#e3f6f5'};
+export const Dropzone = (props: DropzoneProps) => {
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: (files) => props.onDrop(files)
+  })
+
+  const isProcessing = !!props.processing
+
+  return (
+    <Container {...getRootProps()} dragActive={isDragActive} processing={isProcessing}>
+      <input {...getInputProps()} css={null} />
+
+      {
+        isProcessing ? <ProcessingContent /> :
+        isDragActive ? <DragActiveContent /> :
+        <DefaultContent />
+      }
+    </Container>
+  )
+}
+
+const DefaultContent = () => <p>Drag and drop or <a href="#!" onClick={e => e.preventDefault()}>upload a file</a>.</p>
+const DragActiveContent = () => <p><strong>Drop here.</strong></p>
+const ProcessingContent = () => <p><Spinner /> <strong>Processing...</strong></p>
+
+const Container = styled.section<{ processing: boolean, dragActive: boolean }>`
+  background: ${props => props.processing ? '#e5f6e3' : props.dragActive ? '#bae8e8' : '#e3f6f5'};
   border-radius: 12px;
-  border: 2px dashed ${isDragActive? '#272343' : '#bae8e8'};
+  border: 2px dashed ${props => props.processing ? '#bee8ba' : props.dragActive? '#272343' : '#bae8e8'};
   color: #2d334a;
   display: flex;
   flex-direction: column;
@@ -22,19 +47,13 @@ const containerStyle = ({ isDragActive }: { isDragActive: boolean }) => css`
   }
 `
 
-export const Dropzone = (props: DropzoneProps) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop: (files) => props.onDrop(files)
-  })
+const Spinner = styled(CgSpinner)`
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); }
+  }
 
-  return (
-    <section {...getRootProps()} css={containerStyle({ isDragActive })}>
-      <input {...getInputProps()} css={null} />
-
-      {isDragActive
-        ? <p><strong>Drop here.</strong></p>
-        : <p>Drag and drop or <a href="#!" onClick={e => e.preventDefault()}>upload a file</a>.</p>
-      }
-    </section>
-  )
-}
+  animation: spin 1.5s infinite linear;
+  font-size: 16px;
+  margin-bottom: -2px;
+`
