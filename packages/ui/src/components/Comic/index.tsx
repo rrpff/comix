@@ -62,8 +62,14 @@ export const Comic = ({
     keydown: {
       ArrowLeft: goPrevious,
       ArrowRight: goNext,
-      ArrowUp: () => scrollTop(),
-      ArrowDown: () => scrollBottom(),
+      ArrowUp: (e) => {
+        e.preventDefault()
+        scrollTop()
+      },
+      ArrowDown: (e) => {
+        e.preventDefault()
+        scrollBottom()
+      },
       f: () => setFullscreen(!fullscreen),
       Escape: onClose,
     }
