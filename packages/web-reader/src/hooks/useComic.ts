@@ -15,7 +15,13 @@ export const useComic = (reader: Reader | null) => {
   const [isFirstLoad, setIsFirstLoad] = useState(true)
 
   useEffect(() => {
-    if (reader === null) return
+    if (reader === null) {
+      setLoading(true)
+      setCachedPages([])
+      setVisibleIndices([])
+      setIsFirstLoad(true)
+      return
+    }
 
     if (isFirstLoad) {
       setLoading(false)

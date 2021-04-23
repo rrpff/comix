@@ -115,7 +115,7 @@ export const Comic = ({
 
           return (
             <Page
-              key={page.index}
+              key={`${name}-${page.index}`}
               src={page.url}
               alt=""
               visible={true}
@@ -128,7 +128,7 @@ export const Comic = ({
         {preloadedPages?.map(page => {
           return (
             <Page
-              key={page.index}
+              key={`${name}-${page.index}`}
               src={page.url}
               alt=""
               visible={false}
