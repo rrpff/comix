@@ -7,7 +7,7 @@ export async function expectBlobToMatchFile(blob: Blob, fpath: string): Promise<
     reader.onerror = (e) => reject(e.target?.error)
     reader.onload = async (e) => {
       const expectedBuf = await fs.promises.readFile(fpath)
-      const actualBuf = Buffer.from(e.target?.result || '')
+      const actualBuf = Buffer.from(e.target?.result || '' as any)
       const isMatch = 0 === Buffer.compare(expectedBuf, actualBuf)
 
       expect(isMatch).toEqual(true)
