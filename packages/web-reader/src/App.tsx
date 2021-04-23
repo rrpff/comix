@@ -54,8 +54,11 @@ export const App = () => {
       <header css={headerStyles()}>
         {showIntro && (
           <>
-            <h1>Comix</h1>
-            <p>A little reader for CBR and CBZ files</p>
+            <h1>Comic Reader</h1>
+            <p>
+              A little reader for CBR and CBZ files<br />
+              See code: <a href="https://github.com/rrpff/comix">rrpff/comix</a>
+            </p>
           </>
         )}
 
