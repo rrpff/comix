@@ -1,29 +1,30 @@
 /** @jsxImportSource @emotion/react **/
 import styled from '@emotion/styled'
-import { Comic as ComixComic } from '@comix/parser'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 import { ProgressBar } from '../ProgressBar'
-import { ComicPageWithUrl } from '../../hooks/useComic'
+import { useComic } from '../../hooks/useComic'
 import { useMouseIsActive } from '../../hooks/useMouseIsActive'
 import { useKeymap } from '../../hooks/useKeymap'
 
-export interface ComicProps {
-  currentPages: ComicPageWithUrl[]
-  preloadedPages?: ComicPageWithUrl[]
-  next?: () => void
-  previous?: () => void
-  goto?: (page: number) => void
-  loading: boolean
-  name?: string
-  comic?: ComixComic
-}
+export type ComicProps = ReturnType<typeof useComic>
 
 export const Comic = ({ name, comic, loading, previous, next, currentPages, preloadedPages }: ComicProps) => {
+  const resetScroll = () => window.scrollTo(window.scrollX, 0)
+  const goPrevious = () => {
+    resetScroll()
+    previous?.call(null)
+  }
+
+  const goNext = () => {
+    resetScroll()
+    next?.call(null)
+  }
+
   const mouseActive = useMouseIsActive(window, 1000)
   useKeymap(window, {
     keydown: {
-      ArrowLeft: () => { previous?.call(null) },
-      ArrowRight: () => { next?.call(null) },
+      ArrowLeft: goPrevious,
+      ArrowRight: goNext,
     }
   })
 
@@ -48,7 +49,7 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
           visible={mouseActive}
           side="left"
           href="#!"
-          onClick={e => { e.preventDefault(); previous?.call(null) }}
+          onClick={e => { e.preventDefault(); goPrevious() }}
         >
           <AiFillCaretLeft />
         </PageSideButton>
@@ -57,7 +58,7 @@ export const Comic = ({ name, comic, loading, previous, next, currentPages, prel
           visible={mouseActive}
           side="right"
           href="#!"
-          onClick={e => { e.preventDefault(); next?.call(null) }}
+          onClick={e => { e.preventDefault(); goNext() }}
         >
           <AiFillCaretRight />
         </PageSideButton>
