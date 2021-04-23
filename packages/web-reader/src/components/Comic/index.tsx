@@ -2,10 +2,12 @@
 import styled from '@emotion/styled'
 import { useRef } from 'react'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
+import { RiFullscreenLine, RiFullscreenExitLine } from 'react-icons/ri'
 import { IoIosClose } from 'react-icons/io'
 import { ProgressBar } from '../ProgressBar'
 import { useComic } from '../../hooks/useComic'
 import { useMouseIsActive } from '../../hooks/useMouseIsActive'
+import { useFullscreen } from '../../hooks/useFullscreen'
 import { useKeymap } from '../../hooks/useKeymap'
 import { useHover } from '../../hooks/useHover'
 
@@ -54,6 +56,7 @@ export const Comic = ({
   const navigationRef = useRef(null)
   const mouseIsOverNavigation = useHover(navigationRef.current)
   const mouseActive = useMouseIsActive(window, 1000)
+  const [fullscreen, setFullscreen] = useFullscreen(document.scrollingElement)
 
   useKeymap(window, {
     keydown: {
@@ -80,6 +83,9 @@ export const Comic = ({
 
       <ComicNavigation ref={navigationRef} visible={chromeVisible}>
         <ComicNavigationHeading>{name}</ComicNavigationHeading>
+        <ComicNavigationOption onClick={() => setFullscreen(!fullscreen)}>
+          {fullscreen ? <RiFullscreenExitLine /> : <RiFullscreenLine />}
+        </ComicNavigationOption>
         {closable && <ComicNavigationOption onClick={onClose}><IoIosClose /></ComicNavigationOption>}
       </ComicNavigation>
 
