@@ -16,7 +16,7 @@ export const Dropzone = (props: DropzoneProps) => {
 
   return (
     <Container {...getRootProps()} dragActive={isDragActive} processing={isProcessing}>
-      <input {...getInputProps()} css={null} />
+      <input {...getInputProps()} />
 
       {
         isProcessing ? <ProcessingContent /> :
