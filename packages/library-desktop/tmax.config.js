@@ -1,6 +1,7 @@
 module.exports = {
   panes: [
-    { label: 'Build', command: 'npm run build:watch', cwd: __dirname },
-    { label: 'App', command: 'npm run start:watch', cwd: __dirname },
+    { label: 'Electron Build', command: 'npm run server:build:watch', cwd: __dirname },
+    { label: 'Electron', command: 'npm run server:start:watch', cwd: __dirname },
+    { label: 'Client', command: 'npm run client:start', cwd: __dirname },
   ]
 }

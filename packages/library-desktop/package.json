@@ -2,19 +2,52 @@
   "name": "@comix/library-desktop",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "tmax",
-    "start": "electron .",
-    "start:watch": "LIVE_RELOADING=true electron .",
-    "build": "tsc --project . --outDir dist",
-    "build:watch": "tsc --watch --project . --outDir dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:start": "electron .",
+    "server:start:watch": "LIVE_RELOADING=true electron .",
+    "server:build": "tsc --project ./tsconfig.electron.json --outDir dist",
+    "server:build:watch": "tsc --watch --project ./tsconfig.electron.json --outDir dist",
+    "client:start": "BROWSER=none react-scripts start",
+    "client:build": "react-scripts build"
+  },
+  "dependencies": {
+    "electron": "^12.0.5",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react": "^17.0.2",
+    "web-vitals": "^1.1.1"
   },
   "devDependencies": {
-    "electron": "^12.0.5",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^12.20.10",
+    "@types/react-dom": "^17.0.3",
+    "@types/react": "^17.0.3",
     "electron-reloader": "^1.2.1",
     "tmax": "^0.2.1",
     "typescript": "^4.2.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
