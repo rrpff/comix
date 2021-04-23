@@ -44,6 +44,7 @@ export const Comic = ({
     keydown: {
       ArrowLeft: goPrevious,
       ArrowRight: goNext,
+      Escape: onClose
     }
   })
 
