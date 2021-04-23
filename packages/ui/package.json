@@ -2,8 +2,8 @@
   "name": "@comix/ui",
   "version": "0.1.0",
   "scripts": {
-    "build": "tsc --project . --declaration --outDir dist",
-    "build:watch": "tsc --watch --project . --declaration --outDir dist",
+    "build": "tsc --project . --declaration --outDir .",
+    "build:watch": "tsc --watch --project . --declaration --outDir .",
     "test": "jest"
   },
   "peerDependencies": {

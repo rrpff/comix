@@ -1,2 +1,5 @@
 node_modules/
-dist/
+components/
+hooks/
+!src/components/
+!src/hooks/

@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react **/
 import { css } from '@emotion/react'
 import { useState } from 'react'
-import { Dropzone } from '@comix/ui/dist/components/Dropzone'
-import { Comic } from '@comix/ui/dist/components/Comic'
-import { useComic } from '@comix/ui/dist/hooks/useComic'
-import { useComicReader } from '@comix/ui/dist/hooks/useComicReader'
+import { Dropzone } from '@comix/ui/components/Dropzone'
+import { Comic } from '@comix/ui/components/Comic'
+import { useComic } from '@comix/ui/hooks/useComic'
+import { useComicReader } from '@comix/ui/hooks/useComicReader'
 
 const containerStyles = () => css`
   display: flex;
