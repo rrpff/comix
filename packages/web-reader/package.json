@@ -34,8 +34,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "stage": "vercel",
-    "deploy": "vercel --prod",
+    "deploy:staging": "vercel",
+    "deploy:prod": "vercel --prod",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
