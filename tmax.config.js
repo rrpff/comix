@@ -41,6 +41,11 @@ module.exports = {
           command: 'npm run server:build:watch',
           cwd: path.join(__dirname, 'packages', 'library-desktop'),
         },
+        {
+          label: 'electron-react-ipc',
+          command: 'npm run build:watch',
+          cwd: path.join(__dirname, 'packages', 'electron-react-ipc'),
+        },
       ],
     },
   ],
