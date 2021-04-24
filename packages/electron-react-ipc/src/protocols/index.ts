@@ -1,4 +1,4 @@
-type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
+export type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
 
 export type ServiceIpcSuccessResponse<T> = { success: T }
 export type ServiceIpcErrorResponse = { error: string }

@@ -1,6 +1,4 @@
-import { ServiceMap, Service, ServiceLogger, ServiceIpcEvent, IpcHandler } from '../protocols'
-
-type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
+import { ArgumentTypes, ServiceMap, Service, ServiceLogger, ServiceIpcEvent, IpcHandler } from '../protocols'
 
 export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> implements IpcHandler<TServiceMap> {
   private services: Map<keyof(TServiceMap), Service<any>> = new Map()

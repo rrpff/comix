@@ -1,7 +1,5 @@
 import { v4 as uuid } from 'uuid'
-import { ServiceMap, ServiceIpcRenderer, SuccessType, ServiceIpcResponse, IpcClient } from '../protocols'
-
-type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
+import { ArgumentTypes, ServiceMap, ServiceIpcRenderer, SuccessType, ServiceIpcResponse, IpcClient } from '../protocols'
 
 export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> implements IpcClient<TServiceMap> {
   constructor(private renderer: ServiceIpcRenderer) {}
