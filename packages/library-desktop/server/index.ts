@@ -1,13 +1,13 @@
 import path from 'path'
 import { app, BrowserWindow, ipcMain } from 'electron'
 import { ServiceIpc } from 'electron-react-ipc/server'
-import { LibraryIpcServiceMap } from './services'
-import { TestGreeting } from './services/TestGreeting'
+import { LibraryIpcServiceMap } from '../src/protocols/services'
+import { ListDirectory } from './services/ListDirectory'
 
 const ipc = new ServiceIpc<LibraryIpcServiceMap>()
 
 ipc.log(console)
-ipc.use('test-greeting', TestGreeting)
+ipc.use('list-directory', ListDirectory)
 
 ipcMain.on('ipc-request', async (ipcEvent, requestId: string, service: string, ...args: any[]) => {
   try {
