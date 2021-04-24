@@ -1,7 +1,7 @@
 import { ArgumentTypes, ServiceMap, Service, ServiceLogger, ServiceIpcEvent, IpcHandler } from '../protocols'
 
 export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> implements IpcHandler<TServiceMap> {
-  private services: Map<keyof(TServiceMap), Service<any>> = new Map()
+  private services: Map<keyof(TServiceMap), Service<any, any>> = new Map()
   private logger?: ServiceLogger
 
   public log = (logger: ServiceLogger) => {

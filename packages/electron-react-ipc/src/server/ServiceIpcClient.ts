@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid'
-import { ArgumentTypes, ServiceMap, ServiceIpcRenderer, SuccessType, ServiceIpcResponse, IpcClient } from '../protocols'
+import { ArgumentTypes, ServiceMap, ServiceIpcRenderer, ServiceReturn, ServiceIpcResponse, IpcClient } from '../protocols'
 
 export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> implements IpcClient<TServiceMap> {
   constructor(private renderer: ServiceIpcRenderer) {}
 
   public call = <T, K extends keyof(TServiceMap)>(service: K, ...args: ArgumentTypes<TServiceMap[K]>)
-    : Promise<SuccessType<TServiceMap[K]>> => {
+    : Promise<ServiceReturn<TServiceMap[K]>> => {
     return new Promise((resolve, reject) => {
       const requestId = uuid()
       const listener = (_: any, responseRequestId: string, response: ServiceIpcResponse<T>) => {
@@ -13,7 +13,7 @@ export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> imple
 
         this.renderer.off('ipc-response', listener)
 
-        if ('success' in response) resolve(response.success as SuccessType<TServiceMap[K]>)
+        if ('success' in response) resolve(response.success as ServiceReturn<TServiceMap[K]>)
         else reject(response.error)
       }
 

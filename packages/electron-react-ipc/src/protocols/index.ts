@@ -1,10 +1,13 @@
 export type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
 
-export type ServiceIpcSuccessResponse<T> = { success: T }
-export type ServiceIpcErrorResponse = { error: string }
-export type ServiceIpcResponse<T> = ServiceIpcSuccessResponse<T> | ServiceIpcErrorResponse
-export type Service<T> = (...args: any[]) => Promise<ServiceIpcResponse<T>>
-export type SuccessType<T> = T extends Service<infer R> ? R : never
+export type ServiceIpcResponse<T> = {
+  success?: T
+  error?: string
+}
+
+export type Service<TArgs extends any[], TReturn> = (...args: TArgs) => Promise<ServiceIpcResponse<TReturn>>
+export type ServiceArgs<T> = T extends Service<infer A, unknown> ? A : never
+export type ServiceReturn<T> = T extends Service<any[], infer B> ? B : never
 
 export interface ServiceIpcEvent {
   sender: {
@@ -13,7 +16,7 @@ export interface ServiceIpcEvent {
 }
 
 export interface ServiceMap {
-  [key: string]: Service<any>
+  [key: string]: Service<any, any>
 }
 
 export interface ServiceLogger {
@@ -29,7 +32,7 @@ export interface ServiceIpcRenderer {
 }
 
 export interface IpcClient<TServiceMap extends ServiceMap> {
-  call<T, K extends keyof(TServiceMap)>(service: K, ...args: ArgumentTypes<TServiceMap[K]>): Promise<SuccessType<TServiceMap[K]>>
+  call<K extends keyof(TServiceMap)>(service: K, ...args: ArgumentTypes<TServiceMap[K]>): Promise<ServiceReturn<TServiceMap[K]>>
 }
 
 export interface IpcHandler<TServiceMap extends ServiceMap> {
