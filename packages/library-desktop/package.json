@@ -18,6 +18,7 @@
     "@emotion/styled": "^11.3.0",
     "electron": "^12.0.5",
     "electron-react-ipc": "file:../electron-react-ipc",
+    "is-subdir": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
