@@ -1,5 +1,21 @@
 import path from 'path'
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+import { ServiceIpc } from './ipc/ServiceIpc'
+import { LibraryIpcServiceMap } from './services'
+import { TestGreeting } from './services/TestGreeting'
+
+const ipc = new ServiceIpc<LibraryIpcServiceMap>()
+
+ipc.log(console)
+ipc.use('test-greeting', TestGreeting)
+
+ipcMain.on('ipc-request', async (ipcEvent, requestId: string, service: string, ...args: any[]) => {
+  try {
+    await ipc.handle(ipcEvent, requestId, service as any, ...args)
+  } catch (e) {
+    console.error(e)
+  }
+})
 
 const createWindow = () => {
   const win = new BrowserWindow({

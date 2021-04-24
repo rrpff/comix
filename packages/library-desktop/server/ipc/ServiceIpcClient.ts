@@ -32,11 +32,3 @@ export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> {
     })
   }
 }
-
-// const ipc = new ServiceIpcClient<{
-//   doubler: (num: number) => Promise<{ success: number }>
-//   whatever: () => Promise<{ success: string[] }>
-// }>(null as any)
-
-// ipc.call('doubler', 10).then(r => {})
-// ipc.call('whatever').then(r => {})

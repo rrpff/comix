@@ -1,12 +1,6 @@
-window.addEventListener('DOMContentLoaded', () => {
-  // const replaceText = (selector: string, text: string) => {
-  //   const element = document.getElementById(selector)
-  //   if (element) element.innerText = text
-  // }
+import { contextBridge, ipcRenderer } from 'electron'
+import { ServiceIpcClient } from './ipc/ServiceIpcClient'
+import { LibraryIpcServiceMap } from './services'
 
-  // for (const type of ['chrome', 'node', 'electron']) {
-  //   replaceText(`${type}-version`, (process.versions as any)[type] as any)
-  // }
-})
-
-export {}
+const client = new ServiceIpcClient<LibraryIpcServiceMap>(ipcRenderer)
+contextBridge.exposeInMainWorld('ipc', client)
