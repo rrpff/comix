@@ -6,7 +6,7 @@ export function useIpc<T extends Service<any, any>>(
   service: string,
   ...args: ArgumentTypes<T>
 ) {
-  const [result, setResult] = useState(null as ServiceReturn<T>)
+  const [result, setResult] = useState(null as ServiceReturn<T> | null)
   const [error, setError] = useState(null as string | null)
   const [loading, setLoading] = useState(true)
 
