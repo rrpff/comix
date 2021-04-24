@@ -12,28 +12,28 @@ const subject = async () => {
 
 it.each([null, undefined])('throws an error if no ipcEvent is given', async (value) => {
   const { ipc } = await subject()
-  const call = ipc.handle(value, value, value)
+  const call = ipc.handle(value!, value!, value!)
 
   await expect(call).rejects.toEqual(new Error('No ipcEvent given'))
 })
 
 it.each([null, undefined])('throws an error if no ipcEvent sender is present', async (value) => {
   const { ipc } = await subject()
-  const call = ipc.handle({ sender: value }, value, value)
+  const call = ipc.handle({ sender: value! }, value!, value!)
 
   await expect(call).rejects.toEqual(new Error('No sender given'))
 })
 
 it.each([null, undefined, ''])('throws an error if no request ID is given', async (value) => {
   const { ipc, event } = await subject()
-  const call = ipc.handle(event, value, value)
+  const call = ipc.handle(event, value!, value!)
 
   await expect(call).rejects.toEqual(new Error('No request ID given'))
 })
 
 it.each([null, undefined, ''])('throws an error if no service is given', async (value) => {
   const { ipc, event, requestId } = await subject()
-  const call = ipc.handle(event, requestId, value)
+  const call = ipc.handle(event, requestId, value!)
 
   await expect(call).rejects.toEqual(new Error('No service given'))
 })
