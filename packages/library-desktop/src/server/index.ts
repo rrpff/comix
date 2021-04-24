@@ -2,7 +2,7 @@ import path from 'path'
 import { app, BrowserWindow, ipcMain } from 'electron'
 import { ServiceIpc } from 'electron-react-ipc/server'
 import isDev from 'electron-is-dev'
-import { LibraryIpcServiceMap } from '../src/protocols/services'
+import { LibraryIpcServiceMap } from '../protocols/services'
 import { ListDirectory } from './services/ListDirectory'
 import { GetFile } from './services/GetFile'
 

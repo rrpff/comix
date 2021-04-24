@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { ListDirectoryService } from '../../src/protocols/services'
+import { ListDirectoryService } from '../../protocols/services'
 
 interface Filesystem {
   readdir(path: string, options: { withFileTypes: true }): Promise<{

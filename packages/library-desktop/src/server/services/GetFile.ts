@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import isSubdir from 'is-subdir'
-import { GetFileService } from '../../src/protocols/services'
+import { GetFileService } from '../../protocols/services'
 
 // lets just hardcode this for now eh
 const PERMITTED_DIRECTORY_ROOTS = [
