@@ -21,8 +21,9 @@ ipcMain.on('ipc-request', async (ipcEvent, requestId: string, service: string, .
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 500,
+    width: 1300,
+    height: 800,
+    backgroundColor: '#fff',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
