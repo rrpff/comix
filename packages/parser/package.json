@@ -16,8 +16,7 @@
   "types": "./dist/commonjs/types/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "rollup -c",
-    "watch": "rollup -c --watch",
+    "build:watch": "rollup -c",
     "test": "jest"
   },
   "devDependencies": {

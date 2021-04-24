@@ -28,7 +28,3 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
-
-if (process.env.LIVE_RELOADING) {
-  require('electron-reloader')(module, { debug: true })
-}

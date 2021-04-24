@@ -28,8 +28,18 @@ module.exports = {
       commands: [
         {
           label: '@comix/parser',
-          command: 'npm run watch',
+          command: 'npm run build:watch',
           cwd: path.join(__dirname, 'packages', 'parser'),
+        },
+        {
+          label: '@comix/ui',
+          command: 'npm run build:watch',
+          cwd: path.join(__dirname, 'packages', 'ui'),
+        },
+        {
+          label: '@comix/library-desktop',
+          command: 'npm run server:build:watch',
+          cwd: path.join(__dirname, 'packages', 'library-desktop'),
         },
       ],
     },
