@@ -50,7 +50,7 @@ it.each([
 
 it.each([
   ['double', async (num: number) => ({ success: num * 2 })],
-  ['triple', async (num: number) => ({ error: num * 3 })],
+  ['triple', async (num: number) => ({ error: (num * 3).toString() })],
 ])('calls the service function if known', async (serviceName, serviceHandler) => {
   const { ipc, event, requestId } = await subject()
   ipc.use(serviceName, serviceHandler)

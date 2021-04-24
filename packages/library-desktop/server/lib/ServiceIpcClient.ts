@@ -1,18 +1,21 @@
 import { v4 as uuid } from 'uuid'
-import { ServiceIpcErrorResponse, ServiceIpcResponse, ServiceIpcSuccessResponse } from './ServiceIpc'
+import { Service, ServiceIpcResponse, ServiceMap } from './ServiceIpc'
 
-type IpcListener<T> = (_: any, requestId: string, response: ServiceIpcResponse<T>) => void
+type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
+type SuccessType<T> = T extends Service<infer R> ? R : never
 
-interface ServiceIpcRenderer {
+export type IpcListener<T> = (_: any, requestId: string, response: ServiceIpcResponse<T>) => void
+export interface ServiceIpcRenderer {
   send(event: 'ipc-request', requestId: string, service: string, ...args: any[]): void
   on(event: 'ipc-response', listener: IpcListener<any>): void
   off(event: 'ipc-response', listener: IpcListener<any>): void
 }
 
-export class ServiceIpcClient {
+export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> {
   constructor(private renderer: ServiceIpcRenderer) {}
 
-  public call<T>(service: string, ...args: any[]): Promise<T> {
+  public call = <T, K extends keyof(TServiceMap)>(service: K, ...args: ArgumentTypes<TServiceMap[K]>)
+    : Promise<SuccessType<TServiceMap[K]>> => {
     return new Promise((resolve, reject) => {
       const requestId = uuid()
       const listener = (_: any, responseRequestId: string, response: ServiceIpcResponse<T>) => {
@@ -20,16 +23,20 @@ export class ServiceIpcClient {
 
         this.renderer.off('ipc-response', listener)
 
-        const successful = Object.keys(response).includes('success')
-        if (successful) {
-          resolve((response as ServiceIpcSuccessResponse<T>).success)
-        } else {
-          reject((response as ServiceIpcErrorResponse<T>).error)
-        }
+        if ('success' in response) resolve(response.success as SuccessType<TServiceMap[K]>)
+        else reject(response.error)
       }
 
       this.renderer.on('ipc-response', listener)
-      this.renderer.send('ipc-request', requestId, service, ...args)
+      this.renderer.send('ipc-request', requestId, service as string, ...args)
     })
   }
 }
+
+// const ipc = new ServiceIpcClient<{
+//   doubler: (num: number) => Promise<{ success: number }>
+//   whatever: () => Promise<{ success: string[] }>
+// }>(null as any)
+
+// ipc.call('doubler', 10).then(r => {})
+// ipc.call('whatever').then(r => {})

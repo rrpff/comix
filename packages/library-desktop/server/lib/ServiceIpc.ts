@@ -1,8 +1,8 @@
 type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
 
 export type ServiceIpcSuccessResponse<T> = { success: T }
-export type ServiceIpcErrorResponse<T> = { error: T }
-export type ServiceIpcResponse<T> = ServiceIpcSuccessResponse<T> | ServiceIpcErrorResponse<T>
+export type ServiceIpcErrorResponse = { error: string }
+export type ServiceIpcResponse<T> = ServiceIpcSuccessResponse<T> | ServiceIpcErrorResponse
 export type Service<T> = (...args: any[]) => Promise<ServiceIpcResponse<T>>
 
 export interface ServiceIpcEvent {
@@ -25,11 +25,10 @@ export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> {
   private logger?: ServiceLogger
 
   public log = (logger: ServiceLogger) => {
-    console.log('added logger :-)')
     this.logger = logger
   }
 
-  public use = async <T, K extends keyof(TServiceMap)>(service: K, handler: Service<T>) => {
+  public use = async <K extends keyof(TServiceMap)>(service: K, handler: TServiceMap[K]) => {
     this.services.set(service, handler)
   }
 
