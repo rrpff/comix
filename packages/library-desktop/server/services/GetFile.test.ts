@@ -39,7 +39,7 @@ it.each([
 ])('returns file contents if the file exists', async (fpath) => {
   const result = await GetFile(fpath)
   const expectedBuffer = await fs.promises.readFile(fpath)
-  const actualBuffer = Buffer.from(result.success.content)
+  const actualBuffer = Buffer.from(result.success?.content as any)
 
   expect(Buffer.compare(actualBuffer, expectedBuffer)).toEqual(0)
 })

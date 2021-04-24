@@ -16,7 +16,7 @@ const NodeFilesystem: Filesystem = {
 
 export const ListDirectory: ListDirectoryService = async (directory: string, filesystem: Filesystem = NodeFilesystem) => {
   const results = await filesystem.readdir(directory, { withFileTypes: true })
-  const base = { directories: [], files: [] }
+  const base = { directories: [] as any[], files: [] as any[] }
   const response = results.reduce((acc, result) => {
     const entry = {
       name: result.name,
