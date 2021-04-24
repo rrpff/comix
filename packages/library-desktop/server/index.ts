@@ -1,6 +1,6 @@
 import path from 'path'
 import { app, BrowserWindow, ipcMain } from 'electron'
-import { ServiceIpc } from './ipc/ServiceIpc'
+import { ServiceIpc } from 'electron-react-ipc/server'
 import { LibraryIpcServiceMap } from './services'
 import { TestGreeting } from './services/TestGreeting'
 
