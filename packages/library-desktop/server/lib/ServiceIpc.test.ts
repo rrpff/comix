@@ -61,3 +61,37 @@ it.each([
 
   expect(event.sender.send).toHaveBeenCalledWith('ipc-response', requestId, expectedResult)
 })
+
+it('calls the info logging function on requests if given', async () => {
+  const logger = { info: jest.fn() }
+  const { ipc, event, requestId } = await subject()
+
+  ipc.log(logger)
+  await ipc.handle(event, requestId, 'whatever', 'test')
+
+  expect(logger.info).toHaveBeenCalledWith('ipc-request', requestId, 'whatever', ['test'])
+})
+
+it('calls the info logging function on successful responses', async () => {
+  const logger = { info: jest.fn() }
+  const { ipc, event, requestId } = await subject()
+  const double = async (num: number) => ({ success: num * 2 })
+
+  ipc.log(logger)
+  ipc.use('double', double)
+  await ipc.handle(event, requestId, 'double', 20)
+
+  expect(logger.info).toHaveBeenCalledWith('ipc-response', requestId, 'double', 'success')
+})
+
+it('calls the error logging function on error responses', async () => {
+  const logger = { error: jest.fn() }
+  const { ipc, event, requestId } = await subject()
+  const double = async (num: number) => ({ error: 'NaN' })
+
+  ipc.log(logger)
+  ipc.use('double', double)
+  await ipc.handle(event, requestId, 'double', 20)
+
+  expect(logger.error).toHaveBeenCalledWith('ipc-response', requestId, 'double', 'error')
+})

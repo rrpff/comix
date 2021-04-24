@@ -15,8 +15,18 @@ export interface ServiceMap {
   [key: string]: Service<any>
 }
 
+export interface ServiceLogger {
+  info?(...messages: any[]): void
+  error?(...messages: any[]): void
+}
+
 export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> {
   private services: Map<keyof(TServiceMap), Service<any>> = new Map()
+  private logger?: ServiceLogger = null
+
+  public log(logger: ServiceLogger) {
+    this.logger = logger
+  }
 
   public async use<T, K extends keyof(TServiceMap)>(service: K, handler: Service<T>) {
     this.services.set(service, handler)
@@ -33,13 +43,27 @@ export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> {
     if (!requestId) throw new Error('No request ID given')
     if (!serviceName) throw new Error('No service given')
 
+    this.logRequest(requestId, serviceName, args)
+
     const service = this.services.get(serviceName)
 
     if (service === undefined) {
+      this.logger?.error?.call(this.logger, 'ipc-response', requestId, serviceName, 'error')
+      this.logResponse(requestId, serviceName, false)
       return ipcEvent.sender.send('ipc-response', requestId, { error: `Invalid service: ${serviceName}` })
     }
 
     const response = await service(...args)
+    this.logResponse(requestId, serviceName, Object.keys(response).includes('success'))
     ipcEvent.sender.send('ipc-response', requestId, response)
+  }
+
+  private logRequest = (requestId, serviceName, args) =>
+    this.logger?.info?.call(this.logger, 'ipc-request', requestId, serviceName, args)
+
+  private logResponse = (requestId, serviceName, successful) => {
+    const message = successful ? 'success' : 'error'
+    const func = successful ? this.logger?.info : this.logger?.error
+    func?.call(this.logger, 'ipc-response', requestId, serviceName, message)
   }
 }
