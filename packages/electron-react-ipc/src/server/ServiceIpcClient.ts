@@ -1,17 +1,9 @@
 import { v4 as uuid } from 'uuid'
-import { Service, ServiceIpcResponse, ServiceMap } from './ServiceIpc'
+import { ServiceMap, ServiceIpcRenderer, SuccessType, ServiceIpcResponse, IpcClient } from '../protocols'
 
 type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
-type SuccessType<T> = T extends Service<infer R> ? R : never
 
-export type IpcListener<T> = (_: any, requestId: string, response: ServiceIpcResponse<T>) => void
-export interface ServiceIpcRenderer {
-  send(event: 'ipc-request', requestId: string, service: string, ...args: any[]): void
-  on(event: 'ipc-response', listener: IpcListener<any>): void
-  off(event: 'ipc-response', listener: IpcListener<any>): void
-}
-
-export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> {
+export class ServiceIpcClient<TServiceMap extends ServiceMap = ServiceMap> implements IpcClient<TServiceMap> {
   constructor(private renderer: ServiceIpcRenderer) {}
 
   public call = <T, K extends keyof(TServiceMap)>(service: K, ...args: ArgumentTypes<TServiceMap[K]>)

@@ -1,26 +1,8 @@
+import { ServiceMap, Service, ServiceLogger, ServiceIpcEvent, IpcHandler } from '../protocols'
+
 type ArgumentTypes<T extends Function> = T extends (...args: infer A) => void ? A : never[];
 
-export type ServiceIpcSuccessResponse<T> = { success: T }
-export type ServiceIpcErrorResponse = { error: string }
-export type ServiceIpcResponse<T> = ServiceIpcSuccessResponse<T> | ServiceIpcErrorResponse
-export type Service<T> = (...args: any[]) => Promise<ServiceIpcResponse<T>>
-
-export interface ServiceIpcEvent {
-  sender: {
-    send(channel: string, requestId: string, ...args: any[]): void
-  }
-}
-
-export interface ServiceMap {
-  [key: string]: Service<any>
-}
-
-export interface ServiceLogger {
-  info?(...messages: any[]): void
-  error?(...messages: any[]): void
-}
-
-export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> {
+export class ServiceIpc<TServiceMap extends ServiceMap = ServiceMap> implements IpcHandler<TServiceMap> {
   private services: Map<keyof(TServiceMap), Service<any>> = new Map()
   private logger?: ServiceLogger
 
