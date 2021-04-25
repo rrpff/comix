@@ -1,0 +1,15 @@
+{
+  "name": "@comix/library",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc --declaration --project . --outDir dist",
+    "build:watch": "tsc --watch --declaration --project . --outDir dist",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  }
+}
