@@ -23,7 +23,7 @@ export class CbzParser implements ComicParser {
   }
 }
 
-export function zipEntryIsPage(entry: ZipEntry) {
+function zipEntryIsPage(entry: ZipEntry) {
   return entryIsPage({
     name: entry.name,
     isDirectory: entry.isDirectory

@@ -1,4 +1,3 @@
-import { Parser } from './Parser'
 import { expectImageToMatchFile, fixturePath, openW3cFile } from '../../test/helpers'
 import { Comic } from '../protocols'
 
