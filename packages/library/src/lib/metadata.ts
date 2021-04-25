@@ -1,18 +1,12 @@
 import path from 'path'
 import fs from 'fs/promises'
 import { Parser } from '@comix/parser'
+import { ComicFileStat, RawLibraryEntry } from '../protocols'
 
-interface ComicFileMetadata {
-  name: string
-  path: string
-  corrupt: boolean
-  coverData?: ArrayBuffer
-}
-
-export const metadata = async (fpath: string): Promise<ComicFileMetadata> => {
+export const metadata = async (stat: ComicFileStat): Promise<RawLibraryEntry> => {
   try {
-    const fname = path.basename(fpath)
-    const data = await fs.readFile(fpath)
+    const fname = path.basename(stat.path)
+    const data = await fs.readFile(stat.path)
     const parser = new Parser()
     let corrupt = false
     let archive = null
@@ -28,14 +22,16 @@ export const metadata = async (fpath: string): Promise<ComicFileMetadata> => {
     }
 
     return {
-      path: fpath,
-      name: fname,
+      filePath: stat.path,
+      fileName: fname,
+      fileLastModified: stat.lastModified,
+      fileLastProcessed: Date.now(),
       corrupt,
       coverData
     }
   } catch (e) {
     if (e.code === 'ENOENT')
-      throw new Error(`File does not exist: ${fpath}`)
+      throw new Error(`File does not exist: ${stat.path}`)
     else throw e
   }
 }
