@@ -18,7 +18,7 @@ export const scan = (dir: string) => {
   })
 }
 
-export const getMetadata = async (fpath: string): Promise<ComicFileMetadata> => {
+export const metadata = async (fpath: string): Promise<ComicFileMetadata> => {
   try {
     const fname = path.basename(fpath)
     const data = await fs.readFile(fpath)

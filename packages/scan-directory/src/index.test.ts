@@ -4,7 +4,7 @@
 
 import path from 'path'
 import fs from 'fs/promises'
-import { getMetadata, scan } from './'
+import { metadata, scan } from './'
 
 describe('scan', () => {
   it('returns the paths of all CBR and CBZ files in a directory as absolute paths', async () => {
@@ -21,12 +21,12 @@ describe('scan', () => {
   })
 })
 
-describe('getMetadata', () => {
+describe('metadata', () => {
   it.each([
     fixturePath('whatever.cbr'),
     fixturePath('cool.cbr'),
   ])('throws an error if the file does not exist', async (fpath) => {
-    await expect(getMetadata(fpath)).rejects
+    await expect(metadata(fpath)).rejects
       .toEqual(new Error(`File does not exist: ${fpath}`))
   })
 
@@ -34,7 +34,7 @@ describe('getMetadata', () => {
     'wytches-sample.cbz',
     'phonogram-sample.cbr',
   ])('returns metadata about the file', async (fname) => {
-    const comic = await getMetadata(fixturePath(fname))
+    const comic = await metadata(fixturePath(fname))
 
     expect(comic).toMatchObject({
       name: fname,
@@ -47,7 +47,7 @@ describe('getMetadata', () => {
     ['wytches-sample.cbz', fixturePath('wytches-sample', '0001.jpeg')],
     ['phonogram-sample.cbr', fixturePath('phonogram-sample', '0001.jpeg')],
   ])('generates a cover image for the file', async (fname, imagePath) => {
-    const comic = await getMetadata(fixturePath(fname))
+    const comic = await metadata(fixturePath(fname))
 
     expect(comic.coverData).not.toEqual(undefined)
 
@@ -67,7 +67,7 @@ describe('getMetadata', () => {
       fixturePath('fake-comic-file.cbz'),
       fixturePath('folder', 'another-fake-file.cbr'),
     ])('marks the file corrupt', async (fpath) => {
-      const comic = await getMetadata(fpath)
+      const comic = await metadata(fpath)
 
       expect(comic.corrupt).toEqual(true)
     })
