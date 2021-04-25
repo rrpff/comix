@@ -1,6 +1,6 @@
 {
   "name": "@comix/parser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "keywords": [
     "comics",
@@ -16,7 +16,8 @@
   "types": "./dist/commonjs/types/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build:watch": "rollup -c",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
     "test": "jest"
   },
   "devDependencies": {

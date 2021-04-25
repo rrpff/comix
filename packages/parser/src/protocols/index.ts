@@ -21,7 +21,7 @@ export interface ComicPage {
 }
 
 export interface ComicParser {
-  parse(file: File): Promise<Comic>
+  parse(archive: File | ArrayBuffer, name: string): Promise<Comic>
 }
 
 export interface ComicReaderEvents {

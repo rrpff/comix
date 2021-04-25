@@ -6,7 +6,7 @@ import { Comic, ComicPage, ComicReader, ComicReaderEvents } from './protocols'
 export class Reader extends EventEmitter<ComicReaderEvents> implements ComicReader {
   static async read(file: File): Promise<Reader> {
     const parser = new Parser()
-    const comic = await parser.parse(file)
+    const comic = await parser.parse(file, file.name)
     const reader = new Reader(comic)
     await reader.goto(0)
 

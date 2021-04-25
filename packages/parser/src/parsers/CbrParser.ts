@@ -4,11 +4,13 @@ import { entryIsPage, sortByAsc } from '../utils'
 import createUnrarWasmBinary from '../wasm/createUnrarWasmBinary'
 
 export class CbrParser implements ComicParser {
-  public async parse(file: File): Promise<Comic> {
-    const wasmBinary = createUnrarWasmBinary()
-    const data = await file.arrayBuffer()
+  public async parse(input: File | ArrayBuffer, name: string): Promise<Comic> {
+    const data = input instanceof ArrayBuffer ? input : await input.arrayBuffer()
 
-    const archive = await createExtractorFromData({ data, wasmBinary })
+    const archive = input instanceof ArrayBuffer
+      ? await createExtractorFromData({ data })
+      : await createExtractorFromData({ data, wasmBinary: createUnrarWasmBinary() })
+
     const entries = Array.from(archive.getFileList().fileHeaders)
       .filter(rarEntryIsPage)
       .sort(sortByAsc('name'))
@@ -24,7 +26,7 @@ export class CbrParser implements ComicParser {
     }))
 
     return {
-      name: file.name,
+      name: name,
       images: images
     }
   }

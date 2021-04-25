@@ -3,8 +3,8 @@ import { entryIsPage, sortByAsc } from '../utils'
 import { ComicParser, Comic } from '../protocols'
 
 export class CbzParser implements ComicParser {
-  public async parse(file: File): Promise<Comic> {
-    const archive = await unzip(file)
+  public async parse(input: File | ArrayBuffer, name: string): Promise<Comic> {
+    const archive = await unzip(input)
     const entries = Object.keys(archive.entries)
       .map(key => archive.entries[key])
       .filter(zipEntryIsPage)
@@ -17,7 +17,7 @@ export class CbzParser implements ComicParser {
     }))
 
     return {
-      name: file.name,
+      name: name,
       images: images
     }
   }
