@@ -37,9 +37,9 @@ module.exports = {
           cwd: path.join(__dirname, 'packages', 'ui'),
         },
         {
-          label: '@comix/library-desktop',
+          label: '@comix/desktop',
           command: 'npm run server:build:watch',
-          cwd: path.join(__dirname, 'packages', 'library-desktop'),
+          cwd: path.join(__dirname, 'packages', 'desktop'),
         },
         {
           label: 'electron-react-ipc',
