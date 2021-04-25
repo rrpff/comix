@@ -1,4 +1,4 @@
-interface ComicFileStat {
+export interface ComicFileStat {
   path: string
   lastModified: number
 }
