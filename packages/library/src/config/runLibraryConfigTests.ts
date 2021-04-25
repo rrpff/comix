@@ -5,6 +5,10 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   let subject: LibraryConfig
   beforeEach(() => subject = createSubject())
 
+  it('returns null when the images directory is not set', async () => {
+    expect(await subject.getImagesDirectory()).toEqual(null)
+  })
+
   it.each([
     '/cool-directory',
     '/great/dir',

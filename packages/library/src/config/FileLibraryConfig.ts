@@ -32,8 +32,8 @@ export class FileLibraryConfig implements LibraryConfig {
     return this
   }
 
-  public async getImagesDirectory(): Promise<string> {
-    return this.db!.get('imagesDirectoryPath').value()
+  public async getImagesDirectory(): Promise<string | null> {
+    return this.db!.get('imagesDirectoryPath').value() || null
   }
 
   public async setImagesDirectory(path: string): Promise<void> {
