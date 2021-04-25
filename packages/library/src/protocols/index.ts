@@ -1,22 +1,27 @@
+import { Comic } from '@comix/parser'
+
+export interface MetadataAdapter {
+  process(entry: LibraryEntry, comic: Comic | null): Promise<Partial<LibraryEntry>>
+}
+
 export interface ComicFileStat {
   path: string
   lastModified: number
 }
 
-export interface BaseLibraryEntry {
+export interface LibraryEntry {
   fileName: string
   filePath: string
   fileLastModified: number
   fileLastProcessed: number
   corrupt: boolean
-}
-
-export interface ProcessedLibraryEntry extends BaseLibraryEntry {
   coverFileName?: string
+  adaptions?: LibraryEntryAdaption[]
 }
 
-export interface RawLibraryEntry extends BaseLibraryEntry {
-  coverData?: ArrayBuffer
+export interface LibraryEntryAdaption {
+  source: string
+  changes: Partial<LibraryEntry>
 }
 
 export interface LibraryCollection {
@@ -32,10 +37,9 @@ export interface LibraryConfig {
   getCollections(): Promise<LibraryCollection[]>
   createCollection(collection: LibraryCollection): Promise<LibraryCollection>
   deleteCollection(collectionPath: string): Promise<void>
-  getEntries(collectionPath: string): Promise<ProcessedLibraryEntry[]>
-  getEntry(collectionPath: string, entryPath: string): Promise<ProcessedLibraryEntry>
-  setEntry(collectionPath: string, entryPath: string, entry: ProcessedLibraryEntry): Promise<void>
+  getEntries(collectionPath: string): Promise<LibraryEntry[]>
+  getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry>
+  setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void>
   deleteEntry(collectionPath: string, entryPath: string): Promise<void>
   updateCollection(collectionPath: string, collection: LibraryCollection): Promise<void>
 }
-

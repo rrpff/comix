@@ -1,11 +1,11 @@
 import path from 'path'
-import { LibraryCollection, LibraryConfig, ProcessedLibraryEntry } from '../protocols'
+import { LibraryCollection, LibraryConfig, LibraryEntry } from '../protocols'
 
 export class InMemoryLibraryConfig implements LibraryConfig {
   private config = {
     imagesDirectoryPath: null as string | null,
     collections: [] as LibraryCollection[],
-    entries: {} as { [key: string]: { [key: string]: ProcessedLibraryEntry } }
+    entries: {} as { [key: string]: { [key: string]: LibraryEntry } }
   }
 
   public async load(): Promise<LibraryConfig> {
@@ -40,11 +40,11 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     this.config.collections = this.config.collections.filter(c => c.path !== collectionPath)
   }
 
-  public async getEntries(collectionPath: string): Promise<ProcessedLibraryEntry[]> {
+  public async getEntries(collectionPath: string): Promise<LibraryEntry[]> {
     return Object.values(this.config.entries[collectionPath] || {})
   }
 
-  public async getEntry(collectionPath: string, entryPath: string): Promise<ProcessedLibraryEntry> {
+  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
     try {
       const entry = this.config.entries[collectionPath][entryPath]
       if (entry === undefined) throw ''
@@ -54,7 +54,7 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     }
   }
 
-  public async setEntry(collectionPath: string, entryPath: string, entry: ProcessedLibraryEntry): Promise<void> {
+  public async setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void> {
     await this.getCollection(collectionPath)
     this.config.entries[collectionPath] = this.config.entries[collectionPath] || {}
     this.config.entries[collectionPath][entryPath] = entry

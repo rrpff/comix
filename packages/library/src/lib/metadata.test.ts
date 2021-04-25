@@ -47,20 +47,6 @@ it('returns a last processed time of now for the file', async () => {
   expect(comic.fileLastProcessed).toEqual(now)
 })
 
-it.each([
-  ['wytches-sample.cbz', fixturePath('wytches-sample', '0001.jpeg')],
-  ['phonogram-sample.cbr', fixturePath('phonogram-sample', '0001.jpeg')],
-])('generates a cover image for the file', async (fname, imagePath) => {
-  const comic = await subject(fixturePath(fname))
-
-  expect(comic.coverData).not.toEqual(undefined)
-
-  const expectedImageData = await fs.readFile(imagePath)
-  const actualImageData = Buffer.from(comic.coverData!)
-
-  expect(Buffer.compare(actualImageData, expectedImageData)).toEqual(0)
-})
-
 describe('when the file cannot be parsed', () => {
   beforeEach(() => {
     jest.spyOn(console, 'warn').mockImplementation(() => {})

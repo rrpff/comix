@@ -1,21 +1,17 @@
 import path from 'path'
 import fs from 'fs/promises'
 import { Parser } from '@comix/parser'
-import { ComicFileStat, RawLibraryEntry } from '../protocols'
+import { ComicFileStat, LibraryEntry } from '../protocols'
 
-export const metadata = async (stat: ComicFileStat): Promise<RawLibraryEntry> => {
+export const metadata = async (stat: ComicFileStat): Promise<LibraryEntry> => {
   try {
     const fname = path.basename(stat.path)
     const data = await fs.readFile(stat.path)
     const parser = new Parser()
     let corrupt = false
-    let archive = null
-    let coverData = undefined
 
     try {
-      archive = await parser.parse(Uint8Array.from(data).buffer, fname)
-      const coverImage = archive.images[0]
-      coverData = await coverImage.read()
+      await parser.parse(Uint8Array.from(data).buffer, fname)
     } catch (e) {
       console.error(e)
       corrupt = true
@@ -26,8 +22,7 @@ export const metadata = async (stat: ComicFileStat): Promise<RawLibraryEntry> =>
       fileName: fname,
       fileLastModified: stat.lastModified,
       fileLastProcessed: Date.now(),
-      corrupt,
-      coverData
+      corrupt
     }
   } catch (e) {
     if (e.code === 'ENOENT')

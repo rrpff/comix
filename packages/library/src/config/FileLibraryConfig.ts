@@ -1,7 +1,7 @@
 import path from 'path'
 import lowdb, { LowdbAsync } from 'lowdb'
 import FileASync from 'lowdb/adapters/FileAsync'
-import { LibraryCollection, LibraryConfig, ProcessedLibraryEntry } from '../protocols'
+import { LibraryCollection, LibraryConfig, LibraryEntry } from '../protocols'
 
 export const DEFAULT_JSON_CONFIG = {
   imagesDirectoryPath: null,
@@ -14,7 +14,7 @@ interface JsonConfig {
   collections: LibraryCollection[]
   entries: {
     [key: string]: {
-      [key: string]: ProcessedLibraryEntry
+      [key: string]: LibraryEntry
     }
   }
 }
@@ -64,17 +64,17 @@ export class FileLibraryConfig implements LibraryConfig {
     this.db!.get('entries').unset([collectionPath]).write()
   }
 
-  public async getEntry(collectionPath: string, entryPath: string): Promise<ProcessedLibraryEntry> {
+  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
     const entry = this.db!.get('entries').get([collectionPath]).get(entryPath).value()
     if (entry === undefined) throw new Error(`Entry "${entryPath}" in "${collectionPath}" does not exist`)
     return entry
   }
 
-  public async getEntries(collectionPath: string): Promise<ProcessedLibraryEntry[]> {
+  public async getEntries(collectionPath: string): Promise<LibraryEntry[]> {
     return this.db!.get('entries').get([collectionPath]).values().value()
   }
 
-  public async setEntry(collectionPath: string, entryPath: string, entry: ProcessedLibraryEntry): Promise<void> {
+  public async setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void> {
     await this.getCollection(collectionPath)
     this.db!.get('entries').get([collectionPath]).set([entryPath], entry).write()
   }
