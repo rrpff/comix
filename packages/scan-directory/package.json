@@ -13,6 +13,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "@comix/parser": "file:../parser",
     "globby": "^11.0.3"
   }
 }
