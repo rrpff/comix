@@ -13,11 +13,11 @@
   "license": "ISC",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/esm/index.js",
-  "types": "./dist/commonjs/types/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "rollup -c",
-    "build:watch": "rollup -c --watch",
+    "build": "tsc --declaration --project . --outDir dist && rollup -c",
+    "build:watch": "npm run build && rollup -c --watch",
     "test": "jest"
   },
   "devDependencies": {
