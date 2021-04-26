@@ -43,3 +43,9 @@ export interface LibraryConfig {
   deleteEntry(collectionPath: string, entryPath: string): Promise<void>
   updateCollection(collectionPath: string, collection: LibraryCollection): Promise<void>
 }
+
+export interface ComicLibrary {
+  config: LibraryConfig
+  collections(): Promise<LibraryCollection[]>
+  entries(collectionPath: string): Promise<LibraryEntry[]>
+}
