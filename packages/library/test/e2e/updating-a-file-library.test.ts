@@ -11,104 +11,80 @@ import { CoverMetadataAdapter } from '../../src/adapters/CoverMetadataAdapter'
 import { fixturePath } from '../helpers'
 
 test('Creates entries for new files', async () => {
-  const t = await harness()
+  const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
 
-  try {
-    const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
+  await t.updater.run()
 
-    await t.updater.run()
-
-    const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
-    expect(wytchesEntry).toMatchObject({
-      fileName: wytches.name,
-      filePath: wytches.path,
-      corrupt: false,
-    })
-  } finally {
-    await t.cleanup()
-  }
+  const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
+  expect(wytchesEntry).toMatchObject({
+    fileName: wytches.name,
+    filePath: wytches.path,
+    corrupt: false,
+  })
 })
 
 test('Saves cover images for new files', async () => {
-  const t = await harness()
+  await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
+  await t.updater.run()
 
-  try {
-    await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-    await t.updater.run()
-
-    const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
-    const savedImage = await fs.readFile(path.join(t.imageDir.path, wytchesEntry.coverFileName!))
-    const actualImage = await fs.readFile(fixturePath('wytches-sample', '0001.jpeg'))
-    expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
-  } finally {
-    await t.cleanup()
-  }
+  const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
+  const savedImage = await fs.readFile(path.join(t.imageDir.path, wytchesEntry.coverFileName!))
+  const actualImage = await fs.readFile(fixturePath('wytches-sample', '0001.jpeg'))
+  expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
 })
 
 test('Replaces cover images for changed files', async () => {
-  const t = await harness()
+  const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
+  await t.updater.run()
 
-  try {
-    const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-    await t.updater.run()
+  await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
+  await t.updater.run()
 
-    await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
-    await t.updater.run()
-
-    const entry = (await t.library.entries(t.collection.path))[0]!
-    const savedImage = await fs.readFile(path.join(t.imageDir.path, entry.coverFileName!))
-    const actualImage = await fs.readFile(fixturePath('phonogram-sample', '0001.jpeg'))
-    expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
-  } finally {
-    await t.cleanup()
-  }
+  const entry = (await t.library.entries(t.collection.path))[0]!
+  const savedImage = await fs.readFile(path.join(t.imageDir.path, entry.coverFileName!))
+  const actualImage = await fs.readFile(fixturePath('phonogram-sample', '0001.jpeg'))
+  expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
 })
 
 test('Deletes entries for removed files', async () => {
-  const t = await harness()
+  const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
+  await t.updater.run()
 
-  try {
-    const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-    await t.updater.run()
+  expect(await t.library.entries(t.collection.path)).toHaveLength(1)
 
-    expect(await t.library.entries(t.collection.path)).toHaveLength(1)
+  await t.deleteFileInCollectionDirectory(wytches.path)
+  await t.updater.run()
 
-    await t.deleteFileInCollectionDirectory(wytches.path)
-    await t.updater.run()
-
-    expect(await t.library.entries(t.collection.path)).toHaveLength(0)
-  } finally {
-    await t.cleanup()
-  }
+  expect(await t.library.entries(t.collection.path)).toHaveLength(0)
 })
 
 test('Emits events while processing', async () => {
-  const t = await harness()
+  const spy = jest.fn()
+  t.updater.on('update', spy)
 
-  try {
-    const spy = jest.fn()
-    t.updater.on('update', spy)
+  const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
+  await t.updater.run()
 
-    const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-    await t.updater.run()
+  const entriesAfterCreate = await t.library.entries(t.collection.path)
+  expect(spy).toHaveBeenCalledWith('create', wytches.path, entriesAfterCreate[0])
 
-    const entriesAfterCreate = await t.library.entries(t.collection.path)
-    expect(spy).toHaveBeenCalledWith('create', wytches.path, entriesAfterCreate[0])
+  await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
+  await t.updater.run()
 
-    await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
-    await t.updater.run()
+  const entriesAfterChange = await t.library.entries(t.collection.path)
+  expect(spy).toHaveBeenCalledWith('change', wytches.path, entriesAfterChange[0])
 
-    const entriesAfterChange = await t.library.entries(t.collection.path)
-    expect(spy).toHaveBeenCalledWith('change', wytches.path, entriesAfterChange[0])
+  await t.deleteFileInCollectionDirectory(wytches.path)
+  await t.updater.run()
 
-    await t.deleteFileInCollectionDirectory(wytches.path)
-    await t.updater.run()
-
-    expect(spy).toHaveBeenCalledWith('delete', wytches.path)
-  } finally {
-    await t.cleanup()
-  }
+  expect(spy).toHaveBeenCalledWith('delete', wytches.path)
 })
+
+type PromiseType<T extends Promise<any>> = T extends Promise<infer R> ? R : never;
+
+let t: PromiseType<ReturnType<typeof harness>>
+beforeEach(async () => t = await harness())
+afterEach(async () => t.cleanup())
 
 const harness = async () => {
   const configFile = await tmp.file()
