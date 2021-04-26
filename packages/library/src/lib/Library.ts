@@ -1,13 +1,19 @@
 import { ComicLibrary, LibraryCollection, LibraryConfig, LibraryEntry } from '../protocols'
 
 export class Library implements ComicLibrary {
-  constructor(public config: LibraryConfig) {}
+  private finishLoading: Promise<any> = Promise.resolve()
 
-  collections(): Promise<LibraryCollection[]> {
+  constructor(public config: LibraryConfig) {
+    this.finishLoading = config.load()
+  }
+
+  async collections(): Promise<LibraryCollection[]> {
+    await this.finishLoading
     return this.config.getCollections()
   }
 
-  entries(collectionPath: string): Promise<LibraryEntry[]> {
+  async entries(collectionPath: string): Promise<LibraryEntry[]> {
+    await this.finishLoading
     return this.config.getEntries(collectionPath)
   }
 }
