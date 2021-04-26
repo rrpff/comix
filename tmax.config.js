@@ -32,6 +32,11 @@ module.exports = {
           cwd: path.join(__dirname, 'packages', 'scan-directory'),
         },
         {
+          label: '@comix/comicvine-metadata-adapter',
+          command: 'npm run build:watch',
+          cwd: path.join(__dirname, 'packages', 'comicvine-metadata-adapter'),
+        },
+        {
           label: 'electron-react-ipc',
           command: 'npm run build:watch',
           cwd: path.join(__dirname, 'packages', 'electron-react-ipc'),
