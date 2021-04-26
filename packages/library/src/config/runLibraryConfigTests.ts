@@ -1,4 +1,4 @@
-import { LibraryConfig, ProcessedLibraryEntry } from '../protocols'
+import { LibraryConfig, LibraryEntry } from '../protocols'
 import { fixturePath } from '../../test/helpers'
 
 export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
@@ -204,7 +204,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 }
 
-export function createEntry(overrides: Partial<ProcessedLibraryEntry> = {}): ProcessedLibraryEntry {
+export function createEntry(overrides: Partial<LibraryEntry> = {}): LibraryEntry {
   const filename = `example-comic-${Math.random()}.cbz`
 
   return {
@@ -214,6 +214,7 @@ export function createEntry(overrides: Partial<ProcessedLibraryEntry> = {}): Pro
     fileLastProcessed: 456,
     corrupt: false,
     coverFileName: undefined,
+    adaptions: [],
     ...overrides
   }
 }

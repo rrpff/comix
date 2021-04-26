@@ -16,7 +16,7 @@ export interface LibraryEntry {
   fileLastProcessed: number
   corrupt: boolean
   coverFileName?: string
-  adaptions?: LibraryEntryAdaption[]
+  adaptions: LibraryEntryAdaption[]
 }
 
 export interface LibraryEntryAdaption {
