@@ -18,21 +18,29 @@ export class CollectionUpdater extends EventEmitter implements ComicCollectionUp
 
     const diff = await this.config.scanDirectory(collection.path, knownFiles)
 
-    await Promise.all(diff.created.map(async stat => {
+    await sequence(diff.created, async stat => {
       const entry = await this.config.getMetadataForFile(stat)
       await library.config.setEntry(collection.path, stat.path, entry)
       this.emit('update', 'create', stat.path, entry)
-    }))
+    })
 
-    await Promise.all(diff.changed.map(async stat => {
+    await sequence(diff.changed, async stat => {
       const entry = await this.config.getMetadataForFile(stat)
       await library.config.setEntry(collection.path, stat.path, entry)
       this.emit('update', 'change', stat.path, entry)
-    }))
+    })
 
-    await Promise.all(diff.deleted.map(async stat => {
+    await sequence(diff.deleted, async stat => {
       await library.config.deleteEntry(collection.path, stat.path)
       this.emit('update', 'delete', stat.path)
-    }))
+    })
+  }
+}
+
+async function sequence<T, U>(items: U[], handle: (item: U) => Promise<T>) {
+  let remaining = items
+
+  while (remaining.length > 0) {
+    await handle(remaining.shift()!)
   }
 }
