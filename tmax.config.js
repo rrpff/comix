@@ -4,26 +4,6 @@ module.exports = {
   title: '@comix',
   panes: [
     {
-      label: 'Web',
-      command: 'npm start',
-      cwd: path.join(__dirname, 'packages', 'web-reader'),
-    },
-    {
-      label: 'UI',
-      commands: [
-        {
-          label: 'Story Server',
-          command: 'npm start',
-          cwd: path.join(__dirname, 'packages', 'web-reader', '.storybook', 'server'),
-        },
-        {
-          label: 'Storybook',
-          command: 'npm run storybook',
-          cwd: path.join(__dirname, 'packages', 'web-reader'),
-        }
-      ]
-    },
-    {
       label: 'Builds',
       commands: [
         {
@@ -40,6 +20,16 @@ module.exports = {
           label: '@comix/desktop',
           command: 'npm run server:build:watch',
           cwd: path.join(__dirname, 'packages', 'desktop'),
+        },
+        {
+          label: '@comix/library',
+          command: 'npm run build:watch',
+          cwd: path.join(__dirname, 'packages', 'library'),
+        },
+        {
+          label: '@comix/scan-directory',
+          command: 'npm run build:watch',
+          cwd: path.join(__dirname, 'packages', 'scan-directory'),
         },
         {
           label: 'electron-react-ipc',
