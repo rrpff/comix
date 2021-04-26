@@ -1,9 +1,10 @@
 import path from 'path'
 import fs from 'fs/promises'
 import { Comic, Parser } from '@comix/parser'
-import { ComicFileStat, LibraryEntry, MetadataAdapter } from '../protocols'
+import { FileStat } from '@comix/scan-directory'
+import { LibraryEntry, MetadataAdapter } from '../protocols'
 
-export const metadata = async (stat: ComicFileStat, adapters: MetadataAdapter[]): Promise<LibraryEntry> => {
+export const metadata = async (stat: FileStat, adapters: MetadataAdapter[]): Promise<LibraryEntry> => {
   try {
     const fname = path.basename(stat.path)
     const data = await fs.readFile(stat.path)

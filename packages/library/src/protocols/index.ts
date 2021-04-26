@@ -1,12 +1,8 @@
+import { EventEmitter } from 'events'
 import { Comic } from '@comix/parser'
 
 export interface MetadataAdapter {
   process(entry: LibraryEntry, comic: Comic | null): Promise<Partial<LibraryEntry>>
-}
-
-export interface ComicFileStat {
-  path: string
-  lastModified: number
 }
 
 export interface LibraryEntry {
@@ -48,4 +44,12 @@ export interface ComicLibrary {
   config: LibraryConfig
   collections(): Promise<LibraryCollection[]>
   entries(collectionPath: string): Promise<LibraryEntry[]>
+}
+
+export interface ComicLibraryUpdater extends EventEmitter {
+  update(library: ComicLibrary): Promise<void>
+}
+
+export interface ComicCollectionUpdater extends EventEmitter {
+  update(library: ComicLibrary, collection: LibraryCollection): Promise<void>
 }

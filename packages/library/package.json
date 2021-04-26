@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@comix/parser": "file:../parser",
+    "@comix/scan-directory": "file:../scan-directory",
     "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",
     "uuid": "^8.3.2"
