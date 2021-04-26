@@ -1,1 +1,8 @@
-export {}
+export { CollectionUpdater } from './updaters/CollectionUpdater'
+export { CoverMetadataAdapter } from './adapters/CoverMetadataAdapter'
+export { FileLibraryConfig } from './config/FileLibraryConfig'
+export { InMemoryLibraryConfig } from './config/InMemoryLibraryConfig'
+export { Library } from './lib/Library'
+export { LibraryUpdater } from './updaters/LibraryUpdater'
+export { metadata } from './lib/metadata'
+export * from './protocols'
