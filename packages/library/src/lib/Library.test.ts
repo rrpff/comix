@@ -10,18 +10,6 @@ it('exposes its config', () => {
 })
 
 it.each([
-  (l: Library) => l.collections(),
-  (l: Library) => l.entries('/whatever'),
-])('ensures config is loaded before access', (access) => {
-  const config = new InMemoryLibraryConfig()
-  config.load = jest.fn(() => null)
-
-  access(new Library(config))
-
-  expect(config.load).toHaveReturned()
-})
-
-it.each([
   [[]],
   [[{ path: '/comics', name: 'comics' }]],
   [[{ path: '/stuff', name: 'stuff' }, { path: '/great', name: 'great' }]],

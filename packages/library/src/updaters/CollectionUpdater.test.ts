@@ -28,7 +28,7 @@ it('creates an entry in config for each new file', async () => {
 })
 
 it('updates existing entries for each changed file', async () => {
-  const { original, changed } = t.changeFileInCollectionDirectory()
+  const { original, changed } = await t.changeFileInCollectionDirectory()
 
   expect(await t.library.entries(t.collectionPath)).toEqual([original])
 
@@ -38,7 +38,7 @@ it('updates existing entries for each changed file', async () => {
 })
 
 it('removes deleted files from config', async () => {
-  const { entry } = t.deleteFileInCollectionDirectory()
+  const { entry } = await t.deleteFileInCollectionDirectory()
 
   expect(await t.library.entries(t.collectionPath)).toEqual([entry])
 
@@ -61,7 +61,7 @@ it('emits an update event on changes', async () => {
   const spy = jest.fn()
   t.updater.on('update', spy)
 
-  const { changed } = t.changeFileInCollectionDirectory()
+  const { changed } = await t.changeFileInCollectionDirectory()
   await t.runUpdater()
 
   expect(spy).toHaveBeenCalledWith('change', changed.filePath, changed)
@@ -71,7 +71,7 @@ it('emits an update event on deletions', async () => {
   const spy = jest.fn()
   t.updater.on('update', spy)
 
-  const { stat } = t.deleteFileInCollectionDirectory()
+  const { stat } = await t.deleteFileInCollectionDirectory()
   await t.runUpdater()
 
   expect(spy).toHaveBeenCalledWith('delete', stat.path)
@@ -127,23 +127,23 @@ class TestHarness {
     return { stat, entry }
   }
 
-  public changeFileInCollectionDirectory() {
+  public async changeFileInCollectionDirectory() {
     const original = createRandomEntry()
     const changed = { ...original, fileLastModified: original.fileLastModified + 100 }
     const stat = { path: original.filePath, lastModified: 0 }
 
     this.filesInCollectionDirectory.push(stat)
     this.metadatas[original.filePath] = changed
-    this.config.setEntry(this.collectionPath, original.filePath, original)
+    await this.config.setEntry(this.collectionPath, original.filePath, original)
 
     return { stat, original, changed }
   }
 
-  public deleteFileInCollectionDirectory() {
+  public async deleteFileInCollectionDirectory() {
     const entry = createRandomEntry()
     const stat = { path: entry.filePath, lastModified: 0 }
 
-    this.config.setEntry(this.collectionPath, entry.filePath, entry)
+    await this.config.setEntry(this.collectionPath, entry.filePath, entry)
 
     return { entry, stat }
   }

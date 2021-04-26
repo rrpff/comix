@@ -26,7 +26,6 @@ export interface LibraryCollection {
 }
 
 export interface LibraryConfig {
-  load(): Promise<LibraryConfig>
   getImagesDirectory(): Promise<string | null>
   setImagesDirectory(path: string): Promise<void>
   getCollection(path: string): Promise<LibraryCollection>
