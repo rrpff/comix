@@ -4,8 +4,7 @@ import { ComicCollectionUpdater, ComicLibrary, LibraryCollection, LibraryEntry }
 
 interface CollectionUpdaterConfig {
   getMetadataForFile: (stat: FileStat) => Promise<LibraryEntry>
-  scanDirectory: (dir: string) => FileStat[]
-  diffFiles: (now: FileStat[], then: FileStat[]) => FileDiff
+  scanDirectory: (dir: string, knownFiles: FileStat[]) => Promise<FileDiff>
 }
 
 export class CollectionUpdater extends EventEmitter implements ComicCollectionUpdater {
@@ -14,8 +13,10 @@ export class CollectionUpdater extends EventEmitter implements ComicCollectionUp
   }
 
   public async update(library: ComicLibrary, collection: LibraryCollection): Promise<void> {
-    const files = this.config.scanDirectory(collection.path)
-    const diff = this.config.diffFiles(files, [])
+    const knownFiles = (await library.config.getEntries(collection.path))
+      .map(entry => ({ path: entry.filePath, lastModified: entry.fileLastModified }))
+
+    const diff = await this.config.scanDirectory(collection.path, knownFiles)
 
     await Promise.all(diff.created.map(async stat => {
       const entry = await this.config.getMetadataForFile(stat)

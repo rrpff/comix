@@ -1,8 +1,9 @@
-import { FileStat, FileDiff } from '@comix/scan-directory'
+import { FileStat } from '@comix/scan-directory'
 import { LibraryCollection, LibraryConfig, LibraryEntry } from '../protocols'
 import { Library } from '../lib/Library'
 import { InMemoryLibraryConfig } from '../config/InMemoryLibraryConfig'
 import { CollectionUpdater } from './CollectionUpdater'
+import { diff } from '@comix/scan-directory'
 
 let t: TestHarness
 beforeEach(() => {
@@ -95,21 +96,15 @@ class TestHarness {
   public collectionPath: string = '/test'
   public updater: CollectionUpdater = new CollectionUpdater({
     getMetadataForFile: async (stat) => this.metadatas[stat.path],
-    diffFiles: () => this.diff,
-    scanDirectory: (path: string) => {
+    scanDirectory: async (path: string, knownFiles: FileStat[]) => {
       if (path !== this.collectionPath) throw new Error('Scanning the wrong directory')
-      return this.knownFiles
+      return diff(this.filesInCollectionDirectory, knownFiles)
     }
   })
 
   private finishLoading: Promise<any> = Promise.resolve()
   private metadatas: { [key: string]: LibraryEntry } = {}
-  private knownFiles: FileStat[] = []
-  private diff: FileDiff = {
-    created: [],
-    changed: [],
-    deleted: [],
-  }
+  private filesInCollectionDirectory: FileStat[] = []
 
   constructor() {
     this.finishLoading = this.config.createCollection(this.collection)
@@ -119,15 +114,14 @@ class TestHarness {
     const entry = createRandomEntry()
 
     this.config.setEntry(this.collectionPath, path, entry)
-    this.knownFiles.push({ path, lastModified: 0 })
+    this.filesInCollectionDirectory.push({ path, lastModified: 0 })
   }
 
   public addCreatedFileToCollectionDirectory() {
     const entry = createRandomEntry()
     const stat = { path: entry.filePath, lastModified: 0 }
 
-    this.diff.created.push(stat)
-    this.knownFiles.push(stat)
+    this.filesInCollectionDirectory.push(stat)
     this.metadatas[entry.filePath] = entry
 
     return { stat, entry }
@@ -138,8 +132,7 @@ class TestHarness {
     const changed = { ...original, fileLastModified: original.fileLastModified + 100 }
     const stat = { path: original.filePath, lastModified: 0 }
 
-    this.diff.changed.push(stat)
-    this.knownFiles.push(stat)
+    this.filesInCollectionDirectory.push(stat)
     this.metadatas[original.filePath] = changed
     this.config.setEntry(this.collectionPath, original.filePath, original)
 
@@ -150,7 +143,6 @@ class TestHarness {
     const entry = createRandomEntry()
     const stat = { path: entry.filePath, lastModified: 0 }
 
-    this.diff.deleted.push(stat)
     this.config.setEntry(this.collectionPath, entry.filePath, entry)
 
     return { entry, stat }
