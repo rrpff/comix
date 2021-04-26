@@ -39,14 +39,14 @@ it.each([
   })
 })
 
-it('proxies change events from the collection updater', async () => {
+it('proxies update events from the collection updater', async () => {
   const { collectionUpdater, updater } = subject()
   const spy = jest.fn()
   const value = [Math.random(), Math.random(), Math.random()]
 
-  updater.on('change', spy)
+  updater.on('update', spy)
   updater.run()
-  collectionUpdater.emit('change', ...value)
+  collectionUpdater.emit('update', ...value)
 
   expect(spy).toHaveBeenCalledWith(...value)
 })
