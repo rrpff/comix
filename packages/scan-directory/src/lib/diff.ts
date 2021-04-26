@@ -1,9 +1,15 @@
-export interface ComicFileStat {
+export interface FileStat {
   path: string
   lastModified: number
 }
 
-export const diff = (now: ComicFileStat[], then: ComicFileStat[]) => {
+export interface FileDiff {
+  created: FileStat[]
+  changed: FileStat[]
+  deleted: FileStat[]
+}
+
+export const diff = (now: FileStat[], then: FileStat[]): FileDiff => {
   const created = now.filter(stat => {
     return !then.some(f => f.path === stat.path)
   })

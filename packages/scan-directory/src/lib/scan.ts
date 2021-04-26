@@ -1,10 +1,10 @@
 import fs from 'fs/promises'
 import globby from 'globby'
 
-export const scan = async (dir: string) => {
+export const scan = async (dir: string, extensions: string[]) => {
   const results = await globby(dir, {
     expandDirectories: {
-      extensions: ['cbr', 'cbz']
+      extensions
     }
   })
 
