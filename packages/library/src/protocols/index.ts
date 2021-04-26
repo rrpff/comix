@@ -11,8 +11,11 @@ export interface LibraryEntry {
   fileLastModified: number
   fileLastProcessed: number
   corrupt: boolean
-  coverFileName?: string
   adaptions: LibraryEntryAdaption[]
+
+  coverFileName?: string
+  volumeName?: string
+  volumeYear?: number
 }
 
 export interface LibraryEntryAdaption {
