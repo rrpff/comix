@@ -122,9 +122,6 @@ const harness = async () => {
   ]
 
   const config = new FileLibraryConfig(configFile.path)
-  await config.load()
-  teardowns.push(async () => await config.db?.write())
-
   const collection = await config.createCollection({
     name: 'E2E Test Collection',
     path: collectionDir.path,

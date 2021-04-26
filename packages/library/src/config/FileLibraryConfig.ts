@@ -1,6 +1,5 @@
 import path from 'path'
-import lowdb, { LowdbAsync } from 'lowdb'
-import FileASync from 'lowdb/adapters/FileAsync'
+import Datastore from 'nedb-promises'
 import { LibraryCollection, LibraryConfig, LibraryEntry } from '../protocols'
 
 export const DEFAULT_JSON_CONFIG = {
@@ -9,101 +8,85 @@ export const DEFAULT_JSON_CONFIG = {
   entries: {}
 }
 
-interface JsonConfig {
-  imagesDirectoryPath: string
-  collections: LibraryCollection[]
-  entries: {
-    [key: string]: {
-      [key: string]: LibraryEntry
-    }
-  }
-}
+type SettingDoc = { type: 'setting', key: string, value: any }
+type CollectionDoc = { type: 'collection', collection: LibraryCollection }
+type EntryDoc = { type: 'entry', collection: string, entry: LibraryEntry }
 
 export class FileLibraryConfig implements LibraryConfig {
-  public db?: LowdbAsync<JsonConfig>
+  private db: Datastore
 
-  constructor(private filePath: string) {}
-
-  public async load() {
-    const adapter = new FileASync<JsonConfig>(this.filePath)
-    this.db = await lowdb(adapter)
-    await this.db.defaults(DEFAULT_JSON_CONFIG).write()
-    await this.db.read()
-    return this
+  constructor(filePath: string) {
+    this.db = Datastore.create({ filename: filePath })
   }
 
   public async getImagesDirectory(): Promise<string | null> {
-    return this.db!.get('imagesDirectoryPath').value() || null
+    const settings = await this.db.find<SettingDoc>({ type: 'setting', key: 'images-directory' })
+    return settings.length > 0 ? settings[0].value : null
   }
 
   public async setImagesDirectory(path: string): Promise<void> {
-    this.db!.set('imagesDirectoryPath', path).write()
-  }
-
-  public async getCollections(): Promise<LibraryCollection[]> {
-    return this.db!.get('collections').value()
+    await this.db.remove({ type: 'setting', key: 'images-directory' }, { multi: true })
+    await this.db.insert({ type: 'setting', key: 'images-directory', value: path })
   }
 
   public async getCollection(path: string): Promise<LibraryCollection> {
-    const collection = this.db!.get('collections').find(c => c.path === path).value()
-    if (!collection) throw new Error(`Collection "${path}" does not exist`)
-    return collection
+    const doc = await this.db.findOne<CollectionDoc>({ type: 'collection', 'collection.path': path })
+    if (!doc) throw new Error(`Collection "${path}" does not exist`)
+
+    return doc.collection
+  }
+
+  public async getCollections(): Promise<LibraryCollection[]> {
+    return (await this.db.find<CollectionDoc>({ type: 'collection' })).map(r => r.collection)
   }
 
   public async createCollection(collection: LibraryCollection): Promise<LibraryCollection> {
-    this.db!.get('collections').push({ ...collection }).write()
-
-    const entries = this.db!.get('entries').get(collection.path).value()
-    if (entries === undefined) this.db!.get('entries').set(collection.path, {}).write()
-
-    return collection
+    return (await this.db.insert<CollectionDoc>({ type: 'collection', collection })).collection
   }
 
   public async deleteCollection(collectionPath: string): Promise<void> {
-    this.db!.get('collections').remove(c => c.path === collectionPath).write()
-    this.db!.get('entries').unset([collectionPath]).write()
-  }
-
-  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
-    const entry = this.db!.get('entries').get([collectionPath]).get(entryPath).value()
-    if (entry === undefined) throw new Error(`Entry "${entryPath}" in "${collectionPath}" does not exist`)
-    return entry
+    await this.db.remove({ type: 'collection', 'collection.path': collectionPath }, { multi: true })
   }
 
   public async getEntries(collectionPath: string): Promise<LibraryEntry[]> {
-    return this.db!.get('entries').get([collectionPath]).values().value()
+    return (await this.db.find<EntryDoc>({ type: 'entry', collection: collectionPath })).map(r => r.entry)
+  }
+
+  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
+    const query = { type: 'entry', collection: collectionPath, 'entry.filePath': entryPath }
+    const doc = await this.db.findOne<EntryDoc>(query)
+    if (!doc) throw new Error(`Entry "${entryPath}" in "${collectionPath}" does not exist`)
+
+    return doc.entry
   }
 
   public async setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void> {
     await this.getCollection(collectionPath)
-    this.db!.get('entries').get([collectionPath]).set([entryPath], entry).write()
+    await this.db.remove({ type: 'entry', collection: collectionPath, 'entry.filePath': entryPath }, { multi: true })
+    await this.db.insert<EntryDoc>({ type: 'entry', collection: collectionPath, entry })
   }
 
   public async deleteEntry(collectionPath: string, entryPath: string): Promise<void> {
-    this.db!.get('entries').get([collectionPath]).unset([entryPath]).write()
+    await this.db.remove(
+      { type: 'entry', collection: collectionPath, 'entry.filePath': entryPath },
+      { multi: true }
+    )
   }
 
   public async updateCollection(originalPath: string, collection: LibraryCollection): Promise<void> {
     const entries = await this.getEntries(originalPath)
-    const newEntries = entries.reduce((acc, entry) => {
+    const newEntries = entries.map(entry => {
       const relativePath = path.relative(originalPath, entry.filePath)
       const newPath = path.join(collection.path, relativePath)
-      const newEntry = { ...entry, filePath: newPath }
 
-      return { ...acc, [newPath]: newEntry }
-    }, {})
+      return { ...entry, filePath: newPath }
+    })
 
-    this.db!.get('collections')
-      .find(c => c.path === originalPath)
-      .assign({ ...collection })
-      .write()
-
-    this.db!.get('entries')
-      .set([collection.path], newEntries)
-      .write()
-
-    this.db!.get('entries')
-      .unset([originalPath])
-      .write()
+    await this.db.remove({ type: 'collection', 'collection.path': originalPath }, { multi: true })
+    await this.db.remove({ type: 'entry', collection: originalPath }, { multi: true })
+    await this.db.insert<CollectionDoc>({ type: 'collection', collection })
+    await this.db.insert<EntryDoc[]>(newEntries.map(entry => (
+      { type: 'entry', collection: collection.path, entry }
+    )))
   }
 }

@@ -3,37 +3,28 @@ import { fixturePath } from '../../test/helpers'
 import { DEFAULT_JSON_CONFIG, FileLibraryConfig } from './FileLibraryConfig'
 import { runLibraryConfigTests } from './runLibraryConfigTests'
 
+const filePath = fixturePath('outputs', 'file-config.json')
 let subject: FileLibraryConfig
-const file = fixturePath('outputs', 'file-config.json')
-beforeEach(async () => subject = await (new FileLibraryConfig(file)).load())
+beforeEach(async () => subject = new FileLibraryConfig(filePath))
 afterEach(async () => {
   try {
-    await subject.db!.write()
-    await fs.rm(file)
+    await fs.rm(filePath)
   } catch {}
 })
-
-const configFileState = async () => {
-  await subject.db?.write()
-  return JSON.parse((await fs.readFile(file)).toString())
-}
-
 runLibraryConfigTests(() => subject)
 
-it.each([
-  ['/fake/directory'],
-  ['/another/fake/directory'],
-])('retrieves config from the given config file', async (imagesDirectoryPath) => {
-  await fs.writeFile(file, JSON.stringify({ imagesDirectoryPath }))
-  const subject = await new FileLibraryConfig(file).load()
-  expect(await subject.getImagesDirectory()).toEqual(imagesDirectoryPath)
-})
+it('retrieves config from the given config file', async () => {
+  const fileClonePath = fixturePath('outputs', 'file-config-clone.json')
 
-it('creates the given config file if it does not exist', async () => {
-  expect(await configFileState()).toEqual(DEFAULT_JSON_CONFIG)
-})
+  try {
+    const imagesDirectoryPath = Math.random().toString()
+    await subject.setImagesDirectory(imagesDirectoryPath)
 
-it('writes changes to the config file', async () => {
-  await subject.setImagesDirectory('/best/dir')
-  expect(await configFileState()).toMatchObject({ imagesDirectoryPath: '/best/dir' })
+    await fs.copyFile(filePath, fileClonePath)
+
+    const clone = new FileLibraryConfig(fileClonePath)
+    expect(await clone.getImagesDirectory()).toEqual(imagesDirectoryPath)
+  } finally {
+    fs.rm(fixturePath('outputs', 'file-config-clone.json'))
+  }
 })

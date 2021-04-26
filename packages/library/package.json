@@ -8,18 +8,18 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/lowdb": "^1.0.9",
     "@types/mkdirp": "^1.0.1",
     "@types/uuid": "^8.3.0",
     "jest": "^26.6.3",
+    "tmp-promise": "^3.0.2",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"
   },
   "dependencies": {
     "@comix/parser": "file:../parser",
     "@comix/scan-directory": "file:../scan-directory",
-    "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",
+    "nedb-promises": "^4.1.2",
     "uuid": "^8.3.2"
   }
 }

@@ -143,7 +143,12 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     await subject.setEntry('/wonder-woman', entries[0].filePath, entries[0])
     await subject.setEntry('/wonder-woman', entries[1].filePath, entries[1])
 
-    expect(await subject.getEntries('/wonder-woman')).toEqual(entries)
+    const sortByFileName = (a: LibraryEntry, b: LibraryEntry) =>
+      a.fileName < b.fileName ? -1 :
+      a.fileName > b.fileName ? 1 : 0
+
+    expect((await subject.getEntries('/wonder-woman')).sort(sortByFileName))
+      .toEqual(entries.sort(sortByFileName))
   })
 
   it('only returns entries in that collection', async () => {
