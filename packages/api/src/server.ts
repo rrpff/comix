@@ -1,4 +1,5 @@
-import { ApolloServer } from 'apollo-server-express'
+import http from 'http'
+import { ApolloServer, PubSub } from 'apollo-server-express'
 import express from 'express'
 import { Library } from '@comix/library'
 import schema from './schema'
@@ -11,6 +12,7 @@ interface ServerOptions {
 
 export default ({ library }: ServerOptions) => {
   const app = express()
+  const pubsub = new PubSub()
 
   const context = (): GraphqlContext => {
     const requestContext = { library }
@@ -18,6 +20,7 @@ export default ({ library }: ServerOptions) => {
     return {
       ...requestContext,
       loaders: createLoaders(requestContext),
+      pubsub: pubsub
     }
   }
 
@@ -26,7 +29,9 @@ export default ({ library }: ServerOptions) => {
     context
   })
 
+  const server = http.createServer(app)
   apollo.applyMiddleware({ app, path: '/graphql' })
+  apollo.installSubscriptionHandlers(server)
 
-  return app
+  return server
 }

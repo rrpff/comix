@@ -21,6 +21,10 @@ const BaseSchema = gql`
   type Mutation {
     dummy: String
   }
+
+  type Subscription {
+    dummy: String
+  }
 `
 
 const typeDefs = [
@@ -38,6 +42,11 @@ const resolvers: Resolvers = {
     updateCollection,
     deleteCollection,
   },
+  Subscription: {
+    collectionCreated: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['COLLECTION_CREATED'])
+    }
+  }
 }
 
 export default makeExecutableSchema<GraphqlContext>({

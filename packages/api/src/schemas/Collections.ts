@@ -1,6 +1,10 @@
 import { gql } from 'graphql-tag'
 
 export default gql`
+  type LibraryCollectionRef {
+    path: String!
+  }
+
   type LibraryCollection {
     name: String!
     path: String!
@@ -33,5 +37,9 @@ export default gql`
     createCollection(input: CollectionCreateInput!): LibraryCollection!
     updateCollection(input: CollectionUpdateInput!): LibraryCollection!
     deleteCollection(input: CollectionDeleteInput!): MutationResult!
+  }
+
+  extend type Subscription {
+    collectionCreated: LibraryCollection!
   }
 `
