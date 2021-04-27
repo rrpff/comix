@@ -1,8 +1,10 @@
-export * from './generated'
+import { Library } from '@comix/library'
 
 export interface DataLoaders {}
 
-export interface RequestContext {}
+export interface RequestContext {
+  library: Library
+}
 
 export interface DataLoaderContext extends RequestContext {}
 

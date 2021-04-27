@@ -1,5 +1,9 @@
 import { gql } from 'graphql-tag'
 import { makeExecutableSchema } from 'graphql-tools'
+import CollectionsSchema from './schemas/Collections'
+import { GraphqlContext } from './types'
+import { Resolvers } from './types/schema'
+import { collections } from './queries/collections'
 
 const BaseSchema = gql`
   type Query {
@@ -11,12 +15,19 @@ const BaseSchema = gql`
   }
 `
 
-const resolvers = {
-  Query: {},
+const typeDefs = [
+  BaseSchema,
+  CollectionsSchema,
+]
+
+const resolvers: Resolvers = {
+  Query: {
+    collections: collections
+  },
   Mutation: {},
 }
 
-export default makeExecutableSchema({
-  typeDefs: [BaseSchema],
+export default makeExecutableSchema<GraphqlContext>({
+  typeDefs,
   resolvers,
 })
