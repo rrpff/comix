@@ -5,8 +5,15 @@ import { GraphqlContext } from './types'
 import { Resolvers } from './types/schema'
 import { collections } from './queries/collections'
 import { collection } from './queries/collection'
+import { createCollection } from './mutations/createCollection'
+import { updateCollection } from './mutations/updateCollection'
+import { deleteCollection } from './mutations/deleteCollection'
 
 const BaseSchema = gql`
+  type MutationResult {
+    success: Boolean!
+  }
+
   type Query {
     dummy: String
   }
@@ -23,10 +30,14 @@ const typeDefs = [
 
 const resolvers: Resolvers = {
   Query: {
-    collections: collections,
-    collection: collection
+    collections,
+    collection,
   },
-  Mutation: {},
+  Mutation: {
+    createCollection,
+    updateCollection,
+    deleteCollection,
+  },
 }
 
 export default makeExecutableSchema<GraphqlContext>({

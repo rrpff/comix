@@ -41,6 +41,9 @@ export class FileLibraryConfig implements LibraryConfig {
   }
 
   public async createCollection(collection: LibraryCollection): Promise<LibraryCollection> {
+    const doc = await this.db.findOne<CollectionDoc>({ type: 'collection', 'collection.path': collection.path })
+    if (doc) throw new Error(`Collection "${collection.path}" already exists`)
+
     return (await this.db.insert<CollectionDoc>({ type: 'collection', collection })).collection
   }
 

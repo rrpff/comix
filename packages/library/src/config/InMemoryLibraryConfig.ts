@@ -31,6 +31,9 @@ export class InMemoryLibraryConfig implements LibraryConfig {
   }
 
   public async createCollection(collection: LibraryCollection): Promise<LibraryCollection> {
+    const exists = this.config.collections.some(c => c.path === collection.path)
+    if (exists) throw new Error(`Collection "${collection.path}" already exists`)
+
     this.config.collections.push(collection)
     return collection
   }

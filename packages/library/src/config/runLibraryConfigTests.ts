@@ -25,6 +25,16 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     expect(await subject.getCollections()).toContainEqual(collection)
   })
 
+  it('throws an error creating new collections', async () => {
+    const collection = { name: 'a', path: '/collection-a' }
+
+    await subject.createCollection(collection)
+    const call = subject.createCollection(collection)
+
+    await expect(call).rejects
+      .toEqual(new Error(`Collection "${collection.path}" already exists`))
+  })
+
   it('supports reading multiple collections', async () => {
     await subject.createCollection({ name: 'x', path: '/collection-x' })
     await subject.createCollection({ name: 'y', path: '/collection-y' })
@@ -35,16 +45,6 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
         { name: 'y', path: '/collection-y' },
       ])
     )
-  })
-
-  it.each([
-    createEntry({ filePath: fixturePath('wytches-sample.cbz') }),
-    createEntry({ filePath: fixturePath('phonogram-sample.cbr') }),
-  ])('supports storing entries', async (entry) => {
-    await subject.createCollection({ name: 'a', path: '/collection-a' })
-    await subject.setEntry('/collection-a', entry.filePath, entry)
-
-    expect(await subject.getEntry('/collection-a', entry.filePath)).toEqual(entry)
   })
 
   it.each([
