@@ -19,12 +19,26 @@ export default gql`
     name: String!
   }
 
+  type CollectionCreatedEvent {
+    path: String!
+    name: String!
+  }
+
   input CollectionUpdateInput {
     path: String!
     collection: CollectionCreateInput!
   }
 
+  type CollectionUpdatedEvent {
+    path: String!
+    collection: LibraryCollection!
+  }
+
   input CollectionDeleteInput {
+    path: String!
+  }
+
+  type CollectionDeletedEvent {
     path: String!
   }
 
@@ -40,6 +54,8 @@ export default gql`
   }
 
   extend type Subscription {
-    collectionCreated: LibraryCollection!
+    collectionCreated: CollectionCreatedEvent!
+    collectionUpdated: CollectionUpdatedEvent!
+    collectionDeleted: CollectionDeletedEvent!
   }
 `

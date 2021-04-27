@@ -3,7 +3,7 @@ import { gql } from 'graphql-tag'
 import faker from 'faker'
 import { createTestQueryRunner } from '../../test/helpers'
 
-const QUERY = gql`
+const MUTATION = gql`
   mutation run($input: CollectionUpdateInput!) {
     collection: updateCollection(input: $input) {
       name
@@ -12,10 +12,22 @@ const QUERY = gql`
   }
 `
 
+const SUBSCRIPTION = gql`
+  subscription {
+    collectionUpdated {
+      path
+      collection {
+        name
+        path
+      }
+    }
+  }
+`
+
 it('should return an error if the collection does not exist', async () => {
   const { run } = await createTestQueryRunner()
   const collection = generateCollection()
-  const result = await run(QUERY, { input: { path: collection.path, collection } })
+  const result = await run(MUTATION, { input: { path: collection.path, collection } })
 
   expect(result.errors).toContainEqual(
     new GraphQLError(`Collection "${collection.path}" does not exist`)
@@ -28,10 +40,29 @@ it('should update the collection', async () => {
   await library.config.createCollection(original)
 
   const changed = generateCollection()
-  await run(QUERY, { input: { path: original.path, collection: changed } })
+  await run(MUTATION, { input: { path: original.path, collection: changed } })
 
   expect(await library.collections()).toContainEqual(changed)
   expect(await library.collections()).not.toContainEqual(original)
+})
+
+it('updates collectionUpdated subscribers', async () => {
+  expect.assertions(1)
+
+  const { run, subscribe } = await createTestQueryRunner()
+  const collection = generateCollection()
+
+  const subscriber = subscribe(SUBSCRIPTION)
+  subscriber.then(async iterator => {
+    const { value } = await iterator.next()
+
+    expect(value.data.collectionUpdated).toEqual({
+      path: collection.path,
+      collection
+    })
+  })
+
+  await run(MUTATION, { input: { path: collection.path, collection } })
 })
 
 const generateCollection = () => ({
