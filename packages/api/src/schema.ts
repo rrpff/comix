@@ -4,6 +4,7 @@ import CollectionsSchema from './schemas/Collections'
 import { GraphqlContext } from './types'
 import { Resolvers } from './types/schema'
 import { collections } from './queries/collections'
+import { collection } from './queries/collection'
 
 const BaseSchema = gql`
   type Query {
@@ -22,7 +23,8 @@ const typeDefs = [
 
 const resolvers: Resolvers = {
   Query: {
-    collections: collections
+    collections: collections,
+    collection: collection
   },
   Mutation: {},
 }

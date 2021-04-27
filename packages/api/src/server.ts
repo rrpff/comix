@@ -3,6 +3,7 @@ import express from 'express'
 import { Library } from '@comix/library'
 import schema from './schema'
 import { GraphqlContext } from './types'
+import { createLoaders } from './loaders'
 
 interface ServerOptions {
   library: Library
@@ -12,9 +13,11 @@ export default ({ library }: ServerOptions) => {
   const app = express()
 
   const context = (): GraphqlContext => {
+    const requestContext = { library }
+
     return {
-      library,
-      loaders: {},
+      ...requestContext,
+      loaders: createLoaders(requestContext),
     }
   }
 

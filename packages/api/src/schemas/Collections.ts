@@ -6,7 +6,12 @@ export default gql`
     path: String!
   }
 
+  input CollectionInput {
+    path: String!
+  }
+
   extend type Query {
     collections: [LibraryCollection!]!
+    collection(input: CollectionInput!): LibraryCollection!
   }
 `

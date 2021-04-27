@@ -1,6 +1,10 @@
 import { Library } from '@comix/library'
+import DataLoader from 'dataloader';
+import { LibraryCollection } from './schema';
 
-export interface DataLoaders {}
+export interface DataLoaders {
+  collections: DataLoader<string, LibraryCollection>
+}
 
 export interface RequestContext {
   library: Library
