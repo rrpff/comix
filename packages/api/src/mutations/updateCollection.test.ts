@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql'
 import { gql } from 'graphql-tag'
-import faker from 'faker'
 import { createTestQueryRunner } from '../../test/helpers'
+import { generateCollection } from '../../test/generators'
 
 const MUTATION = gql`
   mutation run($input: CollectionUpdateInput!) {
@@ -63,9 +63,4 @@ it('updates collectionUpdated subscribers', async () => {
   })
 
   await run(MUTATION, { input: { path: collection.path, collection } })
-})
-
-const generateCollection = () => ({
-  name: faker.system.fileName(),
-  path: faker.system.filePath(),
 })

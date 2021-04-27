@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql'
 import { gql } from 'graphql-tag'
-import faker from 'faker'
 import { createTestQueryRunner } from '../../test/helpers'
+import { pick, generateCollection } from '../../test/generators'
 
 const QUERY = gql`
   query run($input: CollectionInput!) {
@@ -39,13 +39,8 @@ it('returns the collection when it exists', async () => {
   const collections = [generateCollection(), generateCollection(), generateCollection()]
   await Promise.all(collections.map(c => library.config.createCollection(c)))
 
-  const collection = faker.random.arrayElement(collections)
+  const collection = pick(collections)
   const result = await run(QUERY, { input: { path: collection.path } })
 
   expect(result.data!.collection).toEqual(collection)
-})
-
-const generateCollection = () => ({
-  name: faker.system.fileName(),
-  path: faker.system.filePath(),
 })

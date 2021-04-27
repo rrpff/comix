@@ -1,7 +1,6 @@
-import { GraphQLError } from 'graphql'
 import { gql } from 'graphql-tag'
-import faker from 'faker'
 import { createTestQueryRunner } from '../../test/helpers'
+import { generateCollection, pick } from '../../test/generators'
 
 const MUTATION = gql`
   mutation run($input: CollectionDeleteInput!) {
@@ -32,7 +31,7 @@ it('should remove the collection from the library', async () => {
   const collections = [generateCollection(), generateCollection(), generateCollection()]
   await Promise.all(collections.map(c => library.config.createCollection(c)))
 
-  const collection = faker.random.arrayElement(collections)
+  const collection = pick(collections)
   await run(MUTATION, { input: { path: collection.path } })
 
   expect(await library.collections())
@@ -60,9 +59,4 @@ it('updates collectionDeleted subscribers', async () => {
   })
 
   await run(MUTATION, { input: { path: collection.path } })
-})
-
-const generateCollection = () => ({
-  name: faker.system.fileName(),
-  path: faker.system.filePath(),
 })

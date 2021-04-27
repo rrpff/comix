@@ -1,10 +1,12 @@
 import { gql } from 'graphql-tag'
 import { makeExecutableSchema } from 'graphql-tools'
 import CollectionsSchema from './schemas/Collections'
+import EntriesSchema from './schemas/Entries'
 import { GraphqlContext } from './types'
 import { Resolvers } from './types/schema'
 import { collections } from './queries/collections'
 import { collection } from './queries/collection'
+import { entries } from './queries/entries'
 import { createCollection } from './mutations/createCollection'
 import { updateCollection } from './mutations/updateCollection'
 import { deleteCollection } from './mutations/deleteCollection'
@@ -30,12 +32,14 @@ const BaseSchema = gql`
 const typeDefs = [
   BaseSchema,
   CollectionsSchema,
+  EntriesSchema,
 ]
 
 const resolvers: Resolvers = {
   Query: {
     collections,
     collection,
+    entries,
   },
   Mutation: {
     createCollection,

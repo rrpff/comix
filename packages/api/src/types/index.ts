@@ -1,7 +1,7 @@
 import { Library } from '@comix/library'
-import DataLoader from 'dataloader';
+import DataLoader from 'dataloader'
 import { PubSub } from 'apollo-server-express'
-import { LibraryCollection } from './schema';
+import { LibraryCollection } from './schema'
 
 export interface DataLoaders {
   collections: DataLoader<string, LibraryCollection>

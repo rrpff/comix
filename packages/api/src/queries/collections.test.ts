@@ -1,6 +1,6 @@
 import { gql } from 'graphql-tag'
-import faker from 'faker'
 import { createTestQueryRunner } from '../../test/helpers'
+import { generateCollection } from '../../test/generators'
 
 const QUERY = gql`
   query run {
@@ -25,9 +25,4 @@ it('returns existing collections', async () => {
   const { data } = await run(QUERY)
 
   expect(data!.collections).toEqual([collection])
-})
-
-const generateCollection = () => ({
-  name: faker.system.fileName(),
-  path: faker.system.filePath(),
 })
