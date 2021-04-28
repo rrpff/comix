@@ -10,9 +10,12 @@ interface ServerOptions {
   library: Library
 }
 
-export default ({ library }: ServerOptions) => {
+export default async ({ library }: ServerOptions) => {
   const app = express()
   const pubsub = new PubSub()
+
+  const imagesDirectory = await library.config.getImagesDirectory()
+  app.use('/assets/images', express.static(imagesDirectory!))
 
   const context = (): GraphqlContext => {
     const requestContext = { library }

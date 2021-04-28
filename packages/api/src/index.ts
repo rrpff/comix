@@ -4,12 +4,20 @@ import { FileLibraryConfig, Library } from '@comix/library'
 import createServer from './server'
 
 const PORT = process.env.PORT || 4000
+const CONFIG_PATH = path.join(homedir(), '.comix', 'library.db')
+const DEFAULT_IMAGES_DIR = path.join(homedir(), '.comix', 'images')
 
-const configPath = path.join(homedir(), '.comix', 'library.db')
-const library = new Library(new FileLibraryConfig(configPath))
-const server = createServer({ library })
+;(async () => {
+  const library = new Library(new FileLibraryConfig(CONFIG_PATH))
 
-server.listen(PORT, () => {
-  console.log(`API running at http://localhost${PORT}`)
-  console.log(`Playground running at http://localhost${PORT}/graphql`)
-})
+  const imagesDirectory = await library.config.getImagesDirectory()
+  if (!imagesDirectory) await library.config.setImagesDirectory(DEFAULT_IMAGES_DIR)
+
+  const server = await createServer({ library })
+
+  server.listen(PORT, async () => {
+    console.log(`API running at: http://localhost${PORT}`)
+    console.log(`Playground running at: http://localhost${PORT}/graphql`)
+    console.log(`Serving images from: ${await library.config.getImagesDirectory()}`)
+  })
+})()
