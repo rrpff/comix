@@ -1,24 +1,6 @@
 import path from 'path'
-import { app, BrowserWindow, ipcMain } from 'electron'
-import { ServiceIpc } from 'electron-react-ipc/server'
+import { app, BrowserWindow } from 'electron'
 import isDev from 'electron-is-dev'
-import { LibraryIpcServiceMap } from '../protocols/services'
-import { ListDirectory } from './services/ListDirectory'
-import { GetFile } from './services/GetFile'
-
-const ipc = new ServiceIpc<LibraryIpcServiceMap>()
-
-ipc.log(console)
-ipc.use('list-directory', ListDirectory)
-ipc.use('get-file', GetFile)
-
-ipcMain.on('ipc-request', async (ipcEvent, requestId: string, service: string, ...args: any[]) => {
-  try {
-    await ipc.handle(ipcEvent, requestId, service as any, ...args)
-  } catch (e) {
-    console.error(e)
-  }
-})
 
 const createWindow = () => {
   const win = new BrowserWindow({

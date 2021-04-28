@@ -4,56 +4,19 @@
   "private": true,
   "main": "dist/server/index.js",
   "scripts": {
-    "dev": "tmax",
-    "test": "craco test",
-    "server:start": "electron dist/server/index.js",
-    "server:start:watch": "electronmon dist/server/index.js",
-    "server:build": "tsc --project ./tsconfig.electron.json --outDir dist",
-    "server:build:watch": "tsc --watch --project ./tsconfig.electron.json --outDir dist",
-    "client:start": "BROWSER=none craco start",
-    "client:build": "craco build"
+    "dev": "electronmon dist/server/index.js",
+    "start": "electron dist/server/index.js",
+    "build": "tsc --project ./tsconfig.electron.json --outDir dist",
+    "build:watch": "tsc --watch --project ./tsconfig.electron.json --outDir dist"
   },
   "dependencies": {
-    "@comix/ui": "file:../ui",
-    "@emotion/styled": "^11.3.0",
     "electron": "^12.0.5",
     "electron-react-ipc": "file:../electron-react-ipc",
-    "is-subdir": "^1.2.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1"
+    "is-subdir": "^1.2.0"
   },
   "devDependencies": {
-    "@craco/craco": "^6.1.1",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^12.20.10",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
     "electron-is-dev": "^2.0.0",
     "electronmon": "^2.0.1",
-    "tmax": "^0.2.1",
     "typescript": "^4.2.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

@@ -7,12 +7,12 @@ module.exports = {
     },
   },
   jest: {
-    configure: (existing) => ({
+    config: (existing) => ({
       ...existing,
       setupFilesAfterEnv: [
         ...(existing.setupFilesAfterEnv || []),
-        path.join(__dirname, 'src', 'setupTests.ts'),
-      ],
+        path.join(__dirname, 'src', 'setupTests.ts')
+      ]
     })
   }
 }

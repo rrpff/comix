@@ -1,9 +1,30 @@
+/** @jsxImportSource @emotion/react **/
+import { css } from '@emotion/react'
 import { useState } from 'react'
-import styled from '@emotion/styled'
 import { Dropzone } from '@comix/ui/components/Dropzone'
 import { Comic } from '@comix/ui/components/Comic'
 import { useComic } from '@comix/ui/hooks/useComic'
 import { useComicReader } from '@comix/ui/hooks/useComicReader'
+
+const containerStyles = () => css`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`
+
+const headerStyles = () => css`
+  display: flex;
+  max-width: 100%;
+  width: 600px;
+  padding: 12px;
+  margin-top: 30px;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 0;
+  }
+`
 
 export const App = () => {
   const [file, setFile] = useState(undefined as File | undefined)
@@ -18,8 +39,8 @@ export const App = () => {
   const reset = () => setFile(undefined)
 
   return (
-    <Container>
-      <Header>
+    <main css={containerStyles()}>
+      <header css={headerStyles()}>
         {showIntro && (
           <>
             <h1>Comic Reader</h1>
@@ -36,31 +57,11 @@ export const App = () => {
             processing={showLoading}
           />
         )}
-      </Header>
+      </header>
 
       {showComic && (
         <Comic {...comicProps} closable onClose={reset} />
       )}
-    </Container>
+    </main>
   )
 }
-
-const Container = styled.main`
-  display: flex;
-  align-content: center;
-  justify-content: center;
-`
-
-const Header = styled.header`
-  display: flex;
-  max-width: 100%;
-  width: 600px;
-  padding: 12px;
-  margin-top: 30px;
-  justify-content: space-evenly;
-  flex-direction: column;
-
-  h1 {
-    margin-bottom: 0;
-  }
-`
