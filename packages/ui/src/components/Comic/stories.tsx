@@ -20,12 +20,32 @@ const Template: Story<ComicProps & { fixture: string }> = args => {
     : <Comic {...args} {...comicProps} />
 }
 
-export const Wytches = Template.bind({})
-Wytches.args = {
-  fixture: 'wytches.cbz'
+export const Example1 = Template.bind({})
+Example1.args = {
+  fixture: 'Example1.cbr'
 }
 
-export const ComicWithDifferentlySizedPages = Template.bind({})
-ComicWithDifferentlySizedPages.args = {
-  fixture: 'different-sizes.cbz'
+export const Example2 = Template.bind({})
+Example2.args = {
+  fixture: 'Example2.cbz'
+}
+
+export const Example3 = Template.bind({})
+Example3.args = {
+  fixture: 'Example3.cbr'
+}
+
+export const Example4 = Template.bind({})
+Example4.args = {
+  fixture: 'Example4.cbr'
+}
+
+export const Example5 = Template.bind({})
+Example5.args = {
+  fixture: 'Example5.cbr'
+}
+
+export const Example6 = Template.bind({})
+Example6.args = {
+  fixture: 'Example6.cbr'
 }

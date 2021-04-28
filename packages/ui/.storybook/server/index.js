@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 
-const FIXTURES_PATH = path.join(__dirname, 'dev', 'fixtures')
+const FIXTURES_PATH = path.join(__dirname, '..', '..', '..', '..', 'dev', 'fixtures')
 const PORT = 9001
 
 const app = express()
