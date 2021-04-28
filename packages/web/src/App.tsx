@@ -1,67 +1,66 @@
-/** @jsxImportSource @emotion/react **/
-import { css } from '@emotion/react'
-import { useState } from 'react'
-import { Dropzone } from '@comix/ui/components/Dropzone'
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { UiProvider } from '@comix/ui'
+import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { Comic } from '@comix/ui/components/Comic'
-import { useComic } from '@comix/ui/hooks/useComic'
+import { useCollections } from '@comix/ui/hooks/useCollections'
+import { useCollectionDirectory } from '@comix/ui/hooks/useCollectionDirectory'
 import { useComicReader } from '@comix/ui/hooks/useComicReader'
+import { useComic } from '@comix/ui/hooks/useComic'
+import { useMemo, useState } from 'react';
 
-const containerStyles = () => css`
-  display: flex;
-  align-content: center;
-  justify-content: center;
-`
+const GRAPHQL_HOST = 'http://localhost:4000/graphql'
+const IMAGE_HOST = 'http://localhost:4000/assets/images'
+const FILE_HOST = 'http://localhost:4000/collections'
 
-const headerStyles = () => css`
-  display: flex;
-  max-width: 100%;
-  width: 600px;
-  padding: 12px;
-  margin-top: 30px;
-  justify-content: space-evenly;
-  flex-direction: column;
+const client = new ApolloClient({
+  uri: GRAPHQL_HOST,
+  cache: new InMemoryCache(),
+})
 
-  h1 {
-    margin-bottom: 0;
-  }
-`
-
-export const App = () => {
+const Dashboard = () => {
+  const { collections } = useCollections()
+  const collection = useMemo(() => (collections.length > 0 && collections[0]) || null, [collections])
+  const { entries, loading } = useCollectionDirectory(collection?.path, collection?.path)
   const [file, setFile] = useState(undefined as File | undefined)
   const reader = useComicReader(file)
   const comicProps = useComic(reader)
 
-  const showDropzone = file === undefined
-  const showLoading = (file !== undefined && reader === null) || (reader !== null && comicProps.loading)
-  const showComic = reader !== null && !showLoading
-  const showIntro = showDropzone || showLoading
-
-  const reset = () => setFile(undefined)
+  if (comicProps.comic) {
+    return (
+      <Comic {...comicProps} closable onClose={() => setFile(undefined)} />
+    )
+  }
 
   return (
-    <main css={containerStyles()}>
-      <header css={headerStyles()}>
-        {showIntro && (
-          <>
-            <h1>Comic Reader</h1>
-            <p>
-              A little reader for CBR and CBZ files<br />
-              See code: <a href="https://github.com/rrpff/comix">rrpff/comix</a>
-            </p>
-          </>
-        )}
+    <main>
+      <h1>{collection?.name}</h1>
 
-        {!showComic && (
-          <Dropzone
-            onDrop={files => setFile(files[0])}
-            processing={showLoading}
-          />
-        )}
-      </header>
+      {loading && <span>Loading...</span>}
 
-      {showComic && (
-        <Comic {...comicProps} closable onClose={reset} />
-      )}
+      <ComicEntryList
+        onClickComic={async comic => {
+          const entry = entries.find(e => e.filePath === (comic as any).__dangerousFilePath)
+          const res = await fetch(`${FILE_HOST}${collection!.path}/${entry.fileName}`)
+          const file = await res.blob()
+          ;(file as any).name = entry.fileName
+          ;(file as any).lastModified = 0
+          setFile(file as File)
+        }}
+        comics={entries.map(entry => ({
+          title: entry.volumeName,
+          subtitles: ['Issue #1', entry.volumeYear],
+          imageUrl: `${IMAGE_HOST}/${entry.coverFileName}`,
+          __dangerousFilePath: entry.filePath,
+        }))}
+      />
     </main>
+  )
+}
+
+export const App = () => {
+  return (
+    <UiProvider client={client}>
+      <Dashboard />
+    </UiProvider>
   )
 }
