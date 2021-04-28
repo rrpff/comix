@@ -8,6 +8,9 @@ export default gql`
     fileLastProcessed: Float!
     corrupt: Boolean!
     coverFileName: String
+
+    volumeName: String
+    volumeYear: Int
   }
 
   input EntriesQuery {

@@ -1,6 +1,9 @@
 import { LibraryCollection, LibraryEntry } from '@comix/library'
 import faker from 'faker'
 
+export const optional = <T>(fn: () => T): T | undefined =>
+  Math.random() > 0.5 ? fn() : undefined
+
 export const pick = faker.random.arrayElement.bind(faker.random)
 
 export const list = <T>(fn: () => T, numElements: number = 3) => {
@@ -21,5 +24,7 @@ export const generateEntry = (): LibraryEntry => ({
   fileLastProcessed: faker.date.past().getTime(),
   corrupt: faker.datatype.boolean(),
   coverFileName: faker.system.fileName() + '.jpg',
+  volumeName: optional(faker.lorem.sentence),
+  volumeYear: optional(() => faker.date.past().getFullYear()),
   adaptions: []
 })

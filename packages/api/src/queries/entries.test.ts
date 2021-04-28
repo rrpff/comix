@@ -2,6 +2,7 @@ import path from 'path'
 import { gql } from 'graphql-tag'
 import { createTestQueryRunner } from '../../test/helpers'
 import { generateCollection, generateEntry, list, pick } from '../../test/generators'
+import { LibraryEntry } from '../types/schema'
 
 const QUERY = gql`
   query run($input: EntriesQuery!) {
@@ -12,6 +13,8 @@ const QUERY = gql`
       fileLastProcessed
       corrupt
       coverFileName
+      volumeName
+      volumeYear
     }
   }
 `
@@ -36,18 +39,7 @@ it('returns existing entries', async () => {
   const { data, errors } = await run(QUERY, { input: { collection: collection.path } })
 
   expect(errors).toBeUndefined()
-  expect(data!.entries).toEqual(
-    expect.arrayContaining(entries.map(entry =>
-      expect.objectContaining({
-        fileName: entry.fileName,
-        filePath: entry.filePath,
-        fileLastModified: entry.fileLastModified,
-        fileLastProcessed: entry.fileLastProcessed,
-        corrupt: entry.corrupt,
-        coverFileName: entry.coverFileName,
-      })
-    ))
-  )
+  expectToContainEntries(data!.entries, entries)
 })
 
 it('only returns entries within a directory if specified', async () => {
@@ -64,14 +56,22 @@ it('only returns entries within a directory if specified', async () => {
 
   expect(errors).toBeUndefined()
   expect(data!.entries).toHaveLength(1)
-  expect(data!.entries).toContainEqual(
-    expect.objectContaining({
-      fileName: desiredEntry.fileName,
-      filePath: desiredEntry.filePath,
-      fileLastModified: desiredEntry.fileLastModified,
-      fileLastProcessed: desiredEntry.fileLastProcessed,
-      corrupt: desiredEntry.corrupt,
-      coverFileName: desiredEntry.coverFileName,
-    })
-  )
+  expectToContainEntries(data!.entries, [desiredEntry])
 })
+
+const expectToContainEntries = (list: LibraryEntry[], entries: LibraryEntry[]) => {
+  expect(list).toEqual(
+    expect.arrayContaining(entries.map(entry =>
+      expect.objectContaining({
+        fileName: entry.fileName,
+        filePath: entry.filePath,
+        fileLastModified: entry.fileLastModified,
+        fileLastProcessed: entry.fileLastProcessed,
+        corrupt: entry.corrupt,
+        coverFileName: entry.coverFileName,
+        volumeName: entry.volumeName || null,
+        volumeYear: entry.volumeYear || null,
+      })
+    ))
+  )
+}
