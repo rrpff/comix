@@ -71,7 +71,7 @@ export const Comic = ({
         scrollBottom()
       },
       f: () => setFullscreen(!fullscreen),
-      Escape: onClose,
+      Escape: () => closable && onClose(),
     }
   })
 
