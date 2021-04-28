@@ -6,8 +6,10 @@
     "build": "tsc --project . --declaration --outDir .",
     "build:watch": "tsc --watch --project . --declaration --outDir .",
     "test": "jest",
-    "stories:start": "start-storybook -p 6006",
-    "stories:build": "build-storybook",
+    "schema:build": "graphql-codegen --config codegen.yml",
+    "schema:build:watch": "graphql-codegen --config codegen.yml --watch",
+    "stories:start": "start-storybook -p 6006 -s ./public",
+    "stories:build": "build-storybook -s ./public",
     "stories:fixtures-server": "node ./.storybook/server"
   },
   "peerDependencies": {
@@ -22,6 +24,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
+    "@graphql-codegen/cli": "^1.21.4",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-resolvers": "^1.19.1",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",

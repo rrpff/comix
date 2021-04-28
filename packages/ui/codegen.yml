@@ -1,0 +1,12 @@
+overwrite: true
+schema: http://localhost:4000/graphql
+watch:
+  - src/schema.ts
+  - src/schemas/*.ts
+generates:
+  src/types/apiSchema.d.ts:
+    config:
+      useIndexSignature: true
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"

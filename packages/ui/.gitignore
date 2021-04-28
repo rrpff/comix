@@ -3,3 +3,4 @@ components/
 hooks/
 !src/components/
 !src/hooks/
+src/types/apiSchema.d.ts
