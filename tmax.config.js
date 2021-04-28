@@ -18,7 +18,7 @@ module.exports = {
         },
         {
           label: '@comix/desktop',
-          command: 'npm run server:build:watch',
+          command: 'npm run build:watch',
           cwd: path.join(__dirname, 'packages', 'desktop'),
         },
         {
