@@ -2,17 +2,27 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import Measure from 'react-measure'
 import { ProgressBar } from '../ProgressBar'
+import { Sentence } from '../LoadableText'
+import { LoadingBox } from '../LoadingBox'
 
 export interface ComicEntryProps {
-  imageUrl: string
-  title: string
+  imageUrl?: string
+  title?: string
   subtitles?: string[]
   readingProgress?: number
+  loading?: boolean
   onClick?: () => void
 }
 
-export const ComicEntry = ({ title, subtitles, imageUrl, readingProgress, onClick }: ComicEntryProps) => {
-  const [imageSize, setImageSize] = useState({ width: -1, height: -1 })
+export const ComicEntry = ({
+  title = '',
+  subtitles = [],
+  imageUrl = '',
+  readingProgress = 0,
+  loading = false,
+  onClick = () => {},
+}: ComicEntryProps) => {
+  const [imageSize, setImageSize] = useState({ width: 160, height: -1 })
 
   return (
     <Measure bounds onResize={rect =>
@@ -23,13 +33,22 @@ export const ComicEntry = ({ title, subtitles, imageUrl, readingProgress, onClic
     }>
       {({ measureRef }) =>
         <Container onClick={onClick} style={{ width: imageSize.width }}>
-          <img ref={measureRef} src={imageUrl} alt={title} />
-          <strong>{title}</strong>
+          {loading
+            ? <LoadingBox width="100%" height="240px" />
+            : <img ref={measureRef} src={imageUrl} alt={title} />
+          }
+
+          <strong>
+            <Sentence loading={loading}>{() => title}</Sentence>
+          </strong>
+
           {subtitles?.map((subtitle, index) =>
-            <span key={index}>{subtitle}</span>
+            <span>
+              <Sentence key={index} loading={loading}>{() => subtitle}</Sentence>
+            </span>
           )}
 
-          {readingProgress && (
+          {readingProgress ? (
             <Progress style={{ top: imageSize.height - 8 + 10 }}>
               <ProgressBar
                 progress={readingProgress}
@@ -38,7 +57,7 @@ export const ComicEntry = ({ title, subtitles, imageUrl, readingProgress, onClic
                 }}
               />
             </Progress>
-          )}
+          ) : null}
         </Container>
       }
     </Measure>
@@ -66,13 +85,12 @@ const Container = styled.section`
 
   img {
     align-self: center;
-    height: 40vh;
-    min-height: 240px;
-    margin-bottom: 12px;
+    height: 240px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   strong {
+    margin-top: 12px;
     color: #111;
   }
 

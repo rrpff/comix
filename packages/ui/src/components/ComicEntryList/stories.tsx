@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { useEffect, useState } from 'react'
 import { ComicEntryList, ComicEntryListProps } from './'
 
 export default {
@@ -68,4 +69,23 @@ WithOneComic.args = {
 export const WithNoComics = Template.bind({})
 WithNoComics.args = {
   comics: []
+}
+
+export const WhenLoading = Template.bind({})
+WhenLoading.args = {
+  comics: [],
+  loading: true,
+}
+
+export const WithManyComicsAfterLoading = () => {
+  const [loading, setLoading] = useState(true)
+  const comics = [...COMICS].sort(() => Math.random() > 0.5 ? 1 : -1)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2500)
+  }, [])
+
+  return (
+    <Template comics={comics} loading={loading} />
+  )
 }

@@ -11,7 +11,7 @@ const Template: Story<ComicEntryProps> = args => <ComicEntry {...args} />
 export const WithASubtitle = Template.bind({})
 WithASubtitle.args = {
   title: 'Multiversity',
-  subtitle: ['Grant Morrison'],
+  subtitles: ['Grant Morrison'],
   imageUrl: '/multiversity.jpg',
 }
 
@@ -24,7 +24,12 @@ WithoutASubtitle.args = {
 export const WithReadingProgress = Template.bind({})
 WithReadingProgress.args = {
   title: 'Multiversity',
-  subtitle: ['Grant Morrison'],
+  subtitles: ['Grant Morrison'],
   imageUrl: '/multiversity.jpg',
   readingProgress: 0.6,
+}
+
+export const WhenLoading = Template.bind({})
+WhenLoading.args = {
+  loading: true
 }
