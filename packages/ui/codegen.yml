@@ -4,7 +4,7 @@ watch:
   - src/schema.ts
   - src/schemas/*.ts
 generates:
-  src/types/apiSchema.d.ts:
+  src/types/apiSchema.ts:
     config:
       useIndexSignature: true
     plugins:

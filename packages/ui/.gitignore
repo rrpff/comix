@@ -1,8 +1,10 @@
 node_modules/
 components/
 hooks/
+types/
 !src/components/
 !src/hooks/
-src/types/apiSchema.d.ts
+!src/types/
+src/types/apiSchema.ts
 /index.d.ts
 /index.js
