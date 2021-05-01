@@ -8,6 +8,7 @@
     "test": "craco test"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.16",
     "@comix/ui": "file:../ui",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
@@ -23,10 +24,12 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/react-hooks": "^5.1.1",
     "@testing-library/user-event": "^12.8.3",
+    "@types/faker": "^5.5.3",
     "@types/jest": "^26.0.22",
     "@types/node": "^12.20.10",
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3"
+    "@types/react-dom": "^17.0.3",
+    "faker": "^5.5.3"
   },
   "jest": {
     "moduleNameMapper": {
