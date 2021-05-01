@@ -37,6 +37,7 @@
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.3",
-    "graphql-tools": "^7.0.4"
+    "graphql-tools": "^7.0.4",
+    "is-subdir": "^1.2.0"
   }
 }
