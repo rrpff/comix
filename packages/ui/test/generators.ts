@@ -1,7 +1,9 @@
-import { LibraryCollection, LibraryEntry } from '../src/types/apiSchema'
 import faker from 'faker'
+import { LibraryCollection, LibraryEntry, File, Directory } from '../src/types/apiSchema'
 
-export const pick = faker.random.arrayElement.bind(faker.random)
+export const pick = <T>(arr: T[]): T => {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
 
 export const list = <T>(fn: () => T, numElements: number = 3) => {
   const results = [] as T[]
@@ -21,4 +23,18 @@ export const generateEntry = (): LibraryEntry => ({
   fileLastProcessed: faker.date.past().getTime(),
   corrupt: faker.datatype.boolean(),
   coverFileName: faker.system.fileName() + '.jpg',
+})
+
+export const generateFile = (): File => ({
+  name: faker.system.fileName(),
+  path: faker.system.filePath(),
+})
+
+export const generateDirectory = (levels: number = 1): Directory => ({
+  name: faker.system.fileName(),
+  path: faker.system.filePath(),
+  files: list(generateFile),
+  directories: levels > 0
+    ? list(() => generateDirectory(levels - 1))
+    : []
 })
