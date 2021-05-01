@@ -1,4 +1,4 @@
-import { render, screen, waitFor, act } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import { list, generateCollection, pick, generateDirectory } from '../../test/generators'
 import { SidebarView, COLLECTIONS_QUERY, DIRECTORY_QUERY } from './Sidebar'
