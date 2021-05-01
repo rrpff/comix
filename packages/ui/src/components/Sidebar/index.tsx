@@ -12,6 +12,7 @@ export interface SidebarHeadingProps {
 export interface SidebarOptionProps {
   text: string
   selected?: boolean
+  onClick?: () => void
 }
 
 export const Sidebar = (props: SidebarProps) => {

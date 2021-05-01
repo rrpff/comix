@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { Fragment, ReactNode, useState } from 'react'
 
 interface File {
   name: string
@@ -90,7 +90,7 @@ export const DirectoryTree = ({
     })
 
     return (
-      <section key={subdir.path}>
+      <Fragment key={subdir.path}>
         {label}
         {isExpanded && (
           <DirectoryTree
@@ -103,7 +103,7 @@ export const DirectoryTree = ({
             renderFileLabel={renderFileLabel}
           />
         )}
-      </section>
+      </Fragment>
     )
   }
 
@@ -111,16 +111,16 @@ export const DirectoryTree = ({
     const label = renderFileLabel({ file, level })
 
     return (
-      <section key={file.path}>
+      <Fragment key={file.path}>
         {label}
-      </section>
+      </Fragment>
     )
   }
 
   return (
-    <section style={{ marginLeft: level * 10 }}>
+    <div style={{ marginLeft: level * 10 }}>
       {showDirectories && directory.directories?.map(renderSubDirectory)}
       {showFiles && directory.files?.map(renderFile)}
-    </section>
+    </div>
   )
 }
