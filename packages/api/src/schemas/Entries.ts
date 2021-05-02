@@ -32,6 +32,10 @@ export default gql`
     path: String!
   }
 
+  type LibraryUpdateFinishedEvent {
+    success: Boolean!
+  }
+
   extend type Query {
     entries(input: EntriesQuery!): [LibraryEntry!]!
   }
@@ -40,5 +44,6 @@ export default gql`
     entryCreated: EntryCreatedEvent!
     entryUpdated: EntryUpdatedEvent!
     entryDeleted: EntryDeletedEvent!
+    libraryUpdateFinished: LibraryUpdateFinishedEvent!
   }
 `

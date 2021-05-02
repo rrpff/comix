@@ -87,7 +87,7 @@ const Container = styled.section`
 
   &:hover {
     img {
-      transform: perspective(500px) rotateX(7deg) translateY(-10px);
+      transform: perspective(500px) rotateX(7deg) translateY(-10px) scale(1.05);
       box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.2);
     }
   }

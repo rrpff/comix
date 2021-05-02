@@ -59,6 +59,27 @@ it('dispatches ENTRY_DELTED events on entry deletions', () => {
   expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
 })
 
+it('dispatches an LIBRARY_UPDATE_FINISHED event on finish', () => {
+  const { context, call } = subject()
+
+  call({})
+
+  context.updater.emit('finish')
+  expect(context.pubsub.publish).toHaveBeenCalledWith('LIBRARY_UPDATE_FINISHED', { libraryUpdateFinished: { success: true } })
+  expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
+})
+
+it('detaches event listeners on finish', () => {
+  const { context, call } = subject()
+
+  call({})
+
+  context.updater.emit('finish')
+  context.updater.emit('finish')
+  expect(context.pubsub.publish).toHaveBeenCalledWith('LIBRARY_UPDATE_FINISHED', { libraryUpdateFinished: { success: true } })
+  expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
+})
+
 const subject = () => {
   const context = {} as ActionContext
   context.updater = mock<LibraryUpdater>(new EventEmitter() as LibraryUpdater)

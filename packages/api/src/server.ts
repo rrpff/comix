@@ -60,6 +60,7 @@ export default async ({ library }: ServerOptions) => {
 
   const apollo = new ApolloServer({
     schema,
+    subscriptions: { path: '/subscriptions' },
     context: (): GraphqlContext => {
       const requestContext = { library }
 

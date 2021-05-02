@@ -69,6 +69,9 @@ const resolvers: Resolvers = {
     entryDeleted: {
       subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['ENTRY_DELETED'])
     },
+    libraryUpdateFinished: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['LIBRARY_UPDATE_FINISHED'])
+    },
   }
 }
 

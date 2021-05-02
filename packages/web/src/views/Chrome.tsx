@@ -8,6 +8,7 @@ import { useComicReader } from '@comix/ui/hooks/useComicReader'
 import { useComic } from '@comix/ui/hooks/useComic'
 import { SidebarView } from './Sidebar'
 import { DirectoryPageView } from './DirectoryPage'
+import { StatusView } from './Status'
 
 export const Chrome = () => {
   const [file, setFile] = useState(undefined as File | undefined)
@@ -22,9 +23,14 @@ export const Chrome = () => {
   return (
     <Main>
       {isComicLoading && <ComicLoading />}
-      <SidebarContainer>
-        <SidebarView />
-      </SidebarContainer>
+      <SideContainer>
+        <SidebarContainer>
+          <SidebarView />
+        </SidebarContainer>
+        <StatusContainer>
+          <StatusView />
+        </StatusContainer>
+      </SideContainer>
 
       <ContentContainer>
         <Switch>
@@ -76,16 +82,29 @@ const Main = styled.main`
   position: relative;
 `
 
-const SidebarContainer = styled.section`
+const SideContainer = styled.section`
   position: fixed;
   top: 0px;
   left: 0px;
   height: 100%;
-  width: 220px;
-  padding: 20px;
+  width: 260px;
+
   background: #F1F2F6;
   border-right: 1px solid #dfe4ea;
+
+  display: flex;
+  flex-direction: column;
   overflow: auto;
+`
+
+const SidebarContainer = styled.section`
+  flex: auto;
+  padding: 20px;
+`
+
+const StatusContainer = styled.section`
+  border-top: 1px solid #dfe4ea;
+  padding: 20px;
 `
 
 const ContentContainer = styled.section`
