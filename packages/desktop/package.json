@@ -4,10 +4,10 @@
   "private": true,
   "main": "dist/server/index.js",
   "scripts": {
-    "dev": "electronmon dist/server/index.js",
-    "start": "electron dist/server/index.js",
-    "build": "tsc --project ./tsconfig.electron.json --outDir dist",
-    "build:watch": "tsc --watch --project ./tsconfig.electron.json --outDir dist"
+    "dev": "electronmon dist/index.js",
+    "start": "electron dist/index.js",
+    "build": "tsc --project ./tsconfig.json --outDir dist",
+    "build:watch": "tsc --watch --project ./tsconfig.json --outDir dist"
   },
   "dependencies": {
     "electron": "^12.0.5",
