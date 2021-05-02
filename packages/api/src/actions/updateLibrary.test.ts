@@ -6,6 +6,7 @@ import { EventEmitter } from 'events'
 import faker from 'faker'
 import { ActionContext } from '../types'
 import { updateLibrary } from './updateLibrary'
+import { createUpdateLibraryListener } from '../listeners/createUpdateLibraryListener'
 
 it('responds that it started', () => {
   const { res, call } = subject()
@@ -47,7 +48,7 @@ it('dispatches ENTRY_UPDATED events on entry changes', () => {
   expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
 })
 
-it('dispatches ENTRY_DELTED events on entry deletions', () => {
+it('dispatches ENTRY_DELETED events on entry deletions', () => {
   const { context, call } = subject()
   const filePath = faker.system.filePath()
   const fileName = faker.system.fileName()
@@ -69,21 +70,15 @@ it('dispatches an LIBRARY_UPDATE_FINISHED event on finish', () => {
   expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
 })
 
-it('detaches event listeners on finish', () => {
-  const { context, call } = subject()
-
-  call({})
-
-  context.updater.emit('finish')
-  context.updater.emit('finish')
-  expect(context.pubsub.publish).toHaveBeenCalledWith('LIBRARY_UPDATE_FINISHED', { libraryUpdateFinished: { success: true } })
-  expect(context.pubsub.publish).toHaveBeenCalledTimes(1)
-})
+let removeListener: () => void
+afterEach(() => removeListener())
 
 const subject = () => {
   const context = {} as ActionContext
   context.updater = mock<LibraryUpdater>(new EventEmitter() as LibraryUpdater)
   context.pubsub = mock<PubSub>()
+
+  removeListener = createUpdateLibraryListener(context.updater, context.pubsub)
 
   const res: any = {
     locals: { context },

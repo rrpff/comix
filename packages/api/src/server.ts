@@ -8,6 +8,7 @@ import schema from './schema'
 import { ActionContext, GraphqlContext } from './types'
 import { createLoaders } from './loaders'
 import { updateLibrary } from './actions/updateLibrary'
+import { createUpdateLibraryListener } from './listeners/createUpdateLibraryListener'
 
 interface ServerOptions {
   library: Library
@@ -34,6 +35,8 @@ export default async ({ library }: ServerOptions) => {
 
   const app = express()
   const pubsub = new PubSub()
+
+  createUpdateLibraryListener(updater, pubsub)
 
   app.use(cors())
 
