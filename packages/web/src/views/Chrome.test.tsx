@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
+import { MemoryRouter } from 'react-router-dom'
 import { Chrome } from './Chrome'
 
 it('renders a sidebar', async () => {
@@ -15,7 +16,9 @@ const subject = async () => {
     render: () => {
       return render(
         <MockedProvider>
-          <Chrome />
+          <MemoryRouter>
+            <Chrome />
+          </MemoryRouter>
         </MockedProvider>
       )
     }
