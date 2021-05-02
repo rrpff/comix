@@ -1,4 +1,4 @@
-import { Library } from '@comix/library'
+import { Library, LibraryUpdater } from '@comix/library'
 import DataLoader from 'dataloader'
 import { PubSub } from 'apollo-server-express'
 import { LibraryCollection } from './schema'
@@ -16,4 +16,9 @@ export interface DataLoaderContext extends RequestContext {}
 export interface GraphqlContext extends RequestContext {
   loaders: DataLoaders
   pubsub: PubSub
+}
+
+export interface ActionContext extends RequestContext {
+  pubsub: PubSub
+  updater: LibraryUpdater
 }

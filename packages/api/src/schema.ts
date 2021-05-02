@@ -60,6 +60,15 @@ const resolvers: Resolvers = {
     collectionDeleted: {
       subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['COLLECTION_DELETED'])
     },
+    entryCreated: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['ENTRY_CREATED'])
+    },
+    entryUpdated: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['ENTRY_UPDATED'])
+    },
+    entryDeleted: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['ENTRY_DELETED'])
+    },
   }
 }
 

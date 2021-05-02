@@ -18,7 +18,27 @@ export default gql`
     directoryPath: String
   }
 
+  type EntryCreatedEvent {
+    path: String!
+    name: String!
+  }
+
+  type EntryUpdatedEvent {
+    path: String!
+    name: String!
+  }
+
+  type EntryDeletedEvent {
+    path: String!
+  }
+
   extend type Query {
     entries(input: EntriesQuery!): [LibraryEntry!]!
+  }
+
+  extend type Subscription {
+    entryCreated: EntryCreatedEvent!
+    entryUpdated: EntryUpdatedEvent!
+    entryDeleted: EntryDeletedEvent!
   }
 `
