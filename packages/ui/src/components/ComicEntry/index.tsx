@@ -79,15 +79,24 @@ const Container = styled.section`
   cursor: pointer;
   position: relative;
   display: inline-flex;
-  padding: 20px;
+  padding: 15px;
+  margin: 5px;
   flex-direction: column;
   word-wrap: break-word;
   text-align: center;
+
+  &:hover {
+    img {
+      transform: perspective(500px) rotateX(7deg) translateY(-10px);
+      box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
 
   img {
     align-self: center;
     height: 240px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
   }
 
   strong {
