@@ -29,6 +29,23 @@ WithOptions.args = {
   )
 }
 
+export const WithLoadingOptions = Template.bind({})
+WithLoadingOptions.args = {
+  children: (
+    <>
+      <SidebarHeading loading text="Library" />
+      <SidebarOption loading text="Starred" />
+      <SidebarOption selected loading text="Reading" />
+      <SidebarOption loading text="Uncategorised" />
+
+      <SidebarHeading loading text="Publishers" />
+      <SidebarOption loading text="2000 AD" />
+      <SidebarOption loading text="DC" />
+      <SidebarOption loading text="Marvel" />
+    </>
+  )
+}
+
 export const Empty = Template.bind({})
 Empty.args = {
   children: null

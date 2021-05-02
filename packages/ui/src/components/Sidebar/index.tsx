@@ -1,16 +1,19 @@
 import { ReactNode } from 'react'
 import styled from '@emotion/styled'
+import { Sentence } from '../LoadableText'
 
 export interface SidebarProps {
   children: ReactNode
 }
 
 export interface SidebarHeadingProps {
-  text: string
+  loading?: boolean
+  text?: string
 }
 
 export interface SidebarOptionProps {
-  text: string
+  loading?: boolean
+  text?: string
   selected?: boolean
   onClick?: () => void
 }
@@ -26,7 +29,7 @@ export const Sidebar = (props: SidebarProps) => {
 export const SidebarHeading = (props: SidebarHeadingProps) => {
   return (
     <SidebarHeadingContainer {...props}>
-      {props.text}
+      <Sentence loading={props.loading}>{() => props.text || ''}</Sentence>
     </SidebarHeadingContainer>
   )
 }
@@ -34,7 +37,7 @@ export const SidebarHeading = (props: SidebarHeadingProps) => {
 export const SidebarOption = (props: SidebarOptionProps) => {
   return (
     <SidebarOptionContainer {...props}>
-      {props.text}
+      <Sentence loading={props.loading}>{() => props.text || ''}</Sentence>
     </SidebarOptionContainer>
   )
 }
@@ -67,7 +70,7 @@ const SidebarHeadingContainer = styled.span`
 const SidebarOptionContainer = styled.span<SidebarOptionProps>`
   padding: 6px 16px 6px;
 
-  cursor: pointer;
+  cursor: ${props => props.loading ? 'default' : 'pointer'};
   color: ${props => props.selected ? '#3742FA' : '#57606F'};
   font-weight: ${props => props.selected ? 'bold' : 'normal'};
   font-size: 1rem;

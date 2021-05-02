@@ -6,11 +6,10 @@ import { DirectoryTree } from '@comix/ui/components/DirectoryTree'
 export const SidebarView = () => {
   const { data, loading } = useQuery<{ collections: LibraryCollection[] }>(COLLECTIONS_QUERY)
 
-  if (loading) return <span>Loading...</span>
-
   return (
     <Sidebar data-testid="sidebar">
       <div data-testid="collections">
+        {loading && <SidebarHeading loading />}
         {data?.collections.map(collection =>
           <div key={collection.path} data-testid={collection.path}>
             <SidebarHeading text={collection.name} />
@@ -62,11 +61,10 @@ const SidebarDirectory = ({ collection }: { collection: LibraryCollection }) => 
     variables: { input: { path: collection.path } }
   })
 
-  if (loading) return <span>Loading...</span>
-
   return (
     <div data-testid={`${collection.path}-directory`}>
       <SidebarOption
+        loading={loading}
         data-testid={`${collection.path}-root`}
         text="(root)"
       />
