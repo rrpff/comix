@@ -1,6 +1,7 @@
 import { useApolloClient, gql } from '@apollo/client'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
+import { Spinner } from '@comix/ui/components/Spinner'
 
 export const CREATE_SUBSCRIPTION = gql`subscription { entryCreated { name } }`
 export const UPDATE_SUBSCRIPTION = gql`subscription { entryUpdated { name } }`
@@ -58,6 +59,7 @@ export const StatusView = () => {
 
   return (
     <Container done={latestUpdate.done}>
+      <Spinner />
       <strong data-testid="status-text">{latestUpdate.statusText}</strong>
       {latestUpdate.done
         ? <a onClick={() => refreshLibrary()} data-testid="status-refresh" href="#!">Refresh library</a>
@@ -70,6 +72,15 @@ export const StatusView = () => {
 const Container = styled.section<{ done: boolean }>`
   padding: 8px 16px;
 
+  svg {
+    position: absolute;
+    font-size: 1rem;
+    margin-left: -20px;
+    margin-top: 24px;
+    opacity: ${props => props.done ? 0 : 1};
+    transition: opacity 0.3s;
+  }
+
   strong {
     color: ${props => props.done ? '#A4B0BE' : '#2F3542'};
     display: block;
@@ -79,6 +90,9 @@ const Container = styled.section<{ done: boolean }>`
   span {
     display: block;
     color: #57606F;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   a {
