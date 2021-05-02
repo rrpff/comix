@@ -43,7 +43,7 @@ export const DirectoryPageView = ({
   )
 }
 
-const IMAGE_HOST = 'http://localhost:4000/assets/images'
+const IMAGE_HOST = 'http://localhost:4000/assets/images/small'
 const COLLECTIONS_HOST = 'http://localhost:4000/collections'
 
 export const ENTRIES_QUERY = gql`

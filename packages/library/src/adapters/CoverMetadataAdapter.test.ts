@@ -5,35 +5,19 @@ import { fixturePath } from '../../test/helpers'
 import { CoverMetadataAdapter, CoverMetadataAdapterConfig } from './CoverMetadataAdapter'
 
 it.each([
-  fixturePath('outputs'),
-  fixturePath('outputs', 'nested'),
-])('saves a cover file in the given image directory', async (imageDirectory) => {
+  'small',
+  'tiny',
+])('saves resized cover files in the given image directory', async (size) => {
+  const imageDirectory = fixturePath('outputs')
   const inputComicFilePath = fixturePath('wytches-sample.cbz')
   const changes = await subject(inputComicFilePath, { imageDirectory })
 
-  const savedCoverFilePath = path.join(imageDirectory, changes.coverFileName!)
+  const savedCoverFilePath = path.join(imageDirectory, size, changes.coverFileName!)
   const actualCoverFileData = await fs.readFile(savedCoverFilePath)
-  const expectedCoverFileData = await fs.readFile(fixturePath('wytches-sample', '0001.jpeg'))
+  const expectedCoverFileData = await fs.readFile(fixturePath(`wytches-sample-${size}-0001.jpeg`))
 
   try {
     expect(Buffer.compare(actualCoverFileData, expectedCoverFileData)).toEqual(0)
-  } finally {
-    await fs.rm(savedCoverFilePath)
-  }
-})
-
-it('saves the correct cover file in the given image directory', async () => {
-  const imageDirectory = fixturePath('outputs')
-  const inputComicFilePath = fixturePath('wytches-sample.cbz')
-
-  const changes = await subject(inputComicFilePath, { imageDirectory })
-
-  const savedCoverFilePath = path.join(imageDirectory, changes.coverFileName!)
-  const actualCoverFileData = await fs.readFile(savedCoverFilePath)
-  const wrongCoverFileData = await fs.readFile(fixturePath('wytches-sample', '0002.jpeg'))
-
-  try {
-    expect(Buffer.compare(actualCoverFileData, wrongCoverFileData)).toEqual(-1)
   } finally {
     await fs.rm(savedCoverFilePath)
   }
@@ -67,6 +51,7 @@ const subject = async (fpath: string, config: CoverMetadataAdapterConfig = DEFAU
     fileLastModified: 123,
     fileLastProcessed: 456,
     corrupt: false,
+    adaptions: [],
   }
 
   let comic: Comic | null = null

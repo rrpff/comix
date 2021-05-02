@@ -28,8 +28,8 @@ test('Saves cover images for new files', async () => {
   await t.updater.run()
 
   const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
-  const savedImage = await fs.readFile(path.join(t.imageDir.path, wytchesEntry.coverFileName!))
-  const actualImage = await fs.readFile(fixturePath('wytches-sample', '0001.jpeg'))
+  const savedImage = await fs.readFile(path.join(t.imageDir.path, 'small', wytchesEntry.coverFileName!))
+  const actualImage = await fs.readFile(fixturePath('wytches-sample-small-0001.jpeg'))
   expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
 })
 
@@ -41,8 +41,8 @@ test('Replaces cover images for changed files', async () => {
   await t.updater.run()
 
   const entry = (await t.library.entries(t.collection.path))[0]!
-  const savedImage = await fs.readFile(path.join(t.imageDir.path, entry.coverFileName!))
-  const actualImage = await fs.readFile(fixturePath('phonogram-sample', '0001.jpeg'))
+  const savedImage = await fs.readFile(path.join(t.imageDir.path, 'small', entry.coverFileName!))
+  const actualImage = await fs.readFile(fixturePath('phonogram-sample-small-0001.jpeg'))
   expect(Buffer.compare(savedImage, actualImage)).toEqual(0)
 })
 
