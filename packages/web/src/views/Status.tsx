@@ -10,15 +10,14 @@ export const FINISH_SUBSCRIPTION = gql`subscription { libraryUpdateFinished { su
 
 export const UPDATE_LIBRARY_ENDPOINT = 'http://localhost:4000/update-library'
 
-const refreshLibrary = () => fetch(UPDATE_LIBRARY_ENDPOINT, { method: 'POST' })
+const CHECKING_STATE = { done: false, statusText: 'Checking', statusSubtext: 'Scanning library...' }
+const DEFAULT_UPDATE_STATE = { done: true, statusText: 'Up to date', statusSubtext: undefined as string | undefined }
+
+const startLibraryUpdate = () => fetch(UPDATE_LIBRARY_ENDPOINT, { method: 'POST' })
 
 export const StatusView = () => {
   const client = useApolloClient()
-  const [latestUpdate, setLatestUpdate] = useState({
-    done: true,
-    statusText: 'Up to date',
-    statusSubtext: undefined as string | undefined
-  })
+  const [latestUpdate, setLatestUpdate] = useState(DEFAULT_UPDATE_STATE)
 
   useEffect(() => {
     const createSubscriber = client
@@ -36,9 +35,9 @@ export const StatusView = () => {
       )
 
     const deleteSubscriber = client
-      .subscribe<{ entryDeleted: {} }>({ query: DELETE_SUBSCRIPTION })
+      .subscribe<{ entryDeleted: { path: string } }>({ query: DELETE_SUBSCRIPTION })
       .subscribe(
-        () => setLatestUpdate({ done: false, statusText: 'Cleaning up...', statusSubtext: undefined }),
+        () => setLatestUpdate({ done: false, statusText: 'Cleaning up...', statusSubtext: 'Removing stale data' }),
         (err) => { console.error(err) },
       )
 
@@ -56,6 +55,11 @@ export const StatusView = () => {
       finishSubscriber.unsubscribe()
     }
   }, [client])
+
+  const refreshLibrary = async () => {
+    setLatestUpdate(CHECKING_STATE)
+    setTimeout(startLibraryUpdate, 500)
+  }
 
   return (
     <Container done={latestUpdate.done}>
@@ -85,6 +89,7 @@ const Container = styled.section<{ done: boolean }>`
     color: ${props => props.done ? '#A4B0BE' : '#2F3542'};
     display: block;
     margin-bottom: 8px;
+    cursor: default;
   }
 
   span {
@@ -93,6 +98,7 @@ const Container = styled.section<{ done: boolean }>`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: default;
   }
 
   a {

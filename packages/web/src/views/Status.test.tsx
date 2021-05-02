@@ -70,7 +70,7 @@ it('displays "Cleaning up..." when deleting', async () => {
   expect(text).toContainHTML('Cleaning up...')
 
   const subtext = screen.getByTestId('status-subtext')
-  expect(subtext).toBeEmptyDOMElement()
+  expect(subtext).toContainHTML('Removing stale data')
 })
 
 it('resets to "Up to date" when finished', async () => {
@@ -93,6 +93,7 @@ it('resets to "Up to date" when finished', async () => {
 
 it('supports refreshing when up to date', async () => {
   jest.spyOn(window, 'fetch')
+  jest.useFakeTimers()
 
   const { render } = await subject()
   render()
@@ -101,6 +102,7 @@ it('supports refreshing when up to date', async () => {
   expect(link).toContainHTML('Refresh library')
 
   act(() => { fireEvent.click(link) })
+  jest.advanceTimersByTime(600)
 
   expect(window.fetch).toHaveBeenCalledWith(UPDATE_LIBRARY_ENDPOINT, { method: 'POST' })
 })
