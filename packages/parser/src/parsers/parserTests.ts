@@ -24,6 +24,19 @@ const EXAMPLES = [
     ]
   },
   {
+    name: 'cbz - with nested images',
+    comicFileName: 'nested-images.cbz',
+    imageFilePaths: [
+      'nested-images/Images/0001.jpg',
+      'nested-images/Images/0002.jpg',
+      'nested-images/Images/0003.jpg',
+      'nested-images/Images/0004.jpg',
+      'nested-images/Images/0005.jpg',
+      'nested-images/Images/Deeper/0006.jpg',
+      'nested-images/Images/Deeper/0007.jpg',
+    ]
+  },
+  {
     name: 'cbr - example 1',
     comicFileName: 'wytches-sample.cbr',
     imageFilePaths: [
@@ -42,6 +55,19 @@ const EXAMPLES = [
       'phonogram-sample/0003.jpeg',
       'phonogram-sample/0004.jpeg',
       'phonogram-sample/0005.jpeg',
+    ]
+  },
+  {
+    name: 'cbr - with nested images',
+    comicFileName: 'nested-images.cbr',
+    imageFilePaths: [
+      'nested-images/Images/0001.jpg',
+      'nested-images/Images/0002.jpg',
+      'nested-images/Images/0003.jpg',
+      'nested-images/Images/0004.jpg',
+      'nested-images/Images/0005.jpg',
+      'nested-images/Images/Deeper/0006.jpg',
+      'nested-images/Images/Deeper/0007.jpg',
     ]
   },
 ]
