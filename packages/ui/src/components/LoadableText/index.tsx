@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { LoadingBox } from '../LoadingBox'
 
 export interface LoadableTextProps<T> {
@@ -40,7 +40,7 @@ const P_STYLES = {
   lineHeight: '1.2rem',
 }
 
-export const Title = (props: LoadableTextProps<string>) => {
+export const Title = (props: LoadableTextProps<string | ReactNode>) => {
   const styles = { ...H1_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
@@ -52,7 +52,7 @@ export const Title = (props: LoadableTextProps<string>) => {
   )
 }
 
-export const Subtitle = (props: LoadableTextProps<string>) => {
+export const Subtitle = (props: LoadableTextProps<string | ReactNode>) => {
   const styles = { ...H2_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
@@ -65,7 +65,7 @@ export const Subtitle = (props: LoadableTextProps<string>) => {
   )
 }
 
-export const Sentence = (props: LoadableTextProps<string>) => {
+export const Sentence = (props: LoadableTextProps<string | ReactNode>) => {
   const styles = { ...SPAN_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
@@ -77,7 +77,7 @@ export const Sentence = (props: LoadableTextProps<string>) => {
   )
 }
 
-export const Paragraph = (props: LoadableTextProps<string>) => {
+export const Paragraph = (props: LoadableTextProps<string | ReactNode>) => {
   const styles = { ...P_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>

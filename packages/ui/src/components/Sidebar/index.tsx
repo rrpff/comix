@@ -8,12 +8,12 @@ export interface SidebarProps {
 
 export interface SidebarHeadingProps {
   loading?: boolean
-  text?: string
+  children?: ReactNode
 }
 
 export interface SidebarOptionProps {
   loading?: boolean
-  text?: string
+  children?: ReactNode
   selected?: boolean
   onClick?: () => void
 }
@@ -26,18 +26,18 @@ export const Sidebar = (props: SidebarProps) => {
   )
 }
 
-export const SidebarHeading = ({ loading, text, ...rest }: SidebarHeadingProps) => {
+export const SidebarHeading = ({ loading, children, ...rest }: SidebarHeadingProps) => {
   return (
     <SidebarHeadingContainer {...rest}>
-      <Sentence loading={loading}>{() => text || ''}</Sentence>
+      <Sentence loading={loading}>{() => children || ''}</Sentence>
     </SidebarHeadingContainer>
   )
 }
 
-export const SidebarOption = ({ loading, text, ...rest }: SidebarOptionProps) => {
+export const SidebarOption = ({ loading, children, ...rest }: SidebarOptionProps) => {
   return (
     <SidebarOptionContainer {...rest}>
-      <Sentence loading={loading}>{() => text || ''}</Sentence>
+      <Sentence loading={loading}>{() => children || ''}</Sentence>
     </SidebarOptionContainer>
   )
 }

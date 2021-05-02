@@ -29,6 +29,8 @@ export interface RenderDirectoryLabelProps {
   toggle: () => Promise<void>
   expand: () => Promise<void>
   collapse: () => Promise<void>
+  directories?: Directory[] | null
+  files?: File[] | null
 }
 
 export interface RenderFileLabelProps {
@@ -87,6 +89,8 @@ export const DirectoryTree = ({
       toggle: () => toggle(subdir.path),
       expand: () => expand(subdir.path),
       collapse: () => collapse(subdir.path),
+      directories: contents[subdir.path]?.directories,
+      files: contents[subdir.path]?.files,
     })
 
     return (
