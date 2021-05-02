@@ -76,6 +76,7 @@ const Progress = styled.div`
 `
 
 const Container = styled.section`
+  cursor: pointer;
   position: relative;
   display: inline-flex;
   padding: 20px;

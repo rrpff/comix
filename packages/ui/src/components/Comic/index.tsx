@@ -177,6 +177,8 @@ const ComicNavigationHeading = styled.div`
   font-weight: bold;
   padding: 20px;
   flex-grow: 1;
+  font-size: 1.4rem;
+  cursor: default;
 `
 
 const ComicNavigationOption = styled.div`

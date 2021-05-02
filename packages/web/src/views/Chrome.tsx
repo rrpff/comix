@@ -43,14 +43,17 @@ const SidebarContainer = styled.section`
   left: 0px;
   height: 100%;
   width: 220px;
+  padding: 20px;
+  background: #F1F2F6;
+  border-right: 1px solid #dfe4ea;
   overflow: auto;
 `
 
 const ContentContainer = styled.section`
   position: fixed;
   top: 0px;
-  left: 220px;
+  left: 261px;
   height: 100%;
-  width: calc(100% - 220px);
+  width: calc(100% - 261px);
   overflow: auto;
 `

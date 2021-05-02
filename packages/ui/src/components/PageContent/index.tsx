@@ -19,7 +19,7 @@ export const PageContent = ({
 }: PageContentProps) => {
   return (
     <Container {...rest}>
-      <header>
+      <Header>
         <Sentence
           loading={loading}
           loadingWidth="60px"
@@ -32,7 +32,7 @@ export const PageContent = ({
           children={() => title || ''}
           style={{ fontWeight: 900, marginTop: 6 }}
         />
-      </header>
+      </Header>
 
       <article>
         {children}
@@ -42,5 +42,9 @@ export const PageContent = ({
 }
 
 const Container = styled.main`
-  padding: 16px;
+  padding: 36px;
+`
+
+const Header = styled.header`
+  padding: 0px 20px;
 `

@@ -49,8 +49,6 @@ const Container = styled.aside`
   height: 100%;
   width: 100%;
 
-  background: #F1F2F6;
-
   a,
   div {
     display: flex;
