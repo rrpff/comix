@@ -5,7 +5,7 @@ import { Spinner } from '@comix/ui/components/Spinner'
 
 export const CREATE_SUBSCRIPTION = gql`subscription { entryCreated { name } }`
 export const UPDATE_SUBSCRIPTION = gql`subscription { entryUpdated { name } }`
-export const DELETE_SUBSCRIPTION = gql`subscription { entryDeleted { name } }`
+export const DELETE_SUBSCRIPTION = gql`subscription { entryDeleted { path } }`
 export const FINISH_SUBSCRIPTION = gql`subscription { libraryUpdateFinished { success } }`
 
 export const UPDATE_LIBRARY_ENDPOINT = 'http://localhost:4000/update-library'
@@ -36,7 +36,7 @@ export const StatusView = () => {
       )
 
     const deleteSubscriber = client
-      .subscribe<{ entryDeleted: { name: string } }>({ query: DELETE_SUBSCRIPTION })
+      .subscribe<{ entryDeleted: {} }>({ query: DELETE_SUBSCRIPTION })
       .subscribe(
         () => setLatestUpdate({ done: false, statusText: 'Cleaning up...', statusSubtext: undefined }),
         (err) => { console.error(err) },
