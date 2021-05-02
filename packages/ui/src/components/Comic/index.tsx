@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react **/
 import styled from '@emotion/styled'
 import { useRef } from 'react'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'

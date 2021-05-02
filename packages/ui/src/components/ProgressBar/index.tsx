@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react **/
 import { CSSProperties } from 'react'
 import styled from '@emotion/styled'
 
