@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import { ComicEntry, ComicEntryProps } from '../ComicEntry'
 
 export interface ComicEntryListProps {
@@ -24,7 +25,7 @@ export const ComicEntryList = ({
   }
 
   return (
-    <div>
+    <Container>
       {comics.sort(byTitle).map(comic =>
         <ComicEntry
           {...comic}
@@ -32,9 +33,20 @@ export const ComicEntryList = ({
           onClick={() => onClickComic(comic)}
         />
       )}
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.section`
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    flex: auto;
+  }
+`
 
 const byTitle = (a: ComicEntryProps, b: ComicEntryProps) =>
   a.title === undefined && b.title === undefined ? 0 :
