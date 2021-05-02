@@ -25,7 +25,7 @@ export const ComicEntryList = ({
 
   return (
     <div>
-      {comics.map(comic =>
+      {comics.sort(byTitle).map(comic =>
         <ComicEntry
           {...comic}
           key={comic.imageUrl}
@@ -35,3 +35,11 @@ export const ComicEntryList = ({
     </div>
   )
 }
+
+const byTitle = (a: ComicEntryProps, b: ComicEntryProps) =>
+  a.title === undefined && b.title === undefined ? 0 :
+  a.title === undefined ? 1 :
+  b.title === undefined ? -1 :
+  a.title < b.title ? -1 :
+  a.title > b.title ? 1 :
+  0

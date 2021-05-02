@@ -3,6 +3,7 @@ import { LoadingBox } from '../LoadingBox'
 
 export interface LoadableTextProps<T> {
   loading?: boolean
+  loadingWidth?: CSSProperties['width']
   children: () => T
   style?: CSSProperties
 }
@@ -43,7 +44,7 @@ export const Title = (props: LoadableTextProps<string>) => {
   const styles = { ...H1_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
-    <LoadingBox width="80%" height={styles.fontSize} style={{ ...styles }} />
+    <LoadingBox width={props.loadingWidth || '80%'} height={styles.fontSize} style={{ ...styles }} />
   </>
 
   return (
@@ -55,8 +56,8 @@ export const Subtitle = (props: LoadableTextProps<string>) => {
   const styles = { ...H2_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
-    <LoadingBox width="66%" height={styles.fontSize} style={{ ...styles, marginBottom: '0.3rem' }} />
-    <LoadingBox width="33%" height={styles.fontSize} style={{ ...styles }} />
+    <LoadingBox width={props.loadingWidth || '66%'} height={styles.fontSize} style={{ ...styles, marginBottom: '0.3rem' }} />
+    <LoadingBox width={props.loadingWidth || '33%'} height={styles.fontSize} style={{ ...styles }} />
   </>
 
   return (
@@ -68,7 +69,7 @@ export const Sentence = (props: LoadableTextProps<string>) => {
   const styles = { ...SPAN_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
-    <LoadingBox width="66%" height={styles.fontSize} style={{ ...styles }} />
+    <LoadingBox width={props.loadingWidth || '66%'} height={styles.fontSize} style={{ ...styles }} />
   </>
 
   return (
@@ -80,11 +81,11 @@ export const Paragraph = (props: LoadableTextProps<string>) => {
   const styles = { ...P_STYLES, ...(props.style || {}) }
 
   if (props.loading) return <>
-    <LoadingBox width={`${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
-    <LoadingBox width={`${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
-    <LoadingBox width={`${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
-    <LoadingBox width={`${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
-    <LoadingBox width={`${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles }} />
+    <LoadingBox width={props.loadingWidth || `${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
+    <LoadingBox width={props.loadingWidth || `${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
+    <LoadingBox width={props.loadingWidth || `${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
+    <LoadingBox width={props.loadingWidth || `${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles, marginBottom: '0.2rem' }} />
+    <LoadingBox width={props.loadingWidth || `${90 + Math.random() * 10}%`} height={styles.fontSize} style={{ ...styles }} />
   </>
 
   return (

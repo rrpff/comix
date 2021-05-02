@@ -26,18 +26,18 @@ export const Sidebar = (props: SidebarProps) => {
   )
 }
 
-export const SidebarHeading = (props: SidebarHeadingProps) => {
+export const SidebarHeading = ({ loading, text, ...rest }: SidebarHeadingProps) => {
   return (
-    <SidebarHeadingContainer {...props}>
-      <Sentence loading={props.loading}>{() => props.text || ''}</Sentence>
+    <SidebarHeadingContainer {...rest}>
+      <Sentence loading={loading}>{() => text || ''}</Sentence>
     </SidebarHeadingContainer>
   )
 }
 
-export const SidebarOption = (props: SidebarOptionProps) => {
+export const SidebarOption = ({ loading, text, ...rest }: SidebarOptionProps) => {
   return (
-    <SidebarOptionContainer {...props}>
-      <Sentence loading={props.loading}>{() => props.text || ''}</Sentence>
+    <SidebarOptionContainer {...rest}>
+      <Sentence loading={loading}>{() => text || ''}</Sentence>
     </SidebarOptionContainer>
   )
 }
@@ -51,9 +51,14 @@ const Container = styled.aside`
 
   background: #F1F2F6;
 
+  a,
   div {
     display: flex;
     flex-direction: column;
+  }
+
+  a {
+    text-decoration: none;
   }
 `
 

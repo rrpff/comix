@@ -1,8 +1,9 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { MockedProvider, MockedResponse } from '@apollo/client/testing'
+import { MemoryRouter } from 'react-router-dom'
+import { Directory, LibraryCollection } from '@comix/ui'
 import { list, generateCollection, pick, generateDirectory } from '../../test/generators'
 import { SidebarView, COLLECTIONS_QUERY, DIRECTORY_QUERY } from './Sidebar'
-import { Directory, LibraryCollection } from '@comix/ui'
 
 it('displays all collections', async () => {
   const { render, stubCollections, waitForCollections } = await subject()
@@ -85,7 +86,9 @@ const subject = async () => {
     render: () => {
       return render(
         <MockedProvider mocks={mocks}>
-          <SidebarView />
+          <MemoryRouter>
+            <SidebarView />
+          </MemoryRouter>
         </MockedProvider>
       )
     }

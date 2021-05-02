@@ -32,7 +32,7 @@ export const ComicEntry = ({
       })
     }>
       {({ measureRef }) =>
-        <Container onClick={onClick} style={{ width: imageSize.width }}>
+        <Container onClick={onClick} style={{ width: imageSize.width }} data-testid={title}>
           {loading
             ? <LoadingBox width="100%" height="240px" />
             : <img ref={measureRef} src={imageUrl} alt={title} />
