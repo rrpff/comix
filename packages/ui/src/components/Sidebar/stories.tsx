@@ -16,15 +16,15 @@ export const WithOptions = Template.bind({})
 WithOptions.args = {
   children: (
     <>
-      <SidebarHeading text="Library" />
-      <SidebarOption text="Starred" />
-      <SidebarOption selected text="Reading" />
-      <SidebarOption text="Uncategorised" />
+      <SidebarHeading>Library</SidebarHeading>
+      <SidebarOption>Starred</SidebarOption>
+      <SidebarOption selected>Reading</SidebarOption>
+      <SidebarOption>Uncategorised</SidebarOption>
 
-      <SidebarHeading text="Publishers" />
-      <SidebarOption text="2000 AD" />
-      <SidebarOption text="DC" />
-      <SidebarOption text="Marvel" />
+      <SidebarHeading>Publishers</SidebarHeading>
+      <SidebarOption>2000 AD</SidebarOption>
+      <SidebarOption>DC</SidebarOption>
+      <SidebarOption>Marvel</SidebarOption>
     </>
   )
 }
@@ -33,15 +33,15 @@ export const WithLoadingOptions = Template.bind({})
 WithLoadingOptions.args = {
   children: (
     <>
-      <SidebarHeading loading text="Library" />
-      <SidebarOption loading text="Starred" />
-      <SidebarOption selected loading text="Reading" />
-      <SidebarOption loading text="Uncategorised" />
+      <SidebarHeading loading>Library</SidebarHeading>
+      <SidebarOption loading>Starred</SidebarOption>
+      <SidebarOption selected loading>Reading</SidebarOption>
+      <SidebarOption loading>Uncategorised</SidebarOption>
 
-      <SidebarHeading loading text="Publishers" />
-      <SidebarOption loading text="2000 AD" />
-      <SidebarOption loading text="DC" />
-      <SidebarOption loading text="Marvel" />
+      <SidebarHeading loading>Publishers</SidebarHeading>
+      <SidebarOption loading>2000 AD</SidebarOption>
+      <SidebarOption loading>DC</SidebarOption>
+      <SidebarOption loading>Marvel</SidebarOption>
     </>
   )
 }

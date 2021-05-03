@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
 import { RiFullscreenLine, RiFullscreenExitLine } from 'react-icons/ri'
 import { IoIosClose } from 'react-icons/io'

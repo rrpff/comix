@@ -1,10 +1,16 @@
 {
   "name": "@comix/ui",
   "version": "0.1.0",
+  "build": {
+    "esbuild": {
+      "entry": "./src/**/*.ts*",
+      "outdir": "./"
+    }
+  },
   "scripts": {
     "dev": "tmax",
-    "build": "tsc --project . --declaration --outDir .",
-    "build:watch": "tsc --watch --project . --declaration --outDir .",
+    "build": "../../build.js ui",
+    "build:types": "tsc --declaration --emitDeclarationOnly --project . --outDir .",
     "test": "jest",
     "schema:build": "graphql-codegen --config codegen.yml",
     "schema:build:watch": "graphql-codegen --config codegen.yml --watch",

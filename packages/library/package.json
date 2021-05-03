@@ -1,11 +1,18 @@
 {
   "name": "@comix/library",
   "version": "0.1.0",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "build": {
+    "esbuild": {
+      "entry": "./src/**/*.ts",
+      "outdir": "./dist",
+      "format": "cjs"
+    }
+  },
   "scripts": {
-    "build": "tsc --declaration --project . --outDir dist",
-    "build:watch": "tsc --watch --declaration --project . --outDir dist",
+    "build": "../../build.js library",
+    "build:types": "tsc --declaration --emitDeclarationOnly --project . --outDir dist",
     "test": "jest"
   },
   "devDependencies": {

@@ -4,7 +4,6 @@ module.exports = {
     {
       label: 'Builds',
       commands: [
-        { label: 'Server', command: 'npm run server:build:watch', cwd: __dirname },
         { label: 'Schema', command: 'npm run schema:build:watch', cwd: __dirname },
       ]
     }

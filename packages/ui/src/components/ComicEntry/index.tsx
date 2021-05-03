@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Measure from 'react-measure'
 import { ProgressBar } from '../ProgressBar'
 import { Sentence } from '../LoadableText'

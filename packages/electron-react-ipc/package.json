@@ -1,9 +1,16 @@
 {
   "name": "electron-react-ipc",
   "version": "0.1.0",
+  "build": {
+    "esbuild": {
+      "entry": "./src/**/*.ts",
+      "outdir": "./",
+      "format": "cjs"
+    }
+  },
   "scripts": {
-    "build": "tsc --declaration --project . --outDir .",
-    "build:watch": "tsc --watch --declaration --project . --outDir .",
+    "build": "../../build.js electron-react-ipc",
+    "build:types": "tsc --declaration --emitDeclarationOnly --project . --outDir .",
     "test": "jest"
   },
   "devDependencies": {

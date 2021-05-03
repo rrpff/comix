@@ -1,5 +1,5 @@
 import { ApolloProvider, ApolloClient } from '@apollo/client'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 export * from './types/apiSchema'
 

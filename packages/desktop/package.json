@@ -2,12 +2,20 @@
   "name": "@comix/desktop",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/server/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "build": {
+    "esbuild": {
+      "entry": "./src/**/*.ts",
+      "outdir": "./dist",
+      "format": "cjs"
+    }
+  },
   "scripts": {
     "dev": "electronmon dist/index.js",
     "start": "electron dist/index.js",
-    "build": "tsc --project ./tsconfig.json --outDir dist",
-    "build:watch": "tsc --watch --project ./tsconfig.json --outDir dist"
+    "build": "../../build.js desktop",
+    "build:types": "tsc --declaration --emitDeclarationOnly --project . --outDir dist"
   },
   "dependencies": {
     "electron": "^12.0.5",

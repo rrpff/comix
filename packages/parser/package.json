@@ -14,10 +14,14 @@
   "main": "./dist/commonjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/src/index.d.ts",
+  "build": {
+    "watch": ["./src/**/*.ts"],
+    "scripts": ["build-types", "build-ts"]
+  },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build-types && rollup -c",
-    "build:watch": "npm run build && rollup -c --watch",
+    "build": "npm run build-types && npm run build-ts",
+    "build-ts": "rollup -c --silent",
     "build-types": "tsc --declaration --emitDeclarationOnly --project . --outDir dist",
     "test": "jest"
   },
