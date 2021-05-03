@@ -7,7 +7,7 @@ it('displays the directories in the directory', async () => {
   const { render } = await subject()
   const directory = generateDirectory()
 
-  render({ directory, load: async () => null })
+  render({ directory })
 
   expect.assertions(directory.directories!.length)
   directory.directories!.forEach(file => {
@@ -20,7 +20,7 @@ it('does not display directories when showDirectories is false', async () => {
   const { render } = await subject()
   const directory = generateDirectory()
 
-  render({ directory, load: async () => null, showDirectories: false })
+  render({ directory, showDirectories: false })
 
   expect.assertions(directory.directories!.length)
   directory.directories!.forEach(file => {
@@ -29,13 +29,12 @@ it('does not display directories when showDirectories is false', async () => {
   })
 })
 
-it('expands a directory to show loaded data when clicking it', async () => {
+it('expands a directory when clicking it', async () => {
   const { render } = await subject()
   const directory = generateDirectory(2)
   const desiredSubdir = pick(directory.directories!)
-  const load = async () => desiredSubdir
 
-  render({ directory, load })
+  render({ directory })
 
   const subdir = screen.getByTestId(desiredSubdir.path)
   act(() => { fireEvent.click(subdir) })
@@ -53,9 +52,8 @@ it('collapses a directory when clicking it again', async () => {
   const { render } = await subject()
   const directory = generateDirectory(2)
   const desiredSubdir = pick(directory.directories!)
-  const load = async () => desiredSubdir
 
-  render({ directory, load })
+  render({ directory })
 
   const subdir = screen.getByTestId(desiredSubdir.path)
   act(() => { fireEvent.click(subdir) })
@@ -75,7 +73,7 @@ it('displays the files in the directory', async () => {
   const { render } = await subject()
   const directory = generateDirectory()
 
-  render({ directory, load: async () => null })
+  render({ directory })
 
   expect.assertions(directory.files!.length)
   directory.files!.forEach(file => {
@@ -88,7 +86,7 @@ it('does not display files when showFiles is false', async () => {
   const { render } = await subject()
   const directory = generateDirectory()
 
-  render({ directory, load: async () => null, showFiles: false })
+  render({ directory, showFiles: false })
 
   expect.assertions(directory.files!.length)
   directory.files!.forEach(file => {

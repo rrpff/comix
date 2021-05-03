@@ -7,6 +7,7 @@ import { GraphqlContext } from './types'
 import { Resolvers } from './types/schema'
 import { collections } from './queries/collections'
 import { collection } from './queries/collection'
+import { collectionDirectories } from './queries/collectionDirectories'
 import { directory } from './queries/directory'
 import { entries } from './queries/entries'
 import { createCollection } from './mutations/createCollection'
@@ -42,6 +43,7 @@ const resolvers: Resolvers = {
   Query: {
     collections,
     collection,
+    collectionDirectories,
     directory,
     entries,
   },

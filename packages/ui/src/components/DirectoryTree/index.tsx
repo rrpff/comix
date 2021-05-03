@@ -14,7 +14,6 @@ interface Directory {
 
 export interface DirectoryTreeProps {
   directory: Directory
-  load: (dirpath: string) => Promise<Directory | null>
   showDirectories?: boolean
   showFiles?: boolean
   level?: number
@@ -29,8 +28,6 @@ export interface RenderDirectoryLabelProps {
   toggle: () => Promise<void>
   expand: () => Promise<void>
   collapse: () => Promise<void>
-  directories?: Directory[] | null
-  files?: File[] | null
 }
 
 export interface RenderFileLabelProps {
@@ -39,49 +36,41 @@ export interface RenderFileLabelProps {
 }
 
 const defaultRenderDirectoryLabel = (props: RenderDirectoryLabelProps) =>
-  <span data-testid={props.directory.path} onClick={() => props.toggle()}>
+  <div data-testid={props.directory.path} onClick={() => props.toggle()}>
     <strong>{props.directory.name}</strong>
-  </span>
+  </div>
 
 const defaultRenderFileLabel = (props: RenderFileLabelProps) =>
-  <span data-testid={props.file.path}>
+  <div data-testid={props.file.path}>
     {props.file.name}
-  </span>
+  </div>
 
 export const DirectoryTree = ({
   directory,
-  load,
   showDirectories = true,
   showFiles = true,
   level = 0,
   renderDirectoryLabel = defaultRenderDirectoryLabel,
   renderFileLabel = defaultRenderFileLabel,
 }: DirectoryTreeProps) => {
-  const [contents, setContents] = useState({} as { [key: string]: Directory | null })
+  const [expanded, setExpanded] = useState([] as string[])
 
   const expand = async (path: string) => {
-    const newContents = await load(path)
-    setContents(existing => ({
-      ...existing,
-      [path]: newContents
-    }))
+    setExpanded(current => [...current, path])
   }
 
   const collapse = async (path: string) => {
-    setContents(existing => ({
-      ...existing,
-      [path]: null
-    }))
+    setExpanded(current => current.filter(p => p !== path))
   }
 
   const toggle = async (path: string) => {
-    return !!contents[path]
+    return expanded.includes(path)
       ? collapse(path)
       : expand(path)
   }
 
   const renderSubDirectory = (subdir: Directory) => {
-    const isExpanded = !!contents[subdir.path]
+    const isExpanded = expanded.includes(subdir.path)
     const label = renderDirectoryLabel({
       directory: subdir,
       isExpanded: isExpanded,
@@ -89,8 +78,6 @@ export const DirectoryTree = ({
       toggle: () => toggle(subdir.path),
       expand: () => expand(subdir.path),
       collapse: () => collapse(subdir.path),
-      directories: contents[subdir.path]?.directories,
-      files: contents[subdir.path]?.files,
     })
 
     return (
@@ -98,8 +85,7 @@ export const DirectoryTree = ({
         {label}
         {isExpanded && (
           <DirectoryTree
-            directory={contents[subdir.path]!}
-            load={load}
+            directory={subdir}
             showDirectories={showDirectories}
             showFiles={showFiles}
             level={level + 1}

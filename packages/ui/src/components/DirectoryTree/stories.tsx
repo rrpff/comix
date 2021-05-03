@@ -11,28 +11,24 @@ const Template: Story<DirectoryTreeProps> = (args) => <DirectoryTree {...args} /
 
 export const WithContents = Template.bind({})
 WithContents.args = {
-  directory: generateDirectory(),
-  load: async () => generateDirectory(),
+  directory: generateDirectory(5),
 }
 
 export const WithDirectoriesHidden = Template.bind({})
 WithDirectoriesHidden.args = {
-  directory: generateDirectory(),
-  load: async () => generateDirectory(),
+  directory: generateDirectory(5),
   showDirectories: false,
 }
 
 export const WithFilesHidden = Template.bind({})
 WithFilesHidden.args = {
-  directory: generateDirectory(),
-  load: async () => generateDirectory(),
+  directory: generateDirectory(5),
   showFiles: false,
 }
 
 export const WithCustomRenderer = Template.bind({})
 WithCustomRenderer.args = {
-  directory: generateDirectory(),
-  load: async () => generateDirectory(),
+  directory: generateDirectory(5),
   renderDirectoryLabel: (props: RenderDirectoryLabelProps) => (
     <section>
       <span style={{ color: 'blue' }}>Folder: {props.directory.name}</span>

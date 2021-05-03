@@ -42,9 +42,14 @@ export default gql`
     path: String!
   }
 
+  type CollectionDirectory {
+    directory: [String!]!
+  }
+
   extend type Query {
     collections: [LibraryCollection!]!
     collection(input: CollectionInput!): LibraryCollection!
+    collectionDirectories(input: CollectionInput!): [CollectionDirectory!]!
   }
 
   extend type Mutation {

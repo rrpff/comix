@@ -43,7 +43,7 @@ export const createTestQueryRunner = async (overrides: Partial<RequestContext> =
 
   return {
     ...requestContext,
-    run: async (query: DocumentNode, variables: object = {}) => {
+    run: async <T = { [key: string]: any }>(query: DocumentNode, variables: object = {}) => {
       // Always wait for the next tick before running any mutations.
       // This is because subscriptions aren't set up if you run the
       // mutation immediately. By the time the subscription is ready
@@ -52,7 +52,9 @@ export const createTestQueryRunner = async (overrides: Partial<RequestContext> =
       // Not sure if this is an issue in this repo, or in Apollo, or
       // in graphql-js...
       await new Promise(resolve => process.nextTick(resolve))
-      return await graphqlRequest({ query, context, variables })
+      const result = await graphqlRequest({ query, context, variables })
+
+      return result as ExecutionResult<T>
     },
     subscribe: (query: DocumentNode, variables: object = {}) => {
       return graphqlSubscribe({ query, context, variables }) as
