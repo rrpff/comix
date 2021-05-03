@@ -2,6 +2,8 @@ import path from 'path'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
+import alias from '@rollup/plugin-alias'
+import copy from 'rollup-plugin-copy'
 
 export default [
   {
@@ -33,6 +35,11 @@ export default [
       }
     ],
     plugins: [
+      alias({
+        entries: [
+          { find: 'node-unrar-js', replacement: 'node-unrar-js/dist' },
+        ]
+      }),
       nodeResolve(),
       commonjs(),
       typescript({
@@ -40,22 +47,11 @@ export default [
         declaration: true,
         declarationDir: path.join('dist', 'commonjs', 'types')
       }),
-    ],
-  },
-  {
-    input: path.join('src', 'index.ts'),
-    output: [
-      {
-        dir: path.join('dist', 'umd'),
-        format: 'umd',
-        name: 'ComixParser',
-        sourcemap: true,
-      }
-    ],
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      typescript({ module: 'esnext' }),
+      copy({
+        targets: [
+          { src: 'node_modules/node-unrar-js/dist/js/unrar.wasm', dest: 'dist/commonjs' },
+        ]
+      }),
     ],
   }
 ]
