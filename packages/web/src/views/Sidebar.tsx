@@ -102,7 +102,6 @@ const SidebarDirectory = ({ collection }: { collection: LibraryCollection }) => 
                   expanded={props.isExpanded}
                   onClick={e => {
                     e.preventDefault()
-                    console.log('hiya')
                     props.toggle()
                   }}
                 />
