@@ -18,7 +18,9 @@ it.each([
 
 it.each([
   [['hello(test).cbr'], [{ name: 'hello' }]],
+  [['hello(test) (3).cbr'], [{ name: 'hello' }]],
   [['hello[test].cbr'], [{ name: 'hello' }]],
+  [['hello[test] [2].cbr'], [{ name: 'hello' }]],
   [['whatever(.cbr'], [{ name: 'whatever(' }]],
   [['cool).cbr'], [{ name: 'cool)' }]],
 ])('strips words in parentheses from its name', (fpaths, expected) => {
@@ -37,8 +39,10 @@ it.each([
 
 it.each([
   [['thing_123.cbr'], [{ name: 'thing 123' }]],
+  [['thing-123.cbr'], [{ name: 'thing 123' }]],
   [['_cool_msn_username_.cbr'], [{ name: 'cool msn username' }]],
-])('replaces underscores in its name', (fpaths, expected) => {
+  [['-cool-msn-username-.cbr'], [{ name: 'cool msn username' }]],
+])('replaces special characters in its name', (fpaths, expected) => {
   expect(subject(fpaths)).toMatchObject(expected)
 })
 
@@ -171,6 +175,15 @@ it.each([
     [{ number: 1 }, { number: 2 }]
   ],
 ])('can handle multiple groups of files in the same list', (fpaths, expected) => {
+  expect(subject(fpaths)).toMatchObject(expected)
+})
+
+it.each([
+  [
+    ['Comic 006 (2013) (2).cbr', 'Comic-001--2012---two.cbz', 'Comic 007 (2013) (2).cbr', 'Comic_002__2012___2.cbr'],
+    [{ number: 6 }, { number: 1 }, { number: 7 }, { number: 2 }]
+  ],
+])('guesses numbers close to other guesses when there is a lot of variation', (fpaths, expected) => {
   expect(subject(fpaths)).toMatchObject(expected)
 })
 

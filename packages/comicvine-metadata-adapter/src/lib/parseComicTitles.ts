@@ -18,22 +18,30 @@ const parse = (fpath: string, allFpaths: string[]) => {
 
 const clean = (str: string) =>
   trimWhitespace(
-    replaceUnderscores(
-      stripParenthesisedWords(
-        stripExtension(str))))
+    removeDates(
+      replaceUnderscores(
+        stripParenthesisedWords(
+          stripExtension(str)))))
+
+const removeDates = (fpath: string) => {
+  const dates = numbersInString(fpath).filter(isDate)
+  const regexps = dates.map(date => new RegExp(date.toString(), 'g'))
+  return regexps.reduce((output, regexp) => output.replace(regexp, ''), fpath)
+}
 
 const trimWhitespace = (fpath: string) =>
   fpath.trim().replace(/\s{2,}/, ' ')
 
-const replaceUnderscores = (fpath: string) =>
-  fpath.replace(/_/g, ' ')
+const replaceUnderscores = (fpath: string) => fpath
+  .replace(/_/g, ' ')
+  .replace(/-/g, ' ')
 
 const stripExtension = (fpath: string) =>
   path.basename(fpath, path.extname(fpath))
 
 const stripParenthesisedWords = (fpath: string) => fpath
-  .replace(/\([^\)]+\)/, '')
-  .replace(/\[[^\)]+\]/, '')
+  .replace(/\([^\)]+\)/g, '')
+  .replace(/\[[^\)]+\]/g, '')
 
 const guessIssueNumber = (fpath: string, allFpaths: string[]) => {
   if (allFpaths.length === 1) return findNonDateNumber(fpath)
@@ -43,12 +51,7 @@ const guessIssueNumber = (fpath: string, allFpaths: string[]) => {
 }
 
 const findNonDateNumber = (fpath: string) => {
-  const nums = fpath.match(NUMBER_MATCH_REGEXP)
-  if (nums === null) return undefined
-
-  const isDate = (num: number) => num >= 1900 && num <= NEXT_YEAR
-
-  return nums.map(Number).find(num => !isDate(num))
+  return numbersInString(fpath).find(num => !isDate(num))
 }
 
 /*
@@ -154,3 +157,5 @@ const NUMBER_MATCH_REGEXP = new RegExp('([0-9]+)', 'g')
 const NEXT_YEAR = new Date().getFullYear() + 1
 const isNumber = (char: string) => NUMBER_REGEXP.test(char)
 const sum = (arr: number[]) => arr.reduce((total, num) => total + num, 0)
+const numbersInString = (str: string) => (str.match(NUMBER_MATCH_REGEXP) || []).map(Number)
+const isDate = (num: number) => num >= 1900 && num <= NEXT_YEAR
