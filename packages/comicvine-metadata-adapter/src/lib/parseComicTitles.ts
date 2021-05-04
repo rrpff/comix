@@ -8,11 +8,16 @@ export const parseComicTitles = (fpaths: string[]) => {
 
 const parse = (fpath: string, allFpaths: string[]) => {
   const name = clean(fpath)
+  const number = guessIssueNumber(name, allFpaths.map(clean))
+  const volume = number !== undefined
+    ? name.replace(new RegExp(`0*${number}`), '')
+    : name
 
   return {
     path: fpath,
     name: name,
-    number: guessIssueNumber(name, allFpaths.map(clean)),
+    number: number,
+    volume: trimWhitespace(volume),
   }
 }
 

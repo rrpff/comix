@@ -72,6 +72,14 @@ it.each([
 })
 
 it.each([
+  [['thing1.cbr'], [{ name: 'thing1', volume: 'thing' }]],
+  [['Cool 1.cbr', 'Cool 2.cbr'], [{ name: 'Cool 1', volume: 'Cool' }, { name: 'Cool 2', volume: 'Cool' }]],
+  [['Comic 0001.cbr'], [{ name: 'Comic 0001', volume: 'Comic' }]],
+])('returns a volume name without its issue number if found', (fpaths, expected) => {
+  expect(subject(fpaths)).toMatchObject(expected)
+})
+
+it.each([
   [
     ['Comic 1.cbr', 'Comic 2.cbr'],
     [{ number: 1 }, { number: 2 }]
