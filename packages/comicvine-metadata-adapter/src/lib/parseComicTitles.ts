@@ -30,23 +30,24 @@ const parse = (fpath: string, allFpaths: string[]): ParsedComicTitle => {
 
 const clean = (str: string) =>
   trimWhitespace(
-    removeDates(
-      replaceUnderscores(
+    removeLongNumbers(
+      replaceSpecialCharacters(
         stripParenthesisedWords(
           stripExtension(str)))))
 
-const removeDates = (fpath: string) => {
-  const dates = numbersInString(fpath).filter(isDate)
-  const regexps = dates.map(date => new RegExp(date.toString(), 'g'))
+const removeLongNumbers = (fpath: string) => {
+  const nums = numbersInString(fpath).filter(n => n >= 1000)
+  const regexps = nums.map(n => new RegExp(n.toString(), 'g'))
   return regexps.reduce((output, regexp) => output.replace(regexp, ''), fpath)
 }
 
 const trimWhitespace = (fpath: string) =>
   fpath.trim().replace(/\s{2,}/, ' ')
 
-const replaceUnderscores = (fpath: string) => fpath
+const replaceSpecialCharacters = (fpath: string) => fpath
   .replace(/_/g, ' ')
   .replace(/-/g, ' ')
+  .replace(/#/g, '')
 
 const stripExtension = (fpath: string) =>
   path.basename(fpath, path.extname(fpath))
@@ -56,14 +57,19 @@ const stripParenthesisedWords = (fpath: string) => fpath
   .replace(/\[[^\)]+\]/g, '')
 
 const guessIssueNumber = (fpath: string, allFpaths: string[]) => {
-  if (allFpaths.length === 1) return findNonDateNumber(fpath)
+  if (allFpaths.length === 1) return findLikelyNumber(fpath)
 
   const cursor = suspectedNumberCursorInString(fpath, allFpaths)
-  return numberAtCursor(fpath, cursor)
+  if (cursor === undefined) return findLikelyNumber(fpath)
+
+  const bestGuess = numberAtCursor(fpath, cursor)
+  if (bestGuess === undefined) return findLikelyNumber(fpath)
+
+  return bestGuess
 }
 
-const findNonDateNumber = (fpath: string) => {
-  return numbersInString(fpath).find(num => !isDate(num))
+const findLikelyNumber = (fpath: string) => {
+  return numbersInString(fpath).find(num => num < 1000)
 }
 
 /*
@@ -79,7 +85,7 @@ const findNonDateNumber = (fpath: string) => {
              ^
   It'll return here, aka the cursor would be 6.
 */
-const suspectedNumberCursorInString = (fpath: string, allFpaths: string[]) => {
+const suspectedNumberCursorInString = (fpath: string, allFpaths: string[]): number | undefined => {
   const average = averageNumberChangeCursorPosition(allFpaths)
   const otherFpaths = allFpaths.filter(f => f !== fpath)
 
@@ -88,6 +94,8 @@ const suspectedNumberCursorInString = (fpath: string, allFpaths: string[]) => {
   // volumes of comics are stored in the same directory.
   const diff = diffChars(closest(fpath, otherFpaths), fpath)
   const suspectedChangeIndex = closestChangeToAveragePositionIndex(average, diff)
+
+  if (suspectedChangeIndex === -1) return undefined
 
   return cursorForChangeIndex(diff, suspectedChangeIndex)
 }
@@ -161,13 +169,13 @@ const numberAtCursor = (str: string, cursor: number) => {
     position += 1
   }
 
-  return Number(chars)
+  return chars === ''
+    ? undefined
+    : Number(chars)
 }
 
 const NUMBER_REGEXP = new RegExp('[0-9]')
 const NUMBER_MATCH_REGEXP = new RegExp('([0-9]+)', 'g')
-const NEXT_YEAR = new Date().getFullYear() + 1
 const isNumber = (char: string) => NUMBER_REGEXP.test(char)
 const sum = (arr: number[]) => arr.reduce((total, num) => total + num, 0)
 const numbersInString = (str: string) => (str.match(NUMBER_MATCH_REGEXP) || []).map(Number)
-const isDate = (num: number) => num >= 1900 && num <= NEXT_YEAR

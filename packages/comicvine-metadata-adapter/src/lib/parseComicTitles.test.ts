@@ -2,11 +2,13 @@ import { parseComicTitles, ParsedComicTitle } from './parseComicTitles'
 
 type Example = [string[], Partial<ParsedComicTitle>[]]
 
-const example = (message: string, examples: Example[]) => {
-  it.each(examples)(message, (fpaths, expected) => {
+const example = (message: string, examples: Example[], method = it) => {
+  method.each(examples)(message, (fpaths, expected) => {
     expect(subject(fpaths)).toMatchObject(expected)
   })
 }
+
+example.focus = (message: string, examples: Example[]) => example(message, examples, fit)
 
 example('includes the original file path', [
   [['abc.cbr'], [{ path: 'abc.cbr' }]],
@@ -42,6 +44,8 @@ example('replaces special characters in its name', [
   [['thing-123.cbr'], [{ name: 'thing 123' }]],
   [['_cool_msn_username_.cbr'], [{ name: 'cool msn username' }]],
   [['-cool-msn-username-.cbr'], [{ name: 'cool msn username' }]],
+  [['issue #1.cbr'], [{ name: 'issue 1', volume: 'issue' }]],
+  [['issue ##1.cbr'], [{ name: 'issue 1', volume: 'issue' }]],
 ])
 
 example('returns no issue number when there is only one name, and it has no numbers', [
@@ -61,6 +65,13 @@ example('returns no issue number when there is only one name, and the number loo
   [['Comic 2020.cbr'], [{ number: undefined }]],
   [['1900 comix.cbr'], [{ number: undefined }]],
   [['1939.cbr'], [{ number: undefined }]],
+])
+
+example('returns no issue number when the number is probably too long to be an issue number', [
+  [['Comic 999.cbr'], [{ number: 999 }]],
+  [['Comic 1000.cbr'], [{ number: undefined }]],
+  [['Comic 13342424'], [{ number: undefined }]],
+  [['Comic 0000001'], [{ number: 1 }]],
 ])
 
 example('returns a volume name without its issue number if found', [
@@ -167,6 +178,13 @@ example('guesses numbers close to other guesses when there is a lot of variation
     ['Comic 006 (2013) (2).cbr', 'Comic-001--2012---two.cbz', 'Comic 007 (2013) (2).cbr', 'Comic_002__2012___2.cbr'],
     [{ number: 6 }, { number: 1 }, { number: 7 }, { number: 2 }]
   ],
+])
+
+example('resorts back to treating the path like a solitary file if the averaging is unintelligible', [
+  [
+    ['Comic Vol. 1.cbz', 'Comic 028.cbr'],
+    [{ number: 1 }, { number: 28 }],
+  ]
 ])
 
 const subject = (fpaths: string[]) => {
