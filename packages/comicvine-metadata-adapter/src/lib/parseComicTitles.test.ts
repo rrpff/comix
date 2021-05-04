@@ -50,20 +50,20 @@ it.each([
 })
 
 it.each([
-  [['Comic 2020.cbr'], [{ number: undefined }]],
-  [['1900 comix.cbr'], [{ number: undefined }]],
-  [['1939.cbr'], [{ number: undefined }]],
-])('returns no issue number when there is only one name, and the number looks like a date', (fpaths, expected) => {
-  expect(subject(fpaths)).toMatchObject(expected)
-})
-
-it.each([
   [['Comic 200.cbr'], [{ number: 200 }]],
   [['comix #30.cbr'], [{ number: 30 }]],
   [['stuff 0001.cbr'], [{ number: 1 }]],
   [['stuff 0030 2020.cbr'], [{ number: 30 }]],
   [['stuff 2020 0005.cbr'], [{ number: 5 }]],
 ])('returns an issue number of any found number when there is only one name', (fpaths, expected) => {
+  expect(subject(fpaths)).toMatchObject(expected)
+})
+
+it.each([
+  [['Comic 2020.cbr'], [{ number: undefined }]],
+  [['1900 comix.cbr'], [{ number: undefined }]],
+  [['1939.cbr'], [{ number: undefined }]],
+])('returns no issue number when there is only one name, and the number looks like a date', (fpaths, expected) => {
   expect(subject(fpaths)).toMatchObject(expected)
 })
 
