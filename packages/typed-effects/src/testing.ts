@@ -16,7 +16,7 @@ export interface EffectGeneratorTestWrapper {
   assertReturnValueIs: (value: any) => Promise<void>
 }
 
-export const testEffectGenerator = (gen: AnyEffectGenerator): EffectGeneratorTestWrapper => {
+export const testEffectGenerator = (gen: AnyEffectGenerator<any>): EffectGeneratorTestWrapper => {
   let done: boolean | undefined = false
   let nextInputValue: any = undefined
 
