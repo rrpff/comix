@@ -55,6 +55,7 @@ const mapSearchResponse = (data: ComicVineSearchResponseData): ComicVineSearchRe
 
 const mapVolumeResponse = (data: ComicVineVolumeResponseData): ComicVineVolume => ({
   comicVineApiResponse: data,
+  comicVineId: data.results.id,
   issues: data.results.issues.map(issue => ({
     name: issue.name,
     number: Number(issue.issue_number),
@@ -210,6 +211,7 @@ interface ComicVineSearchResponseData {
 export interface ComicVineVolumeResponseData {
   results: {
     description: string
+    id: number
     issues: {
       name: string
       issue_number: string

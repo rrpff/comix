@@ -6,6 +6,7 @@ export type ComicVineSearchResult =
 
 export interface ComicVineVolume {
   comicVineApiResponse: ComicVineVolumeResponseData
+  comicVineId: number
   issues: {
     name: string
     number: number

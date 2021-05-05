@@ -56,6 +56,18 @@ test.each([
 
 test.each([
   { id: 3976, stub: comicVineStubs.animalManVolumeResponse },
+  { id: 773, stub: comicVineStubs.supermanVolumeResponse }
+])('volume includes its id', async ({ id, stub }) => {
+  const { volume, stubVolumeEndpointForId } = subject()
+  stubVolumeEndpointForId(id, stub)
+
+  const result = await volume(id)
+
+  expect(result.comicVineId).toEqual(id)
+})
+
+test.each([
+  { id: 3976, stub: comicVineStubs.animalManVolumeResponse },
   { id: 773, stub: comicVineStubs.supermanVolumeResponse },
 ])('volume includes the original api response', async ({ id, stub }) => {
   const { volume, stubVolumeEndpointForId } = subject()
