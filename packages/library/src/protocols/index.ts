@@ -1,8 +1,14 @@
 import { EventEmitter } from 'events'
 import { Comic } from '@comix/parser'
+import { Library } from '../lib/Library'
 
 export interface MetadataAdapter {
-  process(entry: LibraryEntry, comic: Comic | null): Promise<Partial<LibraryEntry>>
+  process(
+    entry: LibraryEntry,
+    comic: Comic | null,
+    collection: LibraryCollection,
+    library: Library,
+  ): Promise<Partial<LibraryEntry>>
 }
 
 export interface LibraryEntry {

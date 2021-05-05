@@ -1,22 +1,11 @@
 import fs from 'fs/promises'
 import { Comic } from '@comix/parser'
+import faker from 'faker'
 import { metadata } from './metadata'
 import { fixturePath, fixtureLastModified } from '../../test/helpers'
-import { LibraryEntry, MetadataAdapter } from '../protocols'
-
-const subject = async (fpath: string, adapters: MetadataAdapter[] = []) => {
-  let lastModified = 0
-  try {
-    lastModified = (await fs.stat(fpath)).mtimeMs
-  } catch {}
-
-  const stat = {
-    path: fpath,
-    lastModified: lastModified
-  }
-
-  return metadata(stat, adapters)
-}
+import { LibraryCollection, LibraryEntry, MetadataAdapter } from '../protocols'
+import { InMemoryLibraryConfig } from '../config/InMemoryLibraryConfig'
+import { Library } from './Library'
 
 it.each([
   fixturePath('whatever.cbr'),
@@ -30,9 +19,9 @@ it.each([
   'wytches-sample.cbz',
   'phonogram-sample.cbr',
 ])('returns metadata about the file', async (fname) => {
-  const comic = await subject(fixturePath(fname))
+  const { output } = await subject(fixturePath(fname))
 
-  expect(comic).toMatchObject({
+  expect(output).toMatchObject({
     fileName: fname,
     filePath: fixturePath(fname),
     fileLastModified: await fixtureLastModified(fname),
@@ -46,32 +35,34 @@ it('returns a last processed time of now for the file', async () => {
   jest.useFakeTimers('modern')
   jest.setSystemTime(now)
 
-  const comic = await subject(fixturePath('wytches-sample.cbz'))
+  const { output } = await subject(fixturePath('wytches-sample.cbz'))
 
-  expect(comic.fileLastProcessed).toEqual(now)
+  expect(output.fileLastProcessed).toEqual(now)
 })
 
-it('calls the given metadata adapters with the current state', async () => {
-  const spyAdapter = { process: jest.fn(async state => ({})) }
-  const comic = await subject(fixturePath('wytches-sample.cbz'), [spyAdapter])
+it('calls the given metadata adapters with the entry, comic archive, collection and library', async () => {
+  const spyAdapter = { process: jest.fn(async (a, b, c, d) => a) }
+  const { output, collection, library } = await subject(fixturePath('wytches-sample.cbz'), [spyAdapter])
 
-  expect(spyAdapter.process.mock.calls[0][0]).toMatchObject({ ...comic, adaptions: [] })
-})
+  const [
+    receivedEntry,
+    receivedComicArchive,
+    receivedCollection,
+    receivedLibrary,
+  ] = spyAdapter.process.mock.calls[0]
 
-it('calls each metadata adapter with the comic archive', async () => {
-  // TODO: consider parser DI
-  const spyAdapter = { process: jest.fn(async (a, b) => a) }
-  await subject(fixturePath('wytches-sample.cbz'), [spyAdapter])
-
-  expect(spyAdapter.process.mock.calls[0][1].name).toEqual('wytches-sample.cbz')
-  expect(spyAdapter.process.mock.calls[0][1].images).toBeInstanceOf(Array)
+  expect(receivedEntry).toMatchObject({ ...output, adaptions: [] })
+  expect(receivedComicArchive.name).toEqual('wytches-sample.cbz')
+  expect(receivedComicArchive.images).toBeInstanceOf(Array)
+  expect(receivedCollection).toEqual(collection)
+  expect(receivedLibrary).toEqual(library)
 })
 
 it('returns adaptions', async () => {
   const adapter = new RandomCoverAdapter()
-  const comic = await subject(fixturePath('wytches-sample.cbz'), [adapter])
+  const { output } = await subject(fixturePath('wytches-sample.cbz'), [adapter])
 
-  expect(comic.adaptions).toContainEqual({
+  expect(output.adaptions).toContainEqual({
     source: 'RandomCoverAdapter',
     changes: {
       coverFileName: adapter.randomCoverFileName
@@ -81,9 +72,9 @@ it('returns adaptions', async () => {
 
 it('merges state from adapters into the result', async () => {
   const adapter = new RandomCoverAdapter()
-  const comic = await subject(fixturePath('wytches-sample.cbz'), [adapter])
+  const { output } = await subject(fixturePath('wytches-sample.cbz'), [adapter])
 
-  expect(comic.coverFileName).toEqual(adapter.randomCoverFileName)
+  expect(output.coverFileName).toEqual(adapter.randomCoverFileName)
 })
 
 it('calls adapters sequentially with updated state', async () => {
@@ -108,11 +99,33 @@ describe('when the file cannot be parsed', () => {
     fixturePath('fake-comic-file.cbz'),
     fixturePath('folder', 'another-fake-file.cbr'),
   ])('marks the file corrupt', async (fpath) => {
-    const comic = await subject(fpath)
+    const { output } = await subject(fpath)
 
-    expect(comic.corrupt).toEqual(true)
+    expect(output.corrupt).toEqual(true)
   })
 })
+
+const subject = async (fpath: string, adapters: MetadataAdapter[] = []) => {
+  let lastModified = 0
+  try {
+    lastModified = (await fs.stat(fpath)).mtimeMs
+  } catch {}
+
+  const stat = {
+    path: fpath,
+    lastModified: lastModified
+  }
+
+  const library = new Library(new InMemoryLibraryConfig())
+  const collection: LibraryCollection = {
+    name: faker.lorem.sentence(),
+    path: faker.system.filePath(),
+  }
+
+  const output = await metadata(stat, adapters, collection, library)
+
+  return { output, library, collection }
+}
 
 class RandomCoverAdapter implements MetadataAdapter {
   public randomCoverFileName: string

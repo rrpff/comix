@@ -2,9 +2,15 @@ import path from 'path'
 import fs from 'fs/promises'
 import { Comic, Parser } from '@comix/parser'
 import { FileStat } from '@comix/scan-directory'
-import { LibraryEntry, MetadataAdapter } from '../protocols'
+import { LibraryCollection, LibraryEntry, MetadataAdapter } from '../protocols'
+import { Library } from './Library'
 
-export const metadata = async (stat: FileStat, adapters: MetadataAdapter[]): Promise<LibraryEntry> => {
+export const metadata = async (
+  stat: FileStat,
+  adapters: MetadataAdapter[],
+  collection: LibraryCollection,
+  library: Library,
+): Promise<LibraryEntry> => {
   try {
     const fname = path.basename(stat.path)
     const data = await fs.readFile(stat.path)
@@ -29,7 +35,7 @@ export const metadata = async (stat: FileStat, adapters: MetadataAdapter[]): Pro
     }
 
     return waterfall(baseState, adapters, async (state, adapter) => {
-      const changes = await adapter.process(state, comic)
+      const changes = await adapter.process(state, comic, collection, library)
       const adaption = {
         source: adapter.constructor.name,
         changes

@@ -107,11 +107,13 @@ const harness = async () => {
   const updater = new LibraryUpdater(library, {
     collectionUpdater: new CollectionUpdater({
       getMetadataForFile: async (stat) => {
-        return await metadata(stat, [
+        const adapters = [
           new CoverMetadataAdapter({
             imageDirectory: imageDir.path
           })
-        ])
+        ]
+
+        return await metadata(stat, adapters, collection, library)
       },
       scanDirectory: async (dir, knownFiles) => {
         return await scanDirectory(dir, ['cbr', 'cbz'], knownFiles)
