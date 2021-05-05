@@ -22,7 +22,8 @@
     "diff": "^5.0.0",
     "fastest-levenshtein": "^1.0.12",
     "jimp": "^0.16.1",
-    "pixelmatch": "^4.0.2"
+    "pixelmatch": "^4.0.2",
+    "typed-effects": "file:../typed-effects"
   },
   "devDependencies": {
     "@types/diff": "^5.0.0",

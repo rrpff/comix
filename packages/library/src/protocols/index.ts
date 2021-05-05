@@ -14,8 +14,19 @@ export interface LibraryEntry {
   adaptions: LibraryEntryAdaption[]
 
   coverFileName?: string
+
+  /**
+   * @deprecated Look up via Comic Vine volume instead
+   */
   volumeName?: string
+
+  /**
+   * @deprecated Look up via Comic Vine volume instead
+   */
   volumeYear?: number
+
+  comicVineVolumeId?: number
+  comicVineIssueId?: number
 }
 
 export interface LibraryEntryAdaption {

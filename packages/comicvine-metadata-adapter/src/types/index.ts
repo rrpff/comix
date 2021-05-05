@@ -1,4 +1,18 @@
-import { ComicVineIssueResponseData, ComicVineVolumeResponseData } from "src/gateways/ComicVineGateway";
+import { ComicVineIssueResponseData, ComicVineVolumeResponseData } from '../gateways/ComicVineGateway'
+
+export interface ComicVineMatch {
+  issue: ComicVineIssue
+  score: number
+}
+
+export interface ComicVineMatchable {
+  imageUrl?: string
+}
+
+export interface ComicVineMatchResult {
+  strongest: ComicVineMatch
+  matches: ComicVineMatch[]
+}
 
 export type ComicVineSearchResult =
   | ComicVineIssueSearchResult
@@ -31,7 +45,7 @@ export interface ComicVineIssue {
   teams: ComicVineTeam[]
 }
 
-interface ComicVineResource {
+export interface ComicVineResource {
   name?: string
   comicVineId: number
   comicVineApiUrl: string
