@@ -1,0 +1,3369 @@
+{
+  "error": "OK",
+  "limit": 1,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-3976\/",
+    "characters": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-22707\/",
+      "id": 22707,
+      "name": "Animal Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man\/4005-22707\/",
+      "count": "89"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-26599\/",
+      "id": 26599,
+      "name": "Ellen Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ellen-baker\/4005-26599\/",
+      "count": "74"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-24266\/",
+      "id": 24266,
+      "name": "Maxine Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/maxine-baker\/4005-24266\/",
+      "count": "57"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-26600\/",
+      "id": 26600,
+      "name": "Cliff Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/cliff-baker\/4005-26600\/",
+      "count": "52"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-67035\/",
+      "id": 67035,
+      "name": "Mary Frazier",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mary-frazier\/4005-67035\/",
+      "count": "26"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-73927\/",
+      "id": 73927,
+      "name": "Annie Cassidy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/annie-cassidy\/4005-73927\/",
+      "count": "22"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-71345\/",
+      "id": 71345,
+      "name": "Travis Cody",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/travis-cody\/4005-71345\/",
+      "count": "14"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50468\/",
+      "id": 50468,
+      "name": "James Highwater",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/james-highwater\/4005-50468\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78217\/",
+      "id": 78217,
+      "name": "Stone That Cracked Open the Earth Like an Egg",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/stone-that-cracked-open-the-earth-like-an-egg\/4005-78217\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78218\/",
+      "id": 78218,
+      "name": "Power of Thought",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/power-of-thought\/4005-78218\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50471\/",
+      "id": 50471,
+      "name": "Roger Denning",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/roger-denning\/4005-50471\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-51049\/",
+      "id": 51049,
+      "name": "B'wana Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bwana-beast\/4005-51049\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78057\/",
+      "id": 78057,
+      "name": "T.C.",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tc\/4005-78057\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-10249\/",
+      "id": 10249,
+      "name": "Buck Samson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/buck-samson\/4005-10249\/",
+      "count": "9"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78229\/",
+      "id": 78229,
+      "name": "Winky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/winky\/4005-78229\/",
+      "count": "9"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2551\/",
+      "id": 2551,
+      "name": "Vixen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/vixen\/4005-2551\/",
+      "count": "8"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78059\/",
+      "id": 78059,
+      "name": "Skipper",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/skipper\/4005-78059\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78244\/",
+      "id": 78244,
+      "name": "Uncle Dudley",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/uncle-dudley\/4005-78244\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-25502\/",
+      "id": 25502,
+      "name": "The White Queen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-white-queen\/4005-25502\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-46248\/",
+      "id": 46248,
+      "name": "Grant Morrison",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/grant-morrison\/4005-46248\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50461\/",
+      "id": 50461,
+      "name": "Lennox",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lennox\/4005-50461\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78227\/",
+      "id": 78227,
+      "name": "Moonlight Jackson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/moonlight-jackson\/4005-78227\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78228\/",
+      "id": 78228,
+      "name": "Kami",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kami\/4005-78228\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-25495\/",
+      "id": 25495,
+      "name": "Psycho-Pirate",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/psycho-pirate\/4005-25495\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28493\/",
+      "id": 28493,
+      "name": "Nowhere Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nowhere-man\/4005-28493\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-72241\/",
+      "id": 72241,
+      "name": "Tristess",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tristess\/4005-72241\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77993\/",
+      "id": 77993,
+      "name": "Mr. Weidemeir",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-weidemeir\/4005-77993\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78058\/",
+      "id": 78058,
+      "name": "Tricia Denning",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tricia-denning\/4005-78058\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78249\/",
+      "id": 78249,
+      "name": "Antagon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/antagon\/4005-78249\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-46418\/",
+      "id": 46418,
+      "name": "Freedom Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/freedom-beast\/4005-46418\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69177\/",
+      "id": 69177,
+      "name": "Dr. Myers",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dr-myers\/4005-69177\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-70483\/",
+      "id": 70483,
+      "name": "Lucinda Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lucinda-angel\/4005-70483\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-70484\/",
+      "id": 70484,
+      "name": "Mark Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-angel\/4005-70484\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-70516\/",
+      "id": 70516,
+      "name": "Matthew Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/matthew-angel\/4005-70516\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78219\/",
+      "id": 78219,
+      "name": "Raney Fox",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/raney-fox\/4005-78219\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78221\/",
+      "id": 78221,
+      "name": "Harriet",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/harriet\/4005-78221\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1699\/",
+      "id": 1699,
+      "name": "Batman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/batman\/4005-1699\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1786\/",
+      "id": 1786,
+      "name": "Booster Gold",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/booster-gold\/4005-1786\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-3298\/",
+      "id": 3298,
+      "name": "Phantom Stranger",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/phantom-stranger\/4005-3298\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-7652\/",
+      "id": 7652,
+      "name": "Mirror Master (McCulloch)",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mirror-master-mcculloch\/4005-7652\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27806\/",
+      "id": 27806,
+      "name": "The Penalizer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-penalizer\/4005-27806\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-60411\/",
+      "id": 60411,
+      "name": "Tabu",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tabu\/4005-60411\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-60412\/",
+      "id": 60412,
+      "name": "Hamid Ali",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hamid-ali\/4005-60412\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77994\/",
+      "id": 77994,
+      "name": "Mrs. Weidemeir",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mrs-weidemeir\/4005-77994\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78061\/",
+      "id": 78061,
+      "name": "Dr. Roger Huntoon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dr-roger-huntoon\/4005-78061\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78082\/",
+      "id": 78082,
+      "name": "Mr. Elson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-elson\/4005-78082\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78083\/",
+      "id": 78083,
+      "name": "Mr. Shaver",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-shaver\/4005-78083\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78084\/",
+      "id": 78084,
+      "name": "Mr. Brumley",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-brumley\/4005-78084\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78194\/",
+      "id": 78194,
+      "name": "President Eagleton",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/president-eagleton\/4005-78194\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78195\/",
+      "id": 78195,
+      "name": "Jones",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jones\/4005-78195\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78220\/",
+      "id": 78220,
+      "name": "Dave",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dave\/4005-78220\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78225\/",
+      "id": 78225,
+      "name": "Dwayne Brown",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dwayne-brown\/4005-78225\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78253\/",
+      "id": 78253,
+      "name": "Arum",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/arum\/4005-78253\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78254\/",
+      "id": 78254,
+      "name": "Krate",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/krate\/4005-78254\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-83346\/",
+      "id": 83346,
+      "name": "Living Nightmare",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/living-nightmare\/4005-83346\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1790\/",
+      "id": 1790,
+      "name": "Sue Dibny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sue-dibny\/4005-1790\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2047\/",
+      "id": 2047,
+      "name": "Martian Manhunter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/martian-manhunter\/4005-2047\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2384\/",
+      "id": 2384,
+      "name": "Metamorpho",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/metamorpho\/4005-2384\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-4437\/",
+      "id": 4437,
+      "name": "Elongated Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/elongated-man\/4005-4437\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-4702\/",
+      "id": 4702,
+      "name": "Power Ring",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/power-ring\/4005-4702\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5692\/",
+      "id": 5692,
+      "name": "Ultraman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ultraman\/4005-5692\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27807\/",
+      "id": 27807,
+      "name": "Doctor Darkness",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/doctor-darkness\/4005-27807\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28643\/",
+      "id": 28643,
+      "name": "The Notional Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-notional-man\/4005-28643\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28890\/",
+      "id": 28890,
+      "name": "Time Commander",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/time-commander\/4005-28890\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-29506\/",
+      "id": 29506,
+      "name": "Red Mask",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/red-mask\/4005-29506\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-31298\/",
+      "id": 31298,
+      "name": "Streaky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/streaky\/4005-31298\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50606\/",
+      "id": 50606,
+      "name": "Overman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/overman\/4005-50606\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-62027\/",
+      "id": 62027,
+      "name": "Sunshine Superman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sunshine-superman\/4005-62027\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69197\/",
+      "id": 69197,
+      "name": "Djuba",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/djuba\/4005-69197\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-74628\/",
+      "id": 74628,
+      "name": "Mike Peroni",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mike-peroni\/4005-74628\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78005\/",
+      "id": 78005,
+      "name": "Sheba",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sheba\/4005-78005\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78068\/",
+      "id": 78068,
+      "name": "Kwahu",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kwahu\/4005-78068\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78089\/",
+      "id": 78089,
+      "name": "Speed Freak",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/speed-freak\/4005-78089\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78090\/",
+      "id": 78090,
+      "name": "Magic Lantern",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/magic-lantern\/4005-78090\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78091\/",
+      "id": 78091,
+      "name": "Jarmara",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jarmara\/4005-78091\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78222\/",
+      "id": 78222,
+      "name": "Ace",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ace\/4005-78222\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78245\/",
+      "id": 78245,
+      "name": "Captain Silva",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-silva\/4005-78245\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78248\/",
+      "id": 78248,
+      "name": "Les Decker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/les-decker\/4005-78248\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78250\/",
+      "id": 78250,
+      "name": "Frank Baker, Jr.",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/frank-baker-jr\/4005-78250\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-91773\/",
+      "id": 91773,
+      "name": "Foxy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/foxy\/4005-91773\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1807\/",
+      "id": 1807,
+      "name": "Superman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4005-1807\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1809\/",
+      "id": 1809,
+      "name": "Perry White",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/perry-white\/4005-1809\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2048\/",
+      "id": 2048,
+      "name": "Wonder Woman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/wonder-woman\/4005-2048\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2050\/",
+      "id": 2050,
+      "name": "Captain Atom",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-atom\/4005-2050\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2054\/",
+      "id": 2054,
+      "name": "Ted Kord",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ted-kord\/4005-2054\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2361\/",
+      "id": 2361,
+      "name": "Spectre",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/spectre\/4005-2361\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2379\/",
+      "id": 2379,
+      "name": "Max Mercury",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/max-mercury\/4005-2379\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2385\/",
+      "id": 2385,
+      "name": "Rocket Red (Pushkin)",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rocket-red-pushkin\/4005-2385\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2395\/",
+      "id": 2395,
+      "name": "Jay Garrick",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jay-garrick\/4005-2395\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2761\/",
+      "id": 2761,
+      "name": "Stevie Wonder",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/stevie-wonder\/4005-2761\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-3715\/",
+      "id": 3715,
+      "name": "Mr. Freeze",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-freeze\/4005-3715\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-3726\/",
+      "id": 3726,
+      "name": "Scarecrow",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/scarecrow\/4005-3726\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-4686\/",
+      "id": 4686,
+      "name": "Tula",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tula\/4005-4686\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-4703\/",
+      "id": 4703,
+      "name": "Owlman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/owlman\/4005-4703\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-4937\/",
+      "id": 4937,
+      "name": "Rip Hunter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rip-hunter\/4005-4937\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5695\/",
+      "id": 5695,
+      "name": "Johnny Quick",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/johnny-quick\/4005-5695\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5703\/",
+      "id": 5703,
+      "name": "Mr. Miracle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-miracle\/4005-5703\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5814\/",
+      "id": 5814,
+      "name": "Mad Hatter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mad-hatter\/4005-5814\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5951\/",
+      "id": 5951,
+      "name": "Psimon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/psimon\/4005-5951\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-6600\/",
+      "id": 6600,
+      "name": "Inza Nelson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/inza-nelson\/4005-6600\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-8312\/",
+      "id": 8312,
+      "name": "Bizarro",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bizarro\/4005-8312\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-10526\/",
+      "id": 10526,
+      "name": "God",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/god\/4005-10526\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-11270\/",
+      "id": 11270,
+      "name": "Detective Chimp",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/detective-chimp\/4005-11270\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-13454\/",
+      "id": 13454,
+      "name": "Tweedledum",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tweedledum\/4005-13454\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-13455\/",
+      "id": 13455,
+      "name": "Tweedledee",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tweedledee\/4005-13455\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-13570\/",
+      "id": 13570,
+      "name": "Dolphin",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dolphin\/4005-13570\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-14652\/",
+      "id": 14652,
+      "name": "Shark",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/shark\/4005-14652\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16363\/",
+      "id": 16363,
+      "name": "Binky Biggs",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/binky-biggs\/4005-16363\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16444\/",
+      "id": 16444,
+      "name": "Peggy Baxter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/peggy-baxter\/4005-16444\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16514\/",
+      "id": 16514,
+      "name": "Awkwardman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/awkwardman\/4005-16514\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16516\/",
+      "id": 16516,
+      "name": "Tough Bunny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tough-bunny\/4005-16516\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16517\/",
+      "id": 16517,
+      "name": "Merryman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/merryman\/4005-16517\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-16518\/",
+      "id": 16518,
+      "name": "White Feather",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/white-feather\/4005-16518\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-18354\/",
+      "id": 18354,
+      "name": "Green Cigarette",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/green-cigarette\/4005-18354\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-18365\/",
+      "id": 18365,
+      "name": "Doiby Dickles",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/doiby-dickles\/4005-18365\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-19180\/",
+      "id": 19180,
+      "name": "The Gay Ghost",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-gay-ghost\/4005-19180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-22774\/",
+      "id": 22774,
+      "name": "Jemm",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jemm\/4005-22774\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-24304\/",
+      "id": 24304,
+      "name": "Ultra the Multi-Alien",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ultra-the-multi-alien\/4005-24304\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-25217\/",
+      "id": 25217,
+      "name": "Nightmaster",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nightmaster\/4005-25217\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-25981\/",
+      "id": 25981,
+      "name": "Sargon the Sorcerer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sargon-the-sorcerer\/4005-25981\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-26966\/",
+      "id": 26966,
+      "name": "Ubermensch",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ubermensch\/4005-26966\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27207\/",
+      "id": 27207,
+      "name": "Kannibal Kid",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kannibal-kid\/4005-27207\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27246\/",
+      "id": 27246,
+      "name": "Krona",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/krona\/4005-27246\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27303\/",
+      "id": 27303,
+      "name": "Rebis",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rebis\/4005-27303\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-27304\/",
+      "id": 27304,
+      "name": "Crazy Jane",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crazy-jane\/4005-27304\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28303\/",
+      "id": 28303,
+      "name": "The Blimp",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-blimp\/4005-28303\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28697\/",
+      "id": 28697,
+      "name": "The Front Page",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-front-page\/4005-28697\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-28862\/",
+      "id": 28862,
+      "name": "Immortal Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/immortal-man\/4005-28862\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-29322\/",
+      "id": 29322,
+      "name": "Tomahawk",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tomahawk\/4005-29322\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-30520\/",
+      "id": 30520,
+      "name": "Kole",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kole\/4005-30520\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-30891\/",
+      "id": 30891,
+      "name": "Son of Vulcan",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/son-of-vulcan\/4005-30891\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-30999\/",
+      "id": 30999,
+      "name": "Jeff Smith",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jeff-smith\/4005-30999\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-31132\/",
+      "id": 31132,
+      "name": "Bug-Eyed Bandit",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bug-eyed-bandit\/4005-31132\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-31278\/",
+      "id": 31278,
+      "name": "Dane Dorrance",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dane-dorrance\/4005-31278\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-31299\/",
+      "id": 31299,
+      "name": "Beppo",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/beppo\/4005-31299\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-31302\/",
+      "id": 31302,
+      "name": "Ace the Bat-Hound",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ace-the-bat-hound\/4005-31302\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-33139\/",
+      "id": 33139,
+      "name": "Captain Carrot",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-carrot\/4005-33139\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-33205\/",
+      "id": 33205,
+      "name": "Bonnie Baxter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bonnie-baxter\/4005-33205\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-33378\/",
+      "id": 33378,
+      "name": "Hoppy The Marvel Bunny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hoppy-the-marvel-bunny\/4005-33378\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-36911\/",
+      "id": 36911,
+      "name": "Captain Triumph",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-triumph\/4005-36911\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-38648\/",
+      "id": 38648,
+      "name": "Prince Ra-Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/prince-ra-man\/4005-38648\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-41181\/",
+      "id": 41181,
+      "name": "Ma Hunkel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ma-hunkel\/4005-41181\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-47128\/",
+      "id": 47128,
+      "name": "Richard Raleigh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/richard-raleigh\/4005-47128\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-47657\/",
+      "id": 47657,
+      "name": "Ten-Eyed Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ten-eyed-man\/4005-47657\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50604\/",
+      "id": 50604,
+      "name": "Maaldor",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/maaldor\/4005-50604\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-54339\/",
+      "id": 54339,
+      "name": "Tail Terrier",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tail-terrier\/4005-54339\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-54340\/",
+      "id": 54340,
+      "name": "Tusky Husky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tusky-husky\/4005-54340\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-54343\/",
+      "id": 54343,
+      "name": "Bull Dog",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bull-dog\/4005-54343\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-58675\/",
+      "id": 58675,
+      "name": "Crescent Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crescent-moon\/4005-58675\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-58676\/",
+      "id": 58676,
+      "name": "Harvest Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/harvest-moon\/4005-58676\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-58677\/",
+      "id": 58677,
+      "name": "New Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/new-moon\/4005-58677\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-64084\/",
+      "id": 64084,
+      "name": "Commodore Murphy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/commodore-murphy\/4005-64084\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-64085\/",
+      "id": 64085,
+      "name": "J. P. Houston",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/j-p-houston\/4005-64085\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-64086\/",
+      "id": 64086,
+      "name": "Cecil Sunbeam",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/cecil-sunbeam\/4005-64086\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-64087\/",
+      "id": 64087,
+      "name": "Abdul Smith",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/abdul-smith\/4005-64087\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-67267\/",
+      "id": 67267,
+      "name": "Hercules",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hercules\/4005-67267\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69263\/",
+      "id": 69263,
+      "name": "Crafty",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crafty\/4005-69263\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69390\/",
+      "id": 69390,
+      "name": "Rokara Soh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rokara-soh\/4005-69390\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69391\/",
+      "id": 69391,
+      "name": "Skalla Kol",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/skalla-kol\/4005-69391\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69786\/",
+      "id": 69786,
+      "name": "Ongur Nielsen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ongur-nielsen\/4005-69786\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77995\/",
+      "id": 77995,
+      "name": "Rufus",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rufus\/4005-77995\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78006\/",
+      "id": 78006,
+      "name": "Rupert Kenboya",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rupert-kenboya\/4005-78006\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78056\/",
+      "id": 78056,
+      "name": "Veil",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/veil\/4005-78056\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78063\/",
+      "id": 78063,
+      "name": "Archbishop Mogatusi",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/archbishop-mogatusi\/4005-78063\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78065\/",
+      "id": 78065,
+      "name": "David Quinn",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/david-quinn\/4005-78065\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78066\/",
+      "id": 78066,
+      "name": "Mr. Van de Voort",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-van-de-voort\/4005-78066\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78067\/",
+      "id": 78067,
+      "name": "J\u00f3annes",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/joannes\/4005-78067\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78099\/",
+      "id": 78099,
+      "name": "Slaughterhouse",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/slaughterhouse\/4005-78099\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78180\/",
+      "id": 78180,
+      "name": "Lizard Girl",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lizard-girl\/4005-78180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78196\/",
+      "id": 78196,
+      "name": "Kinnock",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kinnock\/4005-78196\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78243\/",
+      "id": 78243,
+      "name": "Homer Gethro",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/homer-gethro\/4005-78243\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78246\/",
+      "id": 78246,
+      "name": "Zane",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/zane\/4005-78246\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78247\/",
+      "id": 78247,
+      "name": "Nelson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nelson\/4005-78247\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78251\/",
+      "id": 78251,
+      "name": "Phyllis Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/phyllis-baker\/4005-78251\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78252\/",
+      "id": 78252,
+      "name": "Old Jack Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/old-jack-baker\/4005-78252\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-81180\/",
+      "id": 81180,
+      "name": "Katar Hol",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/katar-hol\/4005-81180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-82989\/",
+      "id": 82989,
+      "name": "Jason",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jason\/4005-82989\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-83835\/",
+      "id": 83835,
+      "name": "Icicle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/icicle\/4005-83835\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-94476\/",
+      "id": 94476,
+      "name": "Jason Blood ",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jason-blood\/4005-94476\/",
+      "count": "1"
+    }],
+    "concepts": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-44795\/",
+      "id": 44795,
+      "name": "Fourth Wall",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/fourth-wall\/4015-44795\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56028\/",
+      "id": 56028,
+      "name": "Modern Age of  Comics",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/modern-age-of-comics\/4015-56028\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55719\/",
+      "id": 55719,
+      "name": "The Red",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-red\/4015-55719\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56316\/",
+      "id": 56316,
+      "name": "Nudity",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nudity\/4015-56316\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56039\/",
+      "id": 56039,
+      "name": "Substance Abuse",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/substance-abuse\/4015-56039\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-43566\/",
+      "id": 43566,
+      "name": "Retcon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/retcon\/4015-43566\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-46567\/",
+      "id": 46567,
+      "name": "Aliens",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/aliens\/4015-46567\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55712\/",
+      "id": 55712,
+      "name": "Time Travel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/time-travel\/4015-55712\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55916\/",
+      "id": 55916,
+      "name": "Deconstruction",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/deconstruction\/4015-55916\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56054\/",
+      "id": 56054,
+      "name": "Black Comedy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/black-comedy\/4015-56054\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56064\/",
+      "id": 56064,
+      "name": "Sex",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sex\/4015-56064\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56364\/",
+      "id": 56364,
+      "name": "100 Best Single Issue Comics Since You Were Born",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/100-best-single-issue-comics-since-you-were-born\/4015-56364\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-43603\/",
+      "id": 43603,
+      "name": "DC Multiverse",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dc-multiverse\/4015-43603\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55693\/",
+      "id": 55693,
+      "name": "Parody",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/parody\/4015-55693\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55709\/",
+      "id": 55709,
+      "name": "Rebirth",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rebirth\/4015-55709\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55784\/",
+      "id": 55784,
+      "name": "Mantle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mantle\/4015-55784\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55822\/",
+      "id": 55822,
+      "name": "Dystopia",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dystopia\/4015-55822\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55832\/",
+      "id": 55832,
+      "name": "Origin Story",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/origin-story\/4015-55832\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55857\/",
+      "id": 55857,
+      "name": "Simians",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/simians\/4015-55857\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55883\/",
+      "id": 55883,
+      "name": "Photo Cover",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/photo-cover\/4015-55883\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55924\/",
+      "id": 55924,
+      "name": "Real World Stories",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/real-world-stories\/4015-55924\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55967\/",
+      "id": 55967,
+      "name": "Anthropomorphism",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/anthropomorphism\/4015-55967\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56059\/",
+      "id": 56059,
+      "name": "Robots",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/robots\/4015-56059\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56065\/",
+      "id": 56065,
+      "name": "Suicide",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/suicide\/4015-56065\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56101\/",
+      "id": 56101,
+      "name": "Religion",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/religion\/4015-56101\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56160\/",
+      "id": 56160,
+      "name": "Indigenous People",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/indigenous-people\/4015-56160\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56161\/",
+      "id": 56161,
+      "name": "Torture",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/torture\/4015-56161\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56207\/",
+      "id": 56207,
+      "name": "Flashback ",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/flashback\/4015-56207\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56217\/",
+      "id": 56217,
+      "name": "Sexual Violence",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sexual-violence\/4015-56217\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-56649\/",
+      "id": 56649,
+      "name": "Metafiction",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/metafiction\/4015-56649\/",
+      "count": "1"
+    }],
+    "count_of_issues": 89,
+    "date_added": "2008-06-06 11:08:17",
+    "date_last_updated": "2021-01-28 14:17:57",
+    "deck": null,
+    "description": "<figure data-align=\"right\" data-img-src=\"https:\/\/static.comicvine.com\/uploads\/original\/14\/148518\/2914946-animal_man_ad_2.png\" data-ref-id=\"1300-2914946\" data-size=\"small\" data-ratio=\"1.5085255767302\" data-width=\"997\" data-embed-type=\"image\" style=\"width: 997px\"><a class=\"fluid-height\" style=\"padding-bottom:150.9%\" href=\"https:\/\/static.comicvine.com\/uploads\/original\/14\/148518\/2914946-animal_man_ad_2.png\" data-ref-id=\"1300-2914946\"><img alt=\"House Ad\" src=\"https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png\" srcset=\"https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png 997w, https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png 636w, https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png 424w\" sizes=\"(max-width: 424px) 100vw, 424px\" data-width=\"424\"><\/a><figcaption>House Ad<\/figcaption><\/figure><p>Writer <a href=\"\/grant-morrison\/4040-40434\/\" data-ref-id=\"4040-40434\">Grant Morrison<\/a> was one of the\" British Invasion\" creators from the UK who were brought in to DC to revamp older and obscure properties after the success of <a href=\"\/alan-moore\/4040-40382\/\" data-ref-id=\"4040-40382\">Alan Moore<\/a> 's <i><a href=\"\/swamp-thing\/4050-3465\/\" data-ref-id=\"4050-3465\">Swamp Thing<\/a><\/i> . Thus Morrison pitched the idea of Animal Man, originally as a four issue mini-series. Strong sales however, meant DC asked Morrison to continue his series an ongoing, which he did for 26 issues. During his run, Morison incorporated themes such as animal rights and vegetarianism as well as fourth-wall breaking story lines which ended in Morrison inserting himself into the comic and directly speaking to Animal Man and revealing his status as a fictional character. Morrison's series re-invented Buddy Baker as a suburban family man and \"average Joe\" character, he also introduced a new Mirror Master (McCulloch).<\/p><p>After Morrison's run ended, <a href=\"\/peter-milligan\/4040-41484\/\" data-ref-id=\"4040-41484\">Peter Milligan<\/a> took over briefly and then <a href=\"\/tom-veitch\/4040-56580\/\" data-ref-id=\"4040-56580\">Tom Veitch<\/a>, who focused on Baker's stuntman career. Writer <a href=\"\/jamie-delano\/4040-40642\/\" data-ref-id=\"4040-40642\">Jamie Delano<\/a> then came on board as writer, transforming the title into a horror book and lining Animal Man much closer to the Swamp Thing style character, by re-inventing him again as an avatar of \"<a href=\"\/the-red\/4015-55719\/\" data-ref-id=\"4015-55719\">The red<\/a>\" a force of animal life similar to Moore's \"<a href=\"\/the-green\/4015-56079\/\" data-ref-id=\"4015-56079\">The Green<\/a>\" in his Swamp Thing stories, something which Morrison was opposed to but became part of Baker's status quo, especially in <a href=\"\/jeff-lemire\/4040-57048\/\" data-ref-id=\"4040-57048\">Jeff Lemire<\/a>'s New 52 <i><a href=\"\/animal-man\/4050-42600\/\" data-ref-id=\"4050-42600\">Animal Man<\/a><\/i> series. it was during this time (issue #57) the book was placed under DC's new <a href=\"\/vertigo\/4010-521\/\" data-ref-id=\"4010-521\">Vertigo<\/a> imprint along side other mature readers titles at DC where it remained for the rest of its run. Between issues #66 and #67, Delano also wrote the <a href=\"\/animal-man-annual-1-misfit\/4000-119359\/\" data-ref-id=\"4000-119359\"><i>Animal Man Annual<\/i> #1<\/a>, focusing on Buddy's daughter Maxine, the annual was the third part of Vertigo's crossover <em><a href=\"\/the-childrens-crusade\/4045-55915\/\" data-ref-id=\"4045-55915\">The Children's Crusade<\/a>.<\/em><\/p><p>The series had never been fully collected though #1-26 (Morrison's run) have been collected in three trades so far, the first nine issues were collected soon after they had been printed back before Vertigo came around in <a href=\"\/animal-man\/4050-19963\/\" data-ref-id=\"4050-19963\">Animal Man<\/a>- through the art of reprinting the volume has been updated to Vertigo. Over a decade later, a second volume was released, <a href=\"\/animal-man-origin-of-the-species\/4050-8144\/\" data-ref-id=\"4050-8144\">Animal Man: Origin of the Species<\/a> which collected the next eight issues as well as Animal Man's origin issue from the Secret Origins series. And finally, a year later the third volume was released, <a href=\"\/animal-man-deus-ex-machina\/4050-8514\/\" data-ref-id=\"4050-8514\">Animal Man: Deus Ex Machina<\/a> which collected nine more issues though left the majority of the series (including all the issues that were printed after the Vertigo imprint got stamped onto the series) uncollected.<\/p><p>Peter Milligan's run on the book would eventually fill a fourth trade in 2013, possibly due to the revived interest in Animal Man after the New 52.<\/p><p><b>The Shifting Cast of Writers on the Title<\/b><\/p><ul><li><a href=\"\/grant-morrison\/4040-40434\/\" data-ref-id=\"4040-40434\">Grant Morrison<\/a>: # <a href=\"\/animal-man-the-human-zoo\/4000-30000\/\" data-ref-id=\"4000-30000\">1<\/a>- <a href=\"\/animal-man-deus-ex-machina\/4000-33029\/\" data-ref-id=\"4000-33029\">26<\/a><\/li><li><a href=\"\/peter-milligan\/4040-41484\/\" data-ref-id=\"4040-41484\">Peter Milligan<\/a>: # <a href=\"\/animal-man-the-coma-kid\/4000-33148\/\" data-ref-id=\"4000-33148\">27<\/a>- <a href=\"\/animal-man-schrodingers-pizza\/4000-110451\/\" data-ref-id=\"4000-110451\">32<\/a><\/li><li><a href=\"\/tom-veitch\/4040-56580\/\" data-ref-id=\"4040-56580\">Tom Veitch<\/a>: # <a href=\"\/animal-man-i-am-the-man-of-deep-ungodly-powers\/4000-33941\/\" data-ref-id=\"4000-33941\">33<\/a>- <a href=\"\/animal-man-journal-of-a-plague-year\/4000-35983\/\" data-ref-id=\"4000-35983\">50<\/a><\/li><li><a href=\"\/jamie-delano\/4040-40642\/\" data-ref-id=\"4040-40642\">Jamie Delano<\/a>: # <a href=\"\/animal-man-flesh-and-blood-part-one-roadkill\/4000-36108\/\" data-ref-id=\"4000-36108\">51<\/a>- <a href=\"\/animal-man-promised-land\/4000-40260\/\" data-ref-id=\"4000-40260\">79<\/a><\/li><li><a href=\"\/jerry-prosser\/4040-44945\/\" data-ref-id=\"4040-44945\">Jerry Prosser<\/a>: # <a href=\"\/animal-man-homecoming\/4000-40404\/\" data-ref-id=\"4000-40404\">80<\/a>- <a href=\"\/animal-man-and-baby-makes-infinity\/4000-41597\/\" data-ref-id=\"4000-41597\">89<\/a><\/li><\/ul><h3><strong>Pencillers <\/strong><\/h3><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/charles-truog\/4040-30962\/\" data-ref-id=\"4040-30962\">Charles Truog<\/a> #1-8, 10-13, 15-21, 23-26<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/tom-grummett\/4040-4806\/\" data-ref-id=\"4040-4806\">Tom Grummett<\/a> #9, 14 <\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/paris-cullins\/4040-7864\/\" data-ref-id=\"4040-7864\">Paris Cullins<\/a> #22<\/li><\/ul><h3> <\/h3><h3>Annual<\/h3><ul><li><a href=\"\/animal-man-annual\/4050-19962\/\" data-ref-id=\"4050-19962\">Animal Man Annual #1 - Misfit<\/a><\/li><\/ul><h3> <\/h3><h3>Collected Trades<\/h3><ul><li>Vol. 1: <a href=\"\/animal-man\/4050-19963\/\" data-ref-id=\"4050-19963\">Animal Man<\/a> (#1-9)<\/li><li><a href=\"\/animal-man-by-grant-morrison-30th-anniversary-delu\/4000-694873\/\" data-ref-id=\"4000-694873\">Animal Man by Grant Morrison: 30th Anniversary Deluxe Edition Book One<\/a> (#1-13)<\/li><li>Vol. 2: <a href=\"\/animal-man-origin-of-the-species\/4050-8144\/\" data-ref-id=\"4050-8144\">Origin of the Species<\/a> (#10-17)<\/li><li><a href=\"\/animal-man-by-grant-morrison-30th-anniversary-delu\/4000-797682\/\" data-ref-id=\"4000-797682\">Animal Man by Grant Morrison: 30th Anniversary Deluxe Edition Book Two<\/a> (#14-26)<\/li><li>Vol. 3: <a href=\"\/animal-man-deus-ex-machina\/4050-8514\/\" data-ref-id=\"4050-8514\">Deus Ex Machina<\/a> (#18-26)<\/li><li>Vol. 4: <a href=\"\/animal-man-born-to-be-wild\/4050-57668\/\" data-ref-id=\"4050-57668\">Born to Be Wild<\/a> (#27-37)<\/li><li>Vol. 5: <a href=\"\/\/www.comicvine.com\/animal-man-the-meaning-of-flesh\/4050-71061\/\" data-ref-id=\"4050-71061\">The Meaning of Flesh<\/a> (#38-50)<\/li><li>Vol. 6: <a href=\"\/animal-man-flesh-and-blood\/4050-75549\/\" data-ref-id=\"4050-75549\">Flesh and Blood<\/a> (#51-63)<\/li><li>Vol. 7: <a href=\"\/animal-man-red-plague\/4050-79407\/\" data-ref-id=\"4050-79407\">Red Plague<\/a> (#64-79)<\/li><\/ul><h3>Omnibuses<\/h3><ul><li><a href=\"\/\/www.comicvine.com\/animal-man-omnibus\/4050-65919\/\" data-ref-id=\"4050-65919\">Animal Man Omnibus<\/a> (#1-26 and <a href=\"\/secret-origins\/4050-3616\/\" data-ref-id=\"4050-3616\">Secret Origins<\/a> #39)<\/li><\/ul>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30000\/",
+      "id": 30000,
+      "name": "The Human Zoo",
+      "issue_number": "1"
+    },
+    "id": 3976,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/0\/9116\/1120563-1.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/0\/9116\/1120563-1.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/0\/9116\/1120563-1.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/0\/9116\/1120563-1.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/0\/9116\/1120563-1.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/0\/9116\/1120563-1.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/0\/9116\/1120563-1.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/0\/9116\/1120563-1.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/0\/9116\/1120563-1.jpg",
+      "image_tags": "All Images"
+    },
+    "issues": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30000\/",
+      "id": 30000,
+      "name": "The Human Zoo",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-1-the-human-zoo\/4000-30000\/",
+      "issue_number": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30122\/",
+      "id": 30122,
+      "name": "Life in the Concrete Jungle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-2-life-in-the-concrete-jungle\/4000-30122\/",
+      "issue_number": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30249\/",
+      "id": 30249,
+      "name": "The Nature of the Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-3-the-nature-of-the-beast\/4000-30249\/",
+      "issue_number": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30376\/",
+      "id": 30376,
+      "name": "When We All Lived in the Forest",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-4-when-we-all-lived-in-the-forest\/4000-30376\/",
+      "issue_number": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30611\/",
+      "id": 30611,
+      "name": "The Coyote Gospel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-5-the-coyote-gospel\/4000-30611\/",
+      "issue_number": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30619\/",
+      "id": 30619,
+      "name": "Birds of Prey",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-6-birds-of-prey\/4000-30619\/",
+      "issue_number": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30724\/",
+      "id": 30724,
+      "name": "The Death of the Red Mask",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-7-the-death-of-the-red-mask\/4000-30724\/",
+      "issue_number": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30844\/",
+      "id": 30844,
+      "name": "Mirror Moves",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-8-mirror-moves\/4000-30844\/",
+      "issue_number": "8"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30955\/",
+      "id": 30955,
+      "name": "Home Improvements",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-9-home-improvements\/4000-30955\/",
+      "issue_number": "9"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31049\/",
+      "id": 31049,
+      "name": "Fox on the Run",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-10-fox-on-the-run\/4000-31049\/",
+      "issue_number": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31164\/",
+      "id": 31164,
+      "name": "Out of Africa",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-11-out-of-africa\/4000-31164\/",
+      "issue_number": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31272\/",
+      "id": 31272,
+      "name": "Secret Origins",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-12-secret-origins\/4000-31272\/",
+      "issue_number": "12"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31383\/",
+      "id": 31383,
+      "name": "Hour of the Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-13-hour-of-the-beast\/4000-31383\/",
+      "issue_number": "13"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31489\/",
+      "id": 31489,
+      "name": "Spooks",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-14-spooks\/4000-31489\/",
+      "issue_number": "14"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31597\/",
+      "id": 31597,
+      "name": "The Devil and the Deep Blue Sea",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-15-the-devil-and-the-deep-blue-sea\/4000-31597\/",
+      "issue_number": "15"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31713\/",
+      "id": 31713,
+      "name": "The Clockwork Crimes of the Time Commander",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-16-the-clockwork-crimes-of-the-time-com\/4000-31713\/",
+      "issue_number": "16"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31820\/",
+      "id": 31820,
+      "name": "Consequences",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-17-consequences\/4000-31820\/",
+      "issue_number": "17"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-31954\/",
+      "id": 31954,
+      "name": "At Play in the Fields of the Lord",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-18-at-play-in-the-fields-of-the-lord\/4000-31954\/",
+      "issue_number": "18"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32279\/",
+      "id": 32279,
+      "name": "A New Science of Life",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-19-a-new-science-of-life\/4000-32279\/",
+      "issue_number": "19"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32376\/",
+      "id": 32376,
+      "name": "The Last Enemy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-20-the-last-enemy\/4000-32376\/",
+      "issue_number": "20"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32475\/",
+      "id": 32475,
+      "name": "Tooth and Claw",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-21-tooth-and-claw\/4000-32475\/",
+      "issue_number": "21"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32584\/",
+      "id": 32584,
+      "name": "Time in a Bottle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-22-time-in-a-bottle\/4000-32584\/",
+      "issue_number": "22"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32683\/",
+      "id": 32683,
+      "name": "Crisis",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-23-crisis\/4000-32683\/",
+      "issue_number": "23"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32786\/",
+      "id": 32786,
+      "name": "Purification Day",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-24-purification-day\/4000-32786\/",
+      "issue_number": "24"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-32913\/",
+      "id": 32913,
+      "name": "Monkey Puzzle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-25-monkey-puzzle\/4000-32913\/",
+      "issue_number": "25"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33029\/",
+      "id": 33029,
+      "name": "Deus Ex Machina",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-26-deus-ex-machina\/4000-33029\/",
+      "issue_number": "26"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33148\/",
+      "id": 33148,
+      "name": "The Coma Kid",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-27-the-coma-kid\/4000-33148\/",
+      "issue_number": "27"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33267\/",
+      "id": 33267,
+      "name": "The Naked Afternoon Snack",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-28-the-naked-afternoon-snack\/4000-33267\/",
+      "issue_number": "28"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33383\/",
+      "id": 33383,
+      "name": "Born to Be Wild",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-29-born-to-be-wild\/4000-33383\/",
+      "issue_number": "29"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33485\/",
+      "id": 33485,
+      "name": "A Nice Day for a Weird Wedding",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-30-a-nice-day-for-a-weird-wedding\/4000-33485\/",
+      "issue_number": "30"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33729\/",
+      "id": 33729,
+      "name": "Rites of Passage",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-31-rites-of-passage\/4000-33729\/",
+      "issue_number": "31"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-33941\/",
+      "id": 33941,
+      "name": "I Am the Man of Deep Ungodly Powers",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-33-i-am-the-man-of-deep-ungodly-powers\/4000-33941\/",
+      "issue_number": "33"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34048\/",
+      "id": 34048,
+      "name": "Requiem for a Bird of Prey",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-34-requiem-for-a-bird-of-prey\/4000-34048\/",
+      "issue_number": "34"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34155\/",
+      "id": 34155,
+      "name": "Dead Dogs on Ice!",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-35-dead-dogs-on-ice\/4000-34155\/",
+      "issue_number": "35"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34257\/",
+      "id": 34257,
+      "name": "The Call of the Wild",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-36-the-call-of-the-wild\/4000-34257\/",
+      "issue_number": "36"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34593\/",
+      "id": 34593,
+      "name": "Master of Wolves",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-39-master-of-wolves\/4000-34593\/",
+      "issue_number": "39"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34716\/",
+      "id": 34716,
+      "name": "Bear Claw Soup",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-40-bear-claw-soup\/4000-34716\/",
+      "issue_number": "40"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34833\/",
+      "id": 34833,
+      "name": "The Stone that Cracked Open the Earth Like an Egg",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-41-the-stone-that-cracked-open-the-eart\/4000-34833\/",
+      "issue_number": "41"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-34950\/",
+      "id": 34950,
+      "name": "Men Without Eyes",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-42-men-without-eyes\/4000-34950\/",
+      "issue_number": "42"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35212\/",
+      "id": 35212,
+      "name": "Tiger, Tiger, Burning Bright",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-43-tiger-tiger-burning-bright\/4000-35212\/",
+      "issue_number": "43"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35319\/",
+      "id": 35319,
+      "name": "Who is That Masked Woman?",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-44-who-is-that-masked-woman\/4000-35319\/",
+      "issue_number": "44"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35430\/",
+      "id": 35430,
+      "name": "The Beat of Darkness",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-45-the-beat-of-darkness\/4000-35430\/",
+      "issue_number": "45"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35528\/",
+      "id": 35528,
+      "name": "A Rage of Fathers",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-46-a-rage-of-fathers\/4000-35528\/",
+      "issue_number": "46"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35637\/",
+      "id": 35637,
+      "name": "The Shining Man, Part One: the Dark Side of God; Part Two: Orpheus in Cyberspace; Part Three: the Antagon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-47-the-shining-man-part-one-the-dark-si\/4000-35637\/",
+      "issue_number": "47"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35738\/",
+      "id": 35738,
+      "name": "The Meaning of Flesh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-48-the-meaning-of-flesh\/4000-35738\/",
+      "issue_number": "48"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35860\/",
+      "id": 35860,
+      "name": "The Hot Heart of Abstract Reality",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-49-the-hot-heart-of-abstract-reality\/4000-35860\/",
+      "issue_number": "49"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-35983\/",
+      "id": 35983,
+      "name": "Journal of a Plague Year",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-50-journal-of-a-plague-year\/4000-35983\/",
+      "issue_number": "50"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36108\/",
+      "id": 36108,
+      "name": "Flesh and Blood, Part One: Roadkill",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-51-flesh-and-blood-part-one-roadkill\/4000-36108\/",
+      "issue_number": "51"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36226\/",
+      "id": 36226,
+      "name": "Flesh and Blood, Part Two: Homecoming",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-52-flesh-and-blood-part-two-homecoming\/4000-36226\/",
+      "issue_number": "52"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36351\/",
+      "id": 36351,
+      "name": "Flesh and Blood, Part Three: Pondlife",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-53-flesh-and-blood-part-three-pondlife\/4000-36351\/",
+      "issue_number": "53"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36468\/",
+      "id": 36468,
+      "name": "Flesh and Blood, Part Four: Despair",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-54-flesh-and-blood-part-four-despair\/4000-36468\/",
+      "issue_number": "54"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36709\/",
+      "id": 36709,
+      "name": "Flesh and Blood, Part Five: Heartbeats",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-55-flesh-and-blood-part-five-heartbeats\/4000-36709\/",
+      "issue_number": "55"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36815\/",
+      "id": 36815,
+      "name": "Flesh and Blood, Part Six: Incarnate; Part Seven: Metamorphosis",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-56-flesh-and-blood-part-six-incarnate-p\/4000-36815\/",
+      "issue_number": "56"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-36920\/",
+      "id": 36920,
+      "name": "Wild Bunch",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-57-wild-bunch\/4000-36920\/",
+      "issue_number": "57"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37037\/",
+      "id": 37037,
+      "name": "Wildside",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-58-wildside\/4000-37037\/",
+      "issue_number": "58"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37171\/",
+      "id": 37171,
+      "name": "Wild Town",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-59-wild-town\/4000-37171\/",
+      "issue_number": "59"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37304\/",
+      "id": 37304,
+      "name": "Wildlife",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-60-wildlife\/4000-37304\/",
+      "issue_number": "60"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37456\/",
+      "id": 37456,
+      "name": "Tooth and Claw, Part One: Seasickness",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-61-tooth-and-claw-part-one-seasickness\/4000-37456\/",
+      "issue_number": "61"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37598\/",
+      "id": 37598,
+      "name": "Floatsam [Tooth And Claw Part 2]",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-62-floatsam-tooth-and-claw-part-2\/4000-37598\/",
+      "issue_number": "62"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37734\/",
+      "id": 37734,
+      "name": "Tooth and Claw Part 3: Leviathan",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-63-tooth-and-claw-part-3-leviathan\/4000-37734\/",
+      "issue_number": "63"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-37880\/",
+      "id": 37880,
+      "name": "Breath of God",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-64-breath-of-god\/4000-37880\/",
+      "issue_number": "64"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38032\/",
+      "id": 38032,
+      "name": "Perfumed Garden",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-65-perfumed-garden\/4000-38032\/",
+      "issue_number": "65"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38189\/",
+      "id": 38189,
+      "name": "Communion",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-66-communion\/4000-38189\/",
+      "issue_number": "66"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38438\/",
+      "id": 38438,
+      "name": "Mysterious Ways",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-67-mysterious-ways\/4000-38438\/",
+      "issue_number": "67"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38589\/",
+      "id": 38589,
+      "name": "Mysterious Ways Part Two",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-68-mysterious-ways-part-two\/4000-38589\/",
+      "issue_number": "68"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38734\/",
+      "id": 38734,
+      "name": "Cold, Cold, Cold",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-69-cold-cold-cold\/4000-38734\/",
+      "issue_number": "69"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-38883\/",
+      "id": 38883,
+      "name": "A Strange And Reckless Freedom",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-70-a-strange-and-reckless-freedom\/4000-38883\/",
+      "issue_number": "70"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39025\/",
+      "id": 39025,
+      "name": "The Sermon on the Monument",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-71-the-sermon-on-the-monument\/4000-39025\/",
+      "issue_number": "71"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39164\/",
+      "id": 39164,
+      "name": "Last Supper",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-72-last-supper\/4000-39164\/",
+      "issue_number": "72"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39314\/",
+      "id": 39314,
+      "name": "Children And Animals",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-73-children-and-animals\/4000-39314\/",
+      "issue_number": "73"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39453\/",
+      "id": 39453,
+      "name": "Better Red Than Dead!",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-74-better-red-than-dead\/4000-39453\/",
+      "issue_number": "74"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39594\/",
+      "id": 39594,
+      "name": "Red Plague",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-75-red-plague\/4000-39594\/",
+      "issue_number": "75"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39742\/",
+      "id": 39742,
+      "name": "Quarantine Zone",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-76-quarantine-zone\/4000-39742\/",
+      "issue_number": "76"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-39886\/",
+      "id": 39886,
+      "name": "Thicker Than Water",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-77-thicker-than-water\/4000-39886\/",
+      "issue_number": "77"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40019\/",
+      "id": 40019,
+      "name": "Scarlet Fever",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-78-scarlet-fever\/4000-40019\/",
+      "issue_number": "78"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40260\/",
+      "id": 40260,
+      "name": "Promised Land",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-79-promised-land\/4000-40260\/",
+      "issue_number": "79"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40404\/",
+      "id": 40404,
+      "name": "Homecoming",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-80-homecoming\/4000-40404\/",
+      "issue_number": "80"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40672\/",
+      "id": 40672,
+      "name": "Weeken Safari [Wild Type Part 2]",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-82-weeken-safari-wild-type-part-2\/4000-40672\/",
+      "issue_number": "82"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40806\/",
+      "id": 40806,
+      "name": "Money Trial [Wild Type Part 3]",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-83-money-trial-wild-type-part-3\/4000-40806\/",
+      "issue_number": "83"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-40926\/",
+      "id": 40926,
+      "name": "A Bedtime Story",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-84-a-bedtime-story\/4000-40926\/",
+      "issue_number": "84"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41061\/",
+      "id": 41061,
+      "name": "An Altered State of Mind",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-85-an-altered-state-of-mind\/4000-41061\/",
+      "issue_number": "85"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41204\/",
+      "id": 41204,
+      "name": "The Princess, The Shaman King, and The Spider Queen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-86-the-princess-the-shaman-king-and-the\/4000-41204\/",
+      "issue_number": "86"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41341\/",
+      "id": 41341,
+      "name": "Unlocking the Doors of Conception",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-87-unlocking-the-doors-of-conception\/4000-41341\/",
+      "issue_number": "87"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41471\/",
+      "id": 41471,
+      "name": "Placenta of the Earth",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-88-placenta-of-the-earth\/4000-41471\/",
+      "issue_number": "88"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41597\/",
+      "id": 41597,
+      "name": "Birth Pains, Part Two",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-89-birth-pains-part-two\/4000-41597\/",
+      "issue_number": "89"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-110451\/",
+      "id": 110451,
+      "name": "Schr\u00f6dinger's Pizza",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-32-schrodingers-pizza\/4000-110451\/",
+      "issue_number": "32"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-110452\/",
+      "id": 110452,
+      "name": "The Zoo at World's End",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-37-the-zoo-at-worlds-end\/4000-110452\/",
+      "issue_number": "37"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-110453\/",
+      "id": 110453,
+      "name": "The Penalizer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-38-the-penalizer\/4000-110453\/",
+      "issue_number": "38"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-110454\/",
+      "id": 110454,
+      "name": "Shaman's Return",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-81-shamans-return\/4000-110454\/",
+      "issue_number": "81"
+    }],
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-41597\/",
+      "id": 41597,
+      "name": "Birth Pains, Part Two",
+      "issue_number": "89"
+    },
+    "locations": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-57051\/",
+      "id": 57051,
+      "name": "San Diego",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/san-diego\/4020-57051\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55716\/",
+      "id": 55716,
+      "name": "California",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/california\/4020-55716\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-31682\/",
+      "id": 31682,
+      "name": "Arkham Asylum",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/arkham-asylum\/4020-31682\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-30759\/",
+      "id": 30759,
+      "name": "S.T.A.R. Labs",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/star-labs\/4020-30759\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55953\/",
+      "id": 55953,
+      "name": "Tanzania",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tanzania\/4020-55953\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-41183\/",
+      "id": 41183,
+      "name": "New York City",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/new-york-city\/4020-41183\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55753\/",
+      "id": 55753,
+      "name": "Arizona",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/arizona\/4020-55753\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55820\/",
+      "id": 55820,
+      "name": "Mexico",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mexico\/4020-55820\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56078\/",
+      "id": 56078,
+      "name": "Mirror World",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mirror-world\/4020-56078\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56944\/",
+      "id": 56944,
+      "name": "Africa",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/africa\/4020-56944\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-23611\/",
+      "id": 23611,
+      "name": "Gotham City",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/gotham-city\/4020-23611\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55695\/",
+      "id": 55695,
+      "name": "Daily Planet",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/daily-planet\/4020-55695\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55704\/",
+      "id": 55704,
+      "name": "San Francisco",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/san-francisco\/4020-55704\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55710\/",
+      "id": 55710,
+      "name": "Thanagar",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/thanagar\/4020-55710\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55740\/",
+      "id": 55740,
+      "name": "Florida",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/florida\/4020-55740\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55786\/",
+      "id": 55786,
+      "name": "San Diego Comic-Con",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/san-diego-comic-con\/4020-55786\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55912\/",
+      "id": 55912,
+      "name": "South Africa",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/south-africa\/4020-55912\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56052\/",
+      "id": 56052,
+      "name": "Paris",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/paris\/4020-56052\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56107\/",
+      "id": 56107,
+      "name": "Miami",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/miami\/4020-56107\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56198\/",
+      "id": 56198,
+      "name": "Vermont",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/vermont\/4020-56198\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56254\/",
+      "id": 56254,
+      "name": "Space",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/space\/4020-56254\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56514\/",
+      "id": 56514,
+      "name": "Grand Canyon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/grand-canyon\/4020-56514\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-56518\/",
+      "id": 56518,
+      "name": "Denmark",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/denmark\/4020-56518\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-59704\/",
+      "id": 59704,
+      "name": "Limbo (of comics)",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/limbo-of-comics\/4020-59704\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-60355\/",
+      "id": 60355,
+      "name": "Faroe Islands",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/faroe-islands\/4020-60355\/",
+      "count": "1"
+    }],
+    "name": "Animal Man",
+    "objects": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-22707\/",
+      "id": 22707,
+      "name": "Animal Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man\/4005-22707\/",
+      "count": "89"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-26599\/",
+      "id": 26599,
+      "name": "Ellen Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ellen-baker\/4005-26599\/",
+      "count": "74"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-24266\/",
+      "id": 24266,
+      "name": "Maxine Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/maxine-baker\/4005-24266\/",
+      "count": "57"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-26600\/",
+      "id": 26600,
+      "name": "Cliff Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/cliff-baker\/4005-26600\/",
+      "count": "52"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-67035\/",
+      "id": 67035,
+      "name": "Mary Frazier",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mary-frazier\/4005-67035\/",
+      "count": "26"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-73927\/",
+      "id": 73927,
+      "name": "Annie Cassidy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/annie-cassidy\/4005-73927\/",
+      "count": "22"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-71345\/",
+      "id": 71345,
+      "name": "Travis Cody",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/travis-cody\/4005-71345\/",
+      "count": "14"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-50468\/",
+      "id": 50468,
+      "name": "James Highwater",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/james-highwater\/4005-50468\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78217\/",
+      "id": 78217,
+      "name": "Stone That Cracked Open the Earth Like an Egg",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/stone-that-cracked-open-the-earth-like-an-egg\/4005-78217\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78218\/",
+      "id": 78218,
+      "name": "Power of Thought",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/power-of-thought\/4005-78218\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-50471\/",
+      "id": 50471,
+      "name": "Roger Denning",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/roger-denning\/4005-50471\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-51049\/",
+      "id": 51049,
+      "name": "B'wana Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bwana-beast\/4005-51049\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78057\/",
+      "id": 78057,
+      "name": "T.C.",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tc\/4005-78057\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-10249\/",
+      "id": 10249,
+      "name": "Buck Samson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/buck-samson\/4005-10249\/",
+      "count": "9"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78229\/",
+      "id": 78229,
+      "name": "Winky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/winky\/4005-78229\/",
+      "count": "9"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2551\/",
+      "id": 2551,
+      "name": "Vixen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/vixen\/4005-2551\/",
+      "count": "8"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78059\/",
+      "id": 78059,
+      "name": "Skipper",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/skipper\/4005-78059\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78244\/",
+      "id": 78244,
+      "name": "Uncle Dudley",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/uncle-dudley\/4005-78244\/",
+      "count": "7"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-25502\/",
+      "id": 25502,
+      "name": "The White Queen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-white-queen\/4005-25502\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-46248\/",
+      "id": 46248,
+      "name": "Grant Morrison",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/grant-morrison\/4005-46248\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-50461\/",
+      "id": 50461,
+      "name": "Lennox",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lennox\/4005-50461\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78227\/",
+      "id": 78227,
+      "name": "Moonlight Jackson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/moonlight-jackson\/4005-78227\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78228\/",
+      "id": 78228,
+      "name": "Kami",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kami\/4005-78228\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-25495\/",
+      "id": 25495,
+      "name": "Psycho-Pirate",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/psycho-pirate\/4005-25495\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28493\/",
+      "id": 28493,
+      "name": "Nowhere Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nowhere-man\/4005-28493\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-72241\/",
+      "id": 72241,
+      "name": "Tristess",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tristess\/4005-72241\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-77993\/",
+      "id": 77993,
+      "name": "Mr. Weidemeir",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-weidemeir\/4005-77993\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78058\/",
+      "id": 78058,
+      "name": "Tricia Denning",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tricia-denning\/4005-78058\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78249\/",
+      "id": 78249,
+      "name": "Antagon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/antagon\/4005-78249\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-46418\/",
+      "id": 46418,
+      "name": "Freedom Beast",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/freedom-beast\/4005-46418\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69177\/",
+      "id": 69177,
+      "name": "Dr. Myers",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dr-myers\/4005-69177\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-70483\/",
+      "id": 70483,
+      "name": "Lucinda Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lucinda-angel\/4005-70483\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-70484\/",
+      "id": 70484,
+      "name": "Mark Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-angel\/4005-70484\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-70516\/",
+      "id": 70516,
+      "name": "Matthew Angel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/matthew-angel\/4005-70516\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78219\/",
+      "id": 78219,
+      "name": "Raney Fox",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/raney-fox\/4005-78219\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78221\/",
+      "id": 78221,
+      "name": "Harriet",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/harriet\/4005-78221\/",
+      "count": "4"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-1699\/",
+      "id": 1699,
+      "name": "Batman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/batman\/4005-1699\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-1786\/",
+      "id": 1786,
+      "name": "Booster Gold",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/booster-gold\/4005-1786\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-3298\/",
+      "id": 3298,
+      "name": "Phantom Stranger",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/phantom-stranger\/4005-3298\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-7652\/",
+      "id": 7652,
+      "name": "Mirror Master (McCulloch)",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mirror-master-mcculloch\/4005-7652\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27806\/",
+      "id": 27806,
+      "name": "The Penalizer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-penalizer\/4005-27806\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-60411\/",
+      "id": 60411,
+      "name": "Tabu",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tabu\/4005-60411\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-60412\/",
+      "id": 60412,
+      "name": "Hamid Ali",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hamid-ali\/4005-60412\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-77994\/",
+      "id": 77994,
+      "name": "Mrs. Weidemeir",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mrs-weidemeir\/4005-77994\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78061\/",
+      "id": 78061,
+      "name": "Dr. Roger Huntoon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dr-roger-huntoon\/4005-78061\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78082\/",
+      "id": 78082,
+      "name": "Mr. Elson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-elson\/4005-78082\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78083\/",
+      "id": 78083,
+      "name": "Mr. Shaver",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-shaver\/4005-78083\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78084\/",
+      "id": 78084,
+      "name": "Mr. Brumley",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-brumley\/4005-78084\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78194\/",
+      "id": 78194,
+      "name": "President Eagleton",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/president-eagleton\/4005-78194\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78195\/",
+      "id": 78195,
+      "name": "Jones",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jones\/4005-78195\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78220\/",
+      "id": 78220,
+      "name": "Dave",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dave\/4005-78220\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78225\/",
+      "id": 78225,
+      "name": "Dwayne Brown",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dwayne-brown\/4005-78225\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78253\/",
+      "id": 78253,
+      "name": "Arum",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/arum\/4005-78253\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78254\/",
+      "id": 78254,
+      "name": "Krate",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/krate\/4005-78254\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-83346\/",
+      "id": 83346,
+      "name": "Living Nightmare",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/living-nightmare\/4005-83346\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-1790\/",
+      "id": 1790,
+      "name": "Sue Dibny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sue-dibny\/4005-1790\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2047\/",
+      "id": 2047,
+      "name": "Martian Manhunter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/martian-manhunter\/4005-2047\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2384\/",
+      "id": 2384,
+      "name": "Metamorpho",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/metamorpho\/4005-2384\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-4437\/",
+      "id": 4437,
+      "name": "Elongated Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/elongated-man\/4005-4437\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-4702\/",
+      "id": 4702,
+      "name": "Power Ring",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/power-ring\/4005-4702\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-5692\/",
+      "id": 5692,
+      "name": "Ultraman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ultraman\/4005-5692\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27807\/",
+      "id": 27807,
+      "name": "Doctor Darkness",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/doctor-darkness\/4005-27807\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28643\/",
+      "id": 28643,
+      "name": "The Notional Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-notional-man\/4005-28643\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28890\/",
+      "id": 28890,
+      "name": "Time Commander",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/time-commander\/4005-28890\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-29506\/",
+      "id": 29506,
+      "name": "Red Mask",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/red-mask\/4005-29506\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-31298\/",
+      "id": 31298,
+      "name": "Streaky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/streaky\/4005-31298\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-50606\/",
+      "id": 50606,
+      "name": "Overman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/overman\/4005-50606\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-62027\/",
+      "id": 62027,
+      "name": "Sunshine Superman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sunshine-superman\/4005-62027\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69197\/",
+      "id": 69197,
+      "name": "Djuba",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/djuba\/4005-69197\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-74628\/",
+      "id": 74628,
+      "name": "Mike Peroni",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mike-peroni\/4005-74628\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78005\/",
+      "id": 78005,
+      "name": "Sheba",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sheba\/4005-78005\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78068\/",
+      "id": 78068,
+      "name": "Kwahu",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kwahu\/4005-78068\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78089\/",
+      "id": 78089,
+      "name": "Speed Freak",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/speed-freak\/4005-78089\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78090\/",
+      "id": 78090,
+      "name": "Magic Lantern",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/magic-lantern\/4005-78090\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78091\/",
+      "id": 78091,
+      "name": "Jarmara",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jarmara\/4005-78091\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78222\/",
+      "id": 78222,
+      "name": "Ace",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ace\/4005-78222\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78245\/",
+      "id": 78245,
+      "name": "Captain Silva",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-silva\/4005-78245\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78248\/",
+      "id": 78248,
+      "name": "Les Decker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/les-decker\/4005-78248\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78250\/",
+      "id": 78250,
+      "name": "Frank Baker, Jr.",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/frank-baker-jr\/4005-78250\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-91773\/",
+      "id": 91773,
+      "name": "Foxy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/foxy\/4005-91773\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-1807\/",
+      "id": 1807,
+      "name": "Superman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4005-1807\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-1809\/",
+      "id": 1809,
+      "name": "Perry White",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/perry-white\/4005-1809\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2048\/",
+      "id": 2048,
+      "name": "Wonder Woman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/wonder-woman\/4005-2048\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2050\/",
+      "id": 2050,
+      "name": "Captain Atom",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-atom\/4005-2050\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2054\/",
+      "id": 2054,
+      "name": "Ted Kord",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ted-kord\/4005-2054\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2361\/",
+      "id": 2361,
+      "name": "Spectre",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/spectre\/4005-2361\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2379\/",
+      "id": 2379,
+      "name": "Max Mercury",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/max-mercury\/4005-2379\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2385\/",
+      "id": 2385,
+      "name": "Rocket Red (Pushkin)",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rocket-red-pushkin\/4005-2385\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2395\/",
+      "id": 2395,
+      "name": "Jay Garrick",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jay-garrick\/4005-2395\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-2761\/",
+      "id": 2761,
+      "name": "Stevie Wonder",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/stevie-wonder\/4005-2761\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-3715\/",
+      "id": 3715,
+      "name": "Mr. Freeze",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-freeze\/4005-3715\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-3726\/",
+      "id": 3726,
+      "name": "Scarecrow",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/scarecrow\/4005-3726\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-4686\/",
+      "id": 4686,
+      "name": "Tula",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tula\/4005-4686\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-4703\/",
+      "id": 4703,
+      "name": "Owlman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/owlman\/4005-4703\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-4937\/",
+      "id": 4937,
+      "name": "Rip Hunter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rip-hunter\/4005-4937\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-5695\/",
+      "id": 5695,
+      "name": "Johnny Quick",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/johnny-quick\/4005-5695\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-5703\/",
+      "id": 5703,
+      "name": "Mr. Miracle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-miracle\/4005-5703\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-5814\/",
+      "id": 5814,
+      "name": "Mad Hatter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mad-hatter\/4005-5814\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-5951\/",
+      "id": 5951,
+      "name": "Psimon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/psimon\/4005-5951\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-6600\/",
+      "id": 6600,
+      "name": "Inza Nelson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/inza-nelson\/4005-6600\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-8312\/",
+      "id": 8312,
+      "name": "Bizarro",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bizarro\/4005-8312\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-10526\/",
+      "id": 10526,
+      "name": "God",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/god\/4005-10526\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-11270\/",
+      "id": 11270,
+      "name": "Detective Chimp",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/detective-chimp\/4005-11270\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-13454\/",
+      "id": 13454,
+      "name": "Tweedledum",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tweedledum\/4005-13454\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-13455\/",
+      "id": 13455,
+      "name": "Tweedledee",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tweedledee\/4005-13455\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-13570\/",
+      "id": 13570,
+      "name": "Dolphin",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dolphin\/4005-13570\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-14652\/",
+      "id": 14652,
+      "name": "Shark",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/shark\/4005-14652\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16363\/",
+      "id": 16363,
+      "name": "Binky Biggs",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/binky-biggs\/4005-16363\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16444\/",
+      "id": 16444,
+      "name": "Peggy Baxter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/peggy-baxter\/4005-16444\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16514\/",
+      "id": 16514,
+      "name": "Awkwardman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/awkwardman\/4005-16514\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16516\/",
+      "id": 16516,
+      "name": "Tough Bunny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tough-bunny\/4005-16516\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16517\/",
+      "id": 16517,
+      "name": "Merryman",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/merryman\/4005-16517\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-16518\/",
+      "id": 16518,
+      "name": "White Feather",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/white-feather\/4005-16518\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-18354\/",
+      "id": 18354,
+      "name": "Green Cigarette",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/green-cigarette\/4005-18354\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-18365\/",
+      "id": 18365,
+      "name": "Doiby Dickles",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/doiby-dickles\/4005-18365\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-19180\/",
+      "id": 19180,
+      "name": "The Gay Ghost",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-gay-ghost\/4005-19180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-22774\/",
+      "id": 22774,
+      "name": "Jemm",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jemm\/4005-22774\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-24304\/",
+      "id": 24304,
+      "name": "Ultra the Multi-Alien",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ultra-the-multi-alien\/4005-24304\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-25217\/",
+      "id": 25217,
+      "name": "Nightmaster",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nightmaster\/4005-25217\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-25981\/",
+      "id": 25981,
+      "name": "Sargon the Sorcerer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/sargon-the-sorcerer\/4005-25981\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-26966\/",
+      "id": 26966,
+      "name": "Ubermensch",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ubermensch\/4005-26966\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27207\/",
+      "id": 27207,
+      "name": "Kannibal Kid",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kannibal-kid\/4005-27207\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27246\/",
+      "id": 27246,
+      "name": "Krona",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/krona\/4005-27246\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27303\/",
+      "id": 27303,
+      "name": "Rebis",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rebis\/4005-27303\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-27304\/",
+      "id": 27304,
+      "name": "Crazy Jane",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crazy-jane\/4005-27304\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28303\/",
+      "id": 28303,
+      "name": "The Blimp",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-blimp\/4005-28303\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28697\/",
+      "id": 28697,
+      "name": "The Front Page",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/the-front-page\/4005-28697\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-28862\/",
+      "id": 28862,
+      "name": "Immortal Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/immortal-man\/4005-28862\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-29322\/",
+      "id": 29322,
+      "name": "Tomahawk",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tomahawk\/4005-29322\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-30520\/",
+      "id": 30520,
+      "name": "Kole",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kole\/4005-30520\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-30891\/",
+      "id": 30891,
+      "name": "Son of Vulcan",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/son-of-vulcan\/4005-30891\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-30999\/",
+      "id": 30999,
+      "name": "Jeff Smith",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jeff-smith\/4005-30999\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-31132\/",
+      "id": 31132,
+      "name": "Bug-Eyed Bandit",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bug-eyed-bandit\/4005-31132\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-31278\/",
+      "id": 31278,
+      "name": "Dane Dorrance",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dane-dorrance\/4005-31278\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-31299\/",
+      "id": 31299,
+      "name": "Beppo",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/beppo\/4005-31299\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-31302\/",
+      "id": 31302,
+      "name": "Ace the Bat-Hound",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ace-the-bat-hound\/4005-31302\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-33139\/",
+      "id": 33139,
+      "name": "Captain Carrot",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-carrot\/4005-33139\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-33205\/",
+      "id": 33205,
+      "name": "Bonnie Baxter",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bonnie-baxter\/4005-33205\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-33378\/",
+      "id": 33378,
+      "name": "Hoppy The Marvel Bunny",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hoppy-the-marvel-bunny\/4005-33378\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-36911\/",
+      "id": 36911,
+      "name": "Captain Triumph",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-triumph\/4005-36911\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-38648\/",
+      "id": 38648,
+      "name": "Prince Ra-Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/prince-ra-man\/4005-38648\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-41181\/",
+      "id": 41181,
+      "name": "Ma Hunkel",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ma-hunkel\/4005-41181\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-47128\/",
+      "id": 47128,
+      "name": "Richard Raleigh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/richard-raleigh\/4005-47128\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-47657\/",
+      "id": 47657,
+      "name": "Ten-Eyed Man",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ten-eyed-man\/4005-47657\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-50604\/",
+      "id": 50604,
+      "name": "Maaldor",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/maaldor\/4005-50604\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-54339\/",
+      "id": 54339,
+      "name": "Tail Terrier",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tail-terrier\/4005-54339\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-54340\/",
+      "id": 54340,
+      "name": "Tusky Husky",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tusky-husky\/4005-54340\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-54343\/",
+      "id": 54343,
+      "name": "Bull Dog",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/bull-dog\/4005-54343\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-58675\/",
+      "id": 58675,
+      "name": "Crescent Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crescent-moon\/4005-58675\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-58676\/",
+      "id": 58676,
+      "name": "Harvest Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/harvest-moon\/4005-58676\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-58677\/",
+      "id": 58677,
+      "name": "New Moon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/new-moon\/4005-58677\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-64084\/",
+      "id": 64084,
+      "name": "Commodore Murphy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/commodore-murphy\/4005-64084\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-64085\/",
+      "id": 64085,
+      "name": "J. P. Houston",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/j-p-houston\/4005-64085\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-64086\/",
+      "id": 64086,
+      "name": "Cecil Sunbeam",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/cecil-sunbeam\/4005-64086\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-64087\/",
+      "id": 64087,
+      "name": "Abdul Smith",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/abdul-smith\/4005-64087\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-67267\/",
+      "id": 67267,
+      "name": "Hercules",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/hercules\/4005-67267\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69263\/",
+      "id": 69263,
+      "name": "Crafty",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/crafty\/4005-69263\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69390\/",
+      "id": 69390,
+      "name": "Rokara Soh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rokara-soh\/4005-69390\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69391\/",
+      "id": 69391,
+      "name": "Skalla Kol",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/skalla-kol\/4005-69391\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-69786\/",
+      "id": 69786,
+      "name": "Ongur Nielsen",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/ongur-nielsen\/4005-69786\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-77995\/",
+      "id": 77995,
+      "name": "Rufus",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rufus\/4005-77995\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78006\/",
+      "id": 78006,
+      "name": "Rupert Kenboya",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rupert-kenboya\/4005-78006\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78056\/",
+      "id": 78056,
+      "name": "Veil",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/veil\/4005-78056\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78063\/",
+      "id": 78063,
+      "name": "Archbishop Mogatusi",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/archbishop-mogatusi\/4005-78063\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78065\/",
+      "id": 78065,
+      "name": "David Quinn",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/david-quinn\/4005-78065\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78066\/",
+      "id": 78066,
+      "name": "Mr. Van de Voort",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-van-de-voort\/4005-78066\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78067\/",
+      "id": 78067,
+      "name": "J\u00f3annes",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/joannes\/4005-78067\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78099\/",
+      "id": 78099,
+      "name": "Slaughterhouse",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/slaughterhouse\/4005-78099\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78180\/",
+      "id": 78180,
+      "name": "Lizard Girl",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lizard-girl\/4005-78180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78196\/",
+      "id": 78196,
+      "name": "Kinnock",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/kinnock\/4005-78196\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78243\/",
+      "id": 78243,
+      "name": "Homer Gethro",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/homer-gethro\/4005-78243\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78246\/",
+      "id": 78246,
+      "name": "Zane",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/zane\/4005-78246\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78247\/",
+      "id": 78247,
+      "name": "Nelson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/nelson\/4005-78247\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78251\/",
+      "id": 78251,
+      "name": "Phyllis Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/phyllis-baker\/4005-78251\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-78252\/",
+      "id": 78252,
+      "name": "Old Jack Baker",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/old-jack-baker\/4005-78252\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-81180\/",
+      "id": 81180,
+      "name": "Katar Hol",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/katar-hol\/4005-81180\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-82989\/",
+      "id": 82989,
+      "name": "Jason",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jason\/4005-82989\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-83835\/",
+      "id": 83835,
+      "name": "Icicle",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/icicle\/4005-83835\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/object\/4005-94476\/",
+      "id": 94476,
+      "name": "Jason Blood ",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jason-blood\/4005-94476\/",
+      "count": "1"
+    }],
+    "people": [{
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-8294\/",
+      "id": 8294,
+      "name": "Tatjana Wood",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tatjana-wood\/4040-8294\/",
+      "count": "82"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-9421\/",
+      "id": 9421,
+      "name": "John Costanza",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/john-costanza\/4040-9421\/",
+      "count": "74"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-9976\/",
+      "id": 9976,
+      "name": "Brian Bolland",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/brian-bolland\/4040-9976\/",
+      "count": "63"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-50470\/",
+      "id": 50470,
+      "name": "Art Young",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/art-young\/4040-50470\/",
+      "count": "32"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-40642\/",
+      "id": 40642,
+      "name": "Jamie Delano",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jamie-delano\/4040-40642\/",
+      "count": "29"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-42589\/",
+      "id": 42589,
+      "name": "Tom Peyer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-peyer\/4040-42589\/",
+      "count": "29"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-30962\/",
+      "id": 30962,
+      "name": "Charles Truog",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/charles-truog\/4040-30962\/",
+      "count": "28"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-40434\/",
+      "id": 40434,
+      "name": "Grant Morrison",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/grant-morrison\/4040-40434\/",
+      "count": "26"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-43437\/",
+      "id": 43437,
+      "name": "Karen Berger",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/karen-berger\/4040-43437\/",
+      "count": "26"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-14355\/",
+      "id": 14355,
+      "name": "Steve Pugh",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/steve-pugh\/4040-14355\/",
+      "count": "22"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-19236\/",
+      "id": 19236,
+      "name": "Doug Hazlewood",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/doug-hazlewood\/4040-19236\/",
+      "count": "21"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-56580\/",
+      "id": 56580,
+      "name": "Tom Veitch",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-veitch\/4040-56580\/",
+      "count": "18"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-23694\/",
+      "id": 23694,
+      "name": "Steve Dillon",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/steve-dillon\/4040-23694\/",
+      "count": "15"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-52324\/",
+      "id": 52324,
+      "name": "Lou Stathis",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/lou-stathis\/4040-52324\/",
+      "count": "13"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-25784\/",
+      "id": 25784,
+      "name": "Fred Harper",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/fred-harper\/4040-25784\/",
+      "count": "11"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-14862\/",
+      "id": 14862,
+      "name": "Jason Temujin Minor",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jason-temujin-minor\/4040-14862\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-44945\/",
+      "id": 44945,
+      "name": "Jerry Prosser",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jerry-prosser\/4040-44945\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-51057\/",
+      "id": 51057,
+      "name": "Julie Rottenberg",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/julie-rottenberg\/4040-51057\/",
+      "count": "10"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-15860\/",
+      "id": 15860,
+      "name": "Rick Berry",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/rick-berry\/4040-15860\/",
+      "count": "8"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26773\/",
+      "id": 26773,
+      "name": "Richard Starkings",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/richard-starkings\/4040-26773\/",
+      "count": "8"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-1524\/",
+      "id": 1524,
+      "name": "Mark Farmer",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-farmer\/4040-1524\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-6442\/",
+      "id": 6442,
+      "name": "Comicraft",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/comicraft\/4040-6442\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-41484\/",
+      "id": 41484,
+      "name": "Peter Milligan",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/peter-milligan\/4040-41484\/",
+      "count": "6"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26391\/",
+      "id": 26391,
+      "name": "Russell Braun",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/russell-braun\/4040-26391\/",
+      "count": "5"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-25554\/",
+      "id": 25554,
+      "name": "Tom Taggart",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-taggart\/4040-25554\/",
+      "count": "3"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-4016\/",
+      "id": 4016,
+      "name": "Tom Sutton",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-sutton\/4040-4016\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-4806\/",
+      "id": 4806,
+      "name": "Tom Grummett",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-grummett\/4040-4806\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-12607\/",
+      "id": 12607,
+      "name": "Steve Montano",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/steve-montano\/4040-12607\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26140\/",
+      "id": 26140,
+      "name": "John Van Fleet",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/john-van-fleet\/4040-26140\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26781\/",
+      "id": 26781,
+      "name": "William Simpson",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/william-simpson\/4040-26781\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-48681\/",
+      "id": 48681,
+      "name": "Graham Higgins",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/graham-higgins\/4040-48681\/",
+      "count": "2"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-2037\/",
+      "id": 2037,
+      "name": "Mark Chiarello",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-chiarello\/4040-2037\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-4794\/",
+      "id": 4794,
+      "name": "Scot Eaton",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/scot-eaton\/4040-4794\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-5455\/",
+      "id": 5455,
+      "name": "Dan Brereton",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dan-brereton\/4040-5455\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-5584\/",
+      "id": 5584,
+      "name": "Dick Giordano",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dick-giordano\/4040-5584\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-7069\/",
+      "id": 7069,
+      "name": "Peter Snejbjerg",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/peter-snejbjerg\/4040-7069\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-7454\/",
+      "id": 7454,
+      "name": "John Higgins",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/john-higgins\/4040-7454\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-7864\/",
+      "id": 7864,
+      "name": "Paris Cullins",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/paris-cullins\/4040-7864\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-9552\/",
+      "id": 9552,
+      "name": "Tom Mandrake",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/tom-mandrake\/4040-9552\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-11021\/",
+      "id": 11021,
+      "name": "Mark McKenna",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-mckenna\/4040-11021\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-12187\/",
+      "id": 12187,
+      "name": "Randy Duburke",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/randy-duburke\/4040-12187\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-12775\/",
+      "id": 12775,
+      "name": "Peter Kuper",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/peter-kuper\/4040-12775\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-21829\/",
+      "id": 21829,
+      "name": "Brett Ewins",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/brett-ewins\/4040-21829\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-23115\/",
+      "id": 23115,
+      "name": "Axel Alonso",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/axel-alonso\/4040-23115\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26102\/",
+      "id": 26102,
+      "name": "Miran Kim",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/miran-kim\/4040-26102\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26255\/",
+      "id": 26255,
+      "name": "Gene Fama",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/gene-fama\/4040-26255\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-26838\/",
+      "id": 26838,
+      "name": "Dan Steffan",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/dan-steffan\/4040-26838\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-27167\/",
+      "id": 27167,
+      "name": "Mark Badger",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/mark-badger\/4040-27167\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-51342\/",
+      "id": 51342,
+      "name": "David Klein",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/david-klein\/4040-51342\/",
+      "count": "1"
+    }, {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-52728\/",
+      "id": 52728,
+      "name": "Jim McCarthy",
+      "site_detail_url": "https:\/\/comicvine.gamespot.com\/jim-mccarthy\/4040-52728\/",
+      "count": "1"
+    }],
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-10\/",
+      "id": 10,
+      "name": "DC Comics"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man\/4050-3976\/",
+    "start_year": "1988"
+  },
+  "version": "1.0"
+}

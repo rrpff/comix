@@ -1,0 +1,430 @@
+{
+  "error": "OK",
+  "limit": 10,
+  "offset": 0,
+  "number_of_page_results": 10,
+  "number_of_total_results": 7230,
+  "status_code": 1,
+  "results": [{
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-39879\/",
+    "count_of_issues": 493,
+    "date_added": "2011-04-26 19:38:51",
+    "date_last_updated": "2013-01-05 01:30:34",
+    "deck": null,
+    "description": "<p>First four issues lack the accent over the A.<\/p><p>Mexican publication (in the Spanish language).<\/p><p>Ran for well over 1000 issues.<\/p>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-372978\/",
+      "id": 372978,
+      "name": "El Hermano Menor de Superman",
+      "issue_number": "131"
+    },
+    "id": 39879,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/2\/27783\/1786746-supernovaro1.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/2\/27783\/1786746-supernovaro1.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/2\/27783\/1786746-supernovaro1.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/2\/27783\/1786746-supernovaro1.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/2\/27783\/1786746-supernovaro1.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/2\/27783\/1786746-supernovaro1.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/2\/27783\/1786746-supernovaro1.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/2\/27783\/1786746-supernovaro1.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/2\/27783\/1786746-supernovaro1.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-373738\/",
+      "id": 373738,
+      "name": null,
+      "issue_number": "667"
+    },
+    "name": "Superm\u00e1n",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-2365\/",
+      "id": 2365,
+      "name": "Editorial Novaro"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-39879\/",
+    "start_year": "1952",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-773\/",
+    "count_of_issues": 488,
+    "date_added": "2008-06-06 11:08:03",
+    "date_last_updated": "2021-01-26 12:32:23",
+    "deck": "The one that started it all. 'Superman' follows Kal-El to earth and shows his very first appearance as Superman, how he came to be, where he came from and who he is. The very first series of Superman, with many to follow.",
+    "description": "<p><b>Superman (Volume 1). <\/b>This volume became <a href=\"https:\/\/comicvine.gamespot.com\/adventures-of-superman\/4050-3778\/\" data-ref-id=\"4050-3778\">Adventures of Superman Volume 1<\/a> for issues #424-#649. The series title returned to Superman Volume 1 with issue #650. While titled <em>Adventures of Superman<\/em>, <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-3816\/\" data-ref-id=\"4050-3816\">Superman Volume 2<\/a> was published concurrently. Following the end of Volume 1, Continued in <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-42986\/\" data-ref-id=\"4050-42986\">Superman Volume 3<\/a>.<\/p><p><em>Superman<\/em> launched May 18, 1939 with its first issue (that doesn't actually have a #1 on the cover) and although it was a seasonal book for its first five issues, with its sixth it began a bimonthly publishing rate and kept up with said rate until its eighty-fifth. With its eighty-sixth issue Superman began it's mostly consistent monthly publishing rate which it continued using up until 1986 when the series ended at 423 issues, the last issue featuring <a href=\"\/alan-moore\/4040-40382\/\" data-ref-id=\"4040-40382\">Alan Moore<\/a>'s acclaimed story \"<a href=\"\/whatever-happened-to-the-man-of-tomorrow\/4045-56808\/\" data-ref-id=\"4045-56808\"><em>Whatever Happened to the Man of Tomorrow?<\/em><\/a>\" After that, the title's numbering was continued through <em><a href=\"https:\/\/comicvine.gamespot.com\/adventures-of-superman\/4050-3778\/\" data-ref-id=\"4050-3778\">Adventures of Superman<\/a><\/em> which lasted for several decades. It was in 2006 with #650 that the title returned to its original name, kicking off it's new era with the <a href=\"\/one-year-later\/4045-40777\/\" data-ref-id=\"4045-40777\">One Year Later<\/a> storyline co-written by <a href=\"\/geoff-johns\/4040-40439\/\" data-ref-id=\"4040-40439\">Geoff Johns<\/a> and <a href=\"\/kurt-busiek\/4040-41741\/\" data-ref-id=\"4040-41741\">Kurt Busiek<\/a>. After the arc, the series was written by Busiek from 654-675, with <a href=\"\/james-robinson\/4040-42389\/\" data-ref-id=\"4040-42389\">James Robinson<\/a> taking the reigns in 677 and holding them tight until the milestone 700th issue where <a href=\"\/j-michael-straczynski\/4040-40683\/\" data-ref-id=\"4040-40683\">JMS<\/a> took over with an arc entitled \"<em><a href=\"\/grounded\/4045-56189\/\" data-ref-id=\"4045-56189\">Grounded<\/a><\/em>\" that would feature Superman walking across America. However, JMS left the book earlier then planned and new writer <a href=\"\/chris-roberson\/4040-19991\/\" data-ref-id=\"4040-19991\">Chris Roberson<\/a> worked off of JMS' original notes and plot-line. Unfortunately, Roberson never got to prove himself with his own story on the book as with the launch of The New 52 in September 2011, after 72 years and 714 issues (including <em>Adventures of Superman<\/em>) Superman Vol. 1 came to an end with the final chapter of the <em>Grounded<\/em> story arc serving as the final issue of the series. Superman will survive as an ongoing series at DC, with the month following the release of Superman #714 serving as the launching point of the third ongoing <a href=\"\/superman\/4050-42986\/\" data-ref-id=\"4050-42986\">Superman<\/a> series in DC history with #1.<\/p><h3>Collected Editions<\/h3><ul><li><a href=\"\/superman-archives-1-volume-1\/4000-299490\/\" data-ref-id=\"4000-299490\">Superman Archives Volume 1<\/a> (#1-4)<\/li><li><a href=\"\/the-superman-chronicles-1-volume-1\/4000-300176\/\" data-ref-id=\"4000-300176\">The Superman Chronicles Volume 1<\/a> (#1)<\/li><li><a href=\"https:\/\/www.comicvine.com\/superman-the-golden-age-omnibus-1-volume-1\/4000-409195\/\" data-ref-id=\"4000-409195\">Superman: The Golden Age Omnibus vol. 1<\/a> (#1-7)<\/li><li><a href=\"\/superman-the-golden-age-1-volume-one\/4000-520188\/\" data-ref-id=\"4000-520188\">Superman: The Golden Age Volume One<\/a> (#1-4)<\/li><li><a href=\"\/superman-in-the-forties-1-tpb\/4000-299934\/\" data-ref-id=\"4000-299934\">Superman in the Forties<\/a> (#1, 23, 40, 53, 58 &amp; 61)<\/li><li><a href=\"\/superman-the-greatest-stories-ever-told-1-tpb\/4000-308945\/\" data-ref-id=\"4000-308945\">Superman: The Greatest Stories Ever Told Volume 1<\/a> (#1, 65, 156, 247 &amp; 400)<\/li><li><a href=\"\/the-superman-chronicles-2-volume-2\/4000-300177\/\" data-ref-id=\"4000-300177\">The Superman Chronicles Volume 2<\/a> (#2-3)<\/li><li><a href=\"\/the-superman-chronicles-3-volume-3\/4000-300178\/\" data-ref-id=\"4000-300178\">The Superman Chronicles Volume 3<\/a> (#4-5)<\/li><li><a href=\"\/the-greatest-superman-stories-ever-told-1-hc\/4000-441940\/\" data-ref-id=\"4000-441940\">The Greatest Superman Stories Ever Told<\/a> (#4, 13, 30, 53, 123, 125, 129, 132, 145, 149, 162 &amp; 247)<\/li><li><a href=\"\/superman-archives-2-volume-2\/4000-299491\/\" data-ref-id=\"4000-299491\">Superman Archives Volume 2<\/a> (#5-8)<\/li><li><a href=\"\/superman-the-golden-age-2-volume-two\/4000-562586\/\" data-ref-id=\"4000-562586\">Superman: The Golden Age Volume Two<\/a> (#5-7)<\/li><li><a href=\"\/the-superman-chronicles-4-volume-4\/4000-300179\/\" data-ref-id=\"4000-300179\">The Superman Chronicles Volume 4<\/a> (#6-7)<\/li><li><a href=\"\/the-superman-chronicles-5-volume-5\/4000-300180\/\" data-ref-id=\"4000-300180\">The Superman Chronicles Volume 5<\/a> (#8-9)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-golden-age-omnibus-2-volume-2\/4000-539789\/\" data-ref-id=\"4000-539789\">Superman: The Golden Age Omnibus vol. 2<\/a> (#8-15)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-golden-age-3-volume-three\/4000-603106\/\" data-ref-id=\"4000-603106\">Superman: The Golden Age Volume Three<\/a> (#8-11)<\/li><li><a href=\"\/superman-archives-3-volume-3\/4000-299492\/\" data-ref-id=\"4000-299492\">Superman Archives Volume 3<\/a> (#9-12)<\/li><li><a href=\"\/the-superman-chronicles-6-volume-6\/4000-300181\/\" data-ref-id=\"4000-300181\">The Superman Chronicles Volume 6<\/a> (#10-11)<\/li><li><a href=\"\/the-superman-chronicles-7-volume-7\/4000-300182\/\" data-ref-id=\"4000-300182\">The Superman Chronicles Volume 7<\/a> (#12-13)<\/li><li><a href=\"\/superman-the-golden-age-4-volume-four\/4000-670731\/\" data-ref-id=\"4000-670731\">Superman: The Golden Age Volume Four<\/a> (#12-15)<\/li><li><a href=\"\/superman-archives-4-volume-4\/4000-299493\/\" data-ref-id=\"4000-299493\">Superman Archives Volume 4<\/a> (#13-16)<\/li><li><a href=\"\/the-superman-chronicles-8-volume-8\/4000-300183\/\" data-ref-id=\"4000-300183\">The Superman Chronicles Volume 8<\/a> (#14-15)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-golden-age-5-volume-five\/4000-751052\/\" data-ref-id=\"4000-751052\">Superman: The Golden Age Volume Five<\/a> (#16-19)<\/li><li><a href=\"\/the-superman-chronicles-9-volume-9\/4000-300184\/\" data-ref-id=\"4000-300184\">The Superman Chronicles Volume 9<\/a> (#16-17)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-golden-age-omnibus-3-volume-3\/4000-566694\/\" data-ref-id=\"4000-566694\">Superman: The Golden Age Omnibus Vol. 3<\/a> (#16-23)<\/li><li><a href=\"\/superman-archives-5-volume-5\/4000-299494\/\" data-ref-id=\"4000-299494\">Superman Archives Volume 5<\/a> (#17-20)<\/li><li><a href=\"\/the-superman-chronicles-10-volume-10\/4000-360197\/\" data-ref-id=\"4000-360197\">The Superman Chronicles Volume 10<\/a> (#18-19)<\/li><li><a href=\"\/superman-archives-6-volume-6\/4000-299496\/\" data-ref-id=\"4000-299496\">Superman Archives Volume 6<\/a> (#21-24)<\/li><li><a href=\"\/superman-archives-7-volume-7\/4000-299498\/\" data-ref-id=\"4000-299498\">Superman Archives Volume 7<\/a> (#25-29)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-golden-age-omnibus-4-volume-4\/4000-597177\/\" data-ref-id=\"4000-597177\">Superman: The Golden Age Omnibus Vol. 4<\/a> (#25-33)<\/li><li><a href=\"\/superman-archives-8-volume-8\/4000-299499\/\" data-ref-id=\"4000-299499\">Superman Archives Volume 8<\/a> (#30-35)<\/li><li><a href=\"\/superman-the-golden-age-omnibus-5-volume-5\/4000-655490\/\" data-ref-id=\"4000-655490\">Superman: The Golden Age Omnibus Vol. 5<\/a> (#34-43)<\/li><li><a href=\"\/superman-the-golden-age-omnibus-6-volume-6\/4000-714622\/\" data-ref-id=\"4000-714622\">Superman: The Golden Age Omnibus Vol. 6<\/a> (#44-54)<\/li><li><a href=\"\/superman-in-the-fifties-1\/4000-260480\/\" data-ref-id=\"4000-260480\">Superman in the Fifties<\/a> (#65, 79-80, 96-97 &amp; 127)<\/li><li><a href=\"\/supermanbatman-the-greatest-stories-ever-told-1-su\/4000-308949\/\" data-ref-id=\"4000-308949\">Superman\/Batman: The Greatest Stories Ever Told<\/a> (#76)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/batman-and-superman-in-worlds-finest-comics-the-si\/4000-587961\/\" data-ref-id=\"4000-587961\">Batman &amp; Superman In World's Finest Comics: The Silver Age Volume One<\/a> (#76)<\/li><li><a href=\"\/showcase-presents-superman-1-volume-1\/4000-259445\/\" data-ref-id=\"4000-259445\">Showcase Presents: Superman Volume 1<\/a> (#122-133)<\/li><li><a href=\"\/superman-the-man-of-tomorrow-archives-1-volume-1\/4000-302150\/\" data-ref-id=\"4000-302150\">Superman: The Man of Tomorrow Archives Volume 1<\/a> (#122-126)<\/li><li><a href=\"\/superman-the-man-of-tomorrow-archives-2-volume-2\/4000-302151\/\" data-ref-id=\"4000-302151\">Superman: The Man of Tomorrow Archives Volume 2<\/a> (#127-131)<\/li><li><a href=\"\/superman-the-greatest-stories-ever-told-2-superman\/4000-308946\/\" data-ref-id=\"4000-308946\">Superman: The Greatest Stories Ever Told Volume 2<\/a> (#130, 132, 141, 167, 233 &amp; 400)<\/li><li><a href=\"\/superman-the-man-of-tomorrow-archives-3-volume-3\/4000-453116\/\" data-ref-id=\"4000-453116\">Superman: The Man of Tomorrow Archives Volume 3<\/a> (#132-139)<\/li><li><a href=\"\/showcase-presents-superman-2-volume-2\/4000-401378\/\" data-ref-id=\"4000-401378\">Showcase Presents: Superman Volume 2<\/a> (#134-145)<\/li><li><a href=\"\/superman-in-the-sixties-1-tpb\/4000-299933\/\" data-ref-id=\"4000-299933\">Superman in the Sixties<\/a> (#141, 146, 156, 161, 164-165, 169 &amp; 170)<\/li><li><a href=\"\/showcase-presents-superman-3-volume-3\/4000-401379\/\" data-ref-id=\"4000-401379\">Showcase Presents: Superman Volume 3<\/a> (#146-156)<\/li><li><a href=\"\/showcase-presents-superman-4-volume-4\/4000-401380\/\" data-ref-id=\"4000-401380\">Showcase Presents: Superman Volume 4<\/a> (#157-167)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-tales-from-the-phantom-zone\/4050-43665\/\">Superman: Tales from the Phantom Zone<\/a> (#157 &amp; 205)<\/li><li><a href=\"\/dc-comics-classics-library-superman-kryptonite-nev\/4000-300919\/\" data-ref-id=\"4000-300919\">DC Comics Classics Library: Superman - Kryptonite Nevermore!<\/a> (#233-238 &amp; 240-242)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-kryptonite-nevermore\/4050-133405\/\">Superman: Kryptonite Nevermore<\/a> (#233-238 &amp; 240-242)<\/li><li><a href=\"\/superman-in-the-seventies-1-tpb\/4000-299932\/\" data-ref-id=\"4000-299932\">Superman in the Seventies<\/a> (#233, 238, 247-249, 270-271, 276, 286-287, 298 &amp; 300)<\/li><li><a href=\"\/adventures-of-superman-gil-kane-hc\/4000-380701\/\" data-ref-id=\"4000-380701\">Adventures of Superman: Gil Kane vol. 1<\/a> (#367, 372 &amp; 375)<\/li><li><a href=\"\/superman-whatever-happened-to-the-man-of-tomorrow\/4050-36937\/\" data-ref-id=\"4050-36937\">Whatever Happened to the Man of Tomorrow?<\/a> (#423, <a href=\"\/\">Action Comics<\/a> #583)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/dc-through-the-80s-the-end-of-eras\/4050-132564\/\">DC Through the '80s: The End of Eras<\/a> (#423)<\/li><li><a href=\"\/superman-up-up-and-away\/4050-22016\/\" data-ref-id=\"4050-22016\">Up, Up and Away!<\/a> (#650-653, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #837-840)<\/li><li><a href=\"\/superman-camelot-falls\/4050-37587\/\" data-ref-id=\"4050-37587\">Camelot Falls<\/a> Vol. 1 (#654-658)<\/li><li><a href=\"\/superman-camelot-falls-vol-2\/4050-53599\/\" data-ref-id=\"4050-53599\">Camelot Falls<\/a> Vol. 2 (#662-664 &amp; 667, <a href=\"\/superman-annual\/4050-3817\/\" data-ref-id=\"4050-3817\">Superman Annual<\/a> #13)<\/li><li><a href=\"\/superman-redemption\/4050-43693\/\" data-ref-id=\"4050-43693\">Redemption<\/a> (#659 &amp; 666, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #848-849)<\/li><li><a href=\"\/superman-3-2-1-action\/4050-42417\/\" data-ref-id=\"4050-42417\">3-2-1 Action<\/a> (#665, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #852-854, <a href=\"\/legends-of-the-dc-universe\/4050-7262\/\" data-ref-id=\"4050-7262\">Legends of the DC Universe<\/a> #14)<\/li><li><a href=\"\/\">The Third Kryptonian<\/a> (#668-670, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #847, <a href=\"\/superman-annual\/4050-3817\/\" data-ref-id=\"4050-3817\">Superman Annual<\/a> #13)<\/li><li><a href=\"\/superman-shadows-linger\/4050-44215\/\" data-ref-id=\"4050-44215\">Shadows Linger<\/a> (#671-675)<\/li><li><a href=\"\/\">The Coming of Atlas<\/a> (#677-680)<\/li><li><a href=\"\/superman-new-krypton-1-volume-1\/4000-247288\/\" data-ref-id=\"4000-247288\">New Krypton Vol. 1<\/a> (#681, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #871, <a href=\"\/adventure-comics-special-featuring-the-guardian\/4050-23593\/\" data-ref-id=\"4050-23593\">Adventure Comics Special Featuring The Guardian<\/a> #1, <a href=\"\/superman-new-krypton-special\/4050-23488\/\" data-ref-id=\"4050-23488\">Superman New Krypton Special<\/a> #1, <a href=\"\/supermans-pal-jimmy-olsen-special\/4050-23417\/\" data-ref-id=\"4050-23417\">Superman's Pal Jimmy Olsen Special<\/a> #1)<\/li><li><a href=\"\/superman-new-krypton\/4050-37083\/\" data-ref-id=\"4050-37083\">New Krypton<\/a> Vol. 2 (#682-683, <a href=\"\/\">Action Comics<\/a> #872-873; <a href=\"\/supergirl\/4050-18012\/\" data-ref-id=\"4050-18012\">Supergirl<\/a> #35-36)<\/li><li><a href=\"\/\">Mon-El Vol. 1<\/a> (#684-690, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #874, <a href=\"\/action-comics-annual\/4050-3776\/\" data-ref-id=\"4050-3776\">Action Comics Annual<\/a> #10)<\/li><li><a href=\"\/superman-codename-patriot-1-tpbhc\/4000-300612\/\" data-ref-id=\"4000-300612\">Superman: Codename Patriot<\/a> (#691, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #880, <a href=\"\/supergirl\/4050-18012\/\" data-ref-id=\"4050-18012\">Supergirl<\/a> #44, <a href=\"\/superman-world-of-new-krypton\/4050-25900\/\" data-ref-id=\"4050-25900\">Superman: World of New Krypto<\/a> #6, <a href=\"\/supermans-pal-jimmy-olsen-special\/4050-23417\/\" data-ref-id=\"4050-23417\">Superman's Pal, Jimmy Olsen Special<\/a> #2)<\/li><li><a href=\"\/\">Mon-El Vol. 2<\/a> (#692-697, <a href=\"\/adventure-comics\/4050-25643\/\" data-ref-id=\"4050-25643\">Adventure Comics<\/a> #11, <a href=\"\/superman-annual\/4050-3817\/\" data-ref-id=\"4050-3817\">Superman Annual<\/a> #14, <a href=\"\/superman-secret-files-2009\/4050-27427\/\" data-ref-id=\"4050-27427\">Superman: Secret Files 2009<\/a> #1)<\/li><li><a href=\"\/superman-nightwing-and-flamebird-2-vol-2-hc\/4000-304797\/\" data-ref-id=\"4000-304797\">Nightwing and Flamebird Vol. 2<\/a> (#696, <a href=\"\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\">Action Comics<\/a> #883-889, <a href=\"\/adventure-comics\/4050-25643\/\" data-ref-id=\"4050-25643\">Adventure Comics<\/a> #8-10)<\/li><li><a href=\"\/superman-last-stand-of-new-krypton-1-volume-one\/4000-247138\/\" data-ref-id=\"4000-247138\">Last Stand of New Krypton Vol. 1<\/a> (#698, <a href=\"\/superman-last-stand-of-new-krypton\/4050-31770\/\" data-ref-id=\"4050-31770\">Superman: Last Stand of New Krypton<\/a> #1-2, <a href=\"\/adventure-comics\/4050-25643\/\" data-ref-id=\"4050-25643\">Adventure Comics<\/a> #8-9, <a href=\"\/supergirl\/4050-18012\/\" data-ref-id=\"4050-18012\">Supergirl<\/a> #51)<\/li><li><a href=\"\/superman-last-stand-of-new-krypton-2-volume-two\/4000-260837\/\" data-ref-id=\"4000-260837\">Last Stand of New Krypton Vol. 2<\/a> (#699, <a href=\"\/superman-last-stand-of-new-krypton\/4050-31770\/\" data-ref-id=\"4050-31770\">Superman: Last Stand of New Krypton<\/a> #3, <a href=\"\/adventure-comics\/4050-25643\/\" data-ref-id=\"4050-25643\">Adventure Comics<\/a> #10-11, <a href=\"\/supergirl\/4050-18012\/\" data-ref-id=\"4050-18012\">Supergirl<\/a> #52)<\/li><li><a href=\"\/superman-war-of-the-supermen\/4050-39017\/\" data-ref-id=\"4050-39017\">Superman: War of The Supermen<\/a> (#700)<\/li><li><a href=\"\/superman-grounded\/4050-41986\/\" data-ref-id=\"4050-41986\">Grounded<\/a> Vol. 1 (#700-706)<\/li><li><a href=\"\/superman-grounded\/4050-41986\/\" data-ref-id=\"4050-41986\">Grounded<\/a> Vol. 2 (#707-711 &amp; #713-714)<\/li><\/ul><h4><strong>Notes<\/strong><\/h4><ul><li>Superman #424-649 do not exist, however, the issues that took those numbers can be found on the <em><a href=\"\/adventures-of-superman\/4050-3778\/\" data-ref-id=\"4050-3778\">Adventures of Superman<\/a><\/em> page.<\/li><li>Another ongoing title from DC entitled <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-3816\/\" data-ref-id=\"4050-3816\"><em>Superman<\/em><\/a> does exist and was published with its own numbering while <em>Adventures of Superman<\/em> was in print, thus even though this title began publication in the 30's and lasted until 2011, no two Superman titles were hitting shelves at the same time.<\/li><li>The main star of the series has of course been <a href=\"\/superman\/4005-1807\/\" data-ref-id=\"4005-1807\">Superman<\/a> but from #686-697 <a href=\"\/mon-el\/4005-21508\/\" data-ref-id=\"4005-21508\">Mon-El<\/a> was the star as Superman was away from Earth and the covers bore the banners \"<a href=\"\/world-without-superman\/4045-55848\/\" data-ref-id=\"4045-55848\"><em>World Without Superman<\/em><\/a>\" for the first five and \"<a href=\"\/world-against-superman\/4045-55951\/\" data-ref-id=\"4045-55951\"><em>World Against Superman<\/em><\/a>\" for the last six issues of this absence.<\/li><li>For Post <a href=\"\/flashpoint\/4045-56280\/\" data-ref-id=\"4045-56280\">Flashpoint<\/a> volume 3, refer to <em><a href=\"\/superman\/4050-42986\/\" data-ref-id=\"4050-42986\">Superman<\/a><\/em>.<\/li><li>Click the link to view this title's annuals: <em><a href=\"\/superman-annual\/4050-2016\/\" data-ref-id=\"4050-2016\">Superman Annual<\/a>.<\/em><\/li><li>Click the link to view this title's specials: <em><a href=\"\/superman-special\/4050-3205\/\" data-ref-id=\"4050-3205\">Superman Special<\/a><\/em>.<\/li><\/ul><h4>Non-U.S. Collected Editions<\/h4><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/shazam-anthologie\/4050-118885\/\">Shazam! Anthologie<\/a> (#276) (German)<\/li><\/ul>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-110227\/",
+      "id": 110227,
+      "name": null,
+      "issue_number": "1"
+    },
+    "id": 773,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/3\/38826\/851086-01.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/3\/38826\/851086-01.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/3\/38826\/851086-01.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/3\/38826\/851086-01.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/3\/38826\/851086-01.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/3\/38826\/851086-01.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/3\/38826\/851086-01.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/3\/38826\/851086-01.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/3\/38826\/851086-01.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-282707\/",
+      "id": 282707,
+      "name": "Grounded, Finale",
+      "issue_number": "714"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-10\/",
+      "id": 10,
+      "name": "DC Comics"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-773\/",
+    "start_year": "1939",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-3816\/",
+    "count_of_issues": 228,
+    "date_added": "2008-06-06 11:08:17",
+    "date_last_updated": "2021-03-16 22:39:05",
+    "deck": "Volume 2.",
+    "description": "<p><a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-773\/\" data-ref-id=\"4050-773\">Superman Volume 1<\/a> became <a href=\"https:\/\/comicvine.gamespot.com\/adventures-of-superman\/4050-3778\/\" data-ref-id=\"4050-3778\">Adventures of Superman Volume 1<\/a> for issues #424-#649. Superman Volume 2 was published concurrently with Adventures of Superman. When Superman Volume 2 was cancelled, Adventures of Superman returned to its original name.<\/p><p>Starring: Clark Kent \/ Kal-El as <a href=\"\/superman\/4005-1807\/\" data-ref-id=\"4005-1807\">Superman<\/a>.<\/p><p>For the second time in his history, Superman's self-titled comic saw a first issue. Writer and artist John Byrne's successful landmark <a href=\"https:\/\/comicvine.gamespot.com\/the-man-of-steel\/4050-3611\/\" data-ref-id=\"4050-3611\"><em>Man of Steel<\/em><\/a> <a href=\"\/mini-series\/4015-56281\/\" data-ref-id=\"4015-56281\">mini-series<\/a> had <a href=\"\/reboot\/4015-56620\/\" data-ref-id=\"4015-56620\">rebooted<\/a> Superman's history, updating him for the <a href=\"\/modern-age-of-comics\/4015-56028\/\" data-ref-id=\"4015-56028\">modern<\/a> comic book landscape, and as a result, drastic changes had swept through the Superman line of comics. The original <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-773\/\" data-ref-id=\"4050-773\"><em>Superman<\/em><\/a> title had adopted the new name, <a href=\"https:\/\/comicvine.gamespot.com\/adventures-of-superman\/4050-3778\/\" data-ref-id=\"4050-3778\"><em>The Adventures of Superman<\/em><\/a>, but continued the original numbering of its long and storied history. Popular writer Marv Wolfman and artist Jerry Ordway handled the creative chores on that particular title. Meanwhile, <a href=\"https:\/\/comicvine.gamespot.com\/action-comics\/4050-18005\/\" data-ref-id=\"4050-18005\"><em>Action Comics<\/em><\/a> continued briefly as a Superman team-up book, taking over the abruptly ended <em><a href=\"https:\/\/comicvine.gamespot.com\/dc-comics-presents\/4050-2943\/\" data-ref-id=\"4050-2943\">DC Comics Presents<\/a><\/em> series. Beginning with issue <a href=\"https:\/\/comicvine.gamespot.com\/action-comics-weekly-601-and-the-pain-shall-leave-\/4000-29632\/\" data-ref-id=\"4000-29632\">#601<\/a>, <em>Action Comics<\/em> became <em><a href=\"https:\/\/comicvine.gamespot.com\/action-comics-weekly\/4050-3973\/\" data-ref-id=\"4050-3973\">Action Comics Weekly<\/a><\/em>. <em>Action Comics Weekly<\/em> became a weekly 48 page <a href=\"https:\/\/comicvine.gamespot.com\/anthology\/4015-49312\/\" data-ref-id=\"4015-49312\">anthology<\/a> series featuring various superheroes while the Superman stories were reduced to two pages. Keeping its original numbering, but that too was now written and drawn by Byrne. And last but not least, a new series was introduced, simply titled <em>Superman<\/em> - again written and drawn by the prolific Mr Byrne.<\/p><p>Not resting on his laurels after the success of the sweeping changes made during the <em>Man of Steel<\/em>, Byrne started Superman's new title off with the re-introduction of <a href=\"https:\/\/comicvine.gamespot.com\/metallo\/4005-4689\/\" data-ref-id=\"4005-4689\">Metallo<\/a>, a powerful <a href=\"https:\/\/comicvine.gamespot.com\/cyborgs\/4015-56034\/\" data-ref-id=\"4015-56034\">cyborg<\/a> with a hatred for the Man of Tomorrow and possessing a <a href=\"https:\/\/comicvine.gamespot.com\/kryptonite\/4055-32213\/\" data-ref-id=\"4055-32213\">kryptonite<\/a> heart. It was a dangerous new world for the Last Son of Krypton, but the reboot continued to prove an overwhelming success. This second series of Superman became a mainstay for DC - running 226 issues before it ended in April 2006.<\/p><p>Click the link to view this title's annuals: <em><a href=\"https:\/\/comicvine.gamespot.com\/superman-annual\/4050-3817\/\" data-ref-id=\"4050-3817\">Superman Annual<\/a><\/em>.<\/p><h4>Writers:<\/h4><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/john-byrne\/4040-1770\/\" data-ref-id=\"4040-1770\">John Byrne<\/a>: 1-22 (22)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/roger-stern\/4040-41502\/\" data-ref-id=\"4040-41502\">Roger Stern<\/a>: 23-28, 30-33 (10)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/dan-jurgens\/4040-4321\/\" data-ref-id=\"4040-4321\">Dan Jurgens<\/a>: 29, 57-113, 115-139, 141-146, 148, 150 (90)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/jerry-ordway\/4040-2908\/\" data-ref-id=\"4040-2908\">Jerry Ordway<\/a>: 31-32, 34-47. 49-54 (22)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/tom-peyer\/4040-42589\/\" data-ref-id=\"4040-42589\">Tom Peyer<\/a>: 31, 114 (2)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/george-perez\/4040-2913\/\" data-ref-id=\"4040-2913\">George Perez<\/a>: 32 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/bill-messner-loebs\/4040-30811\/\" data-ref-id=\"4040-30811\">Bill Messner-Loebs<\/a>: 48 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/karl-kesel\/4040-11380\/\" data-ref-id=\"4040-11380\">Karl Kessel<\/a>: 54-56(6 pg. backup)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/james-d-hudnall\/4040-48908\/\" data-ref-id=\"4040-48908\">James D. Hudnall<\/a>: 56 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/mark-waid\/4040-40724\/\" data-ref-id=\"4040-40724\">Mark Waid<\/a>: 114(1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/ron-marz\/4040-41799\/\" data-ref-id=\"4040-41799\">Ron Marz<\/a>: 140, 147 (2)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/randall-frenz\/4040-47435\/\" data-ref-id=\"4040-47435\">Randall Frenz<\/a>: 149 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/ron-frenz\/4040-3364\/\" data-ref-id=\"4040-3364\">Ron Frenz<\/a>: 149 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/jeph-loeb\/4040-40472\/\" data-ref-id=\"4040-40472\">Jeph Loeb<\/a>: 151-168, 170-183, 226 (33)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/marv-wolfman\/4040-41478\/\" data-ref-id=\"4040-41478\">Marv Wolfman<\/a>: 169 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/geoff-johns\/4040-40439\/\" data-ref-id=\"4040-40439\">geoff johns<\/a>: 180(co), 184-187, 189 (5)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/chuck-austen\/4040-4571\/\" data-ref-id=\"4040-4571\">Chuck Austen<\/a>: 188 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/rick-veitch\/4040-11410\/\" data-ref-id=\"4040-11410\">Rick Viech<\/a> 188(preview for <a href=\"https:\/\/comicvine.gamespot.com\/aquaman\/4050-9517\/\" data-ref-id=\"4050-9517\">Aquaman<\/a>)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/steven-t-seagle\/4040-43338\/\" data-ref-id=\"4040-43338\">Steven T. Seagle<\/a>: 190-196, 198-200 (10)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/terry-tidwell\/4040-29305\/\" data-ref-id=\"4040-29305\">Terry Tidwell<\/a>: 197 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/andy-lanning\/4040-7874\/\" data-ref-id=\"4040-7874\">Andy Lanning<\/a>: 201, 1,000,000 (2)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/dan-abnett\/4040-41686\/\" data-ref-id=\"4040-41686\">Dan Abnett<\/a>: 201, 1,000,000 (2)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/joe-kelly\/4040-40982\/\" data-ref-id=\"4040-40982\">Joe Kelly:<\/a> 202, 203, 226 (3)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/brian-azzarello\/4040-41586\/\" data-ref-id=\"4040-41586\">Brian Azzarello<\/a>: 204-215 (12)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/judd-winick\/4040-10383\/issues-cover\/\" data-ref-id=\"4040-10383\">Judd Winnick<\/a>: 216 (1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/mark-verheiden\/4040-41659\/\" data-ref-id=\"4040-41659\">Mark Verheiden<\/a>: 217-225 (9)<\/li><\/ul><h4>Writers Longest Runs:<\/h4><ul><li>Dan Jurgens: 29, 57-113, 115-139, 141-146, 148, 150 <strong>(90)<\/strong><\/li><li>Jeph Loeb: 151-168, 170-183, 226 <strong>(33)<\/strong><\/li><li>John Byrne: 1-22 <strong>(22)<\/strong><\/li><li>Jerry Ordway: 31-32, 34-47. 49-54<strong> (22)<\/strong><\/li><li>Brian Azzarello: 204-215 <strong>(12)<\/strong><\/li><li>Roger Stern: 23-28, 30-33<strong> (10)<\/strong><\/li><li>Steven T. Seagle: 190-196, 198-200 <strong>(10)<\/strong><\/li><li>Mark Verheiden: 217-225 <strong>(9)<\/strong><\/li><\/ul><h4>Collected Editions<\/h4><ul><li><a href=\"\/superman-the-man-of-steel-1-vol-1\/4000-795902\/\" data-ref-id=\"4000-795902\">Superman: The Man of Steel Vol. 1<\/a> (#1-4)<\/li><li><a href=\"\/superman-they-saved-luthors-brain\/4050-43645\/\" data-ref-id=\"4050-43645\">They Saved Luthor's Brain<\/a> (#2,19,21)<\/li><li><a href=\"\/superman-vs-darkseid\/4050-81825\/\" data-ref-id=\"4050-81825\">Superman vs. Darkseid<\/a> (#3)<\/li><li><a href=\"\/superman-the-man-of-steel-2-vol-2\/4000-826311\/\" data-ref-id=\"4000-826311\">Superman: The Man of Steel Vol. 2<\/a> (#5-11)<\/li><li><a href=\"\/joker-a-celebration-of-75-years\/4050-75712\/\" data-ref-id=\"4050-75712\">The Joker: A Celebration of 75 Years<\/a> (#9)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-man-of-steel-9-volume-9\/4000-556461\/\" data-ref-id=\"4000-556461\">Superman: The Man of Steel Vol. 9<\/a> (#19-22)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/the-doom-patrol-the-bronze-age-omnibus\/4050-122961\/\">The Doom Patrol: The Bronze Age Omnibus<\/a> (#20)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/doom-patrol-by-john-byrne-the-complete-series\/4050-125111\/\">Doom Patrol by John Byrne: The Complete Series<\/a> (#20)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-exile-other-stories-omnibus\/4050-109792\/\">Superman: The Exile &amp; Other Stories Omnibus<\/a> (#23-37)<\/li><li><a href=\"\/superman-panic-in-the-sky\/4050-36967\/\" data-ref-id=\"4050-36967\">Panic in the Sky<\/a> (#65-66)<\/li><li><a href=\"\/deathstroke-the-terminator-sympathy-for-the-devil\/4050-86770\/\" data-ref-id=\"4050-86770\">Deathstroke the Terminator: Sympathy For the Devil<\/a> (#68)<\/li><li><a href=\"\/the-death-of-superman\/4050-27027\/\" data-ref-id=\"4050-27027\">Death of Superman<\/a> (#73-75)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-the-death-and-return-of-superman-omnibus\/4050-118273\/\">Superman: The Death and Return of Superman Omnibus<\/a> (#73-83)<\/li><li><a href=\"\/superman-world-without-a-superman\/4050-38151\/\" data-ref-id=\"4050-38151\">World Without Superman<\/a> (#75-77)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/tales-from-the-dc-dark-multiverse\/4050-125285\/\">Tales From the DC Dark Multiverse<\/a> (#75)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-funeral-for-a-friend\/4050-89565\/\" data-ref-id=\"4050-89565\">Superman: Funeral For A Friend<\/a> (#76-77)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-reign-of-the-supermen\/4050-89566\/\" data-ref-id=\"4050-89566\">Superman: Reign of the Supermen<\/a> (#78-79)<\/li><li><a href=\"\/zero-hour-crisis-in-time-25th-anniversary-omnibus\/4050-122182\/\" data-ref-id=\"4050-122182\">Zero Hour: Crisis In Time 25th Anniversary Omnibus<\/a> (#93)<\/li><li><a href=\"\/the-trial-of-superman\/4050-37102\/\" data-ref-id=\"4050-37102\">The Trial of Superman<\/a> (#106-108)<\/li><li><a href=\"https:\/\/www.comicvine.com\/superman-transformed\/4050-68439\/\" data-ref-id=\"4050-68439\">Transformed!<\/a> (#119, 122 &amp; 123)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-blue\/4050-112207\/\">Superman Blue<\/a> (#122-125)<\/li><li><a href=\"\/superman-the-city-of-tomorrow-1-volume-1\/4000-730193\/\" data-ref-id=\"4000-730193\">Superman: The City of Tomorrow Volume 1<\/a> (#151-154)<\/li><li><a href=\"\/superman-the-city-of-tomorrow-2-volume-2\/4000-815624\/\" data-ref-id=\"4000-815624\">Superman: The City of Tomorrow Volume 2<\/a> (#155-159)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-emperor-joker\/4050-89390\/\" data-ref-id=\"4050-89390\">Superman: Emperor Joker<\/a> (#160-161)<\/li><li><a href=\"\/superman-president-lex\/4050-36966\/\" data-ref-id=\"4050-36966\">President Lex<\/a> (#162-165)<\/li><li><a href=\"\/superman-president-luthor\/4050-108841\/\" data-ref-id=\"4050-108841\">Superman: President Luthor<\/a> (#162-163)<\/li><li><a href=\"\/batman-new-gotham-2-volume-two\/4000-663538\/\" data-ref-id=\"4000-663538\">Batman: New Gotham Volume 2<\/a> (#168)<\/li><li><a href=\"\/superman-our-worlds-at-war-superman-our-worlds-at-war-book-1\/4000-247387\/\" data-ref-id=\"4000-247387\">Superman: Our Worlds At War, Book One<\/a> (#171-172)<\/li><li><a href=\"\/superman-our-worlds-at-war-superman-our-worlds-at-war-book-2\/4000-247389\/\" data-ref-id=\"4000-247389\">Superman: Our Worlds At War, Book Two<\/a> (#173)<\/li><li><a href=\"\/dc-comics-presents-superman-100-page-spectacular-3\/4000-250704\/\" data-ref-id=\"4000-250704\">DC Comics Presents: Superman #3<\/a> (#177-178,181-182)<\/li><li><a href=\"\/dc-comics-presents-superman-100-page-spectacular-1\/4000-239980\/\" data-ref-id=\"4000-239980\">DC Comics Presents: Superman<\/a> <a href=\"\/dc-comics-presents-superman-100-page-spectacular-1\/4000-239980\/\" data-ref-id=\"4000-239980\">#1<\/a> (#179-180)<\/li><li><a href=\"\/dc-comics-presents-superman-100-page-spectacular-2\/4000-246583\/\" data-ref-id=\"4000-246583\">DC Comics Presents: Superman #2<\/a> (#189)<\/li><li><a href=\"\/superman-ending-battle\/4050-34282\/\" data-ref-id=\"4050-34282\">Superman: Ending Battle<\/a> (#186-187)<\/li><li><a href=\"\/superman-godfall\/4050-21621\/\" data-ref-id=\"4050-21621\">Godfall<\/a> (#202-203)<\/li><li><a href=\"\/absolute-superman-for-tomorrow\/4050-37755\/\" data-ref-id=\"4050-37755\">Absolute Superman: For Tomorrow<\/a> (#204-215)<\/li><li><a href=\"\/superman-for-tomorrow\/4050-56880\/\" data-ref-id=\"4050-56880\">Superman: For Tomorrow <\/a>(#204-215)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-for-tomorrow-15th-anniversary-deluxe-edit\/4050-123232\/\">Superman: For Tomorrow 15th Anniversary Deluxe Edition<\/a> (#204-215)<\/li><li><a href=\"\/superman-for-tomorrow\/4050-37756\/\" data-ref-id=\"4050-37756\">Superman: For Tomorrow Vol. 1<\/a> (#204-209)<\/li><li><a href=\"\/superman-for-tomorrow\/4050-37756\/\" data-ref-id=\"4050-37756\">Superman: For Tomorrow Vol. 2<\/a> (#210-215)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-vs-shazam\/4050-134487\/\">Superman vs. Shazam!<\/a> (#216)<\/li><li><a href=\"\/superman-sacrifice\/4050-20615\/\" data-ref-id=\"4050-20615\">Superman: Sacrifice<\/a> (#219)<\/li><\/ul><h4>Non-U.S. Collected Editions<\/h4><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-die-ruckkehr-1-volumen-1\/4000-675331\/\">Superman: Die R\u00fcckkehr - Volumen 1<\/a> (#204-209) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-die-ruckkehr-2-volumen-2\/4000-675332\/\">Superman: Die R\u00fcckkehr - Volumen 2<\/a> (#210-215) (German)<\/li><\/ul><p>Issues <a href=\"https:\/\/comicvine.gamespot.com\/die-ruckkehr-von-superman\/4050-51398\/\" data-ref-id=\"4050-51398\">#204-215<\/a> have been translated into German.<\/p>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-27645\/",
+      "id": 27645,
+      "name": "Heart of Stone",
+      "issue_number": "1"
+    },
+    "id": 3816,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/6\/67663\/7849364-2311143099-24856.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/6\/67663\/7849364-2311143099-24856.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/6\/67663\/7849364-2311143099-24856.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/6\/67663\/7849364-2311143099-24856.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/6\/67663\/7849364-2311143099-24856.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/6\/67663\/7849364-2311143099-24856.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/6\/67663\/7849364-2311143099-24856.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/6\/67663\/7849364-2311143099-24856.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/6\/67663\/7849364-2311143099-24856.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-168698\/",
+      "id": 168698,
+      "name": "Superman, This is Your Life, Part 1",
+      "issue_number": "226"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-10\/",
+      "id": 10,
+      "name": "DC Comics"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-3816\/",
+    "start_year": "1987",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-78849\/",
+    "count_of_issues": 98,
+    "date_added": "2014-12-15 05:03:48",
+    "date_last_updated": "2014-12-15 05:04:26",
+    "deck": "Spanish publication of Superman.",
+    "description": null,
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-792697\/",
+      "id": 792697,
+      "name": null,
+      "issue_number": "56"
+    },
+    "id": 78849,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/11120\/111202620\/4275255-2645.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/11120\/111202620\/4275255-2645.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/11120\/111202620\/4275255-2645.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/11120\/111202620\/4275255-2645.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/11120\/111202620\/4275255-2645.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/11120\/111202620\/4275255-2645.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/11120\/111202620\/4275255-2645.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/11120\/111202620\/4275255-2645.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/11120\/111202620\/4275255-2645.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-584927\/",
+      "id": 584927,
+      "name": null,
+      "issue_number": "55"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-3432\/",
+      "id": 3432,
+      "name": "ECC Ediciones"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-78849\/",
+    "start_year": "2012",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-60404\/",
+    "count_of_issues": 58,
+    "date_added": "2013-04-25 20:18:20",
+    "date_last_updated": "2019-05-18 06:49:12",
+    "deck": "Volume 2.",
+    "description": "<p>Published by the German wing of Panini Comics. <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-111509\/\" data-ref-id=\"4050-111509\">Proceeded by volume 3<\/a>.<\/p>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-475338\/",
+      "id": 475338,
+      "name": "Atomic knights 1",
+      "issue_number": "23"
+    },
+    "id": 60404,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/11118\/111185606\/4306662-superman%201.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/11118\/111185606\/4306662-superman%201.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/11118\/111185606\/4306662-superman%201.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/11118\/111185606\/4306662-superman%201.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/11118\/111185606\/4306662-superman%201.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/11118\/111185606\/4306662-superman%201.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/11118\/111185606\/4306662-superman%201.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/11118\/111185606\/4306662-superman%201.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/11118\/111185606\/4306662-superman%201.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-672560\/",
+      "id": 672560,
+      "name": null,
+      "issue_number": "57"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-2350\/",
+      "id": 2350,
+      "name": "Panini Comics"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-60404\/",
+    "start_year": "2012",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-60429\/",
+    "count_of_issues": 45,
+    "date_added": "2013-04-27 06:47:10",
+    "date_last_updated": "2013-04-27 06:47:40",
+    "deck": null,
+    "description": "<p> Polish Superman reprints.<\/p>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-738257\/",
+      "id": 738257,
+      "name": null,
+      "issue_number": "3"
+    },
+    "id": 60429,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/14\/148518\/3009567-superman1.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/14\/148518\/3009567-superman1.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/14\/148518\/3009567-superman1.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/14\/148518\/3009567-superman1.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/14\/148518\/3009567-superman1.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/14\/148518\/3009567-superman1.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/14\/148518\/3009567-superman1.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/14\/148518\/3009567-superman1.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/14\/148518\/3009567-superman1.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-399772\/",
+      "id": 399772,
+      "name": null,
+      "issue_number": "82"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-4215\/",
+      "id": 4215,
+      "name": "TM-Semic"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-60429\/",
+    "start_year": "1990",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-91298\/",
+    "count_of_issues": 45,
+    "date_added": "2016-06-13 13:06:37",
+    "date_last_updated": "2020-11-24 16:24:40",
+    "deck": "Volume 4.",
+    "description": "<p>Ongoing series.<\/p><p>Preceded by <a href=\"https:\/\/comicvine.gamespot.com\/superman\/4050-42986\/\" data-ref-id=\"4050-42986\">Superman Volume 3<\/a>.<\/p><p>Succeeded by <a href=\"\/superman\/4050-112206\/\" data-ref-id=\"4050-112206\">Superman Volume 5.<\/a><\/p><h4>Collected Editions<\/h4><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-son-of-superman\/4050-97769\/\" data-ref-id=\"4050-97769\">Superman: Son of Superman<\/a> (#1-6 &amp; <a href=\"https:\/\/comicvine.gamespot.com\/superman-rebirth\/4050-90896\/\" data-ref-id=\"4050-90896\">Superman: Rebirth<\/a>)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-rebirth-deluxe-edition-1-book-1\/4000-625293\/\" data-ref-id=\"4000-625293\">Superman: Rebirth Deluxe Edition Book 1<\/a> (#1-13 &amp; Superman: Rebirth)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-trials-of-the-super-son\/4050-100600\/\" data-ref-id=\"4050-100600\">Superman: Trials of the Super Son<\/a> (#7-13)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/super-sons-omnibus\/4050-116062\/\">Super Sons Omnibus<\/a> (#10-11 &amp; 37-38)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/super-sons-omnibus-expanded-edition\/4050-132168\/\">Super Sons Omnibus Expanded Edition<\/a> (#10-11 &amp; 37-38)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-multiplicity\/4050-103269\/\" data-ref-id=\"4050-103269\">Superman: Multiplicity<\/a> (#14-17 &amp; Superman Annual #1)<\/li><li><a href=\"\/superman-rebirth-deluxe-edition-2-book-2\/4000-670730\/\" data-ref-id=\"4000-670730\">Superman: Rebirth Deluxe Edition Book 2<\/a> (#14-26 &amp; Superman Annual #1)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-reborn\/4050-104331\/\" data-ref-id=\"4050-104331\">Superman: Reborn<\/a> (#18-19)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-black-dawn\/4050-106555\/\" data-ref-id=\"4050-106555\">Superman: Black Dawn<\/a> (#20-26)<\/li><li><a href=\"\/superman-rebirth-deluxe-edition-3-book-3\/4000-695920\/\" data-ref-id=\"4000-695920\">Superman: Rebirth Deluxe Edition Book 3<\/a> (#27-36)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-hopes-and-fears\/4050-109793\/\">Superman: Hopes and Fears<\/a> (#27-32)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-imperius-lex\/4050-112600\/\">Superman: Imperius Lex<\/a> (#33-36 &amp; 39-41)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/super-sons-of-tomorrow\/4050-111849\/\">Super Sons of Tomorrow<\/a> (#37-38)<\/li><li><a href=\"\/superman-rebirth-deluxe-edition-4-book-4\/4000-709175\/\" data-ref-id=\"4000-709175\">Superman: Rebirth Deluxe Edition Book 4<\/a> (#37-45)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-bizarroverse\/4050-115593\/\">Superman: Bizarroverse<\/a> (#42-45)<\/li><\/ul><h4>Non-U.S. Collected Editions<\/h4><ul><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-1-volumen-1\/4000-672544\/\">Superman Sonderband - Volumen 1 <\/a>(#1-6) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-2-super-sohne\/4000-672545\/\">Superman Sonderband - Super-S\u00f6hne<\/a> (#7-11) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-3-supermen-aus-aller-welt\/4000-672546\/\">Superman Sonderband - Supermen Aus Aller Welt<\/a> (#12-17) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-superman-reborn\/4050-119095\/\" data-ref-id=\"4050-119095\">Superman: Superman Reborn<\/a> (#18-19) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-4-schwarze-ernte\/4000-672547\/\">Superman Sonderband - Schwarze Ernte (<\/a>#20-25) (German)<\/li><li><a href=\"\/superman-sonderband-5-die-macht-der-furcht\/4000-672548\/\" data-ref-id=\"4000-672548\">Superman Sonderband - Die Macht Der Furcht<\/a> (#26-30) (German)<\/li><li><a href=\"\/superman-sonderband-6\/4000-708783\/\" data-ref-id=\"4000-708783\">Superman Sonderband - Volumen 6<\/a> (#31-36) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-7-volumen-7\/4000-708784\/\">Superman Sonderband - Volumen 7 <\/a>(#37-39) (German)<\/li><li><a href=\"https:\/\/comicvine.gamespot.com\/superman-sonderband-8-volumen-8\/4000-708785\/\" data-ref-id=\"4000-708785\">Superman Sonderband - Volumen 8<\/a> (#40-45) (German)<\/li><\/ul>",
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-535341\/",
+      "id": 535341,
+      "name": "Son of Superman Part One",
+      "issue_number": "1"
+    },
+    "id": 91298,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/6\/67663\/5266004-01.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/6\/67663\/5266004-01.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/6\/67663\/5266004-01.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/6\/67663\/5266004-01.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/6\/67663\/5266004-01.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/6\/67663\/5266004-01.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/6\/67663\/5266004-01.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/6\/67663\/5266004-01.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/6\/67663\/5266004-01.jpg",
+      "image_tags": "All Images,Man of Steel #1"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-666793\/",
+      "id": 666793,
+      "name": "Truth, Justice, Family.",
+      "issue_number": "45"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-10\/",
+      "id": 10,
+      "name": "DC Comics"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-91298\/",
+    "start_year": "2016",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-78850\/",
+    "count_of_issues": 55,
+    "date_added": "2014-12-15 06:54:55",
+    "date_last_updated": "2014-12-15 06:55:24",
+    "deck": "Spanish publication uf Superman",
+    "description": null,
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-473445\/",
+      "id": 473445,
+      "name": null,
+      "issue_number": "1"
+    },
+    "id": 78850,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/11120\/111202620\/4275381-1401.jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/11120\/111202620\/4275381-1401.jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/11120\/111202620\/4275381-1401.jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/11120\/111202620\/4275381-1401.jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/11120\/111202620\/4275381-1401.jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/11120\/111202620\/4275381-1401.jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/11120\/111202620\/4275381-1401.jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/11120\/111202620\/4275381-1401.jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/11120\/111202620\/4275381-1401.jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-473499\/",
+      "id": 473499,
+      "name": null,
+      "issue_number": "55"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-2319\/",
+      "id": 2319,
+      "name": "Planeta DeAgostini"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-78850\/",
+    "start_year": "2007",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-79535\/",
+    "count_of_issues": 36,
+    "date_added": "2015-01-18 08:46:00",
+    "date_last_updated": "2015-01-18 08:46:28",
+    "deck": "Spanish publication of Superman.",
+    "description": null,
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-476597\/",
+      "id": 476597,
+      "name": null,
+      "issue_number": "1"
+    },
+    "id": 79535,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/11120\/111202620\/4337145-4106654654-2075..jpg",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-476664\/",
+      "id": 476664,
+      "name": null,
+      "issue_number": "36"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-2903\/",
+      "id": 2903,
+      "name": "Ediciones Zinco"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-79535\/",
+    "start_year": "1993",
+    "resource_type": "volume"
+  }, {
+    "aliases": null,
+    "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-78862\/",
+    "count_of_issues": 123,
+    "date_added": "2014-12-15 13:45:21",
+    "date_last_updated": "2014-12-15 13:45:40",
+    "deck": "Spanish publication of Superman.",
+    "description": null,
+    "first_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-473531\/",
+      "id": 473531,
+      "name": null,
+      "issue_number": "1"
+    },
+    "id": 78862,
+    "image": {
+      "icon_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "medium_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "screen_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "small_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "super_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "original_url": "https:\/\/comicvine.gamespot.com\/a\/bundles\/phoenixsite\/images\/core\/loose\/img_broken.png",
+      "image_tags": "All Images"
+    },
+    "last_issue": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-473930\/",
+      "id": 473930,
+      "name": null,
+      "issue_number": "123"
+    },
+    "name": "Superman",
+    "publisher": {
+      "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/publisher\/4010-2903\/",
+      "id": 2903,
+      "name": "Ediciones Zinco"
+    },
+    "site_detail_url": "https:\/\/comicvine.gamespot.com\/superman\/4050-78862\/",
+    "start_year": "1987",
+    "resource_type": "volume"
+  }],
+  "version": "1.0"
+}

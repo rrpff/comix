@@ -1,0 +1,194 @@
+{
+    "error": "OK",
+    "limit": 1,
+    "offset": 0,
+    "number_of_page_results": 1,
+    "number_of_total_results": 1,
+    "status_code": 1,
+    "results": {
+        "aliases": null,
+        "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/issue\/4000-30000\/",
+        "character_credits": [{
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-22707\/",
+            "id": 22707,
+            "name": "Animal Man",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man\/4005-22707\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-51049\/",
+            "id": 51049,
+            "name": "B'wana Beast",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/bwana-beast\/4005-51049\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-1786\/",
+            "id": 1786,
+            "name": "Booster Gold",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/booster-gold\/4005-1786\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2050\/",
+            "id": 2050,
+            "name": "Captain Atom",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/captain-atom\/4005-2050\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-26600\/",
+            "id": 26600,
+            "name": "Cliff Baker",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/cliff-baker\/4005-26600\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-69177\/",
+            "id": 69177,
+            "name": "Dr. Myers",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/dr-myers\/4005-69177\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-26599\/",
+            "id": 26599,
+            "name": "Ellen Baker",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/ellen-baker\/4005-26599\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-24266\/",
+            "id": 24266,
+            "name": "Maxine Baker",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/maxine-baker\/4005-24266\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-5703\/",
+            "id": 5703,
+            "name": "Mr. Miracle",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-miracle\/4005-5703\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77993\/",
+            "id": 77993,
+            "name": "Mr. Weidemeir",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/mr-weidemeir\/4005-77993\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77994\/",
+            "id": 77994,
+            "name": "Mrs. Weidemeir",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/mrs-weidemeir\/4005-77994\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-50471\/",
+            "id": 50471,
+            "name": "Roger Denning",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/roger-denning\/4005-50471\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-77995\/",
+            "id": 77995,
+            "name": "Rufus",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/rufus\/4005-77995\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2761\/",
+            "id": 2761,
+            "name": "Stevie Wonder",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/stevie-wonder\/4005-2761\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-2054\/",
+            "id": 2054,
+            "name": "Ted Kord",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/ted-kord\/4005-2054\/"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/character\/4005-78058\/",
+            "id": 78058,
+            "name": "Tricia Denning",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/tricia-denning\/4005-78058\/"
+        }],
+        "character_died_in": [],
+        "concept_credits": [{
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/concept\/4015-55916\/",
+            "id": 55916,
+            "name": "Deconstruction",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/deconstruction\/4015-55916\/"
+        }],
+        "cover_date": "1988-09-01",
+        "date_added": "2008-06-06 11:15:08",
+        "date_last_updated": "2012-08-25 11:19:33",
+        "deck": null,
+        "description": "<p><i>Buddy Baker is looking to get back in the superhero game, maybe even join up with the Justice League International. But does Animal Man have what it takes? Grant Morrison, known for his critically acclaimed work in the British weekly 2000 A.D., makes his DC Comics debut with this reworking of a classic DC hero!<\/i><\/p><p>Buddy Baker has a nice home in the suburbs, a great wife Ellen, and two kids. His best friend Roger lives right next door. Buddy even has super powers. What he doesn't have is a job, and even though he does nothing to hide that fact that he's superhuman, nobody really knows who he is while other superheroes are gaining fame and fortune. So, Buddy decides to become a full time superhero and join the Justice League. After training for a few days, and making a talk show appearance, he finally gets his chance when S.T.A.R. Labs asks for his help in investigating a mysterious break-in. But is Buddy really ready for the big time?<\/p>",
+        "first_appearance_characters": null,
+        "first_appearance_concepts": null,
+        "first_appearance_locations": null,
+        "first_appearance_objects": null,
+        "first_appearance_storyarcs": null,
+        "first_appearance_teams": null,
+        "has_staff_review": false,
+        "id": 30000,
+        "image": {
+            "icon_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_avatar\/0\/9116\/1120563-1.jpg",
+            "medium_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_medium\/0\/9116\/1120563-1.jpg",
+            "screen_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_medium\/0\/9116\/1120563-1.jpg",
+            "screen_large_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/screen_kubrick\/0\/9116\/1120563-1.jpg",
+            "small_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_small\/0\/9116\/1120563-1.jpg",
+            "super_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_large\/0\/9116\/1120563-1.jpg",
+            "thumb_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/scale_avatar\/0\/9116\/1120563-1.jpg",
+            "tiny_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/square_mini\/0\/9116\/1120563-1.jpg",
+            "original_url": "https:\/\/comicvine.gamespot.com\/a\/uploads\/original\/0\/9116\/1120563-1.jpg",
+            "image_tags": "All Images"
+        },
+        "issue_number": "1",
+        "location_credits": [{
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/location\/4020-55716\/",
+            "id": 55716,
+            "name": "California",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/california\/4020-55716\/"
+        }],
+        "name": "The Human Zoo",
+        "object_credits": [],
+        "person_credits": [{
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-9976\/",
+            "id": 9976,
+            "name": "Brian Bolland",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/brian-bolland\/4040-9976\/",
+            "role": "cover"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-30962\/",
+            "id": 30962,
+            "name": "Charles Truog",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/charles-truog\/4040-30962\/",
+            "role": "penciler"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-19236\/",
+            "id": 19236,
+            "name": "Doug Hazlewood",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/doug-hazlewood\/4040-19236\/",
+            "role": "inker"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-40434\/",
+            "id": 40434,
+            "name": "Grant Morrison",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/grant-morrison\/4040-40434\/",
+            "role": "writer"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-9421\/",
+            "id": 9421,
+            "name": "John Costanza",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/john-costanza\/4040-9421\/",
+            "role": "letterer"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-43437\/",
+            "id": 43437,
+            "name": "Karen Berger",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/karen-berger\/4040-43437\/",
+            "role": "editor"
+        }, {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/person\/4040-8294\/",
+            "id": 8294,
+            "name": "Tatjana Wood",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/tatjana-wood\/4040-8294\/",
+            "role": "colorist"
+        }],
+        "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man-1-the-human-zoo\/4000-30000\/",
+        "store_date": null,
+        "story_arc_credits": [],
+        "team_credits": [{
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/team\/4060-56686\/",
+            "id": 56686,
+            "name": "S.T.A.R. Labs",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/star-labs\/4060-56686\/"
+        }],
+        "team_disbanded_in": [],
+        "volume": {
+            "api_detail_url": "https:\/\/comicvine.gamespot.com\/api\/volume\/4050-3976\/",
+            "id": 3976,
+            "name": "Animal Man",
+            "site_detail_url": "https:\/\/comicvine.gamespot.com\/animal-man\/4050-3976\/"
+        }
+    },
+    "version": "1.0"
+}
