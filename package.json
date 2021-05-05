@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "jest --projects $(ls packages | sed -e \"s/^/packages\\//\" | xargs)",
-    "dev": "./build.js"
+    "dev": "./build.js --watch"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
