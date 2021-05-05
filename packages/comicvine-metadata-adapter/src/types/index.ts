@@ -19,6 +19,7 @@ export interface ComicVineIssue {
   coverDate: Date
   id: number
   issueNumber: number
+  imageUrl?: string
   name?: string
   characters: ComicVineCharacter[]
   concepts: ComicVineConcept[]

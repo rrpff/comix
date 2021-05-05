@@ -69,6 +69,7 @@ const mapIssueResponse = (data: ComicVineIssueResponseData): ComicVineIssue => (
   id: data.results.id,
   issueNumber: Number(data.results.issue_number),
   name: data.results.name,
+  imageUrl: data.results.image?.medium_url,
   characters: data.results.character_credits.map(c => ({
     type: 'character',
     name: c.name,
@@ -226,6 +227,10 @@ export interface ComicVineIssueResponseData {
     id: number
     issue_number: string
     name?: string
+
+    image?: {
+      medium_url: string
+    }
 
     character_credits: {
       api_detail_url: string

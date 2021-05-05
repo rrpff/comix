@@ -89,6 +89,7 @@ test.each([
     coverDate: result.coverDate,
     id: result.id,
     issueNumber: result.issueNumber,
+    imageUrl: result.imageUrl,
     name: result.name,
   }
 
