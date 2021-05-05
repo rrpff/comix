@@ -1,6 +1,6 @@
-import { parseComicTitles, ParsedComicTitle } from './parseComicTitles'
+import { parseComicTitles, ParsedIssue } from './parseComicTitles'
 
-type Example = [string[], Partial<ParsedComicTitle>[]]
+type Example = [string[], Partial<ParsedIssue>[]]
 
 const example = (message: string, examples: Example[], method = it) => {
   method.each(examples)(message, (fpaths, expected) => {

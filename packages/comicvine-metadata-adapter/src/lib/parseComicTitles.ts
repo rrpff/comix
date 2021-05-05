@@ -2,18 +2,18 @@ import path from 'path'
 import { diffChars, Change } from 'diff'
 import { closest } from 'fastest-levenshtein'
 
-export interface ParsedComicTitle {
+export interface ParsedIssue {
   path: string
   name: string
   volume: string
   number?: number
 }
 
-export const parseComicTitles = (fpaths: string[]): ParsedComicTitle[] => {
+export const parseComicTitles = (fpaths: string[]): ParsedIssue[] => {
   return fpaths.map(fpath => parse(fpath, fpaths))
 }
 
-const parse = (fpath: string, allFpaths: string[]): ParsedComicTitle => {
+const parse = (fpath: string, allFpaths: string[]): ParsedIssue => {
   const name = clean(fpath)
   const number = guessIssueNumber(name, allFpaths.map(clean))
   const volume = number !== undefined
