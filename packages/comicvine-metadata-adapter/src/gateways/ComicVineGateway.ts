@@ -66,7 +66,7 @@ const mapVolumeResponse = (data: ComicVineVolumeResponseData): ComicVineVolume =
 const mapIssueResponse = (data: ComicVineIssueResponseData): ComicVineIssue => ({
   comicVineApiResponse: data,
   coverDate: new Date(data.results.cover_date),
-  id: data.results.id,
+  comicVineId: data.results.id,
   issueNumber: Number(data.results.issue_number),
   name: data.results.name,
   imageUrl: data.results.image?.medium_url,

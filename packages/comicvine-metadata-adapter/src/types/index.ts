@@ -17,7 +17,7 @@ export interface ComicVineVolume {
 export interface ComicVineIssue {
   comicVineApiResponse: ComicVineIssueResponseData
   coverDate: Date
-  id: number
+  comicVineId: number
   issueNumber: number
   imageUrl?: string
   name?: string

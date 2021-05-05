@@ -87,7 +87,7 @@ test.each([
   const result = await issue(id)
   const basic = {
     coverDate: result.coverDate,
-    id: result.id,
+    id: result.comicVineId,
     issueNumber: result.issueNumber,
     imageUrl: result.imageUrl,
     name: result.name,
