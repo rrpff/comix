@@ -3,16 +3,16 @@ import { generateCvIssue, generateCvSearchResults, generateCvVolume, generateEnt
 import { testEffectGenerator } from 'typed-effects/dist/testing'
 import { createBddHelper } from '../../test/bdd'
 import {
+  guessComicVineIssueForEntry,
   search,
   defer,
   firstIssueForEntry,
-  getComicDetails,
-  guessIssue,
+  tryParseIssueDetails,
   compareEntryToResults,
   volume,
   issue,
   hasBeenDeferred,
-} from './getComicDetails'
+} from './guessComicVineIssueForEntry'
 
 const bdd = createBddHelper(harness)
 
@@ -169,7 +169,7 @@ bdd(t => [
 
 function harness() {
   const entry = generateEntry()
-  const gen = getComicDetails(entry)
+  const gen = guessComicVineIssueForEntry(entry)
   const wrapper = testEffectGenerator(gen)
 
   const firstIssueCvVolume = generateCvVolume()
@@ -213,7 +213,7 @@ function harness() {
       .andProceedWith(false),
 
     AndThisEntryProbablyIsntIssueOne: () => wrapper
-      .assertNextEffectMatches(guessIssue(entry))
+      .assertNextEffectMatches(tryParseIssueDetails(entry))
       .andProceedWith({
           path: entry.filePath,
           name: entryParsedIssueName,
@@ -222,7 +222,7 @@ function harness() {
         }),
 
     AndThisEntryIsProbablyIssueOne: () => wrapper
-      .assertNextEffectMatches(guessIssue(entry))
+      .assertNextEffectMatches(tryParseIssueDetails(entry))
       .andProceedWith({
         path: entry.filePath,
         name: entryParsedIssueName,
@@ -231,7 +231,7 @@ function harness() {
       }),
 
     AndThisEntryDoesntSeemToHaveAnIssueNumber: () => wrapper
-      .assertNextEffectMatches(guessIssue(entry))
+      .assertNextEffectMatches(tryParseIssueDetails(entry))
       .andProceedWith({
         path: entry.filePath,
         name: entryParsedIssueName,
@@ -240,7 +240,7 @@ function harness() {
       }),
 
     AndThisEntryHasAnIssueNumber: () => wrapper
-      .assertNextEffectMatches(guessIssue(entry))
+      .assertNextEffectMatches(tryParseIssueDetails(entry))
       .andProceedWith({
         path: entry.filePath,
         name: entryParsedIssueName,

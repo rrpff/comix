@@ -1,6 +1,6 @@
 import { LibraryEntry } from '@comix/library'
 import { Effect, EffectGenerator, AnyEffectGenerator } from 'typed-effects'
-import { ParsedIssue } from './parseComicTitles'
+import { ParsedIssue } from '../lib/parseComicTitles'
 import {
   ComicVineSearchResult,
   ComicVineVolume,
@@ -11,9 +11,9 @@ import {
 
 const MATCH_THRESHOLD = 0.1
 
-export async function* getComicDetails(entry: LibraryEntry): AnyEffectGenerator<ComicVineIssue | null> {
+export async function* guessComicVineIssueForEntry(entry: LibraryEntry): AnyEffectGenerator<ComicVineIssue | null> {
   const firstIssue = yield* firstIssueForEntry(entry)
-  const parsedIssue = yield* guessIssue(entry)
+  const parsedIssue = yield* tryParseIssueDetails(entry)
 
   if (firstIssue && firstIssue.comicVineVolumeId) {
     const firstIssueVolume = yield* volume(firstIssue.comicVineVolumeId)
@@ -29,7 +29,7 @@ export async function* getComicDetails(entry: LibraryEntry): AnyEffectGenerator<
       return null
     }
 
-    const currentIssue = yield* issue(issueInFirstIssueVolume?.number!) // TODO: _if_ volume issue
+    const currentIssue = yield* issue(issueInFirstIssueVolume?.number!)
     const matchResult = yield* compareEntryToResults(entry, [currentIssue])
 
     if (matchResult.strongest.score < MATCH_THRESHOLD)
@@ -67,7 +67,7 @@ export const COMPARE_ENTRY_TO_RESULTS = Symbol('COMPARE_ENTRY_TO_RESULTS')
 export const DEFER = Symbol('DEFER')
 export const HAS_BEEN_DEFERRED = Symbol('HAS_BEEN_DEFERRED')
 export const FIRST_ISSUE_FOR_ENTRY = Symbol('FIRST_ISSUE_FOR_ENTRY')
-export const GUESS_ISSUE = Symbol('GUESS_ISSUE')
+export const TRY_PARSE_ISSUE_DETAILS = Symbol('TRY_PARSE_ISSUE_DETAILS')
 
 export type SearchEffect = Effect<typeof SEARCH, string, ComicVineSearchResult[]>
 export function* search(query: string): EffectGenerator<SearchEffect> {
@@ -109,7 +109,7 @@ export function* firstIssueForEntry(entry: LibraryEntry): EffectGenerator<FirstI
   return yield { type: FIRST_ISSUE_FOR_ENTRY, payload: entry }
 }
 
-export type GuessIssueEffect = Effect<typeof GUESS_ISSUE, LibraryEntry, ParsedIssue>
-export function* guessIssue(entry: LibraryEntry): EffectGenerator<GuessIssueEffect> {
-  return yield { type: GUESS_ISSUE, payload: entry }
+export type TryParseIssueDetailsEffect = Effect<typeof TRY_PARSE_ISSUE_DETAILS, LibraryEntry, ParsedIssue>
+export function* tryParseIssueDetails(entry: LibraryEntry): EffectGenerator<TryParseIssueDetailsEffect> {
+  return yield { type: TRY_PARSE_ISSUE_DETAILS, payload: entry }
 }
