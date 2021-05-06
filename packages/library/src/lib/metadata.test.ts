@@ -22,10 +22,12 @@ it.each([
   const { output } = await subject(fixturePath(fname))
 
   expect(output).toMatchObject({
-    fileName: fname,
-    filePath: fixturePath(fname),
-    fileLastModified: await fixtureLastModified(fname),
-    corrupt: false,
+    entry: {
+      fileName: fname,
+      filePath: fixturePath(fname),
+      fileLastModified: await fixtureLastModified(fname),
+      corrupt: false,
+    }
   })
 })
 
@@ -37,11 +39,11 @@ it('returns a last processed time of now for the file', async () => {
 
   const { output } = await subject(fixturePath('wytches-sample.cbz'))
 
-  expect(output.fileLastProcessed).toEqual(now)
+  expect(output.entry.fileLastProcessed).toEqual(now)
 })
 
 it('calls the given metadata adapters with the entry, comic archive, collection and library', async () => {
-  const spyAdapter = { process: jest.fn(async (a, b, c, d) => a) }
+  const spyAdapter = { process: jest.fn(async (a, b, c, d) => ({ changes: a })) }
   const { output, collection, library } = await subject(fixturePath('wytches-sample.cbz'), [spyAdapter])
 
   const [
@@ -51,7 +53,7 @@ it('calls the given metadata adapters with the entry, comic archive, collection 
     receivedLibrary,
   ] = spyAdapter.process.mock.calls[0]
 
-  expect(receivedEntry).toMatchObject({ ...output, adaptions: [] })
+  expect(receivedEntry).toMatchObject({ ...output.entry, adaptions: [] })
   expect(receivedComicArchive.name).toEqual('wytches-sample.cbz')
   expect(receivedComicArchive.images).toBeInstanceOf(Array)
   expect(receivedCollection).toEqual(collection)
@@ -62,7 +64,7 @@ it('returns adaptions', async () => {
   const adapter = new RandomCoverAdapter()
   const { output } = await subject(fixturePath('wytches-sample.cbz'), [adapter])
 
-  expect(output.adaptions).toContainEqual({
+  expect(output.entry.adaptions).toContainEqual({
     source: 'RandomCoverAdapter',
     changes: {
       coverFileName: adapter.randomCoverFileName
@@ -70,11 +72,30 @@ it('returns adaptions', async () => {
   })
 })
 
+it('returns repeat if an adapter deferred', async () => {
+  const dummyAdapter = { process: jest.fn(async () => ({ defer: true, changes: {} })) }
+  const deferringAdapter = { process: jest.fn(async () => ({ defer: true, changes: {} })) }
+  const { output } = await subject(fixturePath('wytches-sample.cbz'), [
+    dummyAdapter,
+    deferringAdapter,
+    dummyAdapter,
+  ])
+
+  expect(output.repeat).toEqual(true)
+})
+
+it('returns repeat as false otherwise', async () => {
+  const dummyAdapter = { process: jest.fn(async () => ({ changes: {} })) }
+  const { output } = await subject(fixturePath('wytches-sample.cbz'), [dummyAdapter])
+
+  expect(output.repeat).toEqual(false)
+})
+
 it('merges state from adapters into the result', async () => {
   const adapter = new RandomCoverAdapter()
   const { output } = await subject(fixturePath('wytches-sample.cbz'), [adapter])
 
-  expect(output.coverFileName).toEqual(adapter.randomCoverFileName)
+  expect(output.entry.coverFileName).toEqual(adapter.randomCoverFileName)
 })
 
 it('calls adapters sequentially with updated state', async () => {
@@ -101,7 +122,7 @@ describe('when the file cannot be parsed', () => {
   ])('marks the file corrupt', async (fpath) => {
     const { output } = await subject(fpath)
 
-    expect(output.corrupt).toEqual(true)
+    expect(output.entry.corrupt).toEqual(true)
   })
 })
 
@@ -135,6 +156,8 @@ class RandomCoverAdapter implements MetadataAdapter {
   }
 
   async process(_: LibraryEntry) {
-    return { coverFileName: this.randomCoverFileName }
+    return {
+      changes: { coverFileName: this.randomCoverFileName },
+    }
   }
 }

@@ -10,7 +10,7 @@ it.each([
 ])('saves resized cover files in the given image directory', async (size) => {
   const imageDirectory = fixturePath('outputs')
   const inputComicFilePath = fixturePath('wytches-sample.cbz')
-  const changes = await subject(inputComicFilePath, { imageDirectory })
+  const { changes } = await subject(inputComicFilePath, { imageDirectory })
 
   const savedCoverFilePath = path.join(imageDirectory, size, changes.coverFileName!)
   const actualCoverFileData = await fs.readFile(savedCoverFilePath)
@@ -33,9 +33,9 @@ describe('when the file cannot be parsed', () => {
     fixturePath('fake-comic-file.cbz'),
     fixturePath('folder', 'another-fake-file.cbr'),
   ])('does not generate a cover image', async (fpath) => {
-    const result = await subject(fpath)
+    const { changes } = await subject(fpath)
 
-    expect(result.coverFileName).toEqual(undefined)
+    expect(changes.coverFileName).toEqual(undefined)
   })
 })
 

@@ -13,14 +13,16 @@ export interface CoverMetadataAdapterConfig {
 export class CoverMetadataAdapter implements MetadataAdapter {
   constructor(private config: CoverMetadataAdapterConfig) {}
 
-  async process(entry: LibraryEntry, comic: Comic | null): Promise<Partial<LibraryEntry>> {
-    if (entry.corrupt || comic === null) return {}
+  async process(entry: LibraryEntry, comic: Comic | null) {
+    if (entry.corrupt || comic === null) return { changes: {} }
 
     const coverImage = comic.images[0]
     const data = await coverImage.read()
     const coverFileName = await saveImages(data, this.config.imageDirectory)
 
-    return { coverFileName }
+    return {
+      changes: { coverFileName }
+    }
   }
 }
 

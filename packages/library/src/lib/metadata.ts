@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import { Comic, Parser } from '@comix/parser'
 import { FileStat } from '@comix/scan-directory'
-import { LibraryCollection, LibraryEntry, MetadataAdapter } from '../protocols'
+import { LibraryCollection, MetadataAdapter, MetadataAdaption, MetadataResult } from '../protocols'
 import { Library } from './Library'
 
 export const metadata = async (
@@ -10,7 +10,7 @@ export const metadata = async (
   adapters: MetadataAdapter[],
   collection: LibraryCollection,
   library: Library,
-): Promise<LibraryEntry> => {
+): Promise<MetadataResult> => {
   try {
     const fname = path.basename(stat.path)
     const data = await fs.readFile(stat.path)
@@ -25,29 +25,35 @@ export const metadata = async (
       corrupt = true
     }
 
-    const baseState: LibraryEntry = {
-      filePath: stat.path,
-      fileName: fname,
-      fileLastModified: stat.lastModified,
-      fileLastProcessed: Date.now(),
-      corrupt,
-      adaptions: []
+    const baseState = {
+      repeat: false,
+      entry: {
+        filePath: stat.path,
+        fileName: fname,
+        fileLastModified: stat.lastModified,
+        fileLastProcessed: Date.now(),
+        corrupt,
+        adaptions: [] as MetadataAdaption[]
+      }
     }
 
     return waterfall(baseState, adapters, async (state, adapter) => {
-      const changes = await adapter.process(state, comic, collection, library)
+      const { defer, changes } = await adapter.process(state.entry, comic, collection, library)
       const adaption = {
         source: adapter.constructor.name,
         changes
       }
 
       return {
-        ...state,
-        ...adaption.changes,
-        adaptions: [
-          ...state.adaptions,
-          adaption
-        ]
+        repeat: state.repeat || defer || false,
+        entry: {
+          ...state.entry,
+          ...adaption.changes,
+          adaptions: [
+            ...state.entry.adaptions,
+            adaption
+          ]
+        }
       }
     })
   } catch (e) {
