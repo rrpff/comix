@@ -23,6 +23,7 @@ export interface MetadataAdapter {
     comic: Comic | null,
     collection: LibraryCollection,
     library: Library,
+    deferred: boolean,
   ): Promise<MetadataAdapterResult>
 }
 

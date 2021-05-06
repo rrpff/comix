@@ -44,6 +44,8 @@ it('processes a new file again if it deferred once', async () => {
   await t.runUpdater()
 
   expect(t.metadata).toHaveBeenCalledTimes(2)
+  expect(t.metadata).toHaveBeenCalledWith(expect.anything(), false)
+  expect(t.metadata).toHaveBeenLastCalledWith(expect.anything(), true)
 })
 
 it('processes a changed file again if it deferred once', async () => {
@@ -53,6 +55,8 @@ it('processes a changed file again if it deferred once', async () => {
   await t.runUpdater()
 
   expect(t.metadata).toHaveBeenCalledTimes(2)
+  expect(t.metadata).toHaveBeenCalledWith(expect.anything(), false)
+  expect(t.metadata).toHaveBeenLastCalledWith(expect.anything(), true)
 })
 
 it('removes deleted files from config', async () => {

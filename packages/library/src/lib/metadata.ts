@@ -10,6 +10,7 @@ export const metadata = async (
   adapters: MetadataAdapter[],
   collection: LibraryCollection,
   library: Library,
+  deferred: boolean
 ): Promise<MetadataResult> => {
   try {
     const fname = path.basename(stat.path)
@@ -38,7 +39,7 @@ export const metadata = async (
     }
 
     return waterfall(baseState, adapters, async (state, adapter) => {
-      const { defer, changes } = await adapter.process(state.entry, comic, collection, library)
+      const { defer, changes } = await adapter.process(state.entry, comic, collection, library, deferred)
       const adaption = {
         source: adapter.constructor.name,
         changes

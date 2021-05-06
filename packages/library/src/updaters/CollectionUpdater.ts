@@ -3,7 +3,7 @@ import { FileStat, FileDiff } from '@comix/scan-directory'
 import { ComicCollectionUpdater, ComicLibrary, LibraryCollection, LibraryEntry } from '../protocols'
 
 interface CollectionUpdaterConfig {
-  getMetadataForFile: (stat: FileStat) => Promise<{ repeat?: boolean, entry: LibraryEntry }>
+  getMetadataForFile: (stat: FileStat, repeated: boolean) => Promise<{ repeat?: boolean, entry: LibraryEntry }>
   scanDirectory: (dir: string, knownFiles: FileStat[]) => Promise<FileDiff>
 }
 
@@ -22,7 +22,7 @@ export class CollectionUpdater extends EventEmitter implements ComicCollectionUp
     const hasRepeated = (stat: FileStat) => repeatedFiles.includes(stat.path)
 
     await sequence(diff.created, async stat => {
-      const state = await this.config.getMetadataForFile(stat)
+      const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
       await library.config.setEntry(collection.path, stat.path, state.entry)
 
       if (state.repeat && !hasRepeated(stat)) {
@@ -34,7 +34,7 @@ export class CollectionUpdater extends EventEmitter implements ComicCollectionUp
     })
 
     await sequence(diff.changed, async stat => {
-      const state = await this.config.getMetadataForFile(stat)
+      const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
       await library.config.setEntry(collection.path, stat.path, state.entry)
 
       if (state.repeat && !hasRepeated(stat)) {

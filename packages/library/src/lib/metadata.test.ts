@@ -91,6 +91,19 @@ it('returns repeat as false otherwise', async () => {
   expect(output.repeat).toEqual(false)
 })
 
+it.each([true, false])('calls the adapter as deferred if it is being repeated', async (repeating) => {
+  const spyAdapter = { process: jest.fn(async (a, b, c, d, deferred) => ({ changes: {} })) }
+  await subject(fixturePath('wytches-sample.cbz'), [spyAdapter], repeating)
+
+  expect(spyAdapter.process).toHaveBeenCalledWith(
+    expect.anything(),
+    expect.anything(),
+    expect.anything(),
+    expect.anything(),
+    repeating
+  )
+})
+
 it('merges state from adapters into the result', async () => {
   const adapter = new RandomCoverAdapter()
   const { output } = await subject(fixturePath('wytches-sample.cbz'), [adapter])
@@ -126,7 +139,7 @@ describe('when the file cannot be parsed', () => {
   })
 })
 
-const subject = async (fpath: string, adapters: MetadataAdapter[] = []) => {
+const subject = async (fpath: string, adapters: MetadataAdapter[] = [], repeating: boolean = false) => {
   let lastModified = 0
   try {
     lastModified = (await fs.stat(fpath)).mtimeMs
@@ -143,7 +156,7 @@ const subject = async (fpath: string, adapters: MetadataAdapter[] = []) => {
     path: faker.system.filePath(),
   }
 
-  const output = await metadata(stat, adapters, collection, library)
+  const output = await metadata(stat, adapters, collection, library, repeating)
 
   return { output, library, collection }
 }

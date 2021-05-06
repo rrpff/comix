@@ -113,7 +113,7 @@ const harness = async () => {
           })
         ]
 
-        return await metadata(stat, adapters, collection, library)
+        return await metadata(stat, adapters, collection, library, false)
       },
       scanDirectory: async (dir, knownFiles) => {
         return await scanDirectory(dir, ['cbr', 'cbz'], knownFiles)
