@@ -9,11 +9,14 @@ import {
   issue,
   hasBeenDeferred,
   defer,
+  sleep,
 } from '../effects'
 
 const MATCH_THRESHOLD = 0.25
 
 export async function* guessComicVineIssueForEntry(entry: LibraryEntry): AnyEffectGenerator<LibraryIssue | null> {
+  yield* sleep(1000)
+
   const issueNumberOneInDirectory = yield* firstIssueForEntry(entry)
   const parsedIssue = yield* tryParseIssueDetails(entry)
 

@@ -3,6 +3,7 @@ import { LibraryEntry, LibraryIssue } from '@comix/library'
 import { ParsedIssue } from '../lib/parseComicTitles'
 import { ComicVineMatchResult, ComicVineSearchResult, ComicVineVolume } from '../types'
 
+export const SLEEP = Symbol('SLEEP')
 export const SEARCH = Symbol('SEARCH')
 export const VOLUME = Symbol('VOLUME')
 export const ISSUE = Symbol('ISSUE')
@@ -11,6 +12,11 @@ export const DEFER = Symbol('DEFER')
 export const HAS_BEEN_DEFERRED = Symbol('HAS_BEEN_DEFERRED')
 export const FIRST_ISSUE_FOR_ENTRY = Symbol('FIRST_ISSUE_FOR_ENTRY')
 export const TRY_PARSE_ISSUE_DETAILS = Symbol('TRY_PARSE_ISSUE_DETAILS')
+
+export type SleepEffect = Effect<typeof SLEEP, number, null>
+export function* sleep(ms: number): EffectGenerator<SleepEffect> {
+  return yield { type: SLEEP, payload: ms }
+}
 
 export type SearchEffect = Effect<typeof SEARCH, string, ComicVineSearchResult[]>
 export function* search(query: string): EffectGenerator<SearchEffect> {

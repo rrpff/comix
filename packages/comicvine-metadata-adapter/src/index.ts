@@ -14,6 +14,7 @@ import {
   SEARCH,
   TRY_PARSE_ISSUE_DETAILS,
   VOLUME,
+  SLEEP,
 } from './effects'
 import { parseComicTitleForEntry } from './lib/parseComicTitleForEntry'
 
@@ -44,6 +45,8 @@ export class ComicVineMetadataAdapter implements MetadataAdapter {
       console.log(`Received effect: `, effect)
 
       switch (effect.type) {
+        case SLEEP:
+          return await new Promise(resolve => setTimeout(resolve, effect.payload as number))
         case FIRST_ISSUE_FOR_ENTRY:
           return await getFirstIssueForEntry(library, collection, effect.payload as LibraryEntry)
         case TRY_PARSE_ISSUE_DETAILS:

@@ -12,6 +12,7 @@ import {
   volume,
   issue,
   hasBeenDeferred,
+  sleep,
 } from '../effects'
 
 const bdd = createBddHelper(harness)
@@ -265,21 +266,45 @@ function harness() {
   let lastLookup = null as string | null
 
   return {
-    GivenIssueOneOfTheDirectoryHasNotBeenMatchedYet: () => wrapper
-      .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(null),
+    GivenIssueOneOfTheDirectoryHasNotBeenMatchedYet: async () => {
+      await wrapper
+        .assertNextEffectMatches(sleep(1000))
+        .andProceedWith(null)
 
-    GivenIssueOneOfTheDirectoryHasStillNotBeenMatched: () => wrapper
-      .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(null),
+      await wrapper
+        .assertNextEffectMatches(firstIssueForEntry(entry))
+        .andProceedWith(null)
+    },
 
-    GivenIssueOneOfTheDirectoryHasAlreadyBeenMatched: () => wrapper
-      .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(firstIssue),
+    GivenIssueOneOfTheDirectoryHasStillNotBeenMatched: async () => {
+      await wrapper
+        .assertNextEffectMatches(sleep(1000))
+        .andProceedWith(null)
 
-    GivenIssueOneOfTheDirectoryHasNowBeenMatched: () => wrapper
-      .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(firstIssue),
+      await wrapper
+        .assertNextEffectMatches(firstIssueForEntry(entry))
+        .andProceedWith(null)
+    },
+
+    GivenIssueOneOfTheDirectoryHasAlreadyBeenMatched: async () => {
+      await wrapper
+        .assertNextEffectMatches(sleep(1000))
+        .andProceedWith(null)
+
+      await wrapper
+        .assertNextEffectMatches(firstIssueForEntry(entry))
+        .andProceedWith(firstIssue)
+    },
+
+    GivenIssueOneOfTheDirectoryHasNowBeenMatched: async () => {
+      await wrapper
+        .assertNextEffectMatches(sleep(1000))
+        .andProceedWith(null)
+
+      await wrapper
+        .assertNextEffectMatches(firstIssueForEntry(entry))
+        .andProceedWith(firstIssue)
+    },
 
     AndItHasBeenDeferredBefore: () => wrapper
       .assertNextEffectMatches(hasBeenDeferred())
