@@ -66,18 +66,6 @@ test.each([
   expect(result.comicVineId).toEqual(id)
 })
 
-test.each([
-  { id: 3976, stub: comicVineStubs.animalManVolumeResponse },
-  { id: 773, stub: comicVineStubs.supermanVolumeResponse },
-])('volume includes the original api response', async ({ id, stub }) => {
-  const { volume, stubVolumeEndpointForId } = subject()
-  stubVolumeEndpointForId(id, stub)
-
-  const result = await volume(id)
-
-  expect(result.comicVineApiResponse).toEqual(stub.body)
-})
-
 test('issue makes valid issue requests', async () => {
   const { issue, stubIssueEndpointForId } = subject()
   const id = Math.floor(Math.random() * 1000)
@@ -99,7 +87,8 @@ test.each([
   const result = await issue(id)
   const basic = {
     coverDate: result.coverDate,
-    id: result.comicVineId,
+    source: result.source,
+    sourceId: result.sourceId,
     issueNumber: result.issueNumber,
     imageUrl: result.imageUrl,
     name: result.name,
@@ -124,18 +113,6 @@ test.each([
   expect(result.people).toMatchSnapshot(`${id} Issue People`)
   expect(result.storyArcs).toMatchSnapshot(`${id} Issue Story arcs`)
   expect(result.teams).toMatchSnapshot(`${id} Issue Teams`)
-})
-
-test.each([
-  { id: 30000, stub: comicVineStubs.animalManIssueResponse },
-  { id: 110227, stub: comicVineStubs.supermanIssueResponse },
-])('issue includes the original api response', async ({ id, stub }) => {
-  const { issue, stubIssueEndpointForId } = subject()
-  stubIssueEndpointForId(id, stub)
-
-  const result = await issue(id)
-
-  expect(result.comicVineApiResponse).toEqual(stub.body)
 })
 
 const subject = () => {

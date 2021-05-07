@@ -1,11 +1,13 @@
 import axios, { AxiosInstance } from 'axios'
+import { LibraryIssue } from '@comix/library'
 import {
   ComicVineSearchResult,
-  ComicVineVolume,
-  ComicVineIssue,
   ComicVineVolumeSearchResult,
-  ComicVineIssueSearchResult
+  ComicVineIssueSearchResult,
+  ComicVineVolume
 } from '../types'
+
+const SOURCE_NAME = 'COMIC_VINE'
 
 export class ComicVineGateway {
   private http: AxiosInstance
@@ -39,7 +41,7 @@ export class ComicVineGateway {
     return mapVolumeResponse(res.data)
   }
 
-  public async issue(id: number): Promise<ComicVineIssue> {
+  public async issue(id: number): Promise<LibraryIssue> {
     const res = await this.http.get<ComicVineIssueResponseData>(`/issue/4000-${id}`)
     return mapIssueResponse(res.data)
   }
@@ -64,55 +66,68 @@ const mapVolumeResponse = (data: ComicVineVolumeResponseData): ComicVineVolume =
   }))
 })
 
-const mapIssueResponse = (data: ComicVineIssueResponseData): ComicVineIssue => ({
-  comicVineApiResponse: data,
+const mapIssueResponse = (data: ComicVineIssueResponseData): LibraryIssue => ({
+  source: SOURCE_NAME,
+  sourceId: data.results.id.toString(),
   coverDate: new Date(data.results.cover_date),
-  comicVineId: data.results.id,
+  volume: {
+    source: SOURCE_NAME,
+    sourceId: data.results.volume.id.toString(),
+    sourceMetadata: { apiUrl: data.results.volume.api_detail_url },
+    name: data.results.volume.name,
+  },
   issueNumber: Number(data.results.issue_number),
   name: data.results.name,
   imageUrl: data.results.image?.medium_url,
   characters: data.results.character_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'character',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
   concepts: data.results.concept_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'concept',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
   locations: data.results.location_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'location',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
   objects: data.results.object_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'object',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
   people: data.results.person_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'person',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id,
     roles: c.role.split(',').map(r => r.trim()),
   })),
   storyArcs: data.results.story_arc_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'storyArc',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
   teams: data.results.team_credits.map(c => ({
+    source: SOURCE_NAME,
+    sourceId: c.id.toString(),
+    sourceMetadata: { apiUrl: c.api_detail_url },
     type: 'team',
     name: c.name,
-    comicVineApiUrl: c.api_detail_url,
-    comicVineId: c.id
   })),
 })
 
@@ -232,6 +247,12 @@ export interface ComicVineIssueResponseData {
 
     image?: {
       medium_url: string
+    }
+
+    volume: {
+      id: number
+      name: string
+      api_detail_url: string
     }
 
     character_credits: {
