@@ -1,9 +1,9 @@
 import faker from 'faker'
-import { generateCvIssue, generateCvSearchResults, generateCvVolume, generateEntry, pick } from '../../test/generators'
+import { generateIssue, generateCvSearchResults, generateCvVolume, generateEntry, pick, generateCvVolumeSearchResult, generateCvIssueSearchResult } from '../../test/generators'
 import { testEffectGenerator } from 'typed-effects/dist/testing'
 import { createBddHelper } from '../../test/bdd'
+import { guessComicVineIssueForEntry } from './guessComicVineIssueForEntry'
 import {
-  guessComicVineIssueForEntry,
   search,
   defer,
   firstIssueForEntry,
@@ -12,7 +12,7 @@ import {
   volume,
   issue,
   hasBeenDeferred,
-} from './guessComicVineIssueForEntry'
+} from '../effects'
 
 const bdd = createBddHelper(harness)
 
@@ -28,7 +28,16 @@ bdd(t => [
   t.AndThisEntryProbablyIsntIssueOne,
   t.AndItHasBeenDeferredBefore,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasNotBeenMatchedYet,
+  t.AndThisEntryProbablyIsntIssueOne,
+  t.AndItHasBeenDeferredBefore,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -46,7 +55,16 @@ bdd(t => [
   t.AndThisEntryIsProbablyIssueOne,
   t.AndItHasNotBeenDeferredBefore,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasNotBeenMatchedYet,
+  t.AndThisEntryIsProbablyIssueOne,
+  t.AndItHasNotBeenDeferredBefore,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -64,7 +82,16 @@ bdd(t => [
   t.AndThisEntryDoesntSeemToHaveAnIssueNumber,
   t.AndItHasNotBeenDeferredBefore,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasNotBeenMatchedYet,
+  t.AndThisEntryDoesntSeemToHaveAnIssueNumber,
+  t.AndItHasNotBeenDeferredBefore,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -82,7 +109,16 @@ bdd(t => [
   t.AndThisEntryHasAnIssueNumber,
   t.WhenItCantFindItsIssueNumberInThatVolume,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasAlreadyBeenMatched,
+  t.AndThisEntryHasAnIssueNumber,
+  t.WhenItCantFindItsIssueNumberInThatVolume,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -109,7 +145,17 @@ bdd(t => [
   t.WhenItTriesToMatchAgainstItsIssueNumberInThatVolume,
   t.AndDoesntGetAStrongMatchingResult,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasAlreadyBeenMatched,
+  t.AndThisEntryHasAnIssueNumber,
+  t.WhenItTriesToMatchAgainstItsIssueNumberInThatVolume,
+  t.AndDoesntGetAStrongMatchingResult,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -136,7 +182,16 @@ bdd(t => [
   t.AndThisEntryHasAnIssueNumber,
   t.AndItHasBeenDeferredBefore,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasStillNotBeenMatched,
+  t.AndThisEntryHasAnIssueNumber,
+  t.AndItHasBeenDeferredBefore,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -154,7 +209,16 @@ bdd(t => [
   t.AndThisEntryDoesntSeemToHaveAnIssueNumber,
   t.AndItHasBeenDeferredBefore,
   t.WhenItSearchesComicVineForItsParsedIssueName,
-  t.AndItGetsAStrongMatch,
+  t.AndItGetsAStrongMatchFromAVolumeResult,
+  t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
+])
+
+bdd(t => [
+  t.GivenIssueOneOfTheDirectoryHasStillNotBeenMatched,
+  t.AndThisEntryDoesntSeemToHaveAnIssueNumber,
+  t.AndItHasBeenDeferredBefore,
+  t.WhenItSearchesComicVineForItsParsedIssueName,
+  t.AndItGetsAStrongMatchFromAnIssueResult,
   t.ThenItShouldReturnNewEntryDataFromTheBestSearchResult,
 ])
 
@@ -173,17 +237,30 @@ function harness() {
   const wrapper = testEffectGenerator(gen)
 
   const firstIssueCvVolume = generateCvVolume()
-  const firstIssueEntry = generateEntry({ comicVineVolumeId: firstIssueCvVolume.comicVineId })
+  const firstIssue = generateIssue({
+    volume: {
+      source: 'COMIC_VINE',
+      sourceId: firstIssueCvVolume.comicVineId.toString(),
+      name: 'whatever',
+    }
+  })
 
-  const foundCvIssue = { type: "FOUND ISSUE", ...generateCvIssue() }
+  const foundIssue = generateIssue()
   const foundCvSearchResults = generateCvSearchResults()
 
-  const entryParsedIssueNumber = pick(firstIssueCvVolume.issues).number
+  const pickedVolumeIssue = pick(firstIssueCvVolume.issues)
+  const entryParsedIssueNumber = pickedVolumeIssue.number
   const entryParsedIssueName = faker.lorem.sentence()
 
-  const bestSearchResultIssue = { type: "SEARCH RESULT ISSUE", ...generateCvIssue() }
-  const strongMatchResults = { strongest: { issue: bestSearchResultIssue, score: 0.0 }, matches: [] }
-  const weakMatchResults = { strongest: { issue: generateCvIssue(), score: 5.0 }, matches: [] }
+  const bestSearchResultIssue = generateCvIssueSearchResult()
+  const bestSearchResultVolume = generateCvVolumeSearchResult()
+  const bestIssue = generateIssue()
+  const bestVolume = generateCvVolume()
+  bestVolume.issues[0].number = 1
+
+  const strongMatchVolumeResults = { strongest: { comparison: bestSearchResultVolume, score: 0.0 }, matches: [] }
+  const strongMatchIssueResults = { strongest: { comparison: bestSearchResultIssue, score: 0.0 }, matches: [] }
+  const weakMatchResults = { strongest: { comparison: null as any, score: 5.0 }, matches: [] }
 
   let lastLookup = null as string | null
 
@@ -198,11 +275,11 @@ function harness() {
 
     GivenIssueOneOfTheDirectoryHasAlreadyBeenMatched: () => wrapper
       .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(firstIssueEntry),
+      .andProceedWith(firstIssue),
 
     GivenIssueOneOfTheDirectoryHasNowBeenMatched: () => wrapper
       .assertNextEffectMatches(firstIssueForEntry(entry))
-      .andProceedWith(firstIssueEntry),
+      .andProceedWith(firstIssue),
 
     AndItHasBeenDeferredBefore: () => wrapper
       .assertNextEffectMatches(hasBeenDeferred())
@@ -272,23 +349,47 @@ function harness() {
         .andProceedWith(firstIssueCvVolume)
 
       await wrapper
-        .assertNextEffectMatches(issue(entryParsedIssueNumber))
-        .andProceedWith(foundCvIssue)
+        .assertNextEffectMatches(issue(pickedVolumeIssue.comicVineId))
+        .andProceedWith(foundIssue)
+    },
+
+    AndItGetsAStrongMatchFromAVolumeResult: async () => {
+      await wrapper
+        .assertNextEffectMatches(compareEntryToResults<any>(entry, foundCvSearchResults))
+        .andProceedWith(strongMatchVolumeResults)
+
+      await wrapper
+        .assertNextEffectMatches(volume(bestSearchResultVolume.comicVineId))
+        .andProceedWith(bestVolume)
+
+      await wrapper
+        .assertNextEffectMatches(issue(bestVolume.issues[0].comicVineId))
+        .andProceedWith(bestIssue)
+    },
+
+    AndItGetsAStrongMatchFromAnIssueResult: async () => {
+      await wrapper
+        .assertNextEffectMatches(compareEntryToResults<any>(entry, foundCvSearchResults))
+        .andProceedWith(strongMatchIssueResults)
+
+      await wrapper
+        .assertNextEffectMatches(issue(bestSearchResultIssue.comicVineId))
+        .andProceedWith(bestIssue)
     },
 
     AndItGetsAStrongMatch: () => wrapper
-      .assertNextEffectMatches(compareEntryToResults(entry, lastLookup === 'issue' ? [foundCvIssue] : foundCvSearchResults))
-      .andProceedWith(strongMatchResults),
+      .assertNextEffectMatches(compareEntryToResults<any>(entry, lastLookup === 'issue' ? [foundIssue] : foundCvSearchResults))
+      .andProceedWith(strongMatchIssueResults),
 
     AndDoesntGetAStrongMatchingResult: () => wrapper
-      .assertNextEffectMatches(compareEntryToResults(entry, lastLookup === 'issue' ? [foundCvIssue] : foundCvSearchResults))
+      .assertNextEffectMatches(compareEntryToResults<any>(entry, lastLookup === 'issue' ? [foundIssue] : foundCvSearchResults))
       .andProceedWith(weakMatchResults),
 
     ThenItShouldReturnNewEntryDataFromTheFoundIssue: () => wrapper
-      .assertReturnValueIs(foundCvIssue),
+      .assertReturnValueIs(foundIssue),
 
     ThenItShouldReturnNewEntryDataFromTheBestSearchResult: () => wrapper
-      .assertReturnValueIs(bestSearchResultIssue),
+      .assertReturnValueIs(bestIssue),
 
     ThenItShouldReturnNull: () => wrapper
       .assertReturnValueIs(null),

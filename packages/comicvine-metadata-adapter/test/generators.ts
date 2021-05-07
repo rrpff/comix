@@ -1,19 +1,23 @@
 import path from 'path'
 import faker from 'faker'
-import { LibraryCollection, LibraryEntry } from '@comix/library'
 import { Comic } from '@comix/parser'
 import {
-  ComicVineCharacter,
-  ComicVineConcept,
-  ComicVineIssue,
+  LibraryCollection,
+  LibraryCreditBase,
+  LibraryCreditCharacter,
+  LibraryCreditConcept,
+  LibraryCreditLocation,
+  LibraryCreditObject,
+  LibraryCreditPerson,
+  LibraryCreditStoryArc,
+  LibraryCreditTeam,
+  LibraryEntry,
+  LibraryIssue,
+} from '@comix/library'
+import {
   ComicVineIssueSearchResult,
-  ComicVineLocation,
-  ComicVineObject,
-  ComicVinePerson,
   ComicVineResource,
   ComicVineSearchResult,
-  ComicVineStoryArc,
-  ComicVineTeam,
   ComicVineVolume,
   ComicVineVolumeSearchResult
 } from '../src/types'
@@ -66,20 +70,20 @@ export const generateCvVolume = (overrides: Partial<ComicVineVolume> = {}): Comi
   ...overrides,
 })
 
-export const generateCvIssue = (overrides: Partial<ComicVineIssue> = {}): ComicVineIssue => ({
-  comicVineApiResponse: {} as any,
+export const generateIssue = (overrides: Partial<LibraryIssue> = {}): LibraryIssue => ({
+  source: 'TEST',
+  sourceId: faker.datatype.uuid(),
   coverDate: faker.datatype.datetime(),
-  comicVineId: faker.datatype.number(),
   issueNumber: faker.datatype.number(),
   imageUrl: 'https://example.com/whatever.jpg',
   name: faker.lorem.sentence(),
-  characters: list(() => generateCvResource<ComicVineCharacter>({ type: 'character' })),
-  concepts: list(() => generateCvResource<ComicVineConcept>({ type: 'concept' })),
-  locations: list(() => generateCvResource<ComicVineLocation>({ type: 'location' })),
-  objects: list(() => generateCvResource<ComicVineObject>({ type: 'object' })),
-  people: list(() => generateCvResource<ComicVinePerson>({ type: 'person', roles: list(faker.lorem.word) })),
-  storyArcs: list(() => generateCvResource<ComicVineStoryArc>({ type: 'storyArc' })),
-  teams: list(() => generateCvResource<ComicVineTeam>({ type: 'team' })),
+  characters: list(() => generateCredit({ type: 'character' })) as LibraryCreditCharacter[],
+  concepts: list(() => generateCredit({ type: 'concept' })) as LibraryCreditConcept[],
+  locations: list(() => generateCredit({ type: 'location' })) as LibraryCreditLocation[],
+  objects: list(() => generateCredit({ type: 'object' })) as LibraryCreditObject[],
+  people: list(() => generateCredit({ type: 'person', roles: list(faker.lorem.word) })) as LibraryCreditPerson[],
+  storyArcs: list(() => generateCredit({ type: 'storyArc' })) as LibraryCreditStoryArc[],
+  teams: list(() => generateCredit({ type: 'team' })) as LibraryCreditTeam[],
   ...overrides,
 })
 
@@ -109,6 +113,16 @@ export const generateCvVolumeSearchResult = (overrides: Partial<ComicVineVolumeS
   firstIssue: generateCvResource<ComicVineResource & { issueNumber: number }>({ issueNumber: faker.datatype.number() }),
   lastIssue: generateCvResource<ComicVineResource & { issueNumber: number }>({ issueNumber: faker.datatype.number() }),
 })
+
+const generateCredit = (overrides: Partial<LibraryCreditBase> & { [key: string]: any }): LibraryCreditBase => {
+  return {
+    type: 'unknown',
+    source: 'TEST',
+    sourceId: faker.datatype.uuid(),
+    name: faker.lorem.sentence(),
+    ...overrides,
+  }
+}
 
 const generateCvResource = <T extends ComicVineResource>(overrides: Omit<T, keyof ComicVineResource>): T => {
   return {

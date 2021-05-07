@@ -1,45 +1,66 @@
-import { LibraryEntry } from '@comix/library'
-import { Effect, EffectGenerator, AnyEffectGenerator } from 'typed-effects'
-import { ParsedIssue } from '../lib/parseComicTitles'
+import { LibraryEntry, LibraryIssue } from '@comix/library'
+import { AnyEffectGenerator } from 'typed-effects'
 import {
-  ComicVineSearchResult,
-  ComicVineVolume,
-  ComicVineIssue,
-  ComicVineMatchResult,
-  ComicVineMatchable,
-} from '../types'
+  firstIssueForEntry,
+  tryParseIssueDetails,
+  volume,
+  search,
+  compareEntryToResults,
+  issue,
+  hasBeenDeferred,
+  defer,
+} from '../effects'
 
-const MATCH_THRESHOLD = 0.1
+const MATCH_THRESHOLD = 0.25
 
-export async function* guessComicVineIssueForEntry(entry: LibraryEntry): AnyEffectGenerator<ComicVineIssue | null> {
-  const firstIssue = yield* firstIssueForEntry(entry)
+export async function* guessComicVineIssueForEntry(entry: LibraryEntry): AnyEffectGenerator<LibraryIssue | null> {
+  const issueNumberOneInDirectory = yield* firstIssueForEntry(entry)
   const parsedIssue = yield* tryParseIssueDetails(entry)
 
-  if (firstIssue && firstIssue.comicVineVolumeId) {
-    const firstIssueVolume = yield* volume(firstIssue.comicVineVolumeId)
+  if (issueNumberOneInDirectory && issueNumberOneInDirectory.volume) {
+    const firstIssueVolume = yield* volume(Number(issueNumberOneInDirectory.volume.sourceId))
     const issueInFirstIssueVolume = firstIssueVolume.issues.find(issue => issue.number === parsedIssue.number)
 
     if (issueInFirstIssueVolume === undefined) {
       const results = yield* search(parsedIssue.name)
       const matchResult = yield* compareEntryToResults(entry, results)
 
-      if (matchResult.strongest.score < MATCH_THRESHOLD)
-        return matchResult.strongest.issue
+      if (matchResult.strongest && matchResult.strongest.score < MATCH_THRESHOLD) {
+        if (matchResult.strongest.comparison.type === 'volume') {
+          const strongestVol = yield* volume(matchResult.strongest.comparison.comicVineId)
+          const issueInFirstIssueVolume = strongestVol.issues.find(issue => issue.number === 1)
+          if (!issueInFirstIssueVolume) return null
+
+          return yield* issue(issueInFirstIssueVolume.comicVineId)
+        } else {
+          return yield* issue(matchResult.strongest.comparison.comicVineId)
+        }
+      }
 
       return null
     }
 
-    const currentIssue = yield* issue(issueInFirstIssueVolume?.number!)
+    const currentIssue = yield* issue(issueInFirstIssueVolume?.comicVineId!)
     const matchResult = yield* compareEntryToResults(entry, [currentIssue])
 
-    if (matchResult.strongest.score < MATCH_THRESHOLD)
+    if (matchResult.strongest && matchResult.strongest.score < MATCH_THRESHOLD)
       return currentIssue
 
     const results = yield* search(parsedIssue.name)
     const matchResult2 = yield* compareEntryToResults(entry, results)
 
-    if (matchResult2.strongest.score < MATCH_THRESHOLD)
-      return matchResult2.strongest.issue
+    if (matchResult2.strongest && matchResult2.strongest.score < MATCH_THRESHOLD) {
+      if (matchResult2.strongest.comparison.type === 'volume') {
+        const strongestVol = yield* volume(matchResult2.strongest.comparison.comicVineId)
+        const issueInFirstIssueVolume = strongestVol.issues.find(issue => issue.number === 1)
+
+        if (!issueInFirstIssueVolume) return null
+
+        return yield* issue(issueInFirstIssueVolume?.comicVineId)
+      } else {
+        return yield* issue(matchResult2.strongest.comparison.comicVineId)
+      }
+    }
 
     return currentIssue
   }
@@ -50,66 +71,22 @@ export async function* guessComicVineIssueForEntry(entry: LibraryEntry): AnyEffe
     const results = yield* search(parsedIssue.name)
     const matchResult = yield* compareEntryToResults(entry, results)
 
-    if (matchResult.strongest.score < MATCH_THRESHOLD)
-      return matchResult.strongest.issue
+    if (matchResult.strongest && matchResult.strongest.score < MATCH_THRESHOLD) {
+      if (matchResult.strongest.comparison.type === 'volume') {
+        const strongestVol = yield* volume(matchResult.strongest.comparison.comicVineId)
+        const issueInFirstIssueVolume = strongestVol.issues.find(issue => issue.number === 1)
+
+        if (!issueInFirstIssueVolume) return null
+
+        return yield* issue(issueInFirstIssueVolume?.comicVineId)
+      } else {
+        return yield* issue(matchResult.strongest.comparison.comicVineId)
+      }
+    }
 
     return null
   } else {
     yield* defer()
     return null
   }
-}
-
-export const SEARCH = Symbol('SEARCH')
-export const VOLUME = Symbol('VOLUME')
-export const ISSUE = Symbol('ISSUE')
-export const COMPARE_ENTRY_TO_RESULTS = Symbol('COMPARE_ENTRY_TO_RESULTS')
-export const DEFER = Symbol('DEFER')
-export const HAS_BEEN_DEFERRED = Symbol('HAS_BEEN_DEFERRED')
-export const FIRST_ISSUE_FOR_ENTRY = Symbol('FIRST_ISSUE_FOR_ENTRY')
-export const TRY_PARSE_ISSUE_DETAILS = Symbol('TRY_PARSE_ISSUE_DETAILS')
-
-export type SearchEffect = Effect<typeof SEARCH, string, ComicVineSearchResult[]>
-export function* search(query: string): EffectGenerator<SearchEffect> {
-  return yield { type: SEARCH, payload: query }
-}
-
-export type VolumeEffect = Effect<typeof VOLUME, number, ComicVineVolume>
-export function* volume(id: number): EffectGenerator<VolumeEffect> {
-  return yield { type: VOLUME, payload: id }
-}
-
-export type IssueEffect = Effect<typeof ISSUE, number, ComicVineIssue>
-export function* issue(id: number): EffectGenerator<IssueEffect> {
-  return yield { type: ISSUE, payload: id }
-}
-
-export type CompareEntryToResultsEffect = Effect<
-  typeof COMPARE_ENTRY_TO_RESULTS,
-  { entry: LibraryEntry, results: ComicVineMatchable[] },
-  ComicVineMatchResult
->
-export function* compareEntryToResults(entry: LibraryEntry, results: ComicVineMatchable[])
-  : EffectGenerator<CompareEntryToResultsEffect> {
-  return yield { type: COMPARE_ENTRY_TO_RESULTS, payload: { entry, results } }
-}
-
-export type DeferEffect = Effect<typeof DEFER, null, null>
-export function* defer(): EffectGenerator<DeferEffect> {
-  return yield { type: DEFER, payload: null }
-}
-
-export type HasBeenDeferredEffect = Effect<typeof HAS_BEEN_DEFERRED, null, boolean>
-export function* hasBeenDeferred(): EffectGenerator<HasBeenDeferredEffect> {
-  return yield { type: HAS_BEEN_DEFERRED, payload: null }
-}
-
-export type FirstIssueForEntry = Effect<typeof FIRST_ISSUE_FOR_ENTRY, LibraryEntry, LibraryEntry | null>
-export function* firstIssueForEntry(entry: LibraryEntry): EffectGenerator<FirstIssueForEntry> {
-  return yield { type: FIRST_ISSUE_FOR_ENTRY, payload: entry }
-}
-
-export type TryParseIssueDetailsEffect = Effect<typeof TRY_PARSE_ISSUE_DETAILS, LibraryEntry, ParsedIssue>
-export function* tryParseIssueDetails(entry: LibraryEntry): EffectGenerator<TryParseIssueDetailsEffect> {
-  return yield { type: TRY_PARSE_ISSUE_DETAILS, payload: entry }
 }
