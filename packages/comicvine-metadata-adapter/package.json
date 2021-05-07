@@ -19,6 +19,7 @@
     "@comix/library": "file:../library",
     "@comix/parser": "file:../parser",
     "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
     "diff": "^5.0.0",
     "fastest-levenshtein": "^1.0.12",
     "jimp": "^0.16.1",

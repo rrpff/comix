@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+import { setupCache } from 'axios-cache-adapter'
 import { LibraryIssue } from '@comix/library'
 import {
   ComicVineSearchResult,
@@ -13,7 +14,12 @@ export class ComicVineGateway {
   private http: AxiosInstance
 
   constructor(host: string, apiKey: string) {
+    const cache = setupCache({
+      maxAge: 1000 * 60 * 60
+    })
+
     this.http = axios.create({
+      adapter: cache.adapter,
       baseURL: host,
       params: {
         api_key: apiKey,
