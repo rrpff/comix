@@ -144,12 +144,31 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     await subject.setEntry('/wonder-woman', entries[0].filePath, entries[0])
     await subject.setEntry('/wonder-woman', entries[1].filePath, entries[1])
 
-    const sortByFileName = (a: LibraryEntry, b: LibraryEntry) =>
-      a.fileName < b.fileName ? -1 :
-      a.fileName > b.fileName ? 1 : 0
-
     expect((await subject.getEntries('/wonder-woman')).sort(sortByFileName))
       .toEqual(entries.sort(sortByFileName))
+  })
+
+  it('can get all entries in a collection with issues', async () => {
+    const entries = [
+      generateEntry({ issue: generateIssue() }),
+      generateEntry({ issue: generateIssue() })
+    ]
+
+    await subject.createCollection({ path: '/wonder-woman', name: 'wonder woman' })
+    await subject.setEntry('/wonder-woman', entries[0].filePath, entries[0])
+    await subject.setEntry('/wonder-woman', entries[1].filePath, entries[1])
+
+    expect((await subject.getEntries('/wonder-woman')).sort(sortByFileName))
+      .toMatchObject(entries.sort(sortByFileName))
+  })
+
+  it('can get an entry in a collection with its issue', async () => {
+    const entry = generateEntry({ issue: generateIssue() })
+
+    await subject.createCollection({ path: '/wonder-woman', name: 'wonder woman' })
+    await subject.setEntry('/wonder-woman', entry.filePath, entry)
+
+    expect(await subject.getEntry('/wonder-woman', entry.filePath)).toMatchObject(entry)
   })
 
   it('only returns entries in that collection', async () => {
@@ -465,3 +484,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
       .toEqual(new Error('Entry "/comics/file.cbr" in "/media/comics" does not exist'))
   })
 }
+
+const sortByFileName = (a: LibraryEntry, b: LibraryEntry) =>
+  a.fileName < b.fileName ? -1 :
+  a.fileName > b.fileName ? 1 : 0

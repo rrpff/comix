@@ -162,11 +162,11 @@ export interface LibraryConfig {
   createCollection(collection: LibraryCollection): Promise<LibraryCollection>
   deleteCollection(collectionPath: string): Promise<void>
   getEntries(collectionPath: string): Promise<LibraryEntry[]>
-  getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry>
+  getEntry(collectionPath: string, entryPath: string, withIssue?: boolean): Promise<LibraryEntry>
   setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void>
   deleteEntry(collectionPath: string, entryPath: string): Promise<void>
   updateCollection(collectionPath: string, collection: LibraryCollection): Promise<void>
-  getIssue(identifier: LibraryIdentifier, withCredits?: boolean): Promise<LibraryIssue>
+  getIssue(identifier: LibraryIdentifier, withCredits?: boolean, withVolume?: boolean, withEntries?: boolean): Promise<LibraryIssue>
   getCredit(identifier: LibraryIdentifier): Promise<LibraryCreditBase>
   getVolume(identifier: LibraryIdentifier, withIssues?: boolean): Promise<LibraryVolume>
 }

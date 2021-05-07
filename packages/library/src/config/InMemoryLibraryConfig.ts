@@ -84,14 +84,23 @@ export class InMemoryLibraryConfig implements LibraryConfig {
 
   public async getEntries(collectionPath: string): Promise<LibraryEntry[]> {
     const entries = Object.values(this.config.entries[collectionPath] || {})
-    return entries.map(entry => ({ ...entry, issue: undefined }))
+    return await Promise.all(entries.map(async entry => ({ ...entry,
+      issue: entry.issue !== undefined
+        ? await this.getIssue(entry.issue, true, true, false)
+        : undefined
+    })))
   }
 
-  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
+  public async getEntry(collectionPath: string, entryPath: string, withIssue: boolean = true): Promise<LibraryEntry> {
     try {
       const entry = this.config.entries[collectionPath][entryPath]
       if (entry === undefined) throw ''
-      return { ...entry, issue: undefined }
+
+      const issue = withIssue && entry.issue !== undefined
+        ? await this.getIssue(entry.issue, true, true, false)
+        : undefined
+
+      return { ...entry, issue }
     } catch {
       throw new Error(`Entry "${entryPath}" in "${collectionPath}" does not exist`)
     }
@@ -137,19 +146,21 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     delete this.config.entries[originalPath]
   }
 
-  public async getIssue(identifier: LibraryIdentifier, withCredits: boolean = true, withVolume: boolean = true): Promise<LibraryIssue> {
+  public async getIssue(identifier: LibraryIdentifier, withCredits: boolean = true, withVolume: boolean = true, withEntries: boolean = true): Promise<LibraryIssue> {
     const issue = this.config.issues[`${identifier.source}:${identifier.sourceId}`]
 
     if (issue === undefined) {
       throw new Error(`Issue "${identifier.source}:${identifier.sourceId}" does not exist`)
     }
 
-    const entries = await Promise.all(issue.entries.map(async identifier => {
-      return {
-        collectionPath: identifier.collectionPath,
-        entry: await this.getEntry(identifier.collectionPath, identifier.entryPath)
-      }
-    }))
+    const entries = !withEntries
+      ? undefined
+      : await Promise.all(issue.entries.map(async identifier => {
+          return {
+            collectionPath: identifier.collectionPath,
+            entry: await this.getEntry(identifier.collectionPath, identifier.entryPath, false)
+          }
+        }))
 
     const credits = withCredits
       ? await this.getCredits(issue)

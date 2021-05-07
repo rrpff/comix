@@ -33,7 +33,7 @@ type PersistedVolume = Omit<LibraryVolume, 'issues'>
 
 type SettingDoc = { type: 'setting', key: string, value: any }
 type CollectionDoc = { type: 'collection', collection: LibraryCollection }
-type EntryDoc = { type: 'entry', collection: string, entry: LibraryEntry }
+type EntryDoc = { type: 'entry', issue?: LibraryIdentifier, collection: string, entry: LibraryEntry }
 type IssueDoc = { type: 'issue', entries: EntryIdentifier[], volume: LibraryIdentifier, issue: PersistedIssue }
 type CreditDoc = { type: 'credit', issues: LibraryIdentifier[], credit: PersistedCredit }
 type VolumeDoc = { type: 'volume', issues: LibraryIdentifier[], volume: PersistedVolume }
@@ -78,36 +78,53 @@ export class FileLibraryConfig implements LibraryConfig {
   }
 
   public async getEntries(collectionPath: string): Promise<LibraryEntry[]> {
-    return (await this.db.find<EntryDoc>({ type: 'entry', collection: collectionPath })).map(r => r.entry)
+    const docs = await this.db.find<EntryDoc>({ type: 'entry', collection: collectionPath })
+    return await Promise.all(docs.map(async doc => {
+      if (doc.issue === undefined) return doc.entry
+
+      const issue = await this.getIssue(doc.issue, true, true, false)
+      return { ...doc.entry, issue }
+    }))
   }
 
-  public async getEntry(collectionPath: string, entryPath: string): Promise<LibraryEntry> {
+  public async getEntry(collectionPath: string, entryPath: string, withIssue: boolean = true): Promise<LibraryEntry> {
     const query = { type: 'entry', collection: collectionPath, 'entry.filePath': entryPath }
     const doc = await this.db.findOne<EntryDoc>(query)
     if (!doc) throw new Error(`Entry "${entryPath}" in "${collectionPath}" does not exist`)
 
-    return doc.entry
+    const issue = withIssue && doc.issue !== undefined
+      ? await this.getIssue(doc.issue, true, true, false)
+      : undefined
+
+    return { ...doc.entry, issue }
   }
 
   public async setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void> {
     await this.getCollection(collectionPath)
     await this.db.remove({ type: 'entry', collection: collectionPath, 'entry.filePath': entryPath }, { multi: true })
-    await this.db.insert<EntryDoc>({ type: 'entry', collection: collectionPath, entry: without(entry, ['issue']) })
+
+    const issue = entry.issue !== undefined
+      ? { source: entry.issue.source, sourceId: entry.issue.sourceId }
+      : undefined
+
+    await this.db.insert<EntryDoc>({ type: 'entry', issue, collection: collectionPath, entry: without(entry, ['issue']) })
 
     if (entry.issue) {
       await this.setIssue(collectionPath, entryPath, entry, entry.issue)
     }
   }
 
-  public async getIssue(identifier: LibraryIdentifier, withCredits: boolean = true, withVolume: boolean = true): Promise<LibraryIssue> {
+  public async getIssue(identifier: LibraryIdentifier, withCredits: boolean = true, withVolume: boolean = true, withEntries: boolean = true): Promise<LibraryIssue> {
     const query = { type: 'issue', 'issue.source': identifier.source, 'issue.sourceId': identifier.sourceId }
     const doc = await this.db.findOne<IssueDoc>(query)
     if (!doc) throw new Error(`Issue "${identifier.source}:${identifier.sourceId}" does not exist`)
 
-    const entries = await Promise.all(doc.entries.map(async identifier => {
-      const entry = await this.getEntry(identifier.collectionPath, identifier.entryPath)
-      return { collectionPath: identifier.collectionPath, entry }
-    }))
+    const entries = !withEntries
+      ? undefined
+      : await Promise.all(doc.entries.map(async identifier => {
+        const entry = await this.getEntry(identifier.collectionPath, identifier.entryPath, false)
+        return { collectionPath: identifier.collectionPath, entry }
+      }))
 
     const credits = withCredits
       ? await this.getCreditsFor(identifier)
