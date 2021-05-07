@@ -3,119 +3,169 @@
 exports[`issue includes basic information: 30000 Issue 1`] = `
 Object {
   "coverDate": 1988-09-01T00:00:00.000Z,
-  "id": 30000,
   "imageUrl": "https://comicvine.gamespot.com/a/uploads/scale_medium/0/9116/1120563-1.jpg",
   "issueNumber": 1,
   "name": "The Human Zoo",
+  "source": "COMIC_VINE",
+  "sourceId": "30000",
 }
 `;
 
 exports[`issue includes basic information: 110227 Issue 1`] = `
 Object {
   "coverDate": 1939-06-01T00:00:00.000Z,
-  "id": 110227,
   "imageUrl": "https://comicvine.gamespot.com/a/uploads/scale_medium/3/38826/851086-01.jpg",
   "issueNumber": 1,
   "name": null,
+  "source": "COMIC_VINE",
+  "sourceId": "110227",
 }
 `;
 
 exports[`issue includes sub resources: 30000 Issue Characters 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-22707/",
-    "comicVineId": 22707,
     "name": "Animal Man",
+    "source": "COMIC_VINE",
+    "sourceId": "22707",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-22707/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-51049/",
-    "comicVineId": 51049,
     "name": "B'wana Beast",
+    "source": "COMIC_VINE",
+    "sourceId": "51049",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-51049/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-1786/",
-    "comicVineId": 1786,
     "name": "Booster Gold",
+    "source": "COMIC_VINE",
+    "sourceId": "1786",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-1786/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-2050/",
-    "comicVineId": 2050,
     "name": "Captain Atom",
+    "source": "COMIC_VINE",
+    "sourceId": "2050",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-2050/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-26600/",
-    "comicVineId": 26600,
     "name": "Cliff Baker",
+    "source": "COMIC_VINE",
+    "sourceId": "26600",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-26600/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-69177/",
-    "comicVineId": 69177,
     "name": "Dr. Myers",
+    "source": "COMIC_VINE",
+    "sourceId": "69177",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-69177/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-26599/",
-    "comicVineId": 26599,
     "name": "Ellen Baker",
+    "source": "COMIC_VINE",
+    "sourceId": "26599",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-26599/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-24266/",
-    "comicVineId": 24266,
     "name": "Maxine Baker",
+    "source": "COMIC_VINE",
+    "sourceId": "24266",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-24266/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-5703/",
-    "comicVineId": 5703,
     "name": "Mr. Miracle",
+    "source": "COMIC_VINE",
+    "sourceId": "5703",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-5703/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-77993/",
-    "comicVineId": 77993,
     "name": "Mr. Weidemeir",
+    "source": "COMIC_VINE",
+    "sourceId": "77993",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-77993/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-77994/",
-    "comicVineId": 77994,
     "name": "Mrs. Weidemeir",
+    "source": "COMIC_VINE",
+    "sourceId": "77994",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-77994/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-50471/",
-    "comicVineId": 50471,
     "name": "Roger Denning",
+    "source": "COMIC_VINE",
+    "sourceId": "50471",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-50471/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-77995/",
-    "comicVineId": 77995,
     "name": "Rufus",
+    "source": "COMIC_VINE",
+    "sourceId": "77995",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-77995/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-2761/",
-    "comicVineId": 2761,
     "name": "Stevie Wonder",
+    "source": "COMIC_VINE",
+    "sourceId": "2761",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-2761/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-2054/",
-    "comicVineId": 2054,
     "name": "Ted Kord",
+    "source": "COMIC_VINE",
+    "sourceId": "2054",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-2054/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-78058/",
-    "comicVineId": 78058,
     "name": "Tricia Denning",
+    "source": "COMIC_VINE",
+    "sourceId": "78058",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-78058/",
+    },
     "type": "character",
   },
 ]
@@ -124,9 +174,12 @@ Array [
 exports[`issue includes sub resources: 30000 Issue Concepts 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/concept/4015-55916/",
-    "comicVineId": 55916,
     "name": "Deconstruction",
+    "source": "COMIC_VINE",
+    "sourceId": "55916",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/concept/4015-55916/",
+    },
     "type": "concept",
   },
 ]
@@ -135,9 +188,12 @@ Array [
 exports[`issue includes sub resources: 30000 Issue Locations 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/location/4020-55716/",
-    "comicVineId": 55716,
     "name": "California",
+    "source": "COMIC_VINE",
+    "sourceId": "55716",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/location/4020-55716/",
+    },
     "type": "location",
   },
 ]
@@ -148,66 +204,87 @@ exports[`issue includes sub resources: 30000 Issue Objects 1`] = `Array []`;
 exports[`issue includes sub resources: 30000 Issue People 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-9976/",
-    "comicVineId": 9976,
     "name": "Brian Bolland",
     "roles": Array [
       "cover",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "9976",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-9976/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-30962/",
-    "comicVineId": 30962,
     "name": "Charles Truog",
     "roles": Array [
       "penciler",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "30962",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-30962/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-19236/",
-    "comicVineId": 19236,
     "name": "Doug Hazlewood",
     "roles": Array [
       "inker",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "19236",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-19236/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-40434/",
-    "comicVineId": 40434,
     "name": "Grant Morrison",
     "roles": Array [
       "writer",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "40434",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-40434/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-9421/",
-    "comicVineId": 9421,
     "name": "John Costanza",
     "roles": Array [
       "letterer",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "9421",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-9421/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-43437/",
-    "comicVineId": 43437,
     "name": "Karen Berger",
     "roles": Array [
       "editor",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "43437",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-43437/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-8294/",
-    "comicVineId": 8294,
     "name": "Tatjana Wood",
     "roles": Array [
       "colorist",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "8294",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-8294/",
+    },
     "type": "person",
   },
 ]
@@ -218,9 +295,12 @@ exports[`issue includes sub resources: 30000 Issue Story arcs 1`] = `Array []`;
 exports[`issue includes sub resources: 30000 Issue Teams 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/team/4060-56686/",
-    "comicVineId": 56686,
     "name": "S.T.A.R. Labs",
+    "source": "COMIC_VINE",
+    "sourceId": "56686",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/team/4060-56686/",
+    },
     "type": "team",
   },
 ]
@@ -229,57 +309,84 @@ Array [
 exports[`issue includes sub resources: 110227 Issue Characters 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-19173/",
-    "comicVineId": 19173,
     "name": "Bea Carroll",
+    "source": "COMIC_VINE",
+    "sourceId": "19173",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-19173/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-61560/",
-    "comicVineId": 61560,
     "name": "Butch Matson",
+    "source": "COMIC_VINE",
+    "sourceId": "61560",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-61560/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-23939/",
-    "comicVineId": 23939,
     "name": "George Taylor",
+    "source": "COMIC_VINE",
+    "sourceId": "23939",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-23939/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-3617/",
-    "comicVineId": 3617,
     "name": "Jonathan Kent",
+    "source": "COMIC_VINE",
+    "sourceId": "3617",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-3617/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-1808/",
-    "comicVineId": 1808,
     "name": "Lois Lane",
+    "source": "COMIC_VINE",
+    "sourceId": "1808",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-1808/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-19174/",
-    "comicVineId": 19174,
     "name": "Lola Cortez",
+    "source": "COMIC_VINE",
+    "sourceId": "19174",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-19174/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-3618/",
-    "comicVineId": 3618,
     "name": "Martha Kent",
+    "source": "COMIC_VINE",
+    "sourceId": "3618",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-3618/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-19175/",
-    "comicVineId": 19175,
     "name": "Stanislaw Kober",
+    "source": "COMIC_VINE",
+    "sourceId": "19175",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-19175/",
+    },
     "type": "character",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/character/4005-1807/",
-    "comicVineId": 1807,
     "name": "Superman",
+    "source": "COMIC_VINE",
+    "sourceId": "1807",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/character/4005-1807/",
+    },
     "type": "character",
   },
 ]
@@ -288,27 +395,39 @@ Array [
 exports[`issue includes sub resources: 110227 Issue Concepts 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/concept/4015-55820/",
-    "comicVineId": 55820,
     "name": "Golden Age of Comics",
+    "source": "COMIC_VINE",
+    "sourceId": "55820",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/concept/4015-55820/",
+    },
     "type": "concept",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/concept/4015-43734/",
-    "comicVineId": 43734,
     "name": "Homage Covers",
+    "source": "COMIC_VINE",
+    "sourceId": "43734",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/concept/4015-43734/",
+    },
     "type": "concept",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/concept/4015-55832/",
-    "comicVineId": 55832,
     "name": "Origin Story",
+    "source": "COMIC_VINE",
+    "sourceId": "55832",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/concept/4015-55832/",
+    },
     "type": "concept",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/concept/4015-56278/",
-    "comicVineId": 56278,
     "name": "Reprinted Material",
+    "source": "COMIC_VINE",
+    "sourceId": "56278",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/concept/4015-56278/",
+    },
     "type": "concept",
   },
 ]
@@ -317,21 +436,30 @@ Array [
 exports[`issue includes sub resources: 110227 Issue Locations 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/location/4020-30670/",
-    "comicVineId": 30670,
     "name": "Krypton",
+    "source": "COMIC_VINE",
+    "sourceId": "30670",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/location/4020-30670/",
+    },
     "type": "location",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/location/4020-41184/",
-    "comicVineId": 41184,
     "name": "Metropolis",
+    "source": "COMIC_VINE",
+    "sourceId": "41184",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/location/4020-41184/",
+    },
     "type": "location",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/location/4020-55733/",
-    "comicVineId": 55733,
     "name": "Smallville",
+    "source": "COMIC_VINE",
+    "sourceId": "55733",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/location/4020-55733/",
+    },
     "type": "location",
   },
 ]
@@ -340,9 +468,12 @@ Array [
 exports[`issue includes sub resources: 110227 Issue Objects 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/object/4055-56618/",
-    "comicVineId": 56618,
     "name": "Kal-El's Spaceship",
+    "source": "COMIC_VINE",
+    "sourceId": "56618",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/object/4055-56618/",
+    },
     "type": "object",
   },
 ]
@@ -351,17 +482,18 @@ Array [
 exports[`issue includes sub resources: 110227 Issue People 1`] = `
 Array [
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-40754/",
-    "comicVineId": 40754,
     "name": "Jerry Siegel",
     "roles": Array [
       "writer",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "40754",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-40754/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-40755/",
-    "comicVineId": 40755,
     "name": "Joe Shuster",
     "roles": Array [
       "penciler",
@@ -369,15 +501,23 @@ Array [
       "inker",
       "cover",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "40755",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-40755/",
+    },
     "type": "person",
   },
   Object {
-    "comicVineApiUrl": "https://comicvine.gamespot.com/api/person/4040-43614/",
-    "comicVineId": 43614,
     "name": "Vincent Sullivan",
     "roles": Array [
       "editor",
     ],
+    "source": "COMIC_VINE",
+    "sourceId": "43614",
+    "sourceMetadata": Object {
+      "apiUrl": "https://comicvine.gamespot.com/api/person/4040-43614/",
+    },
     "type": "person",
   },
 ]
