@@ -8,6 +8,7 @@ import schema from './schema'
 import { ActionContext, GraphqlContext } from './types'
 import { createLoaders } from './loaders'
 import { updateLibrary } from './actions/updateLibrary'
+import { collectionFiles } from './actions/collectionFiles'
 import { createUpdateLibraryListener } from './listeners/createUpdateLibraryListener'
 
 interface ServerOptions {
@@ -43,11 +44,6 @@ export default async ({ library }: ServerOptions) => {
   const imagesDirectory = await library.config.getImagesDirectory()
   app.use('/assets/images', express.static(imagesDirectory!))
 
-  const collections = await library.collections()
-  collections.forEach(collection =>
-    app.use(`/collections${collection.path}`, express.static(collection.path))
-  )
-
   app.use(async (_req, res, next) => {
     const context: ActionContext = {
       library,
@@ -59,6 +55,7 @@ export default async ({ library }: ServerOptions) => {
     next()
   })
 
+  app.get(`/collection-files`, collectionFiles)
   app.post('/update-library', updateLibrary)
 
   const apollo = new ApolloServer({

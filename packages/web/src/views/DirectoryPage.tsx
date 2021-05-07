@@ -26,7 +26,7 @@ export const DirectoryPageView = ({
           loading={loading}
           onClickComic={async comic => {
             const selectedFile = data?.entries.find(entry => entry.fileName === comic.title)
-            const res = await fetch(`${COLLECTIONS_HOST}${selectedFile?.filePath}`)
+            const res = await fetch(`${FILES_HOST}?filePath=${selectedFile?.filePath}`)
             const blob = await res.blob()
             ;(blob as any).name = comic.title
             ;(blob as any).lastModified = 0
@@ -44,7 +44,7 @@ export const DirectoryPageView = ({
 }
 
 const IMAGE_HOST = 'http://localhost:4000/assets/images/small'
-const COLLECTIONS_HOST = 'http://localhost:4000/collections'
+const FILES_HOST = 'http://localhost:4000/collection-files'
 
 export const ENTRIES_QUERY = gql`
   query run($entriesInput: EntriesQuery!, $directoryInput: DirectoryQuery!) {
