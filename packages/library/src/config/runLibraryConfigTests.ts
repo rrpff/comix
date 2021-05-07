@@ -1,5 +1,6 @@
-import { LibraryConfig, LibraryEntry } from '../protocols'
+import { LibraryConfig, LibraryEntry, LibraryIssue } from '../protocols'
 import { fixturePath } from '../../test/helpers'
+import { generateCredit, generateEntry, generateIssue, generatePersonCredit, generateVolume, list } from '../../test/generators'
 
 export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   let subject: LibraryConfig
@@ -48,8 +49,8 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it.each([
-    createEntry({ filePath: fixturePath('wytches-sample.cbz') }),
-    createEntry({ filePath: fixturePath('phonogram-sample.cbr') }),
+    generateEntry({ filePath: fixturePath('wytches-sample.cbz') }),
+    generateEntry({ filePath: fixturePath('phonogram-sample.cbr') }),
   ])('supports storing entries', async (entry) => {
     await subject.createCollection({ name: 'a', path: '/collection-a' })
     await subject.setEntry('/collection-a', entry.filePath, entry)
@@ -76,7 +77,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
 
   it('deletes collection entries when deleting a collection', async () => {
     await subject.createCollection({ path: 'home-comics', name: 'home' })
-    await subject.setEntry('home-comics', 'entry-a', createEntry())
+    await subject.setEntry('home-comics', 'entry-a', generateEntry())
     await subject.deleteCollection('home-comics')
 
     await expect(subject.getEntry('home-comics', 'entry-a')).rejects
@@ -84,8 +85,8 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it('only deletes entries for the deleted collection', async () => {
-    const appleEntry = createEntry()
-    const grapeEntry = createEntry()
+    const appleEntry = generateEntry()
+    const grapeEntry = generateEntry()
 
     await subject.createCollection({ path: '/apples', name: 'apples' })
     await subject.createCollection({ path: '/grapes', name: 'grapes' })
@@ -103,7 +104,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
 
   it('can delete entries', async () => {
     await subject.createCollection({ path: 'home-comics', name: 'home' })
-    await subject.setEntry('home-comics', 'entry-a', createEntry())
+    await subject.setEntry('home-comics', 'entry-a', generateEntry())
     await subject.deleteEntry('home-comics', 'entry-a')
 
     await expect(subject.getEntry('home-comics', 'entry-a')).rejects
@@ -116,7 +117,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it('throws an error when creating an entry in a collection that does not exist', async () => {
-    const call = subject.setEntry('real-collection', 'fake-entry', createEntry())
+    const call = subject.setEntry('real-collection', 'fake-entry', generateEntry())
 
     await expect(call).rejects.toEqual(new Error('Collection "real-collection" does not exist'))
   })
@@ -137,7 +138,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it('can get all entries in a collection', async () => {
-    const entries = [createEntry(), createEntry()]
+    const entries = [generateEntry(), generateEntry()]
 
     await subject.createCollection({ path: '/wonder-woman', name: 'wonder woman' })
     await subject.setEntry('/wonder-woman', entries[0].filePath, entries[0])
@@ -152,7 +153,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it('only returns entries in that collection', async () => {
-    const entries = [createEntry(), createEntry()]
+    const entries = [generateEntry(), generateEntry()]
 
     await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
     await subject.createCollection({ path: '/black-hole', name: 'black hole' })
@@ -163,7 +164,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   })
 
   it('updates entries when setting them again', async () => {
-    const original = createEntry()
+    const original = generateEntry()
     const updated = { ...original, fileName: 'changed!!!!' }
 
     await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
@@ -171,6 +172,262 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     await subject.setEntry('/rachel-rising', original.filePath, updated)
 
     expect(await subject.getEntry('/rachel-rising', original.filePath)).toEqual(updated)
+  })
+
+  it('creates an issue when creating an entry with a new issue', async () => {
+    const issue = generateIssue()
+    const entry = generateEntry({ issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entry.filePath, entry)
+
+    const retrievedIssue = await subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+    expect(retrievedIssue).toMatchObject(issue)
+    expect(retrievedIssue.entries).toContainEqual({ collectionPath: '/rachel-rising', entry: { ...entry, issue: undefined } })
+  })
+
+  it('updates an issue when creating an entry with an existing issue', async () => {
+    const issue = generateIssue()
+    const other = generateEntry({ filePath: 'other.cbz', issue })
+    const original = generateEntry({ filePath: 'original.cbz', issue })
+    const updated = generateEntry({ filePath: 'updated.cbz', issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', other.filePath, other)
+    await subject.setEntry('/rachel-rising', original.filePath, original)
+    await subject.setEntry('/rachel-rising', original.filePath, updated)
+
+    const retrievedIssue = await subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+    expect(retrievedIssue).toMatchObject(issue)
+    expect(retrievedIssue.entries).toHaveLength(2)
+    expect(retrievedIssue.entries).toContainEqual({ collectionPath: '/rachel-rising', entry: { ...other, issue: undefined } })
+    expect(retrievedIssue.entries).toContainEqual({ collectionPath: '/rachel-rising', entry: { ...updated, issue: undefined } })
+  })
+
+  it.each([
+    { creditKey: 'characters', generate: () => list(() => generateCredit({ type: 'character' })) },
+    { creditKey: 'concepts', generate: () => list(() => generateCredit({ type: 'concept' })) },
+    { creditKey: 'locations', generate: () => list(() => generateCredit({ type: 'location' })) },
+    { creditKey: 'objects', generate: () => list(() => generateCredit({ type: 'object' })) },
+    { creditKey: 'people', generate: () => list(() => generatePersonCredit()) },
+    { creditKey: 'storyArcs', generate: () => list(() => generateCredit({ type: 'storyArc' })) },
+    { creditKey: 'teams', generate: () => list(() => generateCredit({ type: 'team' })) },
+  ])('creates credits when creating entries with issues', async ({ creditKey, generate }) => {
+    const credits = generate()
+    const issue = generateIssue({ [creditKey]: credits })
+    const entry = generateEntry({ issue })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.setEntry('/cool', entry.filePath, entry)
+
+    expect.assertions(1 + credits.length)
+
+    const retrievedIssue = await subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+    expect(retrievedIssue[creditKey as keyof LibraryIssue]).toEqual(expect.arrayContaining(credits))
+
+    await Promise.all(credits.map(async credit => {
+      const retrievedCredit = await subject.getCredit({ source: credit.source, sourceId: credit.sourceId })
+      expect(retrievedCredit).toMatchObject({
+        ...credit,
+        issues: [{
+          ...issue,
+          characters: undefined,
+          concepts: undefined,
+          locations: undefined,
+          objects: undefined,
+          people: undefined,
+          storyArcs: undefined,
+          teams: undefined,
+        }]
+      })
+    }))
+  })
+
+  it.each([
+    { creditKey: 'characters', generate: () => list(() => generateCredit({ type: 'character' })) },
+    { creditKey: 'concepts', generate: () => list(() => generateCredit({ type: 'concept' })) },
+    { creditKey: 'locations', generate: () => list(() => generateCredit({ type: 'location' })) },
+    { creditKey: 'objects', generate: () => list(() => generateCredit({ type: 'object' })) },
+    { creditKey: 'people', generate: () => list(() => generatePersonCredit()) },
+    { creditKey: 'storyArcs', generate: () => list(() => generateCredit({ type: 'storyArc' })) },
+    { creditKey: 'teams', generate: () => list(() => generateCredit({ type: 'team' })) },
+  ])('updates credits when creating entries with issues with the same credits', async ({ creditKey, generate }) => {
+    const credits = generate()
+    const issueOne = generateIssue({ [creditKey]: credits })
+    const issueTwo = generateIssue({ [creditKey]: credits })
+    const entryOne = generateEntry({ issue: issueOne })
+    const entryTwo = generateEntry({ issue: issueTwo })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.setEntry('/cool', entryOne.filePath, entryOne)
+    await subject.setEntry('/cool', entryTwo.filePath, entryTwo)
+
+    expect.assertions(1 + credits.length * 3)
+
+    const retrievedIssueOne = await subject.getIssue({ source: issueOne.source, sourceId: issueOne.sourceId })
+    expect(retrievedIssueOne[creditKey as keyof LibraryIssue]).toEqual(expect.arrayContaining(credits))
+
+    await Promise.all(credits.map(async credit => {
+      const retrievedCredit = await subject.getCredit({ source: credit.source, sourceId: credit.sourceId })
+      const retrievedCreditIssues = retrievedCredit.issues?.map(issue => issue.sourceId)
+
+      expect(retrievedCreditIssues).toHaveLength(2)
+      expect(retrievedCreditIssues).toContain(issueOne.sourceId)
+      expect(retrievedCreditIssues).toContain(issueTwo.sourceId)
+    }))
+  })
+
+  it('removing an entry removes associated issues', async () => {
+    const issue = generateIssue()
+    const entry = generateEntry({ issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entry.filePath, entry)
+    await subject.deleteEntry('/rachel-rising', entry.filePath)
+
+    const call = subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+
+    await expect(call).rejects.toEqual(new Error(`Issue "${issue.source}:${issue.sourceId}" does not exist`))
+  })
+
+  it('removing an entry removes associated issues unless another entry references them', async () => {
+    const volume = generateVolume({ sourceId: 'test volume' }) // TODO: remove me
+    const issue = generateIssue({ volume })
+    const entryOne = generateEntry({ filePath: 'first.cbz', issue })
+    const entryTwo = generateEntry({ filePath: 'second.cbz', issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entryOne.filePath, entryOne)
+    await subject.setEntry('/rachel-rising', entryTwo.filePath, entryTwo)
+    await subject.deleteEntry('/rachel-rising', entryOne.filePath)
+
+    const retrieved = await subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+
+    expect(retrieved).toMatchObject(issue)
+    expect(retrieved.entries).toHaveLength(1)
+  })
+
+  it('removing an issue removes associated credits', async () => {
+    const credit = generatePersonCredit()
+    const issue = generateIssue({ people: [credit] })
+    const entry = generateEntry({ filePath: 'first.cbz', issue: issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entry.filePath, entry)
+    await subject.deleteEntry('/rachel-rising', entry.filePath)
+
+    const call = subject.getCredit({ source: credit.source, sourceId: credit.sourceId })
+
+    await expect(call).rejects.toEqual(new Error(`Credit "${credit.source}:${credit.sourceId}" does not exist`))
+  })
+
+  it('removing an issue removes associated credits unless another issue references them', async () => {
+    const credit = generatePersonCredit()
+    const issueOne = generateIssue({ people: [credit] })
+    const issueTwo = generateIssue({ people: [credit] })
+    const entryOne = generateEntry({ filePath: 'first.cbz', issue: issueOne })
+    const entryTwo = generateEntry({ filePath: 'second.cbz', issue: issueTwo })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entryOne.filePath, entryOne)
+    await subject.setEntry('/rachel-rising', entryTwo.filePath, entryTwo)
+    await subject.deleteEntry('/rachel-rising', entryOne.filePath)
+
+    const retrieved = await subject.getCredit({ source: credit.source, sourceId: credit.sourceId })
+
+    expect(retrieved).toMatchObject(credit)
+    expect(retrieved.issues).toHaveLength(1)
+  })
+
+  it('creates a volume when creating an issue with a volume', async () => {
+    const volume = generateVolume()
+    const issue = generateIssue({ volume })
+    const entry = generateEntry({ issue })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.setEntry('/cool', entry.filePath, entry)
+
+    const retrievedIssue = await subject.getIssue({ source: issue.source, sourceId: issue.sourceId })
+    expect(retrievedIssue.volume).toEqual(volume)
+
+    const retrievedVolume = await subject.getVolume({ source: volume.source, sourceId: volume.sourceId })
+    expect(retrievedVolume).toMatchObject({
+      ...volume,
+      issues: [{
+        ...issue,
+        volume: undefined,
+        characters: undefined,
+        concepts: undefined,
+        locations: undefined,
+        objects: undefined,
+        people: undefined,
+        storyArcs: undefined,
+        teams: undefined,
+      }]
+    })
+  })
+
+  it('updates volumes when creating issues with the volume', async () => {
+    const volume = generateVolume()
+    const issueOne = generateIssue({ volume })
+    const issueTwo = generateIssue({ volume })
+    const entryOne = generateEntry({ issue: issueOne })
+    const entryTwo = generateEntry({ issue: issueTwo })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.setEntry('/cool', entryOne.filePath, entryOne)
+    await subject.setEntry('/cool', entryTwo.filePath, entryTwo)
+
+    const retrievedVolume = await subject.getVolume({ source: volume.source, sourceId: volume.sourceId })
+    const retrievedVolumeIssues = retrievedVolume.issues!.map(issue => issue.sourceId)
+
+    expect(retrievedVolumeIssues).toHaveLength(2)
+    expect(retrievedVolumeIssues).toContain(issueOne.sourceId)
+    expect(retrievedVolumeIssues).toContain(issueTwo.sourceId)
+  })
+
+  it('removing an entry removes associated volumes', async () => {
+    const volume = generateVolume()
+    const issue = generateIssue({ volume })
+    const entry = generateEntry({ issue })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entry.filePath, entry)
+    await subject.deleteEntry('/rachel-rising', entry.filePath)
+
+    const call = subject.getVolume({ source: volume.source, sourceId: volume.sourceId })
+
+    await expect(call).rejects.toEqual(new Error(`Volume "${volume.source}:${volume.sourceId}" does not exist`))
+  })
+
+  it('removing an entry removes associated volumes unless another entries issue references them', async () => {
+    const volume = generateVolume()
+    const issueOne = generateIssue({ volume })
+    const issueTwo = generateIssue({ volume })
+    const entryOne = generateEntry({ filePath: 'first.cbz', issue: issueOne })
+    const entryTwo = generateEntry({ filePath: 'second.cbz', issue: issueTwo })
+
+    await subject.createCollection({ path: '/rachel-rising', name: 'rachel rising' })
+    await subject.setEntry('/rachel-rising', entryOne.filePath, entryOne)
+    await subject.setEntry('/rachel-rising', entryTwo.filePath, entryTwo)
+    await subject.deleteEntry('/rachel-rising', entryOne.filePath)
+
+    const retrieved = await subject.getVolume({ source: volume.source, sourceId: volume.sourceId })
+
+    expect(retrieved).toMatchObject({
+      ...volume,
+      issues: [{
+        ...issueTwo,
+        volume: undefined,
+        characters: undefined,
+        concepts: undefined,
+        locations: undefined,
+        objects: undefined,
+        people: undefined,
+        storyArcs: undefined,
+        teams: undefined,
+      }]
+    })
   })
 
   it('can update collections', async () => {
@@ -188,7 +445,7 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
   it('repaths entries when moving a collection', async () => {
     const originalCollection = { path: '/comics', name: 'Comics' }
     const updatedCollection = { path: '/media/comics', name: 'Comics' }
-    const originalEntry = createEntry({ filePath: '/comics/file.cbr' })
+    const originalEntry = generateEntry({ filePath: '/comics/file.cbr' })
     const updatedEntry = { ...originalEntry, filePath: '/media/comics/file.cbr' }
 
     await subject.createCollection(originalCollection)
@@ -207,19 +464,4 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     await expect(subject.getEntry('/media/comics', '/comics/file.cbr')).rejects
       .toEqual(new Error('Entry "/comics/file.cbr" in "/media/comics" does not exist'))
   })
-}
-
-export function createEntry(overrides: Partial<LibraryEntry> = {}): LibraryEntry {
-  const filename = `example-comic-${Math.random()}.cbz`
-
-  return {
-    fileName: filename,
-    filePath: fixturePath(filename),
-    fileLastModified: 123,
-    fileLastProcessed: 456,
-    corrupt: false,
-    coverFileName: undefined,
-    adaptions: [],
-    ...overrides
-  }
 }
