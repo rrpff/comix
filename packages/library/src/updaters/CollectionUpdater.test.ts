@@ -8,6 +8,7 @@ import { diff } from '@comix/scan-directory'
 let t: TestHarness
 beforeEach(() => {
   t = new TestHarness()
+  jest.restoreAllMocks()
 })
 
 it('creates an entry in config when there is a new file', async () => {
@@ -57,6 +58,36 @@ it('processes a changed file again if it deferred once', async () => {
   expect(t.metadata).toHaveBeenCalledTimes(2)
   expect(t.metadata).toHaveBeenCalledWith(expect.anything(), false)
   expect(t.metadata).toHaveBeenLastCalledWith(expect.anything(), true)
+})
+
+it('continues processing if a new entry errors', async () => {
+  jest.spyOn(console, 'error').mockImplementation(() => {})
+
+  const { entry: entry1 } = t.addCreatedFileToCollectionDirectory()
+  const { entry: entry2 } = t.addCreatedFileToCollectionDirectory()
+
+  t.errorInMetadataCallFor(entry1)
+
+  await t.runUpdater()
+
+  expect(t.metadata).toHaveBeenCalledTimes(2)
+  expect(t.metadata).toHaveBeenCalledWith(expect.objectContaining({ path: entry1.filePath }), false)
+  expect(t.metadata).toHaveBeenCalledWith(expect.objectContaining({ path: entry2.filePath }), false)
+})
+
+it('continues processing if a changed entry errors', async () => {
+  jest.spyOn(console, 'error').mockImplementation(() => {})
+
+  const { changed: entry1 } = await t.changeFileInCollectionDirectory()
+  const { changed: entry2 } = await t.changeFileInCollectionDirectory()
+
+  t.errorInMetadataCallFor(entry1)
+
+  await t.runUpdater()
+
+  expect(t.metadata).toHaveBeenCalledTimes(2)
+  expect(t.metadata).toHaveBeenCalledWith(expect.objectContaining({ path: entry1.filePath }), false)
+  expect(t.metadata).toHaveBeenCalledWith(expect.objectContaining({ path: entry2.filePath }), false)
 })
 
 it('removes deleted files from config', async () => {
@@ -152,6 +183,21 @@ class TestHarness {
 
   public returnRepeatFromMetadata(entry: LibraryEntry) {
     this.metadatas[entry.filePath] = { entry, repeat: true }
+  }
+
+  public errorInMetadataCallFor(entry: LibraryEntry) {
+    this.metadata = jest.fn(async (stat: FileStat) => {
+      if (stat.path === entry.filePath) throw new Error('something bad went wrong')
+      return this.metadatas[stat.path]
+    })
+
+    this.updater = new CollectionUpdater({
+      getMetadataForFile: this.metadata,
+      scanDirectory: async (path: string, knownFiles: FileStat[]) => {
+        if (path !== this.collectionPath) throw new Error('Scanning the wrong directory')
+        return diff(this.filesInCollectionDirectory, knownFiles)
+      }
+    })
   }
 
   public async changeFileInCollectionDirectory() {

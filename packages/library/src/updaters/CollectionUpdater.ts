@@ -22,26 +22,34 @@ export class CollectionUpdater extends EventEmitter implements ComicCollectionUp
     const hasRepeated = (stat: FileStat) => repeatedFiles.includes(stat.path)
 
     await sequence(diff.created, async stat => {
-      const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
-      await library.config.setEntry(collection.path, stat.path, state.entry)
+      try {
+        const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
+        await library.config.setEntry(collection.path, stat.path, state.entry)
 
-      if (state.repeat && !hasRepeated(stat)) {
-        repeatedFiles.push(stat.path)
-        diff.created.push(stat)
-      } else {
-        this.emit('update', 'create', stat.path, state.entry)
+        if (state.repeat && !hasRepeated(stat)) {
+          repeatedFiles.push(stat.path)
+          diff.created.push(stat)
+        } else {
+          this.emit('update', 'create', stat.path, state.entry)
+        }
+      } catch (e) {
+        console.error(e)
       }
     })
 
     await sequence(diff.changed, async stat => {
-      const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
-      await library.config.setEntry(collection.path, stat.path, state.entry)
+      try {
+        const state = await this.config.getMetadataForFile(stat, hasRepeated(stat))
+        await library.config.setEntry(collection.path, stat.path, state.entry)
 
-      if (state.repeat && !hasRepeated(stat)) {
-        repeatedFiles.push(stat.path)
-        diff.changed.push(stat)
-      } else {
-        this.emit('update', 'change', stat.path, state.entry)
+        if (state.repeat && !hasRepeated(stat)) {
+          repeatedFiles.push(stat.path)
+          diff.changed.push(stat)
+        } else {
+          this.emit('update', 'change', stat.path, state.entry)
+        }
+      } catch (e) {
+        console.error(e)
       }
     })
 
