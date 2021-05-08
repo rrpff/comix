@@ -2,6 +2,7 @@ import { homedir } from 'os'
 import path from 'path'
 import { FileLibraryConfig, Library } from '@comix/library'
 import createServer from './server'
+require('dotenv').config()
 
 const PORT = process.env.PORT || 4000
 const CONFIG_PATH = path.join(homedir(), '.comix', 'library.db')

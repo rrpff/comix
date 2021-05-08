@@ -2,9 +2,10 @@ import { Comic } from '@comix/parser'
 import { Library, LibraryCollection, LibraryEntry, MetadataAdapter, MetadataAdapterResult } from '@comix/library'
 import { guessComicVineIssueForEntry } from './generators/guessComicVineIssueForEntry'
 import { ComicVineGateway } from './gateways/ComicVineGateway'
-import { runEffectGenerator } from 'typed-effects'
+import { EffectCall, runEffectGenerator } from 'typed-effects'
 import { getFirstIssueForEntry } from './lib/getFirstIssueForEntry'
 import { compareEntryToResults } from './lib/compareEntryToResults'
+import { parseComicTitleForEntry } from './lib/parseComicTitleForEntry'
 import {
   COMPARE_ENTRY_TO_RESULTS,
   DEFER,
@@ -16,18 +17,18 @@ import {
   VOLUME,
   SLEEP,
 } from './effects'
-import { parseComicTitleForEntry } from './lib/parseComicTitleForEntry'
 
 export interface ComicVineMetadataAdapterConfig {
-  host: string
-  apiKey: string
+  comicVine: ComicVineGateway
 }
+
+export { ComicVineGateway } from './gateways/ComicVineGateway'
 
 export class ComicVineMetadataAdapter implements MetadataAdapter {
   private comicVine: ComicVineGateway
 
-  constructor(private options: ComicVineMetadataAdapterConfig) {
-    this.comicVine = new ComicVineGateway(this.options.host, this.options.apiKey)
+  constructor(options: ComicVineMetadataAdapterConfig) {
+    this.comicVine = options.comicVine
   }
 
   async process(

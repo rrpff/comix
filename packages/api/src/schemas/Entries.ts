@@ -1,6 +1,11 @@
 import { gql } from 'graphql-tag'
 
 export default gql`
+  type LibraryCollectionEntry {
+    collection: LibraryCollectionRef!
+    entry: LibraryEntry!
+  }
+
   type LibraryEntry {
     fileName: String!
     filePath: String!

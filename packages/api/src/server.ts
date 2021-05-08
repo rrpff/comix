@@ -2,8 +2,7 @@ import http from 'http'
 import { ApolloServer, PubSub } from 'apollo-server-express'
 import express from 'express'
 import cors from 'cors'
-import { CollectionUpdater, CoverMetadataAdapter, Library, LibraryUpdater, metadata } from '@comix/library'
-import { scanDirectory } from '@comix/scan-directory'
+import { Library, LibraryUpdater } from '@comix/library'
 import schema from './schema'
 import { ActionContext, GraphqlContext } from './types'
 import { createLoaders } from './loaders'
@@ -16,23 +15,7 @@ interface ServerOptions {
 }
 
 export default async ({ library }: ServerOptions) => {
-  const imagesDirPath = await library.config.getImagesDirectory()
-  if (imagesDirPath === null) throw new Error('Missing images directory')
-
-  const updater = new LibraryUpdater(library, {
-    collectionUpdater: new CollectionUpdater({
-      getMetadataForFile: async (stat) => {
-        return await metadata(stat, [
-          new CoverMetadataAdapter({
-            imageDirectory: imagesDirPath
-          }),
-        ])
-      },
-      scanDirectory: async (dir, knownFiles) => {
-        return await scanDirectory(dir, ['cbr', 'cbz'], knownFiles)
-      }
-    })
-  })
+  const updater = new LibraryUpdater(library)
 
   const app = express()
   const pubsub = new PubSub()

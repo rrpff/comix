@@ -1,10 +1,12 @@
-import { LibraryCollection, LibraryEntry } from '@comix/library'
+import { LibraryCollection, LibraryCreditBase, LibraryCreditPerson, LibraryEntry, LibraryIssue, LibraryVolume } from '@comix/library'
 import faker from 'faker'
 
 export const optional = <T>(fn: () => T): T | undefined =>
   Math.random() > 0.5 ? fn() : undefined
 
-export const pick = faker.random.arrayElement.bind(faker.random)
+export const pick = <T>(arr: T[]): T => {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
 
 export const list = <T>(fn: () => T, numElements: number = 3) => {
   const results = [] as T[]
@@ -17,7 +19,7 @@ export const generateCollection = (): LibraryCollection => ({
   path: faker.system.filePath(),
 })
 
-export const generateEntry = (): LibraryEntry => ({
+export const generateEntry = (overrides: Partial<LibraryEntry> = {}): LibraryEntry => ({
   fileName: faker.system.fileName(),
   filePath: faker.system.fileName(),
   fileLastModified: faker.date.past().getTime(),
@@ -26,5 +28,56 @@ export const generateEntry = (): LibraryEntry => ({
   coverFileName: faker.system.fileName() + '.jpg',
   volumeName: optional(faker.lorem.sentence),
   volumeYear: optional(() => faker.date.past().getFullYear()),
-  adaptions: []
+  adaptions: [],
+  ...overrides,
 })
+
+export const generateIssue = (overrides: Partial<LibraryIssue> = {}): LibraryIssue => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    sourceMetadata: {},
+    volume: generateVolume(),
+    coverDate: faker.datatype.datetime(),
+    issueNumber: faker.datatype.number(),
+    imageUrl: undefined,
+    name: faker.lorem.sentence(),
+    characters: [],
+    concepts: [],
+    locations: [],
+    objects: [],
+    people: [],
+    storyArcs: [],
+    teams: [],
+    ...overrides,
+  }
+}
+
+export const generateVolume = (overrides: Partial<LibraryVolume> = {}): LibraryVolume => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    name: faker.lorem.sentence(),
+    issues: undefined,
+    ...overrides,
+  }
+}
+
+export const generatePersonCredit = (overrides: Partial<LibraryCreditPerson> = {}): LibraryCreditPerson => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: 'person',
+    roles: list(faker.lorem.word),
+    ...overrides || {},
+  }
+}
+
+export const generateCredit = (overrides?: Partial<LibraryCreditBase>): LibraryCreditBase => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
+    ...overrides || {},
+  }
+}
