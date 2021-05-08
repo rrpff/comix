@@ -3,7 +3,7 @@ import { LibraryCollection, LibraryConfig, LibraryEntry, MetadataResult } from '
 import { Library } from '../lib/Library'
 import { InMemoryLibraryConfig } from '../config/InMemoryLibraryConfig'
 import { CollectionUpdater } from './CollectionUpdater'
-import { diff } from '@comix/scan-directory'
+import { diff as createDiff } from '@comix/scan-directory'
 
 let t: TestHarness
 beforeEach(() => {
@@ -150,10 +150,6 @@ class TestHarness {
   public metadata = jest.fn(async (stat) => this.metadatas[stat.path])
   public updater: CollectionUpdater = new CollectionUpdater({
     getMetadataForFile: this.metadata,
-    scanDirectory: async (path: string, knownFiles: FileStat[]) => {
-      if (path !== this.collectionPath) throw new Error('Scanning the wrong directory')
-      return diff(this.filesInCollectionDirectory, knownFiles)
-    }
   })
 
   private finishLoading: Promise<any> = Promise.resolve()
@@ -171,16 +167,6 @@ class TestHarness {
     this.filesInCollectionDirectory.push({ path, lastModified: 0 })
   }
 
-  public addCreatedFileToCollectionDirectory() {
-    const entry = createRandomEntry()
-    const stat = { path: entry.filePath, lastModified: 0 }
-
-    this.filesInCollectionDirectory.push(stat)
-    this.metadatas[entry.filePath] = { entry }
-
-    return { stat, entry }
-  }
-
   public returnRepeatFromMetadata(entry: LibraryEntry) {
     this.metadatas[entry.filePath] = { entry, repeat: true }
   }
@@ -193,11 +179,17 @@ class TestHarness {
 
     this.updater = new CollectionUpdater({
       getMetadataForFile: this.metadata,
-      scanDirectory: async (path: string, knownFiles: FileStat[]) => {
-        if (path !== this.collectionPath) throw new Error('Scanning the wrong directory')
-        return diff(this.filesInCollectionDirectory, knownFiles)
-      }
     })
+  }
+
+  public addCreatedFileToCollectionDirectory() {
+    const entry = createRandomEntry()
+    const stat = { path: entry.filePath, lastModified: 0 }
+
+    this.filesInCollectionDirectory.push(stat)
+    this.metadatas[entry.filePath] = { entry }
+
+    return { stat, entry }
   }
 
   public async changeFileInCollectionDirectory() {
@@ -223,6 +215,12 @@ class TestHarness {
 
   public async runUpdater() {
     await this.finishLoading
-    return await this.updater.update(this.library, this.collection)
+
+    const knownFiles = (await this.config.getEntries(this.collectionPath))
+      .map(entry => ({ path: entry.filePath, lastModified: entry.fileLastModified }))
+
+    const diff = createDiff(this.filesInCollectionDirectory, knownFiles)
+
+    return await this.updater.update(this.library, this.collection, diff, [])
   }
 }

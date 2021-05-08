@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events'
 import { Comic } from '@comix/parser'
+import { FileDiff } from '@comix/scan-directory'
 import { Library } from '../lib/Library'
 
 export interface MetadataAdapterResult {
@@ -177,10 +178,11 @@ export interface ComicLibrary {
   entries(collectionPath: string): Promise<LibraryEntry[]>
 }
 
-export interface ComicLibraryUpdater extends EventEmitter {
-  update(library: ComicLibrary): Promise<void>
-}
-
 export interface ComicCollectionUpdater extends EventEmitter {
-  update(library: ComicLibrary, collection: LibraryCollection): Promise<void>
+  update(
+    library: ComicLibrary,
+    collection: LibraryCollection,
+    diff: FileDiff,
+    adapters: MetadataAdapter[],
+  ): Promise<void>
 }

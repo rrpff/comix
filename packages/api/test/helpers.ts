@@ -1,3 +1,4 @@
+import path from 'path'
 import { graphql, print, subscribe, DocumentNode, ExecutionResult } from 'graphql'
 import { PubSub } from 'apollo-server-express'
 import { Library, InMemoryLibraryConfig } from '@comix/library'
@@ -9,6 +10,10 @@ interface GraphQLRequest {
   query: DocumentNode
   context: GraphqlContext
   variables: object
+}
+
+export const fixturePath = (...parts: string[]) => {
+  return path.join(__dirname, 'fixtures', ...parts)
 }
 
 export const graphqlRequest = async ({ query, context, variables }: GraphQLRequest) => {

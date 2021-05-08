@@ -28,6 +28,7 @@
   "dependencies": {
     "@comix/parser": "file:../parser",
     "@comix/scan-directory": "file:../scan-directory",
+    "is-subdir": "^1.2.0",
     "jimp": "^0.16.1",
     "mkdirp": "^1.0.4",
     "nedb-promises": "^4.1.2",

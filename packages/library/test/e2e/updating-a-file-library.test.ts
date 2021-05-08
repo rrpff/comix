@@ -13,7 +13,7 @@ import { fixturePath } from '../helpers'
 test('Creates entries for new files', async () => {
   const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
 
-  await t.updater.run()
+  await t.runUpdater()
 
   const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
   expect(wytchesEntry).toMatchObject({
@@ -25,7 +25,7 @@ test('Creates entries for new files', async () => {
 
 test('Saves cover images for new files', async () => {
   await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   const wytchesEntry = (await t.library.entries(t.collection.path))[0]!
   const savedImage = await fs.readFile(path.join(t.imageDir.path, 'small', wytchesEntry.coverFileName!))
@@ -35,10 +35,10 @@ test('Saves cover images for new files', async () => {
 
 test('Replaces cover images for changed files', async () => {
   const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   const entry = (await t.library.entries(t.collection.path))[0]!
   const savedImage = await fs.readFile(path.join(t.imageDir.path, 'small', entry.coverFileName!))
@@ -48,12 +48,12 @@ test('Replaces cover images for changed files', async () => {
 
 test('Deletes entries for removed files', async () => {
   const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   expect(await t.library.entries(t.collection.path)).toHaveLength(1)
 
   await t.deleteFileInCollectionDirectory(wytches.path)
-  await t.updater.run()
+  await t.runUpdater()
 
   expect(await t.library.entries(t.collection.path)).toHaveLength(0)
 })
@@ -63,19 +63,19 @@ test('Emits events while processing', async () => {
   t.updater.on('update', spy)
 
   const wytches = await t.copyFileToCollectionDirectory(fixturePath('wytches-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   const entriesAfterCreate = await t.library.entries(t.collection.path)
   expect(spy).toHaveBeenCalledWith('create', wytches.path, entriesAfterCreate[0])
 
   await t.replaceFileInCollectionDirectoryWith(wytches.path, fixturePath('phonogram-sample.cbz'))
-  await t.updater.run()
+  await t.runUpdater()
 
   const entriesAfterChange = await t.library.entries(t.collection.path)
   expect(spy).toHaveBeenCalledWith('change', wytches.path, entriesAfterChange[0])
 
   await t.deleteFileInCollectionDirectory(wytches.path)
-  await t.updater.run()
+  await t.runUpdater()
 
   expect(spy).toHaveBeenCalledWith('delete', wytches.path)
 })
@@ -104,22 +104,7 @@ const harness = async () => {
   })
 
   const library = new Library(config)
-  const updater = new LibraryUpdater(library, {
-    collectionUpdater: new CollectionUpdater({
-      getMetadataForFile: async (stat) => {
-        const adapters = [
-          new CoverMetadataAdapter({
-            imageDirectory: imageDir.path
-          })
-        ]
-
-        return await metadata(stat, adapters, collection, library, false)
-      },
-      scanDirectory: async (dir, knownFiles) => {
-        return await scanDirectory(dir, ['cbr', 'cbz'], knownFiles)
-      }
-    })
-  })
+  const updater = new LibraryUpdater(library)
 
   const copyFileToCollectionDirectory = async (localPath: string) => {
     const ext = path.extname(localPath)
@@ -148,6 +133,20 @@ const harness = async () => {
     await fs.rm(remotePath)
   }
 
+  const runUpdater = async () => {
+    const knownFiles = (await library.config.getEntries(collectionDir.path))
+      .map(entry => ({ path: entry.filePath, lastModified: entry.fileLastModified }))
+
+    const diff = await scanDirectory(collectionDir.path, ['cbr', 'cbz'], knownFiles)
+    const adapters = [
+      new CoverMetadataAdapter({
+        imageDirectory: imageDir.path
+      })
+    ]
+
+    return await updater.run(diff, adapters)
+  }
+
   const cleanup = () => Promise.all(teardowns)
 
   return {
@@ -158,6 +157,7 @@ const harness = async () => {
     copyFileToCollectionDirectory,
     replaceFileInCollectionDirectoryWith,
     deleteFileInCollectionDirectory,
+    runUpdater,
     imageDir,
     collectionDir,
     cleanup,
