@@ -386,6 +386,88 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
     })
   })
 
+  it('can read all volumes in a collection', async () => {
+    const volumes = list(generateVolume)
+    const issues = volumes.map(volume => generateIssue({ volume }))
+    issues.push(generateIssue({ volume: volumes[0]! }))
+    const entries = issues.map(issue => generateEntry({ issue }))
+    const otherEntry = generateEntry({ issue: generateIssue({ volume: generateVolume() }) })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.createCollection({ path: '/other', name: 'other comix' })
+
+    await Promise.all(entries.map(entry => subject.setEntry('/cool', entry.filePath, entry)))
+    await subject.setEntry('/other', otherEntry.filePath, otherEntry)
+
+    const retrievedVolumes = await subject.getVolumes('/cool')
+
+    expect(retrievedVolumes.length).toEqual(volumes.length)
+    expect(retrievedVolumes).toEqual(
+      expect.arrayContaining(volumes.map(volume => ({
+        ...volume,
+        issues: undefined
+      })))
+    )
+  })
+
+  it.each([
+    {
+      plural: 'characters',
+      generate: () => generateCredit({ type: 'character' }),
+      read: (config: LibraryConfig) => config.getCharacters.bind(config)
+    },
+    {
+      plural: 'concepts',
+      generate: () => generateCredit({ type: 'concept' }),
+      read: (config: LibraryConfig) => config.getConcepts.bind(config)
+    },
+    {
+      plural: 'locations',
+      generate: () => generateCredit({ type: 'location' }),
+      read: (config: LibraryConfig) => config.getLocations.bind(config)
+    },
+    {
+      plural: 'objects',
+      generate: () => generateCredit({ type: 'object' }),
+      read: (config: LibraryConfig) => config.getObjects.bind(config)
+    },
+    {
+      plural: 'people',
+      generate: () => generateCredit({ type: 'person' }),
+      read: (config: LibraryConfig) => config.getPeople.bind(config)
+    },
+    {
+      plural: 'storyArcs',
+      generate: () => generateCredit({ type: 'storyArc' }),
+      read: (config: LibraryConfig) => config.getStoryArcs.bind(config)
+    },
+    {
+      plural: 'teams',
+      generate: () => generateCredit({ type: 'team' }),
+      read: (config: LibraryConfig) => config.getTeams.bind(config)
+    },
+  ])('can read all credits in a collection by type', async (type) => {
+    const credits = list(type.generate)
+    const issues = credits.map(credit => generateIssue({ [type.plural]: [credit] }))
+    issues.push(generateIssue({ [type.plural]: credits }))
+    const entries = issues.map(issue => generateEntry({ issue }))
+    const otherEntry = generateEntry({ issue: generateIssue({ [type.plural]: [type.generate()] }) })
+
+    await subject.createCollection({ path: '/cool', name: 'cool comix' })
+    await subject.createCollection({ path: '/other', name: 'other comix' })
+
+    await Promise.all(entries.map(entry => subject.setEntry('/cool', entry.filePath, entry)))
+    await subject.setEntry('/other', otherEntry.filePath, otherEntry)
+
+    const readFn = type.read(subject)
+    const retrievedCredits = await readFn('/cool')
+
+    expect(retrievedCredits.length).toEqual(credits.length)
+    expect(retrievedCredits).toEqual(
+      expect.arrayContaining(credits)
+    )
+  })
+
   it('updates volumes when creating issues with the volume', async () => {
     const volume = generateVolume()
     const issueOne = generateIssue({ volume })

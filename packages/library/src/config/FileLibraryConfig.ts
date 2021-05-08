@@ -179,12 +179,63 @@ export class FileLibraryConfig implements LibraryConfig {
     return { ...doc.volume, issues }
   }
 
-  public async getCredit(identifier: LibraryIdentifier): Promise<LibraryCreditBase> {
+  // TODO: index volumes by collections properly
+  public async getVolumes(collectionPath: string): Promise<LibraryVolume[]> {
+    const entries = await this.getEntries(collectionPath)
+    const issues = await Promise.all(entries.map(entry => entry.issue))
+    const volumeIdentifiers = uniq(
+      issues.map(issue => issue?.volume).filter(volume => volume !== undefined),
+      (a, b) => a?.source === b?.source && a?.sourceId === b?.sourceId,
+    )
+
+    return await Promise.all(
+      volumeIdentifiers.map(volume => this.getVolume(volume!, false))
+    )
+  }
+
+  public async getCharacters(collectionPath: string): Promise<LibraryCreditCharacter[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.characters || [])
+    return results as LibraryCreditCharacter[]
+  }
+
+  public async getConcepts(collectionPath: string): Promise<LibraryCreditConcept[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.concepts || [])
+    return results as LibraryCreditConcept[]
+  }
+
+  public async getLocations(collectionPath: string): Promise<LibraryCreditLocation[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.locations || [])
+    return results as LibraryCreditLocation[]
+  }
+
+  public async getObjects(collectionPath: string): Promise<LibraryCreditObject[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.objects || [])
+    return results as LibraryCreditObject[]
+  }
+
+  public async getPeople(collectionPath: string): Promise<LibraryCreditPerson[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.people || [])
+    return results as LibraryCreditPerson[]
+  }
+
+  public async getStoryArcs(collectionPath: string): Promise<LibraryCreditStoryArc[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.storyArcs || [])
+    return results as LibraryCreditStoryArc[]
+  }
+
+  public async getTeams(collectionPath: string): Promise<LibraryCreditTeam[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.teams || [])
+    return results as LibraryCreditTeam[]
+  }
+
+  public async getCredit(identifier: LibraryIdentifier, withIssues: boolean = true): Promise<LibraryCreditBase> {
     const creditQuery = { type: 'credit', 'credit.source': identifier.source, 'credit.sourceId': identifier.sourceId }
     const doc = await this.db.findOne<CreditDoc>(creditQuery)
     if (!doc) throw new Error(`Credit "${identifier.source}:${identifier.sourceId}" does not exist`)
 
-    const issues = await Promise.all(doc.issues.map(issueIdentifier => this.getIssue(issueIdentifier, false, true)))
+    const issues = withIssues
+      ? await Promise.all(doc.issues.map(issueIdentifier => this.getIssue(issueIdentifier, false, true)))
+      : undefined
 
     return { ...doc.credit, issues }
   }
@@ -297,6 +348,21 @@ export class FileLibraryConfig implements LibraryConfig {
 
     await this.db.update<CreditDoc>(query, upsertOperation, { upsert: true })
   }
+
+  // TODO: index credits by collections properly
+  private async getCredits(collectionPath: string, read: (issue: LibraryIssue) => LibraryCreditBase[]) { // TODO: not any
+    const entries = await this.getEntries(collectionPath)
+    const issues = await Promise.all(entries.map(entry => entry.issue))
+    const issuesCredits = issues.filter(issue => issue !== undefined).map(issue => read(issue!))
+    const credits = flatMap(issuesCredits, credit => credit)
+    const creditIdentifiers = uniq(credits,
+      (a, b) => a?.source === b?.source && a?.sourceId === b?.sourceId,
+    )
+
+    return await Promise.all(
+      creditIdentifiers.map(credit => this.getCredit(credit, false))
+    )
+  }
 }
 
 const without = <T>(obj: T, remove: string[]) => {
@@ -304,4 +370,17 @@ const without = <T>(obj: T, remove: string[]) => {
     if (remove.includes(key)) return acc
     return { ...acc, [key]: obj[key as keyof T] }
   }, {} as T)
+}
+
+const uniq = <T>(arr: T[], compare: (a: T, b: T) => boolean) => {
+  return arr.reduce((acc, elem) => {
+    if (acc.some(e => compare(e, elem))) return acc
+    return [...acc, elem]
+  }, [] as T[])
+}
+
+const flatMap = <T, R>(arr: T[][], mapper: (elem: T) => R): R[] => {
+  return arr.reduce((acc, subarr) => {
+    return [...acc, ...subarr.map(mapper)]
+  }, [] as R[])
 }

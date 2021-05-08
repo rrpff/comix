@@ -163,7 +163,7 @@ export class InMemoryLibraryConfig implements LibraryConfig {
         }))
 
     const credits = withCredits
-      ? await this.getCredits(issue)
+      ? await this.getCreditsForIssue(issue)
       : []
 
     const volume = withVolume && issue.volume
@@ -198,14 +198,16 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     }
   }
 
-  public async getCredit(identifier: LibraryIdentifier): Promise<LibraryCreditBase> {
+  public async getCredit(identifier: LibraryIdentifier, withIssues: boolean = true): Promise<LibraryCreditBase> {
     const credit = this.config.credits[`${identifier.source}:${identifier.sourceId}`]
 
     if (credit === undefined) {
       throw new Error(`Credit "${identifier.source}:${identifier.sourceId}" does not exist`)
     }
 
-    const issues = await Promise.all(credit.issues.map(identifier => this.getIssue(identifier, false, true)))
+    const issues = withIssues
+      ? await Promise.all(credit.issues.map(identifier => this.getIssue(identifier, false, true)))
+      : undefined
 
     return { ...credit, issues }
   }
@@ -222,6 +224,68 @@ export class InMemoryLibraryConfig implements LibraryConfig {
       : undefined
 
     return { ...volume, issues }
+  }
+
+  public async getVolumes(collectionPath: string): Promise<LibraryVolume[]> {
+    const entries = await this.getEntries(collectionPath)
+    const issues = await Promise.all(entries.map(entry => entry.issue))
+    const volumeIdentifiers = uniq(
+      issues.map(issue => issue?.volume).filter(volume => volume !== undefined),
+      (a, b) => a?.source === b?.source && a?.sourceId === b?.sourceId,
+    )
+
+    return await Promise.all(
+      volumeIdentifiers.map(volume => this.getVolume(volume!, false))
+    )
+  }
+
+  public async getCharacters(collectionPath: string): Promise<LibraryCreditCharacter[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.characters || [])
+    return results as LibraryCreditCharacter[]
+  }
+
+  public async getConcepts(collectionPath: string): Promise<LibraryCreditConcept[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.concepts || [])
+    return results as LibraryCreditConcept[]
+  }
+
+  public async getLocations(collectionPath: string): Promise<LibraryCreditLocation[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.locations || [])
+    return results as LibraryCreditLocation[]
+  }
+
+  public async getObjects(collectionPath: string): Promise<LibraryCreditObject[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.objects || [])
+    return results as LibraryCreditObject[]
+  }
+
+  public async getPeople(collectionPath: string): Promise<LibraryCreditPerson[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.people || [])
+    return results as LibraryCreditPerson[]
+  }
+
+  public async getStoryArcs(collectionPath: string): Promise<LibraryCreditStoryArc[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.storyArcs || [])
+    return results as LibraryCreditStoryArc[]
+  }
+
+  public async getTeams(collectionPath: string): Promise<LibraryCreditTeam[]> {
+    const results = await this.getCredits(collectionPath, issue => issue.teams || [])
+    return results as LibraryCreditTeam[]
+  }
+
+  private async getCredits(collectionPath: string, read: (issue: LibraryIssue) => LibraryCreditBase[]) { // TODO: not any
+    const entries = await this.getEntries(collectionPath)
+    const issues = await Promise.all(entries.map(entry => entry.issue))
+    const issuesCredits = issues.filter(issue => issue !== undefined).map(issue => read(issue!))
+    const credits = flatMap(issuesCredits, credit => credit)
+    const creditIdentifiers = uniq(credits,
+      (a, b) => a?.source === b?.source && a?.sourceId === b?.sourceId,
+    )
+
+    return await Promise.all(
+      creditIdentifiers.map(credit => this.getCredit(credit, false))
+    )
   }
 
   private async setIssue(issue: LibraryIssue, collectionPath: string, originalEntryPath: string, entry: LibraryEntry) {
@@ -278,9 +342,10 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     await Promise.all(credits.map(credit => this.setCredit(credit, issue)))
   }
 
-  private async getCredits(issue: PersistedLibraryIssue) {
+  private async getCreditsForIssue(issue: PersistedLibraryIssue, type?: string) {
     return Object.values(this.config.credits)
       .filter(credit => credit.issues.some(i => i.source === issue.source && i.sourceId === issue.sourceId))
+      .filter(credit => type === undefined || credit.type === type)
       .map(credit => without(credit, ['issues']))
   }
 
@@ -359,4 +424,17 @@ const without = <T>(obj: T, remove: string[]) => {
     if (remove.includes(key)) return acc
     return { ...acc, [key]: obj[key as keyof T] }
   }, {} as T)
+}
+
+const uniq = <T>(arr: T[], compare: (a: T, b: T) => boolean) => {
+  return arr.reduce((acc, elem) => {
+    if (acc.some(e => compare(e, elem))) return acc
+    return [...acc, elem]
+  }, [] as T[])
+}
+
+const flatMap = <T, R>(arr: T[][], mapper: (elem: T) => R): R[] => {
+  return arr.reduce((acc, subarr) => {
+    return [...acc, ...subarr.map(mapper)]
+  }, [] as R[])
 }

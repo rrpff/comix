@@ -168,8 +168,16 @@ export interface LibraryConfig {
   deleteEntry(collectionPath: string, entryPath: string): Promise<void>
   updateCollection(collectionPath: string, collection: LibraryCollection): Promise<void>
   getIssue(identifier: LibraryIdentifier, withCredits?: boolean, withVolume?: boolean, withEntries?: boolean): Promise<LibraryIssue>
-  getCredit(identifier: LibraryIdentifier): Promise<LibraryCreditBase>
+  getCredit(identifier: LibraryIdentifier, withIssues?: boolean): Promise<LibraryCreditBase>
   getVolume(identifier: LibraryIdentifier, withIssues?: boolean): Promise<LibraryVolume>
+  getVolumes(collectionPath: string): Promise<LibraryVolume[]>
+  getCharacters(collectionPath: string): Promise<LibraryCreditCharacter[]>
+  getConcepts(collectionPath: string): Promise<LibraryCreditConcept[]>
+  getLocations(collectionPath: string): Promise<LibraryCreditLocation[]>
+  getObjects(collectionPath: string): Promise<LibraryCreditObject[]>
+  getPeople(collectionPath: string): Promise<LibraryCreditPerson[]>
+  getStoryArcs(collectionPath: string): Promise<LibraryCreditStoryArc[]>
+  getTeams(collectionPath: string): Promise<LibraryCreditTeam[]>
 }
 
 export interface ComicLibrary {
