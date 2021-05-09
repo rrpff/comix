@@ -1,12 +1,6 @@
-import { ApolloError, gql, useQuery } from '@apollo/client'
-import { LibraryIdentifier } from '../types'
+import {  gql, useQuery } from '@apollo/client'
+import { LibraryIdentifier, UseIssueHook } from '../types'
 import { LibraryIssue } from '../types/apiSchema'
-
-export type UseIssueHook = (identifier: LibraryIdentifier) => {
-  issue?: LibraryIssue
-  loading: boolean
-  error?: ApolloError
-}
 
 export const QUERY = gql`
   query run($input: IssueInput!) {

@@ -1,11 +1,6 @@
-import { useQuery, gql, ApolloError } from '@apollo/client'
+import { useQuery, gql } from '@apollo/client'
+import { UseCollectionsHook } from '../types'
 import { LibraryCollection } from '../types/apiSchema'
-
-export type UseCollectionsHook = () => {
-  collections: LibraryCollection[]
-  loading: boolean
-  error?: ApolloError
-}
 
 export const QUERY = gql`
   query {

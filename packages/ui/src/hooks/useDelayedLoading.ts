@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-
-export type UseDelayedLoadingHook = (loading?: boolean, delay?: number) => boolean
+import { UseDelayedLoadingHook } from '../types'
 
 export const DEFAULT_DELAY = 250
 

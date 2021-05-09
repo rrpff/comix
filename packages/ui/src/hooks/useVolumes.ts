@@ -1,11 +1,6 @@
-import { ApolloError, gql, useQuery } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
+import { UseVolumesHook } from '../types'
 import { LibraryVolume } from '../types/apiSchema'
-
-export type UseVolumesHook = (collectionPath: string) => {
-  volumes?: LibraryVolume[]
-  loading: boolean
-  error?: ApolloError
-}
 
 export const QUERY = gql`
   query run($input: VolumesQuery!) {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHook } from 'react-use-dependency'
+import { UseCollectionsHook } from '@comix/ui'
 import { Sidebar, SidebarHeading } from '@comix/ui/components/Sidebar'
-import { UseCollectionsHook } from '@comix/ui/hooks/useCollections'
 import { SidebarDirectory } from '../containers/SidebarDirectory'
 import { SidebarVolumes } from 'src/containers/SidebarVolumes'
 

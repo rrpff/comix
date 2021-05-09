@@ -1,6 +1,5 @@
-import { LibraryCollection } from '@comix/ui'
+import { LibraryCollection, UseVolumesHook } from '@comix/ui'
 import { SidebarOption } from '@comix/ui/components/Sidebar'
-import { UseVolumesHook } from '@comix/ui/hooks/useVolumes'
 import { useHook } from 'react-use-dependency'
 import { Link, useParams } from 'react-router-dom'
 import { useMemo } from 'react'

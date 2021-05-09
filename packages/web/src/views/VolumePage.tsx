@@ -1,7 +1,6 @@
-import { LibraryIdentifier, LibraryIssue, LibraryVolume } from '@comix/ui'
+import { LibraryIdentifier, LibraryIssue, LibraryVolume, UseVolumeHook } from '@comix/ui'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
-import { UseVolumeHook } from '@comix/ui/hooks/useVolume'
 import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
 import { useHook } from 'react-use-dependency'
 import { useMemo } from 'react'

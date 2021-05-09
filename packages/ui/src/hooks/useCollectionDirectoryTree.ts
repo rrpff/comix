@@ -1,13 +1,9 @@
-import { ApolloError, gql, useQuery } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
+import { UseCollectionDirectoryTreeHook } from '../types'
 import { CollectionDirectory, Directory, LibraryCollection, QueryCollectionDirectoriesArgs, QueryResolvers } from '../types/apiSchema'
 
 type Input = QueryCollectionDirectoriesArgs
 type Response = { collectionDirectories: CollectionDirectory[] }
-export type UseCollectionDirectoryTreeHook = (collection?: LibraryCollection | null) => {
-  tree?: Directory
-  loading: boolean
-  error?: ApolloError
-}
 
 export const QUERY = gql`
   query run($input: CollectionInput!) {
