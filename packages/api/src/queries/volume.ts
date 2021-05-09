@@ -18,5 +18,9 @@ const mapResult = (volume: ComixVolume): ApiVolume => ({
     coverDate: issue.coverDate,
     issueNumber: issue.issueNumber,
     name: issue.name,
+    entries: issue.entries?.map(entry => ({
+      collection: { path: entry.collectionPath },
+      entry: entry.entry,
+    }))
   }))
 })

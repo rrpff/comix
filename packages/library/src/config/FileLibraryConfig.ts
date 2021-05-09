@@ -173,7 +173,7 @@ export class FileLibraryConfig implements LibraryConfig {
     if (!doc) throw new Error(`Volume "${identifier.source}:${identifier.sourceId}" does not exist`)
 
     const issues = withIssues
-      ? await Promise.all(doc.issues.map(issueIdentifier => this.getIssue(issueIdentifier, false, false)))
+      ? await Promise.all(doc.issues.map(issueIdentifier => this.getIssue(issueIdentifier, false, false, true)))
       : undefined
 
     return { ...doc.volume, issues }

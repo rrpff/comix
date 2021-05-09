@@ -16,6 +16,17 @@ const QUERY = gql`
         coverDate
         issueNumber
         name
+        entries {
+          collection { path }
+          entry {
+            corrupt
+            coverFileName
+            fileLastModified
+            fileLastProcessed
+            fileName
+            filePath
+          }
+        }
       }
     }
   }
@@ -46,6 +57,17 @@ it('returns the volume when it exists', async () => {
       coverDate: issue.coverDate.toISOString(),
       issueNumber: issue.issueNumber,
       name: issue.name,
+      entries: issue.entries?.map(entry => ({
+        collection: { path: entry.collectionPath },
+        entry: {
+          corrupt: entry.entry.corrupt,
+          coverFileName: entry.entry.coverFileName,
+          fileLastModified: entry.entry.fileLastModified,
+          fileLastProcessed: entry.entry.fileLastProcessed,
+          fileName: entry.entry.fileName,
+          filePath: entry.entry.filePath,
+        },
+      }))
     }))
   })
 })
@@ -54,10 +76,12 @@ const createVolumeWithIssues = async (library: Library) => {
   const collection = await library.config.createCollection(generateCollection())
   const volume = generateVolume()
   const issues = list(() => generateIssue({ volume }))
+  const entries = issues.map(issue => generateEntry({ issue }))
+  issues.forEach((issue, idx) => issue.entries = [{
+    collectionPath: collection.path, entry: entries[idx]
+  }])
 
-  await Promise.all(issues.map(async issue => {
-    const entry = generateEntry({ issue })
-
+  await Promise.all(entries.map(async entry => {
     await library.config.setEntry(collection.path, entry.filePath, entry)
   }))
 

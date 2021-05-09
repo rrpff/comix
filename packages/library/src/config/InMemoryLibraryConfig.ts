@@ -220,7 +220,7 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     }
 
     const issues = withIssues
-      ? await Promise.all(volume.issues.map(identifier => this.getIssue(identifier, false, false)))
+      ? await Promise.all(volume.issues.map(identifier => this.getIssue(identifier, false, false, true)))
       : undefined
 
     return { ...volume, issues }
