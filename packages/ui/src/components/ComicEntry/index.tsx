@@ -11,6 +11,8 @@ export interface ComicEntryProps {
   subtitles?: string[]
   readingProgress?: number
   loading?: boolean
+  reference?: any
+  id?: string
   onClick?: () => void
 }
 
@@ -43,8 +45,8 @@ export const ComicEntry = ({
           </strong>
 
           {subtitles?.map((subtitle, index) =>
-            <span>
-              <Sentence key={index} loading={loading}>{() => subtitle}</Sentence>
+            <span key={index}>
+              <Sentence loading={loading}>{() => subtitle}</Sentence>
             </span>
           )}
 

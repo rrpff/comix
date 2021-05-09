@@ -27,10 +27,10 @@ export const ComicEntryList = ({
 
   return (
     <Container>
-      {comics.sort(byTitle).map(comic =>
+      {comics.map(comic =>
         <ComicEntry
           {...comic}
-          key={comic.imageUrl}
+          key={comic.id}
           onClick={() => onClickComic(comic)}
         />
       )}
@@ -48,11 +48,3 @@ const Container = styled.section`
     flex: auto;
   }
 `
-
-const byTitle = (a: ComicEntryProps, b: ComicEntryProps) =>
-  a.title === undefined && b.title === undefined ? 0 :
-  a.title === undefined ? 1 :
-  b.title === undefined ? -1 :
-  a.title < b.title ? -1 :
-  a.title > b.title ? 1 :
-  0

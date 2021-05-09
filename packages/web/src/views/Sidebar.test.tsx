@@ -1,78 +1,89 @@
 import '@testing-library/jest-dom'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, act, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { Directory, LibraryCollection } from '@comix/ui'
-import { UseCollectionsHook } from '@comix/ui/hooks/useCollections'
-import { UseCollectionDirectoryTreeHook } from '@comix/ui/hooks/useCollectionDirectoryTree'
 import { SidebarView } from './Sidebar'
 import { MockDependencyProvider, DependencyMap } from '../../test/MockDependencyProvider'
 import { list, generateCollection } from '../../test/generators'
 
 it('displays all collections', async () => {
-  const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
-  const collections = list(generateCollection)
+  const t = await subject()
 
-  stubCollections(collections)
-  stubCollectionDirectories(undefined, [])
-  render()
+  t.render()
 
-  await waitForCollections()
+  await t.waitForCollections()
 
-  expect.assertions(collections.length)
-  collections.forEach(collection => {
+  expect.assertions(t.collections.length)
+  t.collections.forEach(collection => {
     const elem = screen.getByTestId(collection.path)
     expect(elem).toHaveTextContent(collection.name)
   })
 })
 
-it('displays collection directories', async () => {
-  const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
-  const collections = list(generateCollection)
+describe('when viewing volumes', () => {
+  it('displays collection volumes', async () => {
+    const t = await subject()
 
-  stubCollections(collections)
-  stubCollectionDirectories(undefined, [])
-  render()
+    t.render()
 
-  await waitForCollections()
+    await t.waitForCollections()
 
-  expect.assertions(collections.length)
-  collections.forEach(collection => {
-    const elem = screen.getByTestId(`${collection.path}-directory`)
-    expect(elem).toBeInTheDocument()
+    const modeSelect = screen.getByTestId('view-mode')
+    act(() => { fireEvent.change(modeSelect, { target: { value: 'volumes' } }) })
+
+    await t.waitForVolumes()
+
+    expect.assertions(t.collections.length)
+    t.collections.forEach(collection => {
+      const elem = screen.getByTestId(`${collection.path}-volumes`)
+      expect(elem).toBeInTheDocument()
+    })
+  })
+})
+
+describe('when viewing directories', () => {
+  it('displays collection directories', async () => {
+    const t = await subject()
+
+    t.render()
+
+    await t.waitForCollections()
+
+    const modeSelect = screen.getByTestId('view-mode')
+    act(() => { fireEvent.change(modeSelect, { target: { value: 'directories' } }) })
+
+    await t.waitForDirectories()
+
+    expect.assertions(t.collections.length)
+    t.collections.forEach(collection => {
+      const elem = screen.getByTestId(`${collection.path}-directory`)
+      expect(elem).toBeInTheDocument()
+    })
   })
 })
 
 const subject = async () => {
-  const dependencies: DependencyMap = {}
-
-  const stubCollections = (collections: LibraryCollection[]) => {
-    const stubUseCollections: UseCollectionsHook = () => {
+  const collections = list(generateCollection)
+  const dependencies: DependencyMap = {
+    useCollections: () => {
       return { collections, loading: false }
+    },
+    useCollectionDirectoryTree: () => {
+      return { name: null, path: null, directories: [] }
+    },
+    useVolumes: () => {
+      return { volumes: [], loading: false }
     }
-
-    dependencies['useCollections'] = stubUseCollections
-  }
-
-  const stubCollectionDirectories = (collection?: LibraryCollection, directories?: Directory[]) => {
-    const stubUseCollectionDirectoryTree: UseCollectionDirectoryTreeHook = (inner?: LibraryCollection) => {
-      const tree = collection === inner
-        ? { name: collection?.name, path: collection?.path, directories }
-        : { name: null, path: null, directories: [] }
-
-      return { tree, loading: false }
-    }
-
-    dependencies['useCollectionDirectoryTree'] = stubUseCollectionDirectoryTree
   }
 
   const waitForCollections = () => waitFor(() => screen.getByTestId('collections'))
-  const waitForDirectory = (path: string) => waitFor(() => screen.getByTestId(`${path}-directory`))
+  const waitForDirectories = () => waitFor(() => screen.getByTestId(`${collections[0].path}-directory`))
+  const waitForVolumes = () => waitFor(() => screen.getByTestId(`${collections[0].path}-volumes`))
 
   return {
-    stubCollections,
-    stubCollectionDirectories,
+    collections,
     waitForCollections,
-    waitForDirectory,
+    waitForDirectories,
+    waitForVolumes,
     render: () => {
       return render(
         <MockDependencyProvider value={dependencies}>

@@ -5,6 +5,8 @@ import { UiProvider } from '@comix/ui'
 import { BrowserRouter } from 'react-router-dom'
 import { useCollections } from '@comix/ui/hooks/useCollections'
 import { useCollectionDirectoryTree } from '@comix/ui/hooks/useCollectionDirectoryTree'
+import { useVolume } from '@comix/ui/hooks/useVolume'
+import { useVolumes } from '@comix/ui/hooks/useVolumes'
 import { DependencyProvider, DependencyMap } from 'react-use-dependency'
 import { Chrome } from './views/Chrome'
 
@@ -37,6 +39,8 @@ const client = new ApolloClient({
 const dependencies: DependencyMap = {
   useCollections,
   useCollectionDirectoryTree,
+  useVolume,
+  useVolumes,
 }
 
 export const App = () => {

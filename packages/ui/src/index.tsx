@@ -1,6 +1,7 @@
 import { ApolloProvider, ApolloClient } from '@apollo/client'
 import React, { ReactNode } from 'react'
 
+export * from './types'
 export * from './types/apiSchema'
 
 export interface UiProviderProps<TCache> {

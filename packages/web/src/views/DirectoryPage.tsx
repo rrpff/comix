@@ -2,6 +2,8 @@ import { gql, useQuery } from '@apollo/client'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { Directory, LibraryEntry } from '@comix/ui'
+import { byKey } from 'src/helpers/util'
+import { useMemo } from 'react'
 
 export interface DirectoryPageViewProps {
   collectionPath: string
@@ -19,13 +21,20 @@ export const DirectoryPageView = ({
     directoryInput: { path: directoryPath },
   } })
 
+  const comics = useMemo(() => {
+    return data?.entries !== undefined
+      ? data.entries.map(toComicEntry).sort(byKey('title'))
+      : []
+  }, [data?.entries])
+
   return (
     <PageContent loading={loading} title={data?.directory.name} category="Directory" data-testid="container">
       <section data-testid="contents">
         <ComicEntryList
+          comics={comics}
           loading={loading}
           onClickComic={async comic => {
-            const selectedFile = data?.entries.find(entry => entry.fileName === comic.title)
+            const selectedFile = comic.reference as LibraryEntry
             const res = await fetch(`${FILES_HOST}?filePath=${selectedFile?.filePath}`)
             const blob = await res.blob()
             ;(blob as any).name = comic.title
@@ -33,10 +42,6 @@ export const DirectoryPageView = ({
 
             onSelectFile(blob as File)
           }}
-          comics={data?.entries !== undefined
-            ? data.entries.map(toComicEntry)
-            : []
-          }
         />
       </section>
     </PageContent>
@@ -63,4 +68,6 @@ export const ENTRIES_QUERY = gql`
 const toComicEntry = (entry: LibraryEntry) => ({
   imageUrl: `${IMAGE_HOST}/${entry.coverFileName}`,
   title: entry.fileName,
+  id: entry.filePath,
+  reference: entry,
 })

@@ -1,5 +1,6 @@
 import faker from 'faker'
-import { LibraryCollection, LibraryEntry, File, Directory } from '../src/types/apiSchema'
+import { LibraryCredit } from '../types'
+import { LibraryCollection, LibraryEntry, File, Directory, LibraryIssue, LibraryVolume, LibraryCreditPerson, LibraryCreditCharacter, LibraryCreditConcept, LibraryCreditLocation, LibraryCreditObject, LibraryCreditStoryArc, LibraryCreditTeam } from '../src/types/apiSchema'
 
 export const pick = <T>(arr: T[]): T => {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -38,3 +39,44 @@ export const generateDirectory = (levels: number = 1): Directory => ({
     ? list(() => generateDirectory(levels - 1))
     : []
 })
+
+export const generateIssue = (overrides: Partial<LibraryIssue> = {}): LibraryIssue => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    volume: generateVolume(),
+    coverDate: faker.datatype.datetime(),
+    issueNumber: faker.datatype.number(),
+    name: faker.lorem.sentence(),
+    ...overrides,
+  }
+}
+
+export const generateVolume = (overrides: Partial<LibraryVolume> = {}): LibraryVolume => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    name: faker.lorem.sentence(),
+    issues: undefined,
+    ...overrides,
+  }
+}
+
+export const generatePersonCredit = (overrides: Partial<LibraryCreditPerson> = {}): LibraryCreditPerson => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: 'person',
+    roles: list(faker.lorem.word),
+    ...overrides || {},
+  }
+}
+
+export const generateCredit = (overrides?: Partial<LibraryCredit>): LibraryCredit => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
+    ...overrides || {},
+  }
+}

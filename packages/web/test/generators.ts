@@ -1,4 +1,4 @@
-import { File, Directory, LibraryCollection, LibraryEntry } from '@comix/ui'
+import { File, Directory, LibraryCollection, LibraryEntry, LibraryIssue, LibraryCredit, LibraryCreditPerson, LibraryVolume } from '@comix/ui'
 import faker from 'faker'
 
 export const pick = <T>(arr: T[]): T => {
@@ -38,3 +38,44 @@ export const generateDirectory = (levels: number = 1): Directory => ({
     ? list(() => generateDirectory(levels - 1))
     : []
 })
+
+export const generateIssue = (overrides: Partial<LibraryIssue> = {}): LibraryIssue => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    volume: generateVolume(),
+    coverDate: faker.datatype.datetime(),
+    issueNumber: faker.datatype.number(),
+    name: faker.lorem.sentence(),
+    ...overrides,
+  }
+}
+
+export const generateVolume = (overrides: Partial<LibraryVolume> = {}): LibraryVolume => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    name: faker.lorem.sentence(),
+    issues: undefined,
+    ...overrides,
+  }
+}
+
+export const generatePersonCredit = (overrides: Partial<LibraryCreditPerson> = {}): LibraryCreditPerson => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: 'person',
+    roles: list(faker.lorem.word),
+    ...overrides || {},
+  }
+}
+
+export const generateCredit = (overrides?: Partial<LibraryCredit>): LibraryCredit => {
+  return {
+    source: 'test',
+    sourceId: faker.datatype.uuid(),
+    type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
+    ...overrides || {},
+  }
+}

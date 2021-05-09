@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Switch, Route, useLocation } from 'react-router'
+import { Switch, Route, useLocation, useParams } from 'react-router'
 import { useState } from 'react'
 import qs from 'query-string'
 import { Comic } from '@comix/ui/components/Comic'
@@ -9,6 +9,7 @@ import { useComic } from '@comix/ui/hooks/useComic'
 import { SidebarView } from './Sidebar'
 import { DirectoryPageView } from './DirectoryPage'
 import { StatusView } from './Status'
+import { VolumePageView } from './VolumePage'
 
 export const Chrome = () => {
   const [file, setFile] = useState(undefined as File | undefined)
@@ -35,6 +36,7 @@ export const Chrome = () => {
       <ContentContainer>
         <Switch>
           <Route path="/directory" children={<DirectoryRoute onSelectComic={file => setFile(file)} />} />
+          <Route path="/volume/:source/:sourceId" children={<VolumeRoute onSelectComic={file => setFile(file)} />} />
         </Switch>
       </ContentContainer>
     </Main>
@@ -72,6 +74,17 @@ const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void
     <DirectoryPageView
       directoryPath={query.directoryPath as string}
       collectionPath={query.collectionPath as string}
+      onSelectFile={file => onSelectComic(file)}
+    />
+  )
+}
+
+const VolumeRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void }) => {
+  const params = useParams<{ source: string, sourceId: string }>()
+
+  return (
+    <VolumePageView
+      volumeIdentifier={{ source: params.source, sourceId: params.sourceId }}
       onSelectFile={file => onSelectComic(file)}
     />
   )
