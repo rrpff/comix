@@ -23,3 +23,7 @@ export function sortByAsc<T>(key: keyof T) {
     return 0
   }
 }
+
+export function isBrowser() {
+  return typeof window !== 'undefined'
+}

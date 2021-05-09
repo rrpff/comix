@@ -29,6 +29,25 @@ export default [
     input: path.join('src', 'index.ts'),
     output: [
       {
+        dir: path.join('dist', 'commonjs-browser'),
+        format: 'cjs',
+        sourcemap: true,
+      }
+    ],
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      typescript({
+        module: 'esnext',
+        declaration: true,
+        declarationDir: path.join('dist', 'commonjs-browser', 'types')
+      }),
+    ],
+  },
+  {
+    input: path.join('src', 'index.ts'),
+    output: [
+      {
         dir: path.join('dist', 'commonjs'),
         format: 'cjs',
         sourcemap: true,
@@ -38,6 +57,8 @@ export default [
       alias({
         entries: [
           { find: 'node-unrar-js', replacement: 'node-unrar-js/dist' },
+          { find: /CbzParser$/, replacement: './CbzNodeParser' },
+          { find: /CbrParser$/, replacement: './CbrNodeParser' },
         ]
       }),
       nodeResolve(),

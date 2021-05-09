@@ -15,8 +15,13 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/src/index.d.ts",
   "build": {
-    "watch": ["./src/**/*.ts"],
-    "scripts": ["build-types", "build-ts"]
+    "watch": [
+      "./src/**/*.ts"
+    ],
+    "scripts": [
+      "build-types",
+      "build-ts"
+    ]
   },
   "scripts": {
     "prepare": "npm run build",
@@ -42,6 +47,7 @@
     "buffer-image-size": "^0.6.4",
     "eventemitter3": "^4.0.7",
     "node-unrar-js": "^1.0.2",
+    "tmp-promise": "^3.0.2",
     "unzipit": "^1.3.5"
   }
 }

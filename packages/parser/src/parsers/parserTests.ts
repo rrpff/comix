@@ -1,4 +1,4 @@
-import { expectImageToMatchFile, fixturePath, openW3cFile } from '../../test/helpers'
+import { expectImageToMatchFile, fixturePath } from '../../test/helpers'
 import { Comic } from '../protocols'
 
 const EXAMPLES = [
@@ -72,9 +72,9 @@ const EXAMPLES = [
   },
 ]
 
-export const runParserTests = (read: (fpath: string, name?: string) => Promise<Comic>) => {
+export const runParserTests = (mode: string, read: (fpath: string, name?: string) => Promise<Comic>) => {
   EXAMPLES.forEach(({ name, comicFileName, imageFilePaths }) => {
-    describe(name, () => {
+    describe(`${mode} - ${name}`, () => {
       const subject = () => read(comicFileName)
 
       it('includes the name', async () => {
