@@ -1,6 +1,0 @@
-test/
-.storybook/
-stories.tsx
-*.stories.tsx
-*.test.tsx
-*.test.ts
