@@ -3,6 +3,9 @@ import { getMainDefinition } from '@apollo/client/utilities'
 import { WebSocketLink } from '@apollo/client/link/ws'
 import { UiProvider } from '@comix/ui'
 import { BrowserRouter } from 'react-router-dom'
+import { useCollections } from '@comix/ui/hooks/useCollections'
+import { useCollectionDirectoryTree } from '@comix/ui/hooks/useCollectionDirectoryTree'
+import { DependencyProvider, DependencyMap } from 'react-use-dependency'
 import { Chrome } from './views/Chrome'
 
 const GRAPHQL_HOST = 'http://localhost:4000/graphql'
@@ -31,14 +34,21 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
+const dependencies: DependencyMap = {
+  useCollections,
+  useCollectionDirectoryTree,
+}
+
 export const App = () => {
   return (
     <UiProvider client={client as any}>
-      <ApolloProvider client={client}>
-        <BrowserRouter>
-          <Chrome />
-        </BrowserRouter>
-      </ApolloProvider>
+      <DependencyProvider value={dependencies}>
+        <ApolloProvider client={client}>
+          <BrowserRouter>
+            <Chrome />
+          </BrowserRouter>
+        </ApolloProvider>
+      </DependencyProvider>
     </UiProvider>
   )
 }

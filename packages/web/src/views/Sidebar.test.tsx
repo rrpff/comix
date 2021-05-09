@@ -1,17 +1,19 @@
+import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react'
-import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import { MemoryRouter } from 'react-router-dom'
-import { LibraryCollection } from '@comix/ui'
-import path from 'path'
-import faker from 'faker'
-import { list, generateCollection, pick } from '../../test/generators'
-import { SidebarView, COLLECTIONS_QUERY, COLLECTION_DIRECTORY_QUERY } from './Sidebar'
+import { Directory, LibraryCollection } from '@comix/ui'
+import { UseCollectionsHook } from '@comix/ui/hooks/useCollections'
+import { UseCollectionDirectoryTreeHook } from '@comix/ui/hooks/useCollectionDirectoryTree'
+import { DependencyProvider, DependencyMap } from 'react-use-dependency'
+import { SidebarView } from './Sidebar'
+import { list, generateCollection, pick, generateDirectory } from '../../test/generators'
 
 it('displays all collections', async () => {
-  const { render, stubCollections, waitForCollections } = await subject()
+  const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
   const collections = list(generateCollection)
 
   stubCollections(collections)
+  stubCollectionDirectories(undefined, [])
   render()
 
   await waitForCollections()
@@ -27,12 +29,7 @@ it('displays directories in the root of each collection', async () => {
   const { render, stubCollections, stubCollectionDirectories, waitForCollections, waitForDirectory } = await subject()
   const collections = list(generateCollection)
   const desiredCollection = pick(collections)
-  const directories = list(() => {
-    const dirpath = path.join(desiredCollection.path, faker.system.fileName())
-    const paths = path.relative(desiredCollection.path, dirpath).split(path.sep)
-
-    return { name: path.basename(dirpath), path: dirpath, paths }
-  })
+  const directories = list(generateDirectory)
 
   stubCollections(collections)
   stubCollectionDirectories(desiredCollection, directories)
@@ -49,10 +46,11 @@ it('displays directories in the root of each collection', async () => {
 })
 
 it('includes a root directory for each collection', async () => {
-  const { render, stubCollections, waitForCollections } = await subject()
+  const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
   const collections = list(generateCollection)
 
   stubCollections(collections)
+  stubCollectionDirectories(undefined, [])
   render()
 
   await waitForCollections()
@@ -65,38 +63,43 @@ it('includes a root directory for each collection', async () => {
 })
 
 const subject = async () => {
-  const mocks = [] as MockedResponse[]
+  const dependencies: DependencyMap = {}
 
   const stubCollections = (collections: LibraryCollection[]) => {
-    mocks.push({
-      request: { query: COLLECTIONS_QUERY },
-      result: { data: { collections } },
-    })
+    const stubUseCollections: UseCollectionsHook = () => {
+      return { collections, loading: false }
+    }
+
+    dependencies['useCollections'] = stubUseCollections
   }
 
-  const stubCollectionDirectories = (collection: LibraryCollection, directories: { paths: string[] }[]) => {
-    mocks.push({
-      request: { query: COLLECTION_DIRECTORY_QUERY, variables: { input: { path: collection.path } } },
-      result: { data: { collectionDirectories: directories.map(d => ({ directory: d.paths })) } }
-    })
+  const stubCollectionDirectories = (collection?: LibraryCollection, directories?: Directory[]) => {
+    const stubUseCollectionDirectoryTree: UseCollectionDirectoryTreeHook = (inner?: LibraryCollection) => {
+      const tree = collection === inner
+        ? { name: collection?.name, path: collection?.path, directories }
+        : { name: null, path: null, directories: [] }
+
+      return { tree, loading: false }
+    }
+
+    dependencies['useCollectionDirectoryTree'] = stubUseCollectionDirectoryTree
   }
 
   const waitForCollections = () => waitFor(() => screen.getByTestId('collections'))
   const waitForDirectory = (path: string) => waitFor(() => screen.getByTestId(`${path}-directory`))
 
   return {
-    mocks,
     stubCollections,
     stubCollectionDirectories,
     waitForCollections,
     waitForDirectory,
     render: () => {
       return render(
-        <MockedProvider mocks={mocks}>
+        <DependencyProvider value={dependencies}>
           <MemoryRouter>
             <SidebarView />
           </MemoryRouter>
-        </MockedProvider>
+        </DependencyProvider>
       )
     }
   }

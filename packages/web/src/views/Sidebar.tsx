@@ -1,15 +1,15 @@
-import { gql, useQuery } from '@apollo/client'
+import styled from '@emotion/styled'
 import { LibraryCollection } from '@comix/ui'
 import { Sidebar, SidebarHeading, SidebarOption } from '@comix/ui/components/Sidebar'
 import { DirectoryTree } from '@comix/ui/components/DirectoryTree'
+import { UseCollectionsHook } from '@comix/ui/hooks/useCollections'
+import { UseCollectionDirectoryTreeHook } from '@comix/ui/hooks/useCollectionDirectoryTree'
 import { Link, useLocation } from 'react-router-dom'
 import { AiFillCaretRight } from 'react-icons/ai'
-import styled from '@emotion/styled'
-import { useMemo } from 'react'
-import { mapCollectionDirectoriesToDirectory } from '../mappers/mapCollectionDirectoriesToDirectory'
+import { useHook } from 'react-use-dependency'
 
 export const SidebarView = () => {
-  const { data, loading } = useQuery<{ collections: LibraryCollection[] }>(COLLECTIONS_QUERY)
+  const { collections, loading } = useHook<UseCollectionsHook>('useCollections')
 
   return (
     <Sidebar data-testid="sidebar">
@@ -17,7 +17,7 @@ export const SidebarView = () => {
         ? <SidebarHeading loading />
         : (
           <div data-testid="collections">
-            {data?.collections.map(collection =>
+            {collections.map(collection =>
               <div key={collection.path} data-testid={collection.path}>
                 <SidebarHeading>{collection.name}</SidebarHeading>
                 <SidebarDirectory collection={collection} />
@@ -29,23 +29,6 @@ export const SidebarView = () => {
     </Sidebar>
   )
 }
-
-export const COLLECTIONS_QUERY = gql`
-  query {
-    collections {
-      name
-      path
-    }
-  }
-`
-
-export const COLLECTION_DIRECTORY_QUERY = gql`
-  query run($input: CollectionInput!) {
-    collectionDirectories(input: $input) {
-      directory
-    }
-  }
-`
 
 const Caret = styled(AiFillCaretRight, { shouldForwardProp: () => false })<{ visible: boolean, expanded: boolean }>`
   opacity: ${props => props.visible ? 1 : 0};
@@ -65,14 +48,7 @@ const directorySearch = (directoryPath: string, collectionPath: string) =>
 
 const SidebarDirectory = ({ collection }: { collection: LibraryCollection }) => {
   const location = useLocation()
-  const { data, loading } = useQuery<{ collectionDirectories: { directory: string[] }[] }>(COLLECTION_DIRECTORY_QUERY, {
-    variables: { input: { path: collection.path } }
-  })
-
-  const directories = useMemo(() => {
-    if (data?.collectionDirectories === undefined) return null
-    return mapCollectionDirectoriesToDirectory(collection, data.collectionDirectories)
-  }, [collection, data?.collectionDirectories])
+  const { tree, loading } = useHook<UseCollectionDirectoryTreeHook>('useCollectionDirectoryTree', collection)
 
   return (
     <div data-testid={`${collection.path}-directory`}>
@@ -86,9 +62,9 @@ const SidebarDirectory = ({ collection }: { collection: LibraryCollection }) => 
         </SidebarOption>
       </Link>
 
-      {directories !== null && (
+      {tree !== undefined && (
         <DirectoryTree
-          directory={directories}
+          directory={tree}
           showFiles={false}
           renderDirectoryLabel={props => (
             <Link to={`/directory${directorySearch(props.directory.path, collection.path)}`}>

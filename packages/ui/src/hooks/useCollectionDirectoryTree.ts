@@ -1,4 +1,34 @@
-import { Directory, LibraryCollection } from '@comix/ui'
+import { ApolloError, gql, useQuery } from '@apollo/client'
+import { CollectionDirectory, Directory, LibraryCollection, QueryCollectionDirectoriesArgs, QueryResolvers } from '../types/apiSchema'
+
+type Input = QueryCollectionDirectoriesArgs
+type Response = { collectionDirectories: CollectionDirectory[] }
+export type UseCollectionDirectoryTreeHook = (collection?: LibraryCollection | null) => {
+  tree?: Directory
+  loading: boolean
+  error?: ApolloError
+}
+
+export const QUERY = gql`
+  query run($input: CollectionInput!) {
+    collectionDirectories(input: $input) {
+      directory
+    }
+  }
+`
+
+export const useCollectionDirectoryTree: UseCollectionDirectoryTreeHook = (collection?: LibraryCollection | null) => {
+  const { data, loading, error } = useQuery<Response, Input>(QUERY, {
+    variables: { input: { path: collection?.path! } }
+  })
+
+  if (!collection)
+    return { tree: undefined, error: undefined, loading: false }
+
+  const tree = mapCollectionDirectoriesToDirectory(collection, data?.collectionDirectories || [])
+
+  return { tree, loading, error }
+}
 
 export const mapCollectionDirectoriesToDirectory = (collection: LibraryCollection, subdirs: { directory: string[] }[]) => {
   const base = {
