@@ -113,11 +113,21 @@ const SideContainer = styled.section`
 const SidebarContainer = styled.section`
   flex: auto;
   padding: 20px;
+  padding-bottom: 120px;
+  z-index: 30;
 `
 
 const StatusContainer = styled.section`
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 40;
+
+  background: #F1F2F6;
   border-top: 1px solid #dfe4ea;
   padding: 20px;
+  height: 60px;
+  width: 220px;
 `
 
 const ContentContainer = styled.section`
