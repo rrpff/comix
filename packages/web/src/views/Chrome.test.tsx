@@ -1,6 +1,8 @@
+import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 import { MemoryRouter } from 'react-router-dom'
+import { MockDependencyProvider } from '../../test/MockDependencyProvider'
 import { Chrome } from './Chrome'
 
 it('renders a sidebar', async () => {
@@ -15,11 +17,13 @@ const subject = async () => {
   return {
     render: () => {
       return render(
-        <MockedProvider>
-          <MemoryRouter>
-            <Chrome />
-          </MemoryRouter>
-        </MockedProvider>
+        <MockDependencyProvider>
+          <MockedProvider>
+            <MemoryRouter>
+              <Chrome />
+            </MemoryRouter>
+          </MockedProvider>
+        </MockDependencyProvider>
       )
     }
   }

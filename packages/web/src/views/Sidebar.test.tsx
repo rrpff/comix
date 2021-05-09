@@ -4,9 +4,9 @@ import { MemoryRouter } from 'react-router-dom'
 import { Directory, LibraryCollection } from '@comix/ui'
 import { UseCollectionsHook } from '@comix/ui/hooks/useCollections'
 import { UseCollectionDirectoryTreeHook } from '@comix/ui/hooks/useCollectionDirectoryTree'
-import { DependencyProvider, DependencyMap } from 'react-use-dependency'
 import { SidebarView } from './Sidebar'
-import { list, generateCollection, pick, generateDirectory } from '../../test/generators'
+import { MockDependencyProvider, DependencyMap } from '../../test/MockDependencyProvider'
+import { list, generateCollection } from '../../test/generators'
 
 it('displays all collections', async () => {
   const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
@@ -25,27 +25,7 @@ it('displays all collections', async () => {
   })
 })
 
-it('displays directories in the root of each collection', async () => {
-  const { render, stubCollections, stubCollectionDirectories, waitForCollections, waitForDirectory } = await subject()
-  const collections = list(generateCollection)
-  const desiredCollection = pick(collections)
-  const directories = list(generateDirectory)
-
-  stubCollections(collections)
-  stubCollectionDirectories(desiredCollection, directories)
-  render()
-
-  await waitForCollections()
-  await waitForDirectory(desiredCollection.path)
-
-  expect.assertions(directories.length)
-  directories.forEach(directory => {
-    const elem = screen.getByTestId(directory.path)
-    expect(elem).toHaveTextContent(directory.name)
-  })
-})
-
-it('includes a root directory for each collection', async () => {
+it('displays collection directories', async () => {
   const { render, stubCollections, stubCollectionDirectories, waitForCollections } = await subject()
   const collections = list(generateCollection)
 
@@ -56,10 +36,10 @@ it('includes a root directory for each collection', async () => {
   await waitForCollections()
 
   expect.assertions(collections.length)
-  await Promise.all(collections.map(async collection => {
-    const elem = screen.getByTestId(`${collection.path}-root`)
-    expect(elem).toHaveTextContent('(root)')
-  }))
+  collections.forEach(collection => {
+    const elem = screen.getByTestId(`${collection.path}-directory`)
+    expect(elem).toBeInTheDocument()
+  })
 })
 
 const subject = async () => {
@@ -95,11 +75,11 @@ const subject = async () => {
     waitForDirectory,
     render: () => {
       return render(
-        <DependencyProvider value={dependencies}>
+        <MockDependencyProvider value={dependencies}>
           <MemoryRouter>
             <SidebarView />
           </MemoryRouter>
-        </DependencyProvider>
+        </MockDependencyProvider>
       )
     }
   }
