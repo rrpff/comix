@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { ComicEntry, ComicEntryProps } from '../ComicEntry'
+import { useDelayedLoading } from '../../hooks/useDelayedLoading'
 
 export interface ComicEntryListProps {
   comics: ComicEntryProps[]
@@ -13,7 +14,9 @@ export const ComicEntryList = ({
   loading = false,
   onClickComic = () => {},
 }: ComicEntryListProps) => {
-  if (loading) {
+  const displayLoading = useDelayedLoading(loading)
+
+  if (displayLoading) {
     return (
       <div>
         <ComicEntry loading />
