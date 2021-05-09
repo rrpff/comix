@@ -10,8 +10,6 @@ export const QUERY = gql`
       fileLastProcessed
       corrupt
       coverFileName
-      volumeName
-      volumeYear
     }
   }
 `
