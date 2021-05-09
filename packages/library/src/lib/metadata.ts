@@ -14,13 +14,12 @@ export const metadata = async (
 ): Promise<MetadataResult> => {
   try {
     const fname = path.basename(stat.path)
-    const data = await fs.readFile(stat.path)
     const parser = new Parser()
     let corrupt = false
     let comic: Comic
 
     try {
-      comic = await parser.parse(Uint8Array.from(data).buffer, fname)
+      comic = await parser.parse(stat.path, fname)
     } catch (e) {
       console.error(e)
       corrupt = true
