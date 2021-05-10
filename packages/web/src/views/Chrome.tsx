@@ -2,30 +2,20 @@ import styled from '@emotion/styled'
 import { Switch, Route, useLocation, useParams } from 'react-router'
 import { useState } from 'react'
 import qs from 'query-string'
-import { Comic } from '@comix/ui/components/Comic'
-import { Spinner } from '@comix/ui/components/Spinner'
-import { useComicReader } from '@comix/ui/hooks/useComicReader'
-import { useComic } from '@comix/ui/hooks/useComic'
 import { SidebarView } from './Sidebar'
 import { DirectoryPageView } from './DirectoryPage'
 import { StatusView } from './Status'
 import { VolumePageView } from './VolumePage'
-import { CreditType } from '@comix/ui'
+import { CreditType, LibraryEntry } from '@comix/ui'
 import { CreditPageView } from './CreditPage'
+import { ComicContainer } from 'src/containers/ComicContainer'
 
 export const Chrome = () => {
-  const [file, setFile] = useState(undefined as File | undefined)
-  const reader = useComicReader(file)
-  const comic = useComic(reader)
-
-  const isComicLoading = !!(file && comic.loading)
-  const isComicLoaded = !!(file && !comic.loading)
-
-  if (isComicLoaded) return <Comic {...comic} closable onClose={() => setFile(undefined)} />
+  const [currentEntry, setCurrentEntry] = useState(null as LibraryEntry | null)
 
   return (
     <Main>
-      {isComicLoading && <ComicLoading />}
+      <ComicContainer entry={currentEntry} />
       <SideContainer>
         <SidebarContainer>
           <SidebarView />
@@ -37,45 +27,22 @@ export const Chrome = () => {
 
       <ContentContainer>
         <Switch>
-          <Route path="/directory" children={<DirectoryRoute onSelectComic={file => setFile(file)} />} />
-          <Route path="/volume/:source/:sourceId" children={<VolumeRoute onSelectComic={file => setFile(file)} />} />
-          <Route path="/character/:source/:sourceId" children={<CreditRoute type="character" onSelectComic={file => setFile(file)} />} />
-          <Route path="/concept/:source/:sourceId" children={<CreditRoute type="concept" onSelectComic={file => setFile(file)} />} />
-          <Route path="/location/:source/:sourceId" children={<CreditRoute type="location" onSelectComic={file => setFile(file)} />} />
-          <Route path="/object/:source/:sourceId" children={<CreditRoute type="object" onSelectComic={file => setFile(file)} />} />
-          <Route path="/person/:source/:sourceId" children={<CreditRoute type="person" onSelectComic={file => setFile(file)} />} />
-          <Route path="/storyArc/:source/:sourceId" children={<CreditRoute type="storyArc" onSelectComic={file => setFile(file)} />} />
-          <Route path="/team/:source/:sourceId" children={<CreditRoute type="team" onSelectComic={file => setFile(file)} />} />
+          <Route path="/directory" children={<DirectoryRoute onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/volume/:source/:sourceId" children={<VolumeRoute onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/character/:source/:sourceId" children={<CreditRoute type="character" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/concept/:source/:sourceId" children={<CreditRoute type="concept" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/location/:source/:sourceId" children={<CreditRoute type="location" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/object/:source/:sourceId" children={<CreditRoute type="object" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/person/:source/:sourceId" children={<CreditRoute type="person" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/storyArc/:source/:sourceId" children={<CreditRoute type="storyArc" onSelectComic={entry => setCurrentEntry(entry)} />} />
+          <Route path="/team/:source/:sourceId" children={<CreditRoute type="team" onSelectComic={entry => setCurrentEntry(entry)} />} />
         </Switch>
       </ContentContainer>
     </Main>
   )
 }
 
-const ComicLoading = () => {
-  return (
-    <Blackout>
-      <Spinner size="4rem" />
-    </Blackout>
-  )
-}
-
-const Blackout = styled.div`
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 90;
-  background: rgba(255, 255, 255, 0.8);
-  color: #2f3542;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-`
-
-const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void }) => {
+const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry) => void }) => {
   const location = useLocation()
   const query = qs.parse(location.search)
 
@@ -83,30 +50,30 @@ const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void
     <DirectoryPageView
       directoryPath={query.directoryPath as string}
       collectionPath={query.collectionPath as string}
-      onSelectFile={file => onSelectComic(file)}
+      onSelectEntry={entry => onSelectComic(entry)}
     />
   )
 }
 
-const VolumeRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void }) => {
+const VolumeRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry) => void }) => {
   const params = useParams<{ source: string, sourceId: string }>()
 
   return (
     <VolumePageView
       volumeIdentifier={{ source: params.source, sourceId: params.sourceId }}
-      onSelectFile={file => onSelectComic(file)}
+      onSelectEntry={entry => onSelectComic(entry)}
     />
   )
 }
 
-const CreditRoute = ({ type, onSelectComic }: { type: CreditType, onSelectComic: (file: File) => void }) => {
+const CreditRoute = ({ type, onSelectComic }: { type: CreditType, onSelectComic: (entry: LibraryEntry) => void }) => {
   const params = useParams<{ source: string, sourceId: string }>()
 
   return (
     <CreditPageView
       type={type}
       creditIdentifier={{ source: params.source, sourceId: params.sourceId }}
-      onSelectFile={file => onSelectComic(file)}
+      onSelectEntry={entry => onSelectComic(entry)}
     />
   )
 }

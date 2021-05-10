@@ -9,13 +9,13 @@ import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
 export interface DirectoryPageViewProps {
   collectionPath: string
   directoryPath: string
-  onSelectFile?: (file: File) => void
+  onSelectEntry?: (entry: LibraryEntry) => void
 }
 
 export const DirectoryPageView = ({
   collectionPath,
   directoryPath,
-  onSelectFile = () => {},
+  onSelectEntry = () => {},
 }: DirectoryPageViewProps) => {
   const { data, loading } = useQuery<{ directory: Directory, entries: LibraryEntry[] }>(ENTRIES_QUERY, { variables: {
     entriesInput: { collection: collectionPath, directoryPath: directoryPath },
@@ -34,15 +34,7 @@ export const DirectoryPageView = ({
         <ComicEntryList
           comics={comics}
           loading={loading}
-          onClickComic={async comic => {
-            const selectedFile = comic.reference as LibraryEntry
-            const res = await fetch(`${FILES_HOST}?filePath=${selectedFile?.filePath}`)
-            const blob = await res.blob()
-            ;(blob as any).name = comic.title
-            ;(blob as any).lastModified = 0
-
-            onSelectFile(blob as File)
-          }}
+          onClickComic={comic => onSelectEntry(comic.reference)}
         />
       </section>
     </PageContent>
@@ -50,7 +42,6 @@ export const DirectoryPageView = ({
 }
 
 const IMAGE_HOST = 'http://localhost:4000/assets/images/small'
-const FILES_HOST = 'http://localhost:4000/collection-files'
 
 export const ENTRIES_QUERY = gql`
   query run($entriesInput: EntriesQuery!, $directoryInput: DirectoryQuery!) {

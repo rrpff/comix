@@ -1,4 +1,5 @@
 import { ApolloError } from '@apollo/client'
+import { Comic, Reader } from '@comix/parser'
 import { Directory, LibraryCollection, LibraryCreditCharacter, LibraryCreditConcept, LibraryCreditLocation, LibraryCreditObject, LibraryCreditStoryArc, LibraryCreditTeam, LibraryIssue, LibraryVolume } from './apiSchema'
 
 export interface LibraryIdentifier {
@@ -65,4 +66,24 @@ export type UseCreditHook = <T extends LibraryCredit>(identifier: LibraryIdentif
   credit?: T
   loading: boolean
   error?: ApolloError
+}
+
+export interface ComicPageWithUrl {
+  index: number
+  name: string
+  type: string
+  url: string
+}
+
+export type UseComicReaderHook = (file?: File) => Reader | null
+
+export type UseComicHook = (reader: Reader | null) => {
+  loading: boolean
+  comic?: Comic
+  name?: string
+  currentPages: ComicPageWithUrl[]
+  preloadedPages: ComicPageWithUrl[]
+  next: () => void
+  previous: () => void
+  goto: (pageNumber: number) => void
 }

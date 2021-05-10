@@ -9,6 +9,8 @@ import { useVolume } from '@comix/ui/hooks/useVolume'
 import { useVolumes } from '@comix/ui/hooks/useVolumes'
 import { useCredit } from '@comix/ui/hooks/useCredit'
 import { useCredits } from '@comix/ui/hooks/useCredits'
+import { useComic } from '@comix/ui/hooks/useComic'
+import { useComicReader } from '@comix/ui/hooks/useComicReader'
 import { DependencyProvider, DependencyMap } from 'react-use-dependency'
 import { Chrome } from './views/Chrome'
 
@@ -45,6 +47,8 @@ const dependencies: DependencyMap = {
   useVolumes,
   useCredit,
   useCredits,
+  useComic,
+  useComicReader,
 }
 
 export const App = () => {

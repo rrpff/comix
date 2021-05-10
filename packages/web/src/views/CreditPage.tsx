@@ -19,13 +19,13 @@ const NAMES = {
 export interface CreditPageViewProps {
   creditIdentifier: LibraryIdentifier
   type: CreditType
-  onSelectFile?: (file: File) => void
+  onSelectEntry?: (entry: LibraryEntry) => void
 }
 
 export const CreditPageView = ({
   creditIdentifier,
   type,
-  onSelectFile = () => {},
+  onSelectEntry = () => {},
 }: CreditPageViewProps) => {
   const { credit, loading } = useHook<UseCreditHook>('useCredit', creditIdentifier, type)
   const comics = useMemo(() => {
@@ -44,12 +44,7 @@ export const CreditPageView = ({
             const issue = comic.reference as LibraryIssue
             const entry = issue!.entries![0]
 
-            const res = await fetch(`${FILES_HOST}?filePath=${entry.entry.filePath}`)
-            const blob = await res.blob()
-            ;(blob as any).name = entry.entry.fileName
-            ;(blob as any).lastModified = 0
-
-            onSelectFile(blob as File)
+            onSelectEntry(entry.entry)
           }}
         />
       </section>
@@ -58,7 +53,6 @@ export const CreditPageView = ({
 }
 
 const IMAGE_HOST = 'http://localhost:4000/assets/images/small'
-const FILES_HOST = 'http://localhost:4000/collection-files'
 
 // TODO: use entry for current collection
 const toComicEntry = (credit: LibraryCredit, issue: LibraryIssue): ComicEntryProps => ({

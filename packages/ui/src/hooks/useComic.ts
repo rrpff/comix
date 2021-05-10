@@ -1,14 +1,8 @@
-import { ComicPage, Reader } from '@comix/parser'
+import { Comic, ComicPage, Reader } from '@comix/parser'
 import { useState, useEffect } from 'react'
+import { ComicPageWithUrl, UseComicHook } from '../types'
 
-export interface ComicPageWithUrl {
-  index: number
-  name: string
-  type: string
-  url: string
-}
-
-export const useComic = (reader: Reader | null) => {
+export const useComic: UseComicHook = (reader: Reader | null) => {
   const [loading, setLoading] = useState(true)
   const [cachedPages, setCachedPages] = useState([] as ComicPageWithUrl[])
   const [visibleIndices, setVisibleIndices] = useState([] as number[])

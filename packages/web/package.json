@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.16",
+    "@comix/parser": "file:../parser",
     "@comix/ui": "file:../ui",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
