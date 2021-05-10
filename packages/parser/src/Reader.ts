@@ -4,17 +4,20 @@ import { Parser } from './parsers/Parser'
 import { Comic, ComicPage, ComicReader, ComicReaderEvents } from './protocols'
 
 export class Reader extends EventEmitter<ComicReaderEvents> implements ComicReader {
-  static async read(file: File): Promise<Reader> {
+  static async read(file: File, pageNumber: number = 0): Promise<Reader> {
     const parser = new Parser()
     const comic = await parser.parse(file, file.name)
     const reader = new Reader(comic)
-    await reader.goto(0)
+    await reader.goto(pageNumber)
+
+    reader.pageCount = comic.images.length
 
     return reader
   }
 
   public current?: ComicPage[]
   public currentIndex?: number
+  public pageCount?: number
   public cache: ComicPage[] = []
   public backgroundTasks: Promise<void> = Promise.resolve()
 

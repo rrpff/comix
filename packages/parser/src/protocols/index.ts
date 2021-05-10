@@ -34,6 +34,7 @@ export interface ComicReader extends EventEmitter<ComicReaderEvents> {
   comic: Comic
   current?: ComicPage[]
   currentIndex?: number
+  pageCount?: number
   previous(): Promise<void>
   next(): Promise<void>
   goto(imageIndex: number): Promise<void>
