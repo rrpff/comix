@@ -6,7 +6,7 @@ export default gql`
     sourceId: String!
     volume: LibraryVolume
     coverDate: DateTime!
-    issueNumber: Int!
+    issueNumber: Float!
     name: String
     characters: [LibraryCreditCharacter!]
     concepts: [LibraryCreditConcept!]
