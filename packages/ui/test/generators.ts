@@ -67,16 +67,18 @@ export const generatePersonCredit = (overrides: Partial<LibraryCreditPerson> = {
     source: 'test',
     sourceId: faker.datatype.uuid(),
     type: 'person',
+    name: faker.lorem.sentence(),
     roles: list(faker.lorem.word),
     ...overrides || {},
   }
 }
 
-export const generateCredit = (overrides?: Partial<LibraryCredit>): LibraryCredit => {
+export const generateCredit = (overrides: Partial<LibraryCredit> = {}): any => {
   return {
     source: 'test',
     sourceId: faker.datatype.uuid(),
     type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
-    ...overrides || {},
+    name: faker.lorem.sentence(),
+    ...overrides,
   }
 }

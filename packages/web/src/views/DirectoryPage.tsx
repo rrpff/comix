@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { Directory, LibraryEntry } from '@comix/ui'
-import { byKey } from 'src/helpers/util'
+import { byKey } from '../helpers/util'
 import { useMemo } from 'react'
 
 export interface DirectoryPageViewProps {

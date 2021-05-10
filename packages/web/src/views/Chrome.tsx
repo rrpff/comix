@@ -10,6 +10,8 @@ import { SidebarView } from './Sidebar'
 import { DirectoryPageView } from './DirectoryPage'
 import { StatusView } from './Status'
 import { VolumePageView } from './VolumePage'
+import { CreditType } from '@comix/ui'
+import { CreditPageView } from './CreditPage'
 
 export const Chrome = () => {
   const [file, setFile] = useState(undefined as File | undefined)
@@ -37,6 +39,13 @@ export const Chrome = () => {
         <Switch>
           <Route path="/directory" children={<DirectoryRoute onSelectComic={file => setFile(file)} />} />
           <Route path="/volume/:source/:sourceId" children={<VolumeRoute onSelectComic={file => setFile(file)} />} />
+          <Route path="/character/:source/:sourceId" children={<CreditRoute type="character" onSelectComic={file => setFile(file)} />} />
+          <Route path="/concept/:source/:sourceId" children={<CreditRoute type="concept" onSelectComic={file => setFile(file)} />} />
+          <Route path="/location/:source/:sourceId" children={<CreditRoute type="location" onSelectComic={file => setFile(file)} />} />
+          <Route path="/object/:source/:sourceId" children={<CreditRoute type="object" onSelectComic={file => setFile(file)} />} />
+          <Route path="/person/:source/:sourceId" children={<CreditRoute type="person" onSelectComic={file => setFile(file)} />} />
+          <Route path="/storyArc/:source/:sourceId" children={<CreditRoute type="storyArc" onSelectComic={file => setFile(file)} />} />
+          <Route path="/team/:source/:sourceId" children={<CreditRoute type="team" onSelectComic={file => setFile(file)} />} />
         </Switch>
       </ContentContainer>
     </Main>
@@ -85,6 +94,18 @@ const VolumeRoute = ({ onSelectComic }: { onSelectComic: (file: File) => void })
   return (
     <VolumePageView
       volumeIdentifier={{ source: params.source, sourceId: params.sourceId }}
+      onSelectFile={file => onSelectComic(file)}
+    />
+  )
+}
+
+const CreditRoute = ({ type, onSelectComic }: { type: CreditType, onSelectComic: (file: File) => void }) => {
+  const params = useParams<{ source: string, sourceId: string }>()
+
+  return (
+    <CreditPageView
+      type={type}
+      creditIdentifier={{ source: params.source, sourceId: params.sourceId }}
       onSelectFile={file => onSelectComic(file)}
     />
   )

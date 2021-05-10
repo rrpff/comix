@@ -75,6 +75,7 @@ export const generateCredit = (overrides?: Partial<LibraryCredit>): LibraryCredi
   return {
     source: 'test',
     sourceId: faker.datatype.uuid(),
+    name: faker.lorem.sentence(),
     type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
     ...overrides || {},
   }

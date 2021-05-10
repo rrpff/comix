@@ -19,8 +19,18 @@ it('displays all collections', async () => {
   })
 })
 
-describe('when viewing volumes', () => {
-  it('displays collection volumes', async () => {
+describe.each([
+  { value: 'directories', testIdSuffix: 'directory' },
+  { value: 'volumes', testIdSuffix: 'volumes' },
+  { value: 'characters', testIdSuffix: 'credits-character' },
+  { value: 'concepts', testIdSuffix: 'credits-concept' },
+  { value: 'locations', testIdSuffix: 'credits-location' },
+  { value: 'objects', testIdSuffix: 'credits-object' },
+  { value: 'people', testIdSuffix: 'credits-person' },
+  { value: 'storyArcs', testIdSuffix: 'credits-storyArc' },
+  { value: 'teams', testIdSuffix: 'credits-team' },
+])('view modes', ({ value, testIdSuffix }) => {
+  it(`displays ${value}`, async () => {
     const t = await subject()
 
     t.render()
@@ -28,34 +38,13 @@ describe('when viewing volumes', () => {
     await t.waitForCollections()
 
     const modeSelect = screen.getByTestId('view-mode')
-    act(() => { fireEvent.change(modeSelect, { target: { value: 'volumes' } }) })
+    act(() => { fireEvent.change(modeSelect, { target: { value } }) })
 
-    await t.waitForVolumes()
-
-    expect.assertions(t.collections.length)
-    t.collections.forEach(collection => {
-      const elem = screen.getByTestId(`${collection.path}-volumes`)
-      expect(elem).toBeInTheDocument()
-    })
-  })
-})
-
-describe('when viewing directories', () => {
-  it('displays collection directories', async () => {
-    const t = await subject()
-
-    t.render()
-
-    await t.waitForCollections()
-
-    const modeSelect = screen.getByTestId('view-mode')
-    act(() => { fireEvent.change(modeSelect, { target: { value: 'directories' } }) })
-
-    await t.waitForDirectories()
+    await t.waitForTestId(`${t.collections[0].path}-${testIdSuffix}`)
 
     expect.assertions(t.collections.length)
     t.collections.forEach(collection => {
-      const elem = screen.getByTestId(`${collection.path}-directory`)
+      const elem = screen.getByTestId(`${collection.path}-${testIdSuffix}`)
       expect(elem).toBeInTheDocument()
     })
   })
@@ -72,18 +61,19 @@ const subject = async () => {
     },
     useVolumes: () => {
       return { volumes: [], loading: false }
+    },
+    useCredits: () => {
+      return { credits: [], loading: false }
     }
   }
 
   const waitForCollections = () => waitFor(() => screen.getByTestId('collections'))
-  const waitForDirectories = () => waitFor(() => screen.getByTestId(`${collections[0].path}-directory`))
-  const waitForVolumes = () => waitFor(() => screen.getByTestId(`${collections[0].path}-volumes`))
+  const waitForTestId = (testId: string) => waitFor(() => screen.getByTestId(testId))
 
   return {
     collections,
     waitForCollections,
-    waitForDirectories,
-    waitForVolumes,
+    waitForTestId,
     render: () => {
       return render(
         <MockDependencyProvider value={dependencies}>

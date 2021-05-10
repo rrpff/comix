@@ -45,3 +45,24 @@ export type UseVolumesHook = (collectionPath: string) => {
   loading: boolean
   error?: ApolloError
 }
+
+export type CreditType =
+  | 'character'
+  | 'concept'
+  | 'location'
+  | 'object'
+  | 'person'
+  | 'storyArc'
+  | 'team'
+
+export type UseCreditsHook = <T extends LibraryCredit>(collectionPath: string, type: CreditType) => {
+  credits?: T[]
+  loading: boolean
+  error?: ApolloError
+}
+
+export type UseCreditHook = <T extends LibraryCredit>(identifier: LibraryIdentifier, type: CreditType) => {
+  credit?: T
+  loading: boolean
+  error?: ApolloError
+}
