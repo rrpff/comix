@@ -14,6 +14,7 @@ import {
   LibraryEntry,
   LibraryIdentifier,
   LibraryIssue,
+  LibraryReadingProgress,
   LibraryVolume,
 } from '../protocols'
 
@@ -112,6 +113,13 @@ export class FileLibraryConfig implements LibraryConfig {
     if (entry.issue) {
       await this.setIssue(collectionPath, entryPath, entry, entry.issue)
     }
+  }
+
+  public async setReadingProgress(collectionPath: string, entryPath: string, progress: LibraryReadingProgress): Promise<void> {
+    const entry = await this.getEntry(collectionPath, entryPath)
+    const updated: LibraryEntry = { ...entry, progress }
+
+    await this.setEntry(collectionPath, entryPath, updated)
   }
 
   public async getIssue(identifier: LibraryIdentifier, withCredits: boolean = true, withVolume: boolean = true, withEntries: boolean = true): Promise<LibraryIssue> {

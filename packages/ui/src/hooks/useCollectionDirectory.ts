@@ -10,6 +10,12 @@ export const QUERY = gql`
       fileLastProcessed
       corrupt
       coverFileName
+
+      progress {
+        currentPage
+        pageCount
+        finished
+      }
     }
   }
 `

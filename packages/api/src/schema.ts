@@ -22,6 +22,7 @@ import { volumes } from './queries/volumes'
 import { createCollection } from './mutations/createCollection'
 import { updateCollection } from './mutations/updateCollection'
 import { deleteCollection } from './mutations/deleteCollection'
+import { setReadingProgress } from './mutations/setReadingProgress'
 
 const BaseSchema = gql`
   scalar Date
@@ -89,6 +90,7 @@ const resolvers: Resolvers = {
     createCollection,
     updateCollection,
     deleteCollection,
+    setReadingProgress,
   },
   Subscription: {
     collectionCreated: {

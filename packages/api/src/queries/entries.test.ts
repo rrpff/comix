@@ -1,7 +1,7 @@
 import path from 'path'
 import { gql } from 'graphql-tag'
 import { createTestQueryRunner } from '../../test/helpers'
-import { generateCollection, generateEntry, list, pick } from '../../test/generators'
+import { generateCollection, generateEntry, generateReadingProgress, list, pick } from '../../test/generators'
 import { LibraryEntry } from '../types/schema'
 
 const QUERY = gql`
@@ -15,6 +15,12 @@ const QUERY = gql`
       coverFileName
       volumeName
       volumeYear
+
+      progress {
+        currentPage
+        pageCount
+        finished
+      }
     }
   }
 `
@@ -45,7 +51,12 @@ it('returns existing entries', async () => {
 it('only returns entries within a directory if specified', async () => {
   const { library, run } = await createTestQueryRunner()
 
-  const entries = list(generateEntry).map(e => ({ ...e, filePath: `/whatever/${Math.random()}/${e.fileName}` }))
+  const entries = list(generateEntry).map(e => ({
+    ...e,
+    filePath: `/whatever/${Math.random()}/${e.fileName}`,
+    progress: generateReadingProgress(),
+  }))
+
   const desiredEntry = pick(entries)
   const directoryPath = path.dirname(desiredEntry.filePath)
   const collection = await library.config.createCollection(generateCollection())
@@ -71,6 +82,7 @@ const expectToContainEntries = (list: LibraryEntry[], entries: LibraryEntry[]) =
         coverFileName: entry.coverFileName,
         volumeName: entry.volumeName || null,
         volumeYear: entry.volumeYear || null,
+        progress: entry.progress || null,
       })
     ))
   )

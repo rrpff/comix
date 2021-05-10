@@ -41,6 +41,12 @@ export const queryFor = (type: CreditType) => gql`
             fileLastProcessed
             fileName
             filePath
+
+            progress {
+              currentPage
+              pageCount
+              finished
+            }
           }
         }
       }

@@ -1,3 +1,4 @@
+import faker from 'faker'
 import { LibraryConfig, LibraryEntry, LibraryIssue } from '../protocols'
 import { fixturePath } from '../../test/helpers'
 import { generateCredit, generateEntry, generateIssue, generatePersonCredit, generateVolume, list } from '../../test/generators'
@@ -564,6 +565,37 @@ export const runLibraryConfigTests = (createSubject: () => LibraryConfig) => {
 
     await expect(subject.getEntry('/media/comics', '/comics/file.cbr')).rejects
       .toEqual(new Error('Entry "/comics/file.cbr" in "/media/comics" does not exist'))
+  })
+
+  it('can store reading progress', async () => {
+    const collection = { path: '/comics', name: 'Comics' }
+    const entry = generateEntry({ filePath: '/comics/file.cbr' })
+    const readingProgress = {
+      currentPage: faker.datatype.number(),
+      pageCount: faker.datatype.number(),
+      finished: faker.datatype.boolean(),
+    }
+
+    await subject.createCollection(collection)
+    await subject.setEntry('/comics', '/comics/file.cbr', entry)
+    await subject.setReadingProgress('/comics', '/comics/file.cbr', readingProgress)
+
+    expect(await subject.getEntry('/comics', '/comics/file.cbr')).toMatchObject({
+      progress: readingProgress
+    })
+  })
+
+  it('can reset reading progress', async () => {
+    const collection = { path: '/comics', name: 'Comics' }
+    const entry = generateEntry({ filePath: '/comics/file.cbr' })
+
+    await subject.createCollection(collection)
+    await subject.setEntry('/comics', '/comics/file.cbr', entry)
+    await subject.setReadingProgress('/comics', '/comics/file.cbr', undefined)
+
+    expect(await subject.getEntry('/comics', '/comics/file.cbr')).toMatchObject({
+      progress: undefined
+    })
   })
 }
 

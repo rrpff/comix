@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql'
 import { gql } from 'graphql-tag'
 import { createTestQueryRunner } from '../../test/helpers'
-import { generateCollection, list, generateVolume, generateEntry, generateIssue } from '../../test/generators'
+import { generateCollection, list, generateVolume, generateEntry, generateIssue, generateReadingProgress } from '../../test/generators'
 import { Library } from '@comix/library'
 
 const QUERY = gql`
@@ -25,6 +25,12 @@ const QUERY = gql`
             fileLastProcessed
             fileName
             filePath
+
+            progress {
+              currentPage
+              pageCount
+              finished
+            }
           }
         }
       }
@@ -66,6 +72,7 @@ it('returns the volume when it exists', async () => {
           fileLastProcessed: entry.entry.fileLastProcessed,
           fileName: entry.entry.fileName,
           filePath: entry.entry.filePath,
+          progress: entry.entry.progress
         },
       }))
     }))
@@ -76,7 +83,7 @@ const createVolumeWithIssues = async (library: Library) => {
   const collection = await library.config.createCollection(generateCollection())
   const volume = generateVolume()
   const issues = list(() => generateIssue({ volume }))
-  const entries = issues.map(issue => generateEntry({ issue }))
+  const entries = issues.map(issue => generateEntry({ issue, progress: generateReadingProgress() }))
   issues.forEach((issue, idx) => issue.entries = [{
     collectionPath: collection.path, entry: entries[idx]
   }])

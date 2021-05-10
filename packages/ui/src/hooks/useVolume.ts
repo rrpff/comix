@@ -24,6 +24,12 @@ export const QUERY = gql`
             fileLastProcessed
             fileName
             filePath
+
+            progress {
+              currentPage
+              pageCount
+              finished
+            }
           }
         }
       }

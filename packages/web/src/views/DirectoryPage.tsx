@@ -4,6 +4,7 @@ import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { Directory, LibraryEntry } from '@comix/ui'
 import { byKey } from '../helpers/util'
 import { useMemo } from 'react'
+import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
 
 export interface DirectoryPageViewProps {
   collectionPath: string
@@ -57,6 +58,12 @@ export const ENTRIES_QUERY = gql`
       fileName
       filePath
       coverFileName
+
+      progress {
+        currentPage
+        pageCount
+        finished
+      }
     }
 
     directory(input: $directoryInput) {
@@ -65,9 +72,17 @@ export const ENTRIES_QUERY = gql`
   }
 `
 
-const toComicEntry = (entry: LibraryEntry) => ({
+const toComicEntry = (entry: LibraryEntry): ComicEntryProps => ({
   imageUrl: `${IMAGE_HOST}/${entry.coverFileName}`,
   title: entry.fileName,
   id: entry.filePath,
   reference: entry,
+  readingProgress: progressFor(entry),
 })
+
+const progressFor = (entry: LibraryEntry) => {
+  if (!entry.progress) return 0.0
+  if (entry.progress.finished) return 1.0
+
+  return entry.progress.currentPage / entry.progress.pageCount
+}

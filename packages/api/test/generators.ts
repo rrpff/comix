@@ -1,4 +1,4 @@
-import { LibraryCollection, LibraryCreditBase, LibraryCreditPerson, LibraryEntry, LibraryIssue, LibraryVolume } from '@comix/library'
+import { LibraryCollection, LibraryCreditBase, LibraryCreditPerson, LibraryEntry, LibraryIssue, LibraryReadingProgress, LibraryVolume } from '@comix/library'
 import faker from 'faker'
 
 export const optional = <T>(fn: () => T): T | undefined =>
@@ -78,6 +78,15 @@ export const generateCredit = (overrides?: Partial<LibraryCreditBase>): LibraryC
     source: 'test',
     sourceId: faker.datatype.uuid(),
     type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
+    ...overrides || {},
+  }
+}
+
+export const generateReadingProgress = (overrides?: Partial<LibraryReadingProgress>): LibraryReadingProgress => {
+  return {
+    pageCount: faker.datatype.number(),
+    currentPage: faker.datatype.number(),
+    finished: faker.datatype.boolean(),
     ...overrides || {},
   }
 }

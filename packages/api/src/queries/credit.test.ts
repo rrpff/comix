@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql'
 import { gql } from 'graphql-tag'
 import { createTestQueryRunner } from '../../test/helpers'
-import { generateCollection, generateEntry, generateIssue, generateCredit, generatePersonCredit } from '../../test/generators'
+import { generateCollection, generateEntry, generateIssue, generateCredit, generatePersonCredit, generateReadingProgress } from '../../test/generators'
 
 const queryFor = (type: { resolver: string, additionalFields: string }) => gql`
   query run($input: CreditInput!) {
@@ -20,7 +20,19 @@ const queryFor = (type: { resolver: string, additionalFields: string }) => gql`
         name
         entries {
           collection { path }
-          entry { fileName, filePath, fileLastModified, fileLastProcessed, corrupt, coverFileName }
+          entry {
+            fileName
+            filePath
+            fileLastModified
+            fileLastProcessed
+            corrupt
+            coverFileName
+            progress {
+              currentPage
+              pageCount
+              finished
+            }
+          }
         }
       }
     }
@@ -108,6 +120,38 @@ it.each(CREDIT_TYPES)('returns the credit when it exists', async (type) => {
         sourceId: issue.volume.sourceId,
         name: issue.volume.name,
       } : undefined
+    }]
+  })
+})
+
+it.each(CREDIT_TYPES)('returns the entry for each issue, with reading progress', async (type) => {
+  const { library, run } = await createTestQueryRunner()
+  const collection = await library.config.createCollection(generateCollection())
+
+  const credit = type.generate()
+  const issue = generateIssue({ [type.plural]: [credit] })
+  const entry = generateEntry({ issue, progress: generateReadingProgress() })
+  await library.config.setEntry(collection.path, entry.filePath, entry)
+
+  const query = queryFor(type)
+  const result = await run(query, { input: { source: credit.source, sourceId: credit.sourceId } })
+
+  expect(result.errors).toBeUndefined()
+  expect(result.data![type.resolver]).toMatchObject({
+    ...credit,
+    issues: [{
+      entries: [{
+        collection: { path: collection.path },
+        entry: {
+          fileName: entry.fileName,
+          filePath: entry.filePath,
+          fileLastModified: entry.fileLastModified,
+          fileLastProcessed: entry.fileLastProcessed,
+          corrupt: entry.corrupt,
+          coverFileName: entry.coverFileName,
+          progress: entry.progress,
+        }
+      }]
     }]
   })
 })

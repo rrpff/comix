@@ -1,4 +1,4 @@
-import { CreditType, LibraryIdentifier, LibraryIssue, LibraryCredit, UseCreditHook } from '@comix/ui'
+import { CreditType, LibraryIdentifier, LibraryIssue, LibraryCredit, UseCreditHook, LibraryEntry } from '@comix/ui'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
@@ -66,10 +66,18 @@ const toComicEntry = (credit: LibraryCredit, issue: LibraryIssue): ComicEntryPro
   title: `${issue.volume!.name} #${issue.issueNumber}`,
   id: `${issue.source}_${issue.sourceId}`,
   reference: issue,
+  readingProgress: progressFor(issue.entries![0].entry),
   subtitles: present([
     issue.name,
   ]),
 })
+
+const progressFor = (entry: LibraryEntry) => {
+  if (!entry.progress) return 0.0
+  if (entry.progress.finished) return 1.0
+
+  return entry.progress.currentPage / entry.progress.pageCount
+}
 
 function present<T>(arr: (T | undefined | null)[]): T[] {
   return arr.filter(elem => elem !== undefined && elem !== null) as T[]

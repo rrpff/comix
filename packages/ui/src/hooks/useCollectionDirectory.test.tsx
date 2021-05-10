@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-hooks'
 import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import faker from 'faker'
 import { useCollectionDirectory, QUERY } from './useCollectionDirectory'
-import { generateCollection, generateEntry, list } from '../../test/generators'
+import { generateCollection, generateEntry, generateReadingProgress, list } from '../../test/generators'
 
 it('returns an empty state if given null args', () => {
   const { render } = subject()
@@ -20,7 +20,9 @@ it('returns loading initially', () => {
 
 it('returns all entries in the collection directory', async () => {
   const { mocks, render } = subject()
-  const entries = list(generateEntry)
+  const entries = list(() => generateEntry({
+    progress: generateReadingProgress()
+  }))
 
   const collection = generateCollection().path
   const directoryPath = collection + faker.system.filePath()

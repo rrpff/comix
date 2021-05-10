@@ -1,6 +1,6 @@
 import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import { renderHook } from '@testing-library/react-hooks'
-import { generateCollection, generateEntry, generateIssue, generateVolume, list } from '../../test/generators'
+import { generateCollection, generateEntry, generateIssue, generateReadingProgress, generateVolume, list } from '../../test/generators'
 import { LibraryIdentifier } from '../types'
 import { QUERY, useVolume } from './useVolume'
 
@@ -20,7 +20,9 @@ it('returns the volume with its issues', async () => {
       entries: list(() => {
         return {
           collection: { path: collection.path },
-          entry: generateEntry(),
+          entry: generateEntry({
+            progress: generateReadingProgress()
+          }),
         }
       })
     }))

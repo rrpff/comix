@@ -143,6 +143,7 @@ export interface LibraryEntry {
   comicVineIssue?: any
 
   issue?: LibraryIssue
+  progress?: LibraryReadingProgress
 }
 
 export interface LibraryEntryAdaption {
@@ -155,6 +156,12 @@ export interface LibraryCollection {
   path: string
 }
 
+export interface LibraryReadingProgress {
+  currentPage: number
+  pageCount: number
+  finished: boolean
+}
+
 export interface LibraryConfig {
   getImagesDirectory(): Promise<string | null>
   setImagesDirectory(path: string): Promise<void>
@@ -165,6 +172,7 @@ export interface LibraryConfig {
   getEntries(collectionPath: string): Promise<LibraryEntry[]>
   getEntry(collectionPath: string, entryPath: string, withIssue?: boolean): Promise<LibraryEntry>
   setEntry(collectionPath: string, entryPath: string, entry: LibraryEntry): Promise<void>
+  setReadingProgress(collectionPath: string, entryPath: string, readingProgress?: LibraryReadingProgress): Promise<void>
   deleteEntry(collectionPath: string, entryPath: string): Promise<void>
   updateCollection(collectionPath: string, collection: LibraryCollection): Promise<void>
   getIssue(identifier: LibraryIdentifier, withCredits?: boolean, withVolume?: boolean, withEntries?: boolean): Promise<LibraryIssue>

@@ -1,6 +1,6 @@
 import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import { renderHook } from '@testing-library/react-hooks'
-import { generateCollection, generateCredit, generateEntry, generateIssue, generatePersonCredit, generateVolume, list } from '../../test/generators'
+import { generateCollection, generateCredit, generateEntry, generateIssue, generatePersonCredit, generateReadingProgress, generateVolume, list } from '../../test/generators'
 import { CreditType } from '../../types'
 import { LibraryIssue } from '../../types/apiSchema'
 import { LibraryIdentifier } from '../types'
@@ -31,7 +31,9 @@ it.each([
       entries: list(() => {
         return {
           collection: { path: collection.path },
-          entry: generateEntry(),
+          entry: generateEntry({
+            progress: generateReadingProgress()
+          }),
         }
       })
     }))

@@ -1,6 +1,12 @@
 import { gql } from 'graphql-tag'
 
 export default gql`
+  type LibraryReadingProgress {
+    currentPage: Int!
+    pageCount: Int!
+    finished: Boolean!
+  }
+
   type LibraryCollectionEntry {
     collection: LibraryCollectionRef!
     entry: LibraryEntry!
@@ -16,6 +22,8 @@ export default gql`
 
     volumeName: String
     volumeYear: Int
+
+    progress: LibraryReadingProgress
   }
 
   input EntriesQuery {
@@ -41,8 +49,24 @@ export default gql`
     success: Boolean!
   }
 
+  input ReadingProgressInput {
+    currentPage: Int!
+    pageCount: Int!
+    finished: Boolean!
+  }
+
+  input SetReadingProgressInput {
+    collection: String!
+    entry: String!
+    progress: ReadingProgressInput
+  }
+
   extend type Query {
     entries(input: EntriesQuery!): [LibraryEntry!]!
+  }
+
+  extend type Mutation {
+    setReadingProgress(input: SetReadingProgressInput!): MutationResult!
   }
 
   extend type Subscription {

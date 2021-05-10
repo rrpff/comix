@@ -1,6 +1,6 @@
 import faker from 'faker'
 import { LibraryCredit } from '../types'
-import { LibraryCollection, LibraryEntry, File, Directory, LibraryIssue, LibraryVolume, LibraryCreditPerson, LibraryCreditCharacter, LibraryCreditConcept, LibraryCreditLocation, LibraryCreditObject, LibraryCreditStoryArc, LibraryCreditTeam } from '../src/types/apiSchema'
+import { LibraryCollection, LibraryEntry, File, Directory, LibraryIssue, LibraryVolume, LibraryCreditPerson, LibraryCreditCharacter, LibraryCreditConcept, LibraryCreditLocation, LibraryCreditObject, LibraryCreditStoryArc, LibraryCreditTeam, LibraryReadingProgress } from '../src/types/apiSchema'
 
 export const pick = <T>(arr: T[]): T => {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -17,13 +17,14 @@ export const generateCollection = (): LibraryCollection => ({
   path: faker.system.filePath(),
 })
 
-export const generateEntry = (): LibraryEntry => ({
+export const generateEntry = (overrides: Partial<LibraryEntry> = {}): LibraryEntry => ({
   fileName: faker.system.fileName(),
   filePath: faker.system.filePath(),
   fileLastModified: faker.date.past().getTime(),
   fileLastProcessed: faker.date.past().getTime(),
   corrupt: faker.datatype.boolean(),
   coverFileName: faker.system.fileName() + '.jpg',
+  ...overrides,
 })
 
 export const generateFile = (): File => ({
@@ -80,5 +81,14 @@ export const generateCredit = (overrides: Partial<LibraryCredit> = {}): any => {
     type: pick(['object', 'character', 'concept', 'location', 'storyArc', 'team']),
     name: faker.lorem.sentence(),
     ...overrides,
+  }
+}
+
+export const generateReadingProgress = (overrides?: Partial<LibraryReadingProgress>): LibraryReadingProgress => {
+  return {
+    pageCount: faker.datatype.number(),
+    currentPage: faker.datatype.number(),
+    finished: faker.datatype.boolean(),
+    ...overrides || {},
   }
 }

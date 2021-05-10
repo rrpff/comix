@@ -28,4 +28,5 @@ const mapResult = (entry: ComixEntry): ApiEntry => ({
   coverFileName: entry.coverFileName,
   volumeName: entry.volumeName,
   volumeYear: entry.volumeYear,
+  progress: entry.progress,
 })

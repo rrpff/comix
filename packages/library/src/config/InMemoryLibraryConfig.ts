@@ -13,6 +13,7 @@ import {
   LibraryEntry,
   LibraryIdentifier,
   LibraryIssue,
+  LibraryReadingProgress,
   LibraryVolume,
 } from '../protocols'
 
@@ -121,6 +122,13 @@ export class InMemoryLibraryConfig implements LibraryConfig {
     if (entry.issue) {
       await this.setIssue(entry.issue, collectionPath, entryPath, entry)
     }
+  }
+
+  public async setReadingProgress(collectionPath: string, entryPath: string, progress: LibraryReadingProgress): Promise<void> {
+    const entry = await this.getEntry(collectionPath, entryPath)
+    const updated: LibraryEntry = { ...entry, progress }
+
+    await this.setEntry(collectionPath, entryPath, updated)
   }
 
   public async deleteEntry(collectionPath: string, entryPath: string): Promise<void> {
