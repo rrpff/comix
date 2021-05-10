@@ -1,4 +1,4 @@
-import { CreditType, LibraryIdentifier, LibraryIssue, LibraryCredit, UseCreditHook, LibraryEntry } from '@comix/ui'
+import { CreditType, LibraryIdentifier, LibraryIssue, LibraryCredit, UseCreditHook, LibraryEntry, LibraryCollectionEntry } from '@comix/ui'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
@@ -19,7 +19,7 @@ const NAMES = {
 export interface CreditPageViewProps {
   creditIdentifier: LibraryIdentifier
   type: CreditType
-  onSelectEntry?: (entry: LibraryEntry) => void
+  onSelectEntry?: (entry: LibraryCollectionEntry) => void
 }
 
 export const CreditPageView = ({
@@ -44,7 +44,7 @@ export const CreditPageView = ({
             const issue = comic.reference as LibraryIssue
             const entry = issue!.entries![0]
 
-            onSelectEntry(entry.entry)
+            onSelectEntry(entry)
           }}
         />
       </section>

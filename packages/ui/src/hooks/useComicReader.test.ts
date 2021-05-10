@@ -21,3 +21,13 @@ it.each([
   expect(result.current).toBeInstanceOf(Reader)
   expect(result.current?.comic.images.length).toEqual(numImages)
 })
+
+it('can start comics on a given page', async () => {
+  const file = await openW3cFile(fixturePath('wytches-sample.cbr'))
+  const startIndex = 1 + Math.floor(Math.random() * 3)
+  const { result, waitForNextUpdate } = renderHook(() => useComicReader(file, startIndex))
+
+  await waitForNextUpdate()
+
+  expect(result.current?.currentIndex).toEqual(startIndex)
+})

@@ -6,12 +6,12 @@ import { SidebarView } from './Sidebar'
 import { DirectoryPageView } from './DirectoryPage'
 import { StatusView } from './Status'
 import { VolumePageView } from './VolumePage'
-import { CreditType, LibraryEntry } from '@comix/ui'
+import { CreditType, LibraryCollectionEntry } from '@comix/ui'
 import { CreditPageView } from './CreditPage'
-import { ComicContainer } from 'src/containers/ComicContainer'
+import { ComicContainer } from '../containers/ComicContainer'
 
 export const Chrome = () => {
-  const [currentEntry, setCurrentEntry] = useState(null as LibraryEntry | null)
+  const [currentEntry, setCurrentEntry] = useState(null as LibraryCollectionEntry | null)
 
   return (
     <Main>
@@ -42,7 +42,7 @@ export const Chrome = () => {
   )
 }
 
-const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry) => void }) => {
+const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryCollectionEntry) => void }) => {
   const location = useLocation()
   const query = qs.parse(location.search)
 
@@ -55,7 +55,7 @@ const DirectoryRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry
   )
 }
 
-const VolumeRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry) => void }) => {
+const VolumeRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryCollectionEntry) => void }) => {
   const params = useParams<{ source: string, sourceId: string }>()
 
   return (
@@ -66,7 +66,7 @@ const VolumeRoute = ({ onSelectComic }: { onSelectComic: (entry: LibraryEntry) =
   )
 }
 
-const CreditRoute = ({ type, onSelectComic }: { type: CreditType, onSelectComic: (entry: LibraryEntry) => void }) => {
+const CreditRoute = ({ type, onSelectComic }: { type: CreditType, onSelectComic: (entry: LibraryCollectionEntry) => void }) => {
   const params = useParams<{ source: string, sourceId: string }>()
 
   return (

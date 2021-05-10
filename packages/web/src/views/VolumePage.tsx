@@ -1,4 +1,4 @@
-import { LibraryEntry, LibraryIdentifier, LibraryIssue, LibraryVolume, UseVolumeHook } from '@comix/ui'
+import { LibraryCollectionEntry, LibraryEntry, LibraryIdentifier, LibraryIssue, LibraryVolume, UseVolumeHook } from '@comix/ui'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
 import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
@@ -8,7 +8,7 @@ import { byKey } from '../helpers/util'
 
 export interface VolumePageViewProps {
   volumeIdentifier: LibraryIdentifier
-  onSelectEntry?: (entry: LibraryEntry) => void
+  onSelectEntry?: (entry: LibraryCollectionEntry) => void
 }
 
 export const VolumePageView = ({
@@ -32,7 +32,7 @@ export const VolumePageView = ({
             const issue = comic.reference as LibraryIssue
             const entry = issue!.entries![0]
 
-            onSelectEntry(entry.entry)
+            onSelectEntry(entry)
           }}
         />
       </section>

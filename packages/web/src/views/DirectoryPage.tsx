@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 import { PageContent } from '@comix/ui/components/PageContent'
 import { ComicEntryList } from '@comix/ui/components/ComicEntryList'
-import { Directory, LibraryEntry } from '@comix/ui'
+import { Directory, LibraryCollectionEntry, LibraryEntry } from '@comix/ui'
 import { byKey } from '../helpers/util'
 import { useMemo } from 'react'
 import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
@@ -9,7 +9,7 @@ import { ComicEntryProps } from '@comix/ui/components/ComicEntry'
 export interface DirectoryPageViewProps {
   collectionPath: string
   directoryPath: string
-  onSelectEntry?: (entry: LibraryEntry) => void
+  onSelectEntry?: (entry: LibraryCollectionEntry) => void
 }
 
 export const DirectoryPageView = ({
@@ -34,7 +34,10 @@ export const DirectoryPageView = ({
         <ComicEntryList
           comics={comics}
           loading={loading}
-          onClickComic={comic => onSelectEntry(comic.reference)}
+          onClickComic={comic => onSelectEntry({
+            collection: { path: collectionPath },
+            entry: comic.reference,
+          })}
         />
       </section>
     </PageContent>

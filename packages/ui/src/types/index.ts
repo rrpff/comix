@@ -75,7 +75,7 @@ export interface ComicPageWithUrl {
   url: string
 }
 
-export type UseComicReaderHook = (file?: File) => Reader | null
+export type UseComicReaderHook = (file?: File, startingPage?: number) => Reader | null
 
 export type UseComicHook = (reader: Reader | null) => {
   loading: boolean
